@@ -31,8 +31,11 @@ def update_player(update_column, update_value, check_column, check_value):
     #print(f"Updating {update_column} with {update_value} where {check_column} is {check_value}")
     players = pd.read_csv(os.path.join(clean_data_path, "player.csv"))
     players = players.loc[:, ~players.columns.str.contains('^Unnamed')]
-    players.loc[players[check_column] == check_value, update_column] = update_value
-    players.to_csv(os.path.join(clean_data_path, "player.csv"), index=False)
+    try:
+        players.loc[players[check_column] == check_value, update_column] = update_value
+        players.to_csv(os.path.join(clean_data_path, "player.csv"), index=False)
+    except Exception as e:
+        pass
     
 def add_player(player_display_name, player_name, player_full_name, batting_style, bowling_style, birthdate, country_id, list_team_ids):
     """

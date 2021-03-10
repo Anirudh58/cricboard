@@ -51,10 +51,11 @@ df_match = df_match.loc[:, ~df_match.columns.str.contains('^Unnamed')]
 df_ball = pd.read_csv(os.path.join(clean_data_path, "ball.csv"))
 df_ball = df_ball.loc[:, ~df_ball.columns.str.contains('^Unnamed')]
 
+################################### BATSMAN UTILS ###################################
 
 def runs(player, tournaments=None, venue=None, years=None, overs_range=None, against_spin=None, against_pace=None, against_bowler=None):
     """
-        Total runs for a player
+        Total runs for a player given the conditions
         Args:
             player - (int) id of target player
             tournaments - (list of ints) list of tournament ids
@@ -157,3 +158,61 @@ def balls(player, tournaments=None, venue=None, years=None, overs_range=None, ag
     result = len(required_balls)
         
     return result
+
+
+def dismissals(player, tournaments=None, venue=None, years=None, overs_range=None, against_spin=None, against_pace=None, against_bowler=None):
+    """
+        Total dismissals of this player given the conditions
+        Args:
+            player - (int) id of target player
+            tournaments - (list of ints) list of tournament ids
+            venue - (int) id of venue. 
+            years - (list) list of years you want to consider
+            overs_range - (list) 2 member list denoting [start_over, end_over]
+            against_spin - (boolean) mark it true if you want data only specific to spin. dont mark this if you supply 'against_bowler'
+            against_pace - (boolean) mark it true if you want data only specific to pace. dont mark this if you supply 'against_bowler'
+            against_bowler - (int) id of specific bowler to find data against
+    """
+    
+    # Grabbing all balls faced by this player
+    required_balls = df_ball[(df_ball["batsman"] == player) | (df_ball["non_striker"] == player)]
+    
+    # Grabbing all matches to map ids
+    required_matches = df_match
+    
+    # Run the required_matches dataframe through each match filter
+    
+    if tournaments is not None:
+        required_matches = required_matches[required_matches['tournament_id'].isin(tournaments)]
+        
+    if venue is not None:
+        required_matches = required_matches[required_matches['venue_id'] == venue]
+        
+    if years is not None:
+        required_matches = required_matches[required_matches['match_date'].str.contains('|'.join(years))]
+    
+    match_ids_to_consider = np.array(required_matches['match_id'])
+    required_balls = required_balls[required_balls['match_id'].isin(match_ids_to_consider)]
+        
+    if overs_range is not None:
+        required_balls = required_balls[(required_balls['ball_number'] >= overs_range[0]) & (required_balls['ball_number'] <= overs_range[1])]
+    
+    if against_bowler is not None:
+        required_balls = required_balls[required_balls['bowler'] == against_bowler]
+
+    # TODO
+    if against_spin is not None:
+        only_spin = True
+    
+    # TODO
+    if against_pace is not None:
+        only_pace = True
+    
+    required_balls = required_balls[required_balls['player_dismissed'] == player]
+    print(required_balls)
+    
+    num_dismissals = len(required_balls)
+        
+    return num_dismissals
+
+################################### END BATSMAN UTILS ###################################

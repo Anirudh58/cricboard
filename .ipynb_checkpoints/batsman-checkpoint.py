@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 
-from insights import total_runs, strike_rate
+from insights import total_runs, strike_rate, average
 
 @st.cache
 def populate_venues():
@@ -44,10 +44,7 @@ def main(match_format):
     3) input section - a section where the parameters to the stat can be interactively controlled
     4) output section - a section where the output is displayed in some cool UI (if possible)
     '''
-    
-    # Stat info
-    st.header("Total Runs")
-    
+        
     # Dividing the entire layout into 3 sections in the ratio 1:1:2
     col1, col2, col3 = st.beta_columns((1, 1, 2))
     
@@ -77,7 +74,7 @@ def main(match_format):
         #st.write(f"la_pace_bool: {la_pace_bool}, ra_pace_bool: {ra_pace_bool}, la_spin_bool: {la_spin_bool}, ra_spin_bool: {ra_spin_bool}")
         
         # top_n
-        minimum_runs = st.number_input("Min runs scored (for SR): ", min_value=1, max_value=2000, step=1, format="%d")
+        minimum_runs = st.number_input("Min runs scored (for SR and Average): ", min_value=100, max_value=2000, step=1, format="%d")
     
     
     with col2:
@@ -100,7 +97,7 @@ def main(match_format):
         tournaments = st.multiselect("Tournaments:", options=populate_tournaments(match_format))
         #st.write(f"tournaments: {tournaments}")
     
-    # Output sections
+    # Output section
     with col3:
         
         # total runs
@@ -110,5 +107,8 @@ def main(match_format):
         # total runs
         st.header("Strike Rate")
         st.table(strike_rate(player_name=player_name, top_n=top_n, match_format=match_format, minimum_runs=minimum_runs, tournaments=tournaments, venue_name=venue, years_range=years_range, overs_range=overs_range))
+        
+        # total runs
+        st.header("Average")
+        st.table(average(player_name=player_name, top_n=top_n, match_format=match_format, minimum_runs=minimum_runs, tournaments=tournaments, venue_name=venue, years_range=years_range, overs_range=overs_range))
     
-    # Output section
