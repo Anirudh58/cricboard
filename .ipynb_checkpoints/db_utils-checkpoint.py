@@ -4,6 +4,7 @@ import math
 import numpy as np
 import os
 import pprint
+import sys
 
 # yaml specific
 import yaml
@@ -12,10 +13,12 @@ import yaml
 import pandas as pd
 from tqdm import tqdm
 
+# Appending root folder to path for easy importing
+sys.path.append("../")
+
 # Config variables
-raw_data_path = "raw_data"
-clean_data_path = "clean_data"
-tournament_name = "IPL"
+raw_data_path = "../raw_data/"
+clean_data_path = "../clean_data/"
 
 def update_player(update_column, update_value, check_column, check_value):
     """
