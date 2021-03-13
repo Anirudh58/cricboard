@@ -31,15 +31,15 @@ import batsman, bowler
 
 # Global constants
 PAGES = {
-    "Batsman": batsman,
-    "Bowler": bowler
+    "BATSMAN - GENERAL": batsman,
+    "BOWLER - GENERAL": bowler
 }
 
 # use @st.cache whenever you want caching mechanisms for fast loading
 # These formats will not change
 @st.cache
 def populate_formats():
-    formats = ["TEST", "ODI", "T20"]
+    formats = ["T20", "ODI", "TEST"]
     return formats
 
 def main():

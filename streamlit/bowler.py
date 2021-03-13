@@ -9,7 +9,7 @@ import sys
 import streamlit as st
 
 # my lib
-from src.insights import total_runs, strike_rate, average
+from src.insights import total_wickets, bowling_strike_rate, bowling_average
 
 # Config variables
 raw_data_path = "raw_data"
@@ -43,61 +43,55 @@ def populate_tournaments(match_format):
     return tournaments
 
 
-
 def main(match_format):
     st.title("Bowler - General")
-    #st.markdown("This page will contain some general stats specific to batting")
         
     # Dividing the entire layout into 3 sections in the ratio 1:1:2
-    col1, col2, col3 = st.beta_columns((1, 1, 2))
+    col1, col2, col3 = st.beta_columns((1, 1, 1))
     
-    # Input sections
+    # INPUT SECTION
+    
     with col1:
-        
-        # player name
         player_name = st.selectbox("Choose a single player:", options=populate_players())
-        
-        # years range
-        years_range = st.slider("The period you want to consider:", min_value=2000, max_value=2021, 
-                            value=(2000, 2021), step=1, format="%d")
-        #st.write(f"years_range: {[year for year in range(years_range[0], years_range[1]+1)]}")
-        
-        # overs_range
-        overs_range = st.slider("The overs range you want to consider: ", min_value=0, max_value=20, 
-                                value=(0,20), step=1, format="%d")
-        #st.write(f"overs_range: {overs_range}")
-        
-        # against left hand and right hand batting
+        years_range = st.slider("The period you want to consider:", min_value=2000, max_value=2021, value=(2000, 2021), step=1, format="%d")
+        overs_range = st.slider("The overs range you want to consider: ", min_value=0, max_value=20, value=(0,20), step=1, format="%d")
         lh_bat_bool = st.checkbox("Against LH Bat")
         rh_bat_bool = st.checkbox("Against RH Bat")
-        
-        #st.write(f"lh_bat_bool: {lh_bat_bool}, rh_bat_bool: {rh_bat_bool}")
-        
-        # top_n
-        #minimum_runs = st.number_input("Min runs scored (for SR and Average): ", min_value=100, max_value=2000, step=1, format="%d")
-    
     
     with col2:
-        
-        # top_n
-        top_n = st.number_input("Choose top n: ", min_value=0, max_value=10, step=1, format="%d")
-        #st.write(f"top_n: {top_n}")
-        
-        # venue
+        top_n = st.number_input("Choose top n (enter 0 for single player stats): ", min_value=0, max_value=10, step=1, format="%d")
         venue = st.selectbox("Venue:", options=populate_venues())
+        minimum_balls = st.number_input("Min balls bowled (for SR and Average): ", min_value=100, max_value=2000, step=1, format="%d")
+        st.write("\n")
+        st.write("\n")
+        st.write("\n")
+        st.write("\n")
+        st.write("\n")
         
-        # opposition
-        opposition = st.selectbox("Opposition: (TBD)", options=populate_teams())
-
-        # batting positon
-        #batting_position = st.number_input("Batting position: (TBD)", min_value=1, max_value=11, step=1, format="%d")
-        #st.write(f"batting_position: {batting_position}")
-        
-        # tournament
-        tournaments = st.multiselect("Tournaments:", options=populate_tournaments(match_format))
-        #st.write(f"tournaments: {tournaments}")
-    
-    # Output section
     with col3:
+        tournaments = st.multiselect("Tournaments:", options=populate_tournaments(match_format))        
+        opposition = st.selectbox("Opposition: (TBD)", options=populate_teams())
+        batsman_name = st.selectbox("Choose a batsman (TBD):", options=populate_players())
+        st.write("\n")
+        st.write("\n")
+        st.write("\n")
+        st.write("\n")
+        st.write("\n")
+
+    # OUTPUT SECTION
+    
+    with col1:
+        st.header("Wickets")
+        st.table(total_wickets(player_name=player_name, top_n=top_n, match_format=match_format, tournaments=tournaments, venue_name=venue, years_range=years_range, overs_range=overs_range))
+
+    with col2:
+        st.header("Strike Rate")
+        st.table(bowling_strike_rate(player_name=player_name, top_n=top_n, minimum_balls=minimum_balls, match_format=match_format, tournaments=tournaments, venue_name=venue, years_range=years_range, overs_range=overs_range))
+
         
-        pass
+    with col3:
+        st.header("Average")
+        st.table(bowling_average(player_name=player_name, top_n=top_n, minimum_balls=minimum_balls, match_format=match_format, tournaments=tournaments, venue_name=venue, years_range=years_range, overs_range=overs_range))
+
+
+    

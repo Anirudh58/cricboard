@@ -1,0 +1,106 @@
+# bread and butter
+import numpy as np
+import os
+import pandas as pd
+from pathlib import Path
+import sys
+
+# streamlit components
+import streamlit as st
+
+# my lib
+from src.insights import total_wickets
+
+# Config variables
+raw_data_path = "raw_data"
+clean_data_path = "clean_data"
+
+@st.cache
+def populate_venues():
+    df_venue = pd.read_csv(os.path.join(clean_data_path, "venue.csv"))
+    venues = ["ALL"]
+    venues.extend(np.array(df_venue["venue_name"]))
+    return venues
+
+@st.cache
+def populate_teams():
+    df_team = pd.read_csv(os.path.join(clean_data_path, "team.csv"))
+    teams = ["ALL"]
+    teams.extend(np.array(df_team["team_name"]))
+    return teams
+
+@st.cache
+def populate_players():
+    df_player = pd.read_csv(os.path.join(clean_data_path, "player.csv"))
+    players = np.array(df_player["player_name"])
+    return players
+
+
+@st.cache
+def populate_tournaments(match_format):
+    df_tournament = pd.read_csv(os.path.join(clean_data_path, "tournament.csv"))
+    tournaments = np.array(df_tournament[df_tournament["tournament_format"] == match_format]["tournament_name"])
+    return tournaments
+
+
+
+def main(match_format):
+    st.title("Bowler - General")
+    #st.markdown("This page will contain some general stats specific to batting")
+        
+    # Dividing the entire layout into 3 sections in the ratio 1:1:2
+    col1, col2, col3 = st.beta_columns((1, 1, 2))
+    
+    # Input sections
+    with col1:
+        
+        # player name
+        player_name = st.selectbox("Choose a single player:", options=populate_players())
+        
+        # years range
+        years_range = st.slider("The period you want to consider:", min_value=2000, max_value=2021, 
+                            value=(2000, 2021), step=1, format="%d")
+        #st.write(f"years_range: {[year for year in range(years_range[0], years_range[1]+1)]}")
+        
+        # overs_range
+        overs_range = st.slider("The overs range you want to consider: ", min_value=0, max_value=20, 
+                                value=(0,20), step=1, format="%d")
+        #st.write(f"overs_range: {overs_range}")
+        
+        # against left hand and right hand batting
+        lh_bat_bool = st.checkbox("Against LH Bat")
+        rh_bat_bool = st.checkbox("Against RH Bat")
+        
+        #st.write(f"lh_bat_bool: {lh_bat_bool}, rh_bat_bool: {rh_bat_bool}")
+        
+        # top_n
+        #minimum_runs = st.number_input("Min runs scored (for SR and Average): ", min_value=100, max_value=2000, step=1, format="%d")
+    
+    
+    with col2:
+        
+        # top_n
+        top_n = st.number_input("Choose top n: ", min_value=0, max_value=10, step=1, format="%d")
+        #st.write(f"top_n: {top_n}")
+        
+        # venue
+        venue = st.selectbox("Venue:", options=populate_venues())
+        
+        # opposition
+        opposition = st.selectbox("Opposition: (TBD)", options=populate_teams())
+
+        # batting positon
+        #batting_position = st.number_input("Batting position: (TBD)", min_value=1, max_value=11, step=1, format="%d")
+        #st.write(f"batting_position: {batting_position}")
+        
+        # tournament
+        tournaments = st.multiselect("Tournaments:", options=populate_tournaments(match_format))
+        #st.write(f"tournaments: {tournaments}")
+    
+    # Output section
+    with col3:
+        
+        # total runs
+        st.header("Wickets")
+        st.table(total_wickets(player_name=player_name, top_n=top_n, match_format=match_format, tournaments=tournaments, venue_name=venue, years_range=years_range, overs_range=overs_range))
+        
