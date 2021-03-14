@@ -1,0 +1,109 @@
+---
+meta:
+  data_version: 0.9
+  created: '2021-01-28'
+  revision: 1
+info:
+  city: Auckland
+  competition: New Zealand Cricket Women's Twenty20
+  dates:
+  - '2021-01-03'
+  gender: female
+  match_type: T20
+  outcome:
+    result: no result
+  overs: 20
+  teams:
+  - Canterbury
+  - Auckland
+  toss:
+    decision: field
+    winner: Auckland
+  umpires:
+  - A Stanley
+  - JAK Bromley
+  venue: Eden Park Outer Oval
+innings:
+- 1st innings:
+    team: Canterbury
+    deliveries:
+    - 0.1:
+        bowler: AN Kelly
+        runs:
+          extras: 0
+          total: 0
+          batsman: 0
+        non_striker: NB Cox
+        batsman: FL Mackay
+    - 0.2:
+        non_striker: NB Cox
+        bowler: AN Kelly
+        runs:
+          extras: 0
+          total: 1
+          batsman: 1
+        batsman: FL Mackay
+    - 0.3:
+        non_striker: FL Mackay
+        bowler: AN Kelly
+        runs:
+          extras: 0
+          total: 1
+          batsman: 1
+        batsman: NB Cox
+    - 0.4:
+        non_striker: NB Cox
+        bowler: AN Kelly
+        runs:
+          extras: 0
+          total: 0
+          batsman: 0
+        batsman: FL Mackay
+    - 0.5:
+        non_striker: NB Cox
+        bowler: AN Kelly
+        runs:
+          extras: 0
+          total: 0
+          batsman: 0
+        batsman: FL Mackay
+    - 0.6:
+        non_striker: NB Cox
+        bowler: AN Kelly
+        runs:
+          extras: 0
+          total: 4
+          batsman: 4
+        batsman: FL Mackay
+    - 1.1:
+        non_striker: FL Mackay
+        bowler: HR Huddleston
+        runs:
+          extras: 0
+          total: 0
+          batsman: 0
+        batsman: NB Cox
+    - 1.2:
+        non_striker: FL Mackay
+        bowler: HR Huddleston
+        runs:
+          extras: 0
+          total: 0
+          batsman: 0
+        batsman: NB Cox
+    - 1.3:
+        non_striker: FL Mackay
+        bowler: HR Huddleston
+        runs:
+          extras: 0
+          total: 0
+          batsman: 0
+        batsman: NB Cox
+    - 1.4:
+        non_striker: FL Mackay
+        bowler: HR Huddleston
+        runs:
+          extras: 0
+          total: 0
+          batsman: 0
+        batsman: NB Cox
