@@ -26,13 +26,14 @@ sys.path.insert(0,parentdir)
 
 # my library
 from infra import create_session_state
-import batsman, bowler
+import batsman, bowler, fantasy
 
 
 # Global constants
 PAGES = {
     "BATSMAN - GENERAL": batsman,
-    "BOWLER - GENERAL": bowler
+    "BOWLER - GENERAL": bowler,
+    "FANTASY" : fantasy
 }
 
 # use @st.cache whenever you want caching mechanisms for fast loading

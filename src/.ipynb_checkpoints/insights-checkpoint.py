@@ -47,6 +47,7 @@ player_id_name_map = dict(zip(df_player.player_id, df_player.player_name))
 ################################### BATSMAN INSIGHTS ###################################
 
 # TODO: All time runs in IPL seems to have a minor discrepancy in our value and the value in IPL site. Check it later
+@st.cache
 def batting_total_runs(player_name, top_n, match_format, tournaments=None, venue_name=None, years_range=None, overs_range=None, against_spin=None, against_pace=None, against_bowler=None):
     """
         Total runs for a player / top runs
@@ -132,7 +133,8 @@ def batting_total_runs(player_name, top_n, match_format, tournaments=None, venue
                                             "runs" : top_players[i]["runs"]}, ignore_index=True)
         
     return df_result
-    
+
+@st.cache
 def batting_strike_rate(player_name, top_n, match_format, minimum_runs, tournaments=None, venue_name=None, years_range=None, overs_range=None, against_spin=None, against_pace=None, against_bowler=None):
     """
         Strike rate for a player / top strike rates
@@ -235,7 +237,8 @@ def batting_strike_rate(player_name, top_n, match_format, minimum_runs, tourname
                                             "strike_rate" : top_players[i]["strike_rate"]}, ignore_index=True)
         
     return df_result
-    
+
+@st.cache
 def batting_average(player_name, top_n, match_format, minimum_runs, tournaments=None, venue_name=None, years_range=None, overs_range=None, against_spin=None, against_pace=None, against_bowler=None):
     """
         Average for a player / top averages
@@ -342,7 +345,7 @@ def batting_average(player_name, top_n, match_format, minimum_runs, tournaments=
 
 
 ################################### BOWLER INSIGHTS ###################################
-
+@st.cache
 def total_wickets(player_name, top_n, match_format, tournaments=None, venue_name=None, years_range=None, overs_range=None, against_lhb=None, against_rhb=None, against_batsman=None):
     """
         Total wickets taken by a player / top wicket takers
@@ -429,6 +432,7 @@ def total_wickets(player_name, top_n, match_format, tournaments=None, venue_name
         
     return df_result
 
+@st.cache
 def bowling_strike_rate(player_name, top_n, minimum_balls, match_format, tournaments=None, venue_name=None, years_range=None, overs_range=None, against_lhb=None, against_rhb=None, against_batsman=None):
     """
         Bowling strike rates / best strike rates
@@ -531,7 +535,7 @@ def bowling_strike_rate(player_name, top_n, minimum_balls, match_format, tournam
         
     return df_result
 
-
+@st.cache
 def bowling_average(player_name, top_n, minimum_balls, match_format, tournaments=None, venue_name=None, years_range=None, overs_range=None, against_lhb=None, against_rhb=None, against_batsman=None):
     """
         Bowling strike rates / best strike rates
