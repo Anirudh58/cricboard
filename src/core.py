@@ -21,11 +21,11 @@ from tqdm import tqdm
 from src.db_utils import update_player, add_player 
 
 # Config variables
-raw_data_path = os.path.join("..", "raw_data") 
-clean_data_path = os.path.join("..", "clean_data") 
+#raw_data_path = os.path.join("..", "raw_data") 
+#clean_data_path = os.path.join("..", "clean_data") 
 
-#raw_data_path = "raw_data"
-#clean_data_path = "clean_data"
+raw_data_path = "raw_data"
+clean_data_path = "clean_data"
 
 # Global utility maps
 
@@ -57,21 +57,6 @@ df_ball = pd.read_csv(os.path.join(clean_data_path, "ball.csv"))
 df_ball = df_ball.loc[:, ~df_ball.columns.str.contains('^Unnamed')]
 
 ################################ BOWLER TYPE #######################################
-
-bowling_style_target_values={
-'Right arm Pace':['Right-arm medium-fast', 'Right-arm fast-medium', 'Right-arm medium', 'Right-arm bowler', 'Right-arm slow-medium', 'Right-arm fast', 'Right-arm medium (roundarm)', 'Right-arm medium-fast, Right-arm medium-fast', 'Right-arm fast (roundarm)', 'Right-arm medium-fast (roundarm)', 'Right-arm fast-medium (roundarm)', 'Right-arm slow (roundarm)', 'Right-arm fast-medium, Right-arm medium', 'Right-arm medium, Right-arm slow-medium', 'Right-arm fast-medium, Legbreak', 'Right-arm medium-fast, Legbreak', 'Right-arm medium, Legbreak googly', 'Right-arm fast, Legbreak', 'Right-arm fast-medium, Right-arm offbreak', 'Right-arm slow'],
-'Right arm wrist spin' : ['Legbreak','Right-arm legbreak', 'Legbreak googly', 'Right-arm offbreak, Legbreak googly', 'Right-arm medium, Legbreak'],
-'Right arm Off spin' : ['Right-arm offbreak', 'Right-arm slow-medium, Right-arm offbreak', 'Right-arm offbreak, Legbreak', 'Right-arm medium-fast, Right-arm offbreak', 'Right-arm medium, Right-arm offbreak'],
-'Left arm Pace' : ['Left-arm medium-fast', 'Left-arm fast-medium', 'Left-arm fast', 'Left-arm medium', 'Left-arm bowler', 'Left-arm slow-medium', 'Left-arm fast (roundarm)', 'Left-arm medium (roundarm)', 'Left-arm fast-medium, Left-arm slow', 'Left-arm slow'],
-'Left arm Orthodox' :['Slow left-arm orthodox', 'Slow left-arm orthodox (roundarm)', 'Left-arm medium, Slow left-arm orthodox, Slow left-arm chinaman', 'Slow left-arm orthodox, Slow left-arm chinaman', 'Left-arm medium-fast, Slow left-arm orthodox', 'Left-arm fast-medium, Slow left-arm orthodox', 'Left-arm medium, Slow left-arm orthodox'],
-'Left arm wrist' : ['Slow left-arm chinaman','Slow left-arm wrist-spin'],
-'Others' : [' (underarm)', 'Right-arm fast (underarm), Right-arm offbreak', '(unknown arm) medium', '(unknown arm) slow (roundarm)', '(unknown arm) slow (underarm)',  '(unknown arm) fast',  'Right-arm fast-medium (roundarm), Right-arm fast-medium (underarm)', 'Right-arm fast (underarm)', ' (underarm), Right-arm fast', 'Right-arm fast (roundarm), Right-arm slow (underarm)', 'Right-arm slow (underarm)', 'Right-arm slow-medium, Legbreak', 'Right-arm fast (roundarm), Right-arm slow'],
-'Ambidextrous spin': ['Right-arm offbreak, Slow left-arm orthodox']}
-
-
-# GET BOWLING STYLES
-for k, v in bowling_style_target_values.items():
-    df_player.loc[df_player.bowling_style.isin(v), 'bowling_style'] = k
     
 # PLAYER IDS FOR PARTICULAR BOWLING TYPE
 
