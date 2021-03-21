@@ -37,6 +37,8 @@ venue_id_map["M.Chinnaswamy Stadium"] = venue_id_map["M Chinnaswamy Stadium"]
 df_team = pd.read_csv(os.path.join(clean_data_path, "team.csv"))
 df_team = df_team.loc[:, ~df_team.columns.str.contains('^Unnamed')]
 team_id_map = dict(zip(df_team.team_name, df_team.team_id))
+team_id_map["Delhi Capitals"] = team_id_map["Delhi Daredevils"]
+team_id_map["Punjab Kings"] = team_id_map["Kings XI Punjab"]
 
 df_player = pd.read_csv(os.path.join(clean_data_path, "player.csv"))
 df_player = df_player.loc[:, ~df_player.columns.str.contains('^Unnamed')]
