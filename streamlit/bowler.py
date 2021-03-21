@@ -9,7 +9,7 @@ import sys
 import streamlit as st
 
 # my lib
-from src.insights import total_wickets, bowling_strike_rate, bowling_average
+from src.insights import total_wickets, bowling_strike_rate, bowling_average, bowling_economy
 
 # Config variables
 raw_data_path = "raw_data"
@@ -35,18 +35,23 @@ def populate_players():
     players = np.array(df_player["player_name"])
     return players
 
-
 @st.cache
 def populate_tournaments(match_format):
     df_tournament = pd.read_csv(os.path.join(clean_data_path, "tournament.csv"))
     tournaments = np.array(df_tournament[df_tournament["tournament_format"] == match_format]["tournament_name"])
     return tournaments
 
+@st.cache
+def populate_batters():
+    df_player = pd.read_csv(os.path.join(clean_data_path, "player.csv"))
+    batters = ["ALL"]
+    batters.extend(np.array(df_player["player_name"]))
+    return batters
 
 def main(match_format):
     st.title("Bowler - General")
         
-    # Dividing the entire layout into 3 sections in the ratio 1:1:2
+    # Dividing the entire layout into 3 sections in the ratio 1:1:1
     col1, col2, col3 = st.beta_columns((1, 1, 1))
     
     # INPUT SECTION
@@ -62,36 +67,38 @@ def main(match_format):
         top_n = st.number_input("Choose top n (enter 0 for single player stats): ", min_value=0, max_value=10, step=1, format="%d")
         venue = st.selectbox("Venue:", options=populate_venues())
         minimum_balls = st.number_input("Min balls bowled (for SR and Average): ", min_value=100, max_value=2000, step=1, format="%d")
-        st.write("\n")
-        st.write("\n")
-        st.write("\n")
-        st.write("\n")
-        st.write("\n")
         
     with col3:
         tournaments = st.multiselect("Tournaments:", options=populate_tournaments(match_format))        
         opposition = st.selectbox("Opposition: (TBD)", options=populate_teams())
-        batsman_name = st.selectbox("Choose a batsman (TBD):", options=populate_players())
-        st.write("\n")
-        st.write("\n")
-        st.write("\n")
-        st.write("\n")
-        st.write("\n")
+        batsman_name = st.selectbox("Against a specific batsman (TBD):", options=populate_batters())
 
     # OUTPUT SECTION
     
+    col1, col2, col3, col4 = st.beta_columns((1, 1, 1, 1))
+    
+    batting_types = {
+        "lh_bat_bool" : lh_bat_bool,
+        "rh_bat_bool" : rh_bat_bool
+    }
+    
     with col1:
         st.header("Wickets")
-        st.table(total_wickets(player_name=player_name, top_n=top_n, match_format=match_format, tournaments=tournaments, venue_name=venue, years_range=years_range, overs_range=overs_range))
+        st.table(total_wickets(player_name=player_name, top_n=top_n, match_format=match_format, tournaments=tournaments, venue_name=venue, years_range=years_range, overs_range=overs_range, against_batsman=batsman_name, batting_types=batting_types))
 
     with col2:
         st.header("Strike Rate")
-        st.table(bowling_strike_rate(player_name=player_name, top_n=top_n, minimum_balls=minimum_balls, match_format=match_format, tournaments=tournaments, venue_name=venue, years_range=years_range, overs_range=overs_range))
+        st.table(bowling_strike_rate(player_name=player_name, top_n=top_n, minimum_balls=minimum_balls, match_format=match_format, tournaments=tournaments, venue_name=venue, years_range=years_range, overs_range=overs_range, against_batsman=batsman_name, batting_types=batting_types))
 
         
     with col3:
         st.header("Average")
-        st.table(bowling_average(player_name=player_name, top_n=top_n, minimum_balls=minimum_balls, match_format=match_format, tournaments=tournaments, venue_name=venue, years_range=years_range, overs_range=overs_range))
+        st.table(bowling_average(player_name=player_name, top_n=top_n, minimum_balls=minimum_balls, match_format=match_format, tournaments=tournaments, venue_name=venue, years_range=years_range, overs_range=overs_range, against_batsman=batsman_name, batting_types=batting_types))
+        
+    
+    with col4:
+        st.header("Economy")
+        st.table(bowling_economy(player_name=player_name, top_n=top_n, minimum_balls=minimum_balls, match_format=match_format, tournaments=tournaments, venue_name=venue, years_range=years_range, overs_range=overs_range, against_batsman=batsman_name, batting_types=batting_types))
 
 
     
