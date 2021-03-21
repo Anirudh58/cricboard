@@ -28,7 +28,7 @@ def populate_players(select_match):
     return player_list
 
 def main(match_format):
-    st.title("Fantasy")
+    st.title("Fantasy - UI Rough Design")
     st.markdown("Helping you pick your best Dream 11 team")
                 
     col1, col2 = st.beta_columns((1, 1))
@@ -41,13 +41,10 @@ def main(match_format):
         select_match = st.selectbox("Choose match", options=choose_matches(match_date))
                 
                 
-    col1, col2, col3, col4 = st.beta_columns((1, 1, 1, 1))
+    col1, col2, col3 = st.beta_columns((1, 2, 1))
     
     with col2:
-        player_1 = st.selectbox("Choose player 1:", options=populate_players(select_match))
-        
-    with col3:
-        player_2 = st.selectbox("Choose player 2:", options=populate_players(select_match))
+        players_list = st.multiselect("Choose upto 5 players to compare:", options=populate_players(select_match))  
         
         
     col1, col2, col3 = st.beta_columns((1, 2, 1))
@@ -60,19 +57,19 @@ def main(match_format):
     # Runs scored
     with col1:
         st.header("Runs Comparison")
-        runs_comparison = pd.DataFrame(np.random.randn(recency_parameter, 2), columns=['player 1', 'player 2'])
+        runs_comparison = pd.DataFrame(np.random.randn(recency_parameter, 5), columns=['player 1', 'player 2', 'player 3', 'player 4', 'player 5'])
         st.line_chart(runs_comparison)
         
     # Wickets taken
     with col2:
         st.header("Wickets Comparison")
-        wickets_comparison = pd.DataFrame(np.random.randn(recency_parameter, 2), columns=['player 1', 'player 2'])
+        wickets_comparison = pd.DataFrame(np.random.randn(recency_parameter, 5), columns=['player 1', 'player 2', 'player 3', 'player 4', 'player 5'])
         st.line_chart(wickets_comparison)
         
     # Fantasy points
     with col3:
         st.header("Fantasy Comparison")
-        fantasy_points = pd.DataFrame(np.random.randn(recency_parameter, 2), columns=['player 1', 'player 2'])
+        fantasy_points = pd.DataFrame(np.random.randn(recency_parameter, 5), columns=['player 1', 'player 2', 'player 3', 'player 4', 'player 5'])
         st.line_chart(fantasy_points)
         
         
