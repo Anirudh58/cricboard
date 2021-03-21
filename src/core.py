@@ -1,3 +1,4 @@
+#new branch
 # Basic
 from collections import Counter
 import datetime
@@ -55,9 +56,22 @@ df_match = df_match.loc[:, ~df_match.columns.str.contains('^Unnamed')]
 df_ball = pd.read_csv(os.path.join(clean_data_path, "ball.csv"))
 df_ball = df_ball.loc[:, ~df_ball.columns.str.contains('^Unnamed')]
 
+################################ BOWLER TYPE #######################################
+    
+# PLAYER IDS FOR PARTICULAR BOWLING TYPE
+
+right_arm_pace_bowler_ID=list(df_player.loc[df_player['bowling_style']=='Right arm Pace','player_id'])
+right_arm_wrist_spin_bowler_ID=list(df_player.loc[df_player['bowling_style']=='Right arm wrist spin','player_id'])
+right_arm_off_spin_bowler_ID=list(df_player.loc[df_player['bowling_style']=='Right arm Off spin','player_id'])
+left_arm_pace_bowler_ID=list(df_player.loc[df_player['bowling_style']=='Left arm Pace','player_id'])
+left_arm_orthodox_bowler_ID=list(df_player.loc[df_player['bowling_style']=='Left arm Orthodox','player_id'])
+left_arm_wrist_bowler_ID=list(df_player.loc[df_player['bowling_style']=='Left arm wrist','player_id'])
+pace_bowler_ID = right_arm_pace_bowler_ID + left_arm_pace_bowler_ID 
+spin_bowler_ID =  right_arm_wrist_spin_bowler_ID + right_arm_off_spin_bowler_ID + left_arm_orthodox_bowler_ID + left_arm_wrist_bowler_ID
+
 ################################### BATSMAN CORE ###################################
 
-def runs_scored(player, tournaments=None, venue=None, years=None, overs_range=None, against_spin=None, against_pace=None, against_bowler=None):
+def runs_scored(player, against_spin, against_pace, bowling_types, against_bowler, tournaments=None, venue=None, years=None, overs_range=None):
     """
         Total runs for a player given the conditions
         Args:
@@ -68,6 +82,7 @@ def runs_scored(player, tournaments=None, venue=None, years=None, overs_range=No
             overs_range - (list) 2 member list denoting [start_over, end_over]
             against_spin - (boolean) mark it true if you want data only specific to spin. dont mark this if you supply 'against_bowler'
             against_pace - (boolean) mark it true if you want data only specific to pace. dont mark this if you supply 'against_bowler'
+            bowling_types - (dict) a dictionary of boolean variables telling what bowling types you want the data for
             against_bowler - (int) id of specific bowler to find data against
     """
     
@@ -95,24 +110,56 @@ def runs_scored(player, tournaments=None, venue=None, years=None, overs_range=No
     if overs_range is not None:
         required_balls = required_balls[(required_balls['ball_number'] >= overs_range[0]) & (required_balls['ball_number'] <= overs_range[1])]
     
-    if against_bowler is not None:
+    if against_bowler != 'ALL':
         required_balls = required_balls[required_balls['bowler'] == against_bowler]
-
-    # TODO
-    if against_spin is not None:
-        pass
     
-    # TODO
-    if against_pace is not None:
-        pass
+    if against_spin:
+        required_balls = required_balls[required_balls['bowler'].isin(spin_bowler_ID)]
     
+    if against_pace:
+        required_balls = required_balls[required_balls['bowler'].isin(pace_bowler_ID)]
+        
+    # This section will be executed only if user has clicked any of the checkbox for bowling types
+    if ~against_spin and ~against_pace and any(bool_value for key, bool_value in bowling_types.items()):
+        
+        # Creating empty dataframes for the balls bowled by different bowling types
+        right_arm_pace_required_balls = pd.DataFrame(columns=required_balls.columns)
+        right_arm_wrist_spin_required_balls = pd.DataFrame(columns=required_balls.columns)
+        right_arm_off_spin_required_balls = pd.DataFrame(columns=required_balls.columns)
+        
+        left_arm_pace_required_balls = pd.DataFrame(columns=required_balls.columns)
+        left_arm_orthodox_required_balls = pd.DataFrame(columns=required_balls.columns)
+        left_arm_wrist_required_balls = pd.DataFrame(columns=required_balls.columns)
+        
+        if bowling_types["right_arm_pace_bool"]:
+            right_arm_pace_required_balls = required_balls[required_balls['bowler'].isin(right_arm_pace_bowler_ID)]
+        
+        if bowling_types["right_arm_wrist_spin_bool"]:
+            right_arm_wrist_spin_required_balls = required_balls[required_balls['bowler'].isin(right_arm_wrist_spin_bowler_ID)]
+            
+        if bowling_types["right_arm_off_spin_bool"]:
+            right_arm_off_spin_required_balls = required_balls[required_balls['bowler'].isin(right_arm_off_spin_bowler_ID)]
+            
+        if bowling_types["left_arm_pace_bool"]:
+            left_arm_pace_required_balls = required_balls[required_balls['bowler'].isin(left_arm_pace_bowler_ID)]
+            
+        if bowling_types["left_arm_orthodox_bool"]:
+            left_arm_orthodox_required_balls = required_balls[required_balls['bowler'].isin(left_arm_orthodox_bowler_ID)]
+            
+        if bowling_types["left_arm_wrist_bool"]:
+            left_arm_wrist_required_balls = required_balls[required_balls['bowler'].isin(left_arm_wrist_bowler_ID)]
+            
+        # pd.concat defaults to an "outer" merge (UNION)
+        required_balls = pd.concat([right_arm_pace_required_balls, right_arm_wrist_spin_required_balls, right_arm_off_spin_required_balls, left_arm_pace_required_balls,
+                                   left_arm_orthodox_required_balls, left_arm_wrist_required_balls])
+        
     result = required_balls['batsman_runs'].sum()
         
     return result
 
-def balls_batted(player, tournaments=None, venue=None, years=None, overs_range=None, against_spin=None, against_pace=None, against_bowler=None):
+def balls_batted(player, against_spin, against_pace, bowling_types, against_bowler, tournaments=None, venue=None, years=None, overs_range=None):
     """
-        Total balls played by a player given the conditions
+        Total runs for a player given the conditions
         Args:
             player - (int) id of target player
             tournaments - (list of ints) list of tournament ids
@@ -121,6 +168,7 @@ def balls_batted(player, tournaments=None, venue=None, years=None, overs_range=N
             overs_range - (list) 2 member list denoting [start_over, end_over]
             against_spin - (boolean) mark it true if you want data only specific to spin. dont mark this if you supply 'against_bowler'
             against_pace - (boolean) mark it true if you want data only specific to pace. dont mark this if you supply 'against_bowler'
+            bowling_types - (dict) a dictionary of boolean variables telling what bowling types you want the data for
             against_bowler - (int) id of specific bowler to find data against
     """
     
@@ -148,25 +196,57 @@ def balls_batted(player, tournaments=None, venue=None, years=None, overs_range=N
     if overs_range is not None:
         required_balls = required_balls[(required_balls['ball_number'] >= overs_range[0]) & (required_balls['ball_number'] <= overs_range[1])]
     
-    if against_bowler is not None:
+    if against_bowler != 'ALL':
         required_balls = required_balls[required_balls['bowler'] == against_bowler]
-
-    # TODO
-    if against_spin is not None:
-        pass
     
-    # TODO
-    if against_pace is not None:
-        pass
+    if against_spin:
+        required_balls = required_balls[required_balls['bowler'].isin(spin_bowler_ID)]
+    
+    if against_pace:
+        required_balls = required_balls[required_balls['bowler'].isin(pace_bowler_ID)]
+        
+    # This section will be executed only if user has clicked any of the checkbox for bowling types
+    if ~against_spin and ~against_pace and any(bool_value for key, bool_value in bowling_types.items()):
+        
+        # Creating empty dataframes for the balls bowled by different bowling types
+        right_arm_pace_required_balls = pd.DataFrame(columns=required_balls.columns)
+        right_arm_wrist_spin_required_balls = pd.DataFrame(columns=required_balls.columns)
+        right_arm_off_spin_required_balls = pd.DataFrame(columns=required_balls.columns)
+        
+        left_arm_pace_required_balls = pd.DataFrame(columns=required_balls.columns)
+        left_arm_orthodox_required_balls = pd.DataFrame(columns=required_balls.columns)
+        left_arm_wrist_required_balls = pd.DataFrame(columns=required_balls.columns)
+        
+        if bowling_types["right_arm_pace_bool"]:
+            right_arm_pace_required_balls = required_balls[required_balls['bowler'].isin(right_arm_pace_bowler_ID)]
+        
+        if bowling_types["right_arm_wrist_spin_bool"]:
+            right_arm_wrist_spin_required_balls = required_balls[required_balls['bowler'].isin(right_arm_wrist_spin_bowler_ID)]
+            
+        if bowling_types["right_arm_off_spin_bool"]:
+            right_arm_off_spin_required_balls = required_balls[required_balls['bowler'].isin(right_arm_off_spin_bowler_ID)]
+            
+        if bowling_types["left_arm_pace_bool"]:
+            left_arm_pace_required_balls = required_balls[required_balls['bowler'].isin(left_arm_pace_bowler_ID)]
+            
+        if bowling_types["left_arm_orthodox_bool"]:
+            left_arm_orthodox_required_balls = required_balls[required_balls['bowler'].isin(left_arm_orthodox_bowler_ID)]
+            
+        if bowling_types["left_arm_wrist_bool"]:
+            left_arm_wrist_required_balls = required_balls[required_balls['bowler'].isin(left_arm_wrist_bowler_ID)]
+            
+        # pd.concat defaults to an "outer" merge (UNION)
+        required_balls = pd.concat([right_arm_pace_required_balls, right_arm_wrist_spin_required_balls, right_arm_off_spin_required_balls, left_arm_pace_required_balls,
+                                   left_arm_orthodox_required_balls, left_arm_wrist_required_balls])
     
     result = len(required_balls)
         
     return result
 
 
-def dismissals(player, tournaments=None, venue=None, years=None, overs_range=None, against_spin=None, against_pace=None, against_bowler=None):
+def dismissals(player, against_spin, against_pace, bowling_types, against_bowler, tournaments=None, venue=None, years=None, overs_range=None):
     """
-        Total dismissals of this player given the conditions
+        Total runs for a player given the conditions
         Args:
             player - (int) id of target player
             tournaments - (list of ints) list of tournament ids
@@ -175,6 +255,7 @@ def dismissals(player, tournaments=None, venue=None, years=None, overs_range=Non
             overs_range - (list) 2 member list denoting [start_over, end_over]
             against_spin - (boolean) mark it true if you want data only specific to spin. dont mark this if you supply 'against_bowler'
             against_pace - (boolean) mark it true if you want data only specific to pace. dont mark this if you supply 'against_bowler'
+            bowling_types - (dict) a dictionary of boolean variables telling what bowling types you want the data for
             against_bowler - (int) id of specific bowler to find data against
     """
     
@@ -201,19 +282,50 @@ def dismissals(player, tournaments=None, venue=None, years=None, overs_range=Non
     if overs_range is not None:
         required_balls = required_balls[(required_balls['ball_number'] >= overs_range[0]) & (required_balls['ball_number'] <= overs_range[1])]
     
-    if against_bowler is not None:
+    if against_bowler != 'ALL':
         required_balls = required_balls[required_balls['bowler'] == against_bowler]
-
-    # TODO
-    if against_spin is not None:
-        pass
     
-    # TODO
-    if against_pace is not None:
-        pass
+    if against_spin:
+        required_balls = required_balls[required_balls['bowler'].isin(spin_bowler_ID)]
+    
+    if against_pace:
+        required_balls = required_balls[required_balls['bowler'].isin(pace_bowler_ID)]
+        
+    # This section will be executed only if user has clicked any of the checkbox for bowling types
+    if ~against_spin and ~against_pace and any(bool_value for key, bool_value in bowling_types.items()):
+        
+        # Creating empty dataframes for the balls bowled by different bowling types
+        right_arm_pace_required_balls = pd.DataFrame(columns=required_balls.columns)
+        right_arm_wrist_spin_required_balls = pd.DataFrame(columns=required_balls.columns)
+        right_arm_off_spin_required_balls = pd.DataFrame(columns=required_balls.columns)
+        
+        left_arm_pace_required_balls = pd.DataFrame(columns=required_balls.columns)
+        left_arm_orthodox_required_balls = pd.DataFrame(columns=required_balls.columns)
+        left_arm_wrist_required_balls = pd.DataFrame(columns=required_balls.columns)
+        
+        if bowling_types["right_arm_pace_bool"]:
+            right_arm_pace_required_balls = required_balls[required_balls['bowler'].isin(right_arm_pace_bowler_ID)]
+        
+        if bowling_types["right_arm_wrist_spin_bool"]:
+            right_arm_wrist_spin_required_balls = required_balls[required_balls['bowler'].isin(right_arm_wrist_spin_bowler_ID)]
+            
+        if bowling_types["right_arm_off_spin_bool"]:
+            right_arm_off_spin_required_balls = required_balls[required_balls['bowler'].isin(right_arm_off_spin_bowler_ID)]
+            
+        if bowling_types["left_arm_pace_bool"]:
+            left_arm_pace_required_balls = required_balls[required_balls['bowler'].isin(left_arm_pace_bowler_ID)]
+            
+        if bowling_types["left_arm_orthodox_bool"]:
+            left_arm_orthodox_required_balls = required_balls[required_balls['bowler'].isin(left_arm_orthodox_bowler_ID)]
+            
+        if bowling_types["left_arm_wrist_bool"]:
+            left_arm_wrist_required_balls = required_balls[required_balls['bowler'].isin(left_arm_wrist_bowler_ID)]
+            
+        # pd.concat defaults to an "outer" merge (UNION)
+        required_balls = pd.concat([right_arm_pace_required_balls, right_arm_wrist_spin_required_balls, right_arm_off_spin_required_balls, left_arm_pace_required_balls,
+                                   left_arm_orthodox_required_balls, left_arm_wrist_required_balls])
     
     required_balls = required_balls[required_balls['player_dismissed'] == player]
-    print(required_balls)
     
     num_dismissals = len(required_balls)
         

@@ -1,0 +1,61 @@
+match_no,time,venue,team_1,team_2
+1,"09-apr-2021, 02:00 pm", Chennai,Mumbai Indians,Royal Challengers Bangalore
+2,"10-apr-2021, 02:00 pm", Mumbai,Chennai Super Kings,Delhi Capitals
+3,"11-apr-2021, 02:00 pm", Chennai,Sunrisers Hyderabad,Kolkata Knight Riders
+4,"12-apr-2021, 02:00 pm", Mumbai,Rajasthan Royals,Punjab Kings
+5,"13-apr-2021, 02:00 pm", Chennai,Kolkata Knight Riders,Mumbai Indians
+6,"14-apr-2021, 02:00 pm", Chennai,Sunrisers Hyderabad,Royal Challengers Bangalore
+7,"15-apr-2021, 02:00 pm", Mumbai,Rajasthan Royals,Delhi Capitals
+8,"16-apr-2021, 02:00 pm", Mumbai,Punjab Kings,Chennai Super Kings
+9,"17-apr-2021, 02:00 pm", Chennai,Mumbai Indians,Sunrisers Hyderabad
+10,"18-apr-2021, 10:00 am", Chennai,Royal Challengers Bangalore,Kolkata Knight Riders
+11,"18-apr-2021, 02:00 pm", Mumbai,Delhi Capitals,Punjab Kings
+12,"19-apr-2021, 02:00 pm", Mumbai,Chennai Super Kings,Rajasthan Royals
+13,"20-apr-2021, 02:00 pm", Chennai,Delhi Capitals,Mumbai Indians
+14,"21-apr-2021, 10:00 am", Chennai,Punjab Kings,Sunrisers Hyderabad
+15,"21-apr-2021, 02:00 pm", Mumbai,Kolkata Knight Riders,Chennai Super Kings
+16,"22-apr-2021, 02:00 pm", Mumbai,Royal Challengers Bangalore,Rajasthan Royals
+17,"23-apr-2021, 02:00 pm", Chennai,Punjab Kings,Mumbai Indians
+18,"24-apr-2021, 02:00 pm", Mumbai,Rajasthan Royals,Kolkata Knight Riders
+19,"25-apr-2021, 10:00 am", Mumbai,Chennai Super Kings,Royal Challengers Bangalore
+20,"25-apr-2021, 02:00 pm", Chennai,Sunrisers Hyderabad,Delhi Capitals
+21,"26-apr-2021, 02:00 pm", Ahmedabad,Punjab Kings,Kolkata Knight Riders
+22,"27-apr-2021, 02:00 pm", Ahmedabad,Delhi Capitals,Royal Challengers Bangalore
+23,"28-apr-2021, 02:00 pm", Delhi,Chennai Super Kings,Sunrisers Hyderabad
+24,"29-apr-2021, 10:00 am", Delhi,Mumbai Indians,Rajasthan Royals
+25,"29-apr-2021, 02:00 pm", Ahmedabad,Delhi Capitals,Kolkata Knight Riders
+26,"30-apr-2021, 02:00 pm", Ahmedabad,Punjab Kings,Royal Challengers Bangalore
+27,"01-may-2021, 02:00 pm", Delhi,Mumbai Indians,Chennai Super Kings
+28,"02-may-2021, 10:00 am", Delhi,Rajasthan Royals,Sunrisers Hyderabad
+29,"02-may-2021, 02:00 pm", Ahmedabad,Punjab Kings,Delhi Capitals
+30,"03-may-2021, 02:00 pm", Ahmedabad,Kolkata Knight Riders,Royal Challengers Bangalore
+31,"04-may-2021, 02:00 pm", Delhi,Sunrisers Hyderabad,Mumbai Indians
+32,"05-may-2021, 02:00 pm", Delhi,Rajasthan Royals,Chennai Super Kings
+33,"06-may-2021, 02:00 pm", Ahmedabad,Royal Challengers Bangalore,Punjab Kings
+34,"07-may-2021, 02:00 pm", Delhi,Sunrisers Hyderabad,Chennai Super Kings
+35,"08-may-2021, 10:00 am", Ahmedabad,Kolkata Knight Riders,Delhi Capitals
+36,"08-may-2021, 02:00 pm", Delhi,Rajasthan Royals,Mumbai Indians
+37,"09-may-2021, 10:00 am", Bengaluru,Chennai Super Kings,Punjab Kings
+38,"09-may-2021, 02:00 pm", Kolkata,Royal Challengers Bangalore,Sunrisers Hyderabad
+39,"10-may-2021, 02:00 pm", Bengaluru,Mumbai Indians,Kolkata Knight Riders
+40,"11-may-2021, 02:00 pm", Kolkata,Delhi Capitals,Rajasthan Royals
+41,"12-may-2021, 02:00 pm", Bengaluru,Chennai Super Kings,Kolkata Knight Riders
+42,"13-may-2021, 10:00 am", Bengaluru,Mumbai Indians,Punjab Kings
+43,"13-may-2021, 02:00 pm", Kolkata,Sunrisers Hyderabad,Rajasthan Royals
+44,"14-may-2021, 02:00 pm", Kolkata,Royal Challengers Bangalore,Delhi Capitals
+45,"15-may-2021, 02:00 pm", Bengaluru,Kolkata Knight Riders,Punjab Kings
+46,"16-may-2021, 10:00 am", Kolkata,Rajasthan Royals,Royal Challengers Bangalore
+47,"16-may-2021, 02:00 pm", Bengaluru,Chennai Super Kings,Mumbai Indians
+48,"17-may-2021, 02:00 pm", Kolkata,Delhi Capitals,Sunrisers Hyderabad
+49,"18-may-2021, 02:00 pm", Bengaluru,Kolkata Knight Riders,Rajasthan Royals
+50,"19-may-2021, 02:00 pm", Bengaluru,Sunrisers Hyderabad,Punjab Kings
+51,"20-may-2021, 02:00 pm", Kolkata,Royal Challengers Bangalore,Mumbai Indians
+52,"21-may-2021, 10:00 am", Bengaluru,Kolkata Knight Riders,Sunrisers Hyderabad
+53,"21-may-2021, 02:00 pm", Kolkata,Delhi Capitals,Chennai Super Kings
+54,"22-may-2021, 02:00 pm", Bengaluru,Punjab Kings,Rajasthan Royals
+55,"23-may-2021, 10:00 am", Kolkata,Mumbai Indians,Delhi Capitals
+56,"23-may-2021, 02:00 pm", Kolkata,Royal Challengers Bangalore,Chennai Super Kings
+57,"25-may-2021, 02:00 pm", Ahmedabad,TBA,TBA
+58,"26-may-2021, 02:00 pm", Ahmedabad,TBA,TBA
+59,"28-may-2021, 02:00 pm", Ahmedabad,TBA,TBA
+60,"30-may-2021, 02:00 pm", Ahmedabad,TBA,TBA

@@ -1,0 +1,197 @@
+player_id,team_name,player_name,player_display_name,player_full_name,batting_style,bowling_style,playling_role
+1,Chennai Super Kings,MS Dhoni,,Mahendra Singh Dhoni,Right-hand bat,Right-arm medium,Wicketkeeper batsman
+2,Chennai Super Kings,Moeen Ali,,Moeen Munir Ali,Left-hand bat,Right-arm offbreak,Batting allrounder
+3,Chennai Super Kings,KM Asif,,KM Asif,Right-hand bat,Right-arm medium,Bowler
+4,Chennai Super Kings,Bhagath Varma,,Kanumuri Bhagath Varma,Right-hand bat,Right-arm offbreak,
+5,Chennai Super Kings,Dwayne Bravo,,Dwayne John Bravo,Right-hand bat,Right-arm medium,Allrounder
+6,Chennai Super Kings,Deepak Chahar,,Deepak Lokandersingh Chahar,Right-hand bat,Right-arm medium,Bowler
+7,Chennai Super Kings,Sam Curran,,Samuel Matthew Curran,Left-hand bat,Left-arm medium-fast,Allrounder
+8,Chennai Super Kings,Faf du Plessis,,Francois du Plessis,Right-hand bat,Legbreak,Middle-order batsman
+9,Chennai Super Kings,Ruturaj Gaikwad,,Ruturaj Dashrat Gaikwad,Right-hand bat,Right-arm offbreak,Batsman
+10,Chennai Super Kings,Krishnappa Gowtham,,Krishnappa Gowtham,Right-hand bat,Right-arm offbreak,Bowling allrounder
+11,Chennai Super Kings,C Hari Nishaanth,,Chezhian Nishaanth,Left-hand bat,Right-arm offbreak,
+12,Chennai Super Kings,Josh Hazlewood,,Josh Reginald Hazlewood,Left-hand bat,Right-arm fast-medium,Bowler
+13,Chennai Super Kings,Imran Tahir,,Mohammad Imran Tahir,Right-hand bat,Legbreak googly,Bowler
+14,Chennai Super Kings,Ravindra Jadeja,,Ravindrasinh Anirudhsinh Jadeja,Left-hand bat,Slow left-arm orthodox,Allrounder
+15,Chennai Super Kings,Narayan Jagadeesan,,Narayan Jagadeesan,Right-hand bat,,Opening batsman
+16,Chennai Super Kings,Lungi Ngidi,,Lungisani True-man Ngidi,Right-hand bat,Right-arm fast-medium,Bowler
+17,Chennai Super Kings,Cheteshwar Pujara,,Cheteshwar Arvind Pujara,Right-hand bat,Legbreak,Top-order batsman
+18,Chennai Super Kings,Suresh Raina,,Suresh Kumar Raina,Left-hand bat,Right-arm offbreak,Middle-order batsman
+19,Chennai Super Kings,Ambati Rayudu,,Ambati Thirupathi Rayudu,Right-hand bat,Right-arm offbreak,Middle-order batsman
+20,Chennai Super Kings,Harishankar Reddy,,Maramreddy Harishankar Reddy,Right-hand bat,Right-arm medium,
+21,Chennai Super Kings,Ravisrinivasan Sai Kishore,,Ravisrinivasan Sai Kishore,Left-hand bat,Slow left-arm orthodox,Bowler
+22,Chennai Super Kings,Mitchell Santner,,Mitchell Josef Santner,Left-hand bat,Slow left-arm orthodox,Bowling allrounder
+23,Chennai Super Kings,Karn Sharma,,Karn Vinod Sharma,Left-hand bat,Legbreak googly,Bowler
+24,Chennai Super Kings,Shardul Thakur,,Shardul Narendra Thakur,Right-hand bat,Right-arm medium,Bowler
+25,Chennai Super Kings,Robin Uthappa,,Robin Venu Uthappa,Right-hand bat,Right-arm medium,Batsman
+26,Delhi Capitals,Shreyas Iyer,,Shreyas Santosh Iyer,Right-hand bat,Legbreak googly,Top-order batsman
+27,Delhi Capitals,Ravichandran Ashwin,,Ravichandran Ashwin,Right-hand bat,Right-arm offbreak,Bowling allrounder
+28,Delhi Capitals,Avesh Khan,,Avesh Khan,Right-hand bat,Right-arm medium-fast,Bowler
+29,Delhi Capitals,Sam Billings,,Samuel William Billings,Right-hand bat,,Wicketkeeper batsman
+30,Delhi Capitals,Tom Curran,,Thomas Kevin Curran,Right-hand bat,Right-arm fast-medium,Bowling allrounder
+31,Delhi Capitals,Shikhar Dhawan,,Shikhar Dhawan,Left-hand bat,Right-arm offbreak,Opening batsman
+32,Delhi Capitals,Praveen Dubey,,Praveen Dubey,Right-hand bat,Legbreak googly,Bowler
+33,Delhi Capitals,Shimron Hetmyer,,Shimron Odilon Hetmyer,Left-hand bat,,Top-order batsman
+34,Delhi Capitals,Lukman Meriwala,,Lukman Iqbal Meriwala,Left-hand bat,Left-arm fast-medium,
+35,Delhi Capitals,Amit Mishra,,Amit Mishra,Right-hand bat,Legbreak,Bowler
+36,Delhi Capitals,Anrich Nortje,,Anrich Arno Nortje,Right-hand bat,Right-arm fast,Bowler
+37,Delhi Capitals,Rishabh Pant,,Rishabh Rajendra Pant,Left-hand bat,,Wicketkeeper batsman
+38,Delhi Capitals,Axar Patel,,Axar Rajeshbhai Patel,Left-hand bat,Slow left-arm orthodox,Bowling allrounder
+39,Delhi Capitals,Ripal Patel,,Ripal Vinubhai Patel,Right-hand bat,Right-arm medium-fast,
+40,Delhi Capitals,Kagiso Rabada,,Kagiso Rabada,Left-hand bat,Right-arm fast,Bowler
+41,Delhi Capitals,Ajinkya Rahane,,Ajinkya Madhukar Rahane,Right-hand bat,Right-arm medium,Top-order batsman
+42,Delhi Capitals,Ishant Sharma,,Ishant Sharma,Right-hand bat,Right-arm fast-medium,Bowler
+43,Delhi Capitals,Prithvi Shaw,,Prithvi Pankaj Shaw,Right-hand bat,Right-arm offbreak,Opening batsman
+44,Delhi Capitals,Manimaran Siddharth,,Manimaran Siddharth,Right-hand bat,Slow left-arm orthodox,Bowler
+45,Delhi Capitals,Steven Smith,,Steven Peter Devereux Smith,Right-hand bat,Legbreak googly,Middle-order batsman
+46,Delhi Capitals,Marcus Stoinis,,Marcus Peter Stoinis,Right-hand bat,Right-arm medium,Middle-order batsman
+47,Delhi Capitals,Vishnu Vinod,,Vishnu Vinod,Right-hand bat,,
+48,Delhi Capitals,Chris Woakes,,Christopher Roger Woakes,Right-hand bat,Right-arm fast-medium,Allrounder
+49,Delhi Capitals,Lalit Yadav,,Lalit Yadav,Right-hand bat,Right-arm offbreak,Allrounder
+50,Delhi Capitals,Umesh Yadav,,Umeshkumar Tilak Yadav,Right-hand bat,Right-arm fast,Bowler
+51,Kolkata Knight Riders,Eoin Morgan,,Eoin Joseph Gerard Morgan,Left-hand bat,Right-arm medium,Middle-order batsman
+52,Kolkata Knight Riders,Vaibhav Arora,,Vaibhav Gopal Arora,Right-hand bat,Right-arm fast-medium,Bowler
+53,Kolkata Knight Riders,Pat Cummins,,Patrick James Cummins,Right-hand bat,Right-arm fast,Bowler
+54,Kolkata Knight Riders,Ben Cutting,,Benjamin Colin James Cutting,Right-hand bat,Right-arm fast-medium,Allrounder
+55,Kolkata Knight Riders,Lockie Ferguson,,Lachlan Hammond Ferguson,Right-hand bat,Right-arm fast,Bowler
+56,Kolkata Knight Riders,Harbhajan Singh,,Harbhajan Singh,Right-hand bat,Right-arm offbreak,Bowler
+57,Kolkata Knight Riders,Venkatesh Iyer,,Venkatesh Rajasekaran Iyer,Left-hand bat,Right-arm medium,Allrounder
+58,Kolkata Knight Riders,Sheldon Jackson,,Sheldon Philip Jackson,Right-hand bat,,Wicketkeeper batsman
+59,Kolkata Knight Riders,Dinesh Karthik,,Krishnakumar Dinesh Karthik,Right-hand bat,Right-arm offbreak,Wicketkeeper batsman
+60,Kolkata Knight Riders,Kuldeep Yadav,,Kuldeep Yadav,Left-hand bat,Left-arm wrist-spin,Bowler
+61,Kolkata Knight Riders,Kamlesh Nagarkoti,,Kamlesh Lachham Nagarkoti,Right-hand bat,Right-arm fast,Bowler
+62,Kolkata Knight Riders,Karun Nair,,Karun Nair,Right-hand bat,Right-arm offbreak,Top-order batsman
+63,Kolkata Knight Riders,Sunil Narine,,Sunil Philip Narine,Left-hand bat,Right-arm offbreak,Bowling allrounder
+64,Kolkata Knight Riders,Pawan Negi,,Pawan Negi,Left-hand bat,Slow left-arm orthodox,Bowler
+65,Kolkata Knight Riders,Prasidh Krishna,,Muralikrishna Prasidh Krishna,Right-hand bat,Right-arm medium-fast,Bowler
+66,Kolkata Knight Riders,Nitish Rana,,Nitish Rana,Left-hand bat,Right-arm offbreak,Middle-order batsman
+67,Kolkata Knight Riders,Andre Russell,,Andre Dwayne Russell,Right-hand bat,Right-arm fast,Allrounder
+68,Kolkata Knight Riders,Sandeep Warrier,,Sankarankutty Sandeep Warrier,Right-hand bat,Right-arm medium,Bowler
+69,Kolkata Knight Riders,Tim Seifert,,Tim Louis Seifert,Right-hand bat,,Wicketkeeper batsman
+70,Kolkata Knight Riders,Shakib Al Hasan,,Shakib Al Hasan,Left-hand bat,Slow left-arm orthodox,Allrounder
+71,Kolkata Knight Riders,Shivam Mavi,,Shivam Pankaj Mavi,Right-hand bat,Right-arm fast-medium,Allrounder
+72,Kolkata Knight Riders,Shubman Gill,,Shubman Gill,Right-hand bat,Right-arm offbreak,Opening batsman
+73,Kolkata Knight Riders,Rinku Singh,,Rinku Khanchand Singh,Left-hand bat,Right-arm offbreak,Middle-order batsman
+74,Kolkata Knight Riders,Rahul Tripathi,,Rahul Ajay Tripathi,Right-hand bat,Right-arm medium,Top-order batsman
+75,Kolkata Knight Riders,Varun Chakravarthy,,Varun Chakravarthy Vinod,Right-hand bat,Legbreak googly,Bowler
+76,Mumbai Indians,Rohit Sharma,,Rohit Gurunath Sharma,Right-hand bat,Right-arm offbreak,Top-order batsman
+77,Mumbai Indians,Anmolpreet Singh,,Anmolpreet Singh,Right-hand bat,Right-arm offbreak,Batsman
+78,Mumbai Indians,Trent Boult,,Trent Alexander Boult,Right-hand bat,Left-arm fast-medium,Bowler
+79,Mumbai Indians,Jasprit Bumrah,,Jasprit Jasbirsingh Bumrah,Right-hand bat,Right-arm fast,Bowler
+80,Mumbai Indians,Rahul Chahar,,Rahul Desraj Chahar,Right-hand bat,Legbreak googly,Bowler
+81,Mumbai Indians,Piyush Chawla,,Piyush Pramod Chawla,Left-hand bat,Legbreak,Bowling allrounder
+82,Mumbai Indians,Nathan Coulter-Nile,,Nathan Mitchell Coulter-Nile,Right-hand bat,Right-arm fast,Bowling allrounder
+83,Mumbai Indians,Quinton de Kock,,Quinton de Kock,Left-hand bat,,Wicketkeeper batsman
+84,Mumbai Indians,Ishan Kishan,,Ishan Pranav Kumar Pandey Kishan,Left-hand bat,,Wicketkeeper batsman
+85,Mumbai Indians,Marco Jansen,,Marco Jansen,Right-hand bat,Left-arm fast,
+86,Mumbai Indians,Dhawal Kulkarni,,Dhawal Sunil Kulkarni,Right-hand bat,Right-arm medium,Bowler
+87,Mumbai Indians,Chris Lynn,,Christopher Austin Lynn,Right-hand bat,Slow left-arm orthodox,Batsman
+88,Mumbai Indians,Adam Milne,,Adam Fraser Milne,Right-hand bat,Right-arm fast,Bowler
+89,Mumbai Indians,Mohsin Khan,,Mohsin Khan,Left-hand bat,Left-arm medium-fast,Bowler
+90,Mumbai Indians,James Neesham,,James Douglas Sheahan Neesham,Left-hand bat,Right-arm medium-fast,Batting allrounder
+91,Mumbai Indians,Hardik Pandya,,Hardik Himanshu Pandya,Right-hand bat,Right-arm medium-fast,Allrounder
+92,Mumbai Indians,Krunal Pandya,,Krunal Himanshu Pandya,Left-hand bat,Slow left-arm orthodox,Allrounder
+93,Mumbai Indians,Kieron Pollard,,Kieron Adrian Pollard,Right-hand bat,Right-arm medium,Allrounder
+94,Mumbai Indians,Anukul Roy,,Anukul Sudhakar Roy,Left-hand bat,Slow left-arm orthodox,Allrounder
+95,Mumbai Indians,Aditya Tare,,Aditya Prakash Tare,Right-hand bat,,Wicketkeeper
+96,Mumbai Indians,Arjun Tendulkar,,Arjun Sachin Tendulkar,Left-hand bat,Left-arm medium-fast,
+97,Mumbai Indians,Saurabh Tiwary,,Saurabh Sunil Tiwary,Left-hand bat,,Top-order batsman
+98,Mumbai Indians,Jayant Yadav,,Jayant Yadav,Right-hand bat,Right-arm offbreak,Bowler
+99,Mumbai Indians,Suryakumar Yadav,,Suryakumar Ashok Yadav,Right-hand bat,"Right-arm medium, Right-arm offbreak",Batsman
+100,Mumbai Indians,Yudhvir Singh,,Yudhvir Singh Charak,Right-hand bat,Right-arm medium-fast,
+101,Punjab Kings,KL Rahul,,Kannaur Lokesh Rahul,Right-hand bat,,Opening batsman
+102,Punjab Kings,Mayank Agarwal,,Mayank Anurag Agarwal,Right-hand bat,Right-arm offbreak,Batsman
+103,Punjab Kings,Fabian Allen,,Fabian Anthony Allen,Right-hand bat,Slow left-arm orthodox,Bowling allrounder
+104,Punjab Kings,Arshdeep Singh,,Arshdeep Singh,Left-hand bat,Left-arm medium-fast,Bowler
+105,Punjab Kings,Murugan Ashwin,,Murugan Ashwin,Right-hand bat,Legbreak googly,Bowler
+106,Punjab Kings,Chris Gayle,,Christopher Henry Gayle,Left-hand bat,Right-arm offbreak,Allrounder
+107,Punjab Kings,Harpreet Brar,,Harpreet Brar,Left-hand bat,Slow left-arm orthodox,Bowler
+108,Punjab Kings,Moises Henriques,,Moises Constantino Henriques,Right-hand bat,Right-arm fast-medium,Allrounder
+109,Punjab Kings,Deepak Hooda,,Deepak Jagbir Hooda,Right-hand bat,Right-arm offbreak,Allrounder
+110,Punjab Kings,Chris Jordan,,Christopher James Jordan,Right-hand bat,Right-arm fast-medium,Bowler
+111,Punjab Kings,Sarfaraz Khan,,Sarfaraz Naushad Khan,Right-hand bat,Legbreak,Middle-order batsman
+112,Punjab Kings,Dawid Malan,,Dawid Johannes Malan,Left-hand bat,Legbreak,Top-order batsman
+113,Punjab Kings,Mandeep Singh,,Mandeep Singh,Right-hand bat,Right-arm medium,Allrounder
+114,Punjab Kings,Riley Meredith,,Riley Patrick Meredith,Right-hand bat,Right-arm fast,Bowler
+115,Punjab Kings,Mohammed Shami,,Mohammed Shami Ahmed,Right-hand bat,Right-arm fast,Bowler
+116,Punjab Kings,Darshan Nalkande,,Darshan Girish Nalkande,Right-hand bat,Right-arm fast-medium,Bowler
+117,Punjab Kings,Nicholas Pooran,,Nicholas Pooran,Left-hand bat,,Wicketkeeper batsman
+118,Punjab Kings,Ishan Porel,,Ishan Chandranath Porel,Right-hand bat,Right-arm medium,Bowler
+119,Punjab Kings,Prabhsimran Singh,,Prabhsimran Singh,Right-hand bat,,Wicketkeeper batsman
+120,Punjab Kings,Ravi Bishnoi,,Ravi Bishnoi,Right-hand bat,Legbreak googly,Bowler
+121,Punjab Kings,Jhye Richardson,,Jhye Avon Richardson,Right-hand bat,Right-arm fast,Bowler
+122,Punjab Kings,Saurabh Kumar,,Saurabh Kumar,Left-hand bat,Slow left-arm orthodox,Allrounder
+123,Punjab Kings,Jalaj Saxena,,Jalaj Sahai Saxena,Right-hand bat,Right-arm offbreak,Allrounder
+124,Punjab Kings,Shahrukh Khan,,Masood Shahrukh Khan,Right-hand bat,Right-arm offbreak,Batsman
+125,Punjab Kings,Utkarsh Singh,,Utkarsh Rajiv Singh,Left-hand bat,Right-arm offbreak,Allrounder
+126,Rajasthan Royals,Akash Singh,,Akash Singh,Right-hand bat,,
+127,Rajasthan Royals,Anuj Rawat,,Anuj Rawat,Left-hand bat,,Wicketkeeper batsman
+128,Rajasthan Royals,Jofra Archer,,Jofra Chioke Archer,Right-hand bat,Right-arm fast,Bowler
+129,Rajasthan Royals,Jos Buttler,,Joseph Charles Buttler,Right-hand bat,,Wicketkeeper batsman
+130,Rajasthan Royals,KC Cariappa,,Konganda Charamanna Cariappa,Right-hand bat,Legbreak,Bowler
+131,Rajasthan Royals,Shivam Dube,,Shivam Dube,Left-hand bat,Right-arm medium,Allrounder
+132,Rajasthan Royals,Shreyas Gopal,,Shreyas Gopal,Right-hand bat,Legbreak,Allrounder
+133,Rajasthan Royals,Yashasvi Jaiswal,,Yashasvi Bhupendra Kumar Jaiswal,Left-hand bat,Legbreak,Opening batsman
+134,Rajasthan Royals,Kartik Tyagi,,Kartik Tyagi,Right-hand bat,Right-arm medium-fast,Bowler
+135,Rajasthan Royals,Liam Livingstone,,Liam Stephen Livingstone,Right-hand bat,"Right-arm offbreak, Legbreak",Batsman
+136,Rajasthan Royals,Mahipal Lomror,,Mahipal Krishan Lomror,Left-hand bat,Slow left-arm orthodox,Allrounder
+137,Rajasthan Royals,Mayank Markande,,Mayank Markande,Right-hand bat,Legbreak,Bowler
+138,Rajasthan Royals,David Miller,,David Andrew Miller,Left-hand bat,Right-arm offbreak,Middle-order batsman
+139,Rajasthan Royals,Chris Morris,,Christopher Henry Morris,Right-hand bat,Right-arm fast-medium,Bowling allrounder
+140,Rajasthan Royals,Mustafizur Rahman,,Mustafizur Rahman,Left-hand bat,Left-arm fast-medium,Bowler
+141,Rajasthan Royals,Riyan Parag,,Riyan Parag,Right-hand bat,Legbreak,Top-order batsman
+142,Rajasthan Royals,Chetan Sakariya,,Chetan Sakariya,Left-hand bat,Left-arm medium-fast,
+143,Rajasthan Royals,Sanju Samson,,Sanju Viswanath Samson,Right-hand bat,,Wicketkeeper batsman
+144,Rajasthan Royals,Ben Stokes,,Benjamin Andrew Stokes,Left-hand bat,Right-arm fast-medium,Allrounder
+145,Rajasthan Royals,Rahul Tewatia,,Rahul Tewatia,Left-hand bat,Legbreak,Bowler
+146,Rajasthan Royals,Andrew Tye,,Andrew James Tye,Right-hand bat,Right-arm medium-fast,Bowler
+147,Rajasthan Royals,Jaydev Unadkat,,Jaydev Dipakbhai Unadkat,Right-hand bat,Left-arm medium,Bowler
+148,Rajasthan Royals,Manan Vohra,,Manan Vohra,Right-hand bat,Right-arm medium,Opening batsman
+149,Rajasthan Royals,Kuldip Yadav,,Kuldip Yadav,,,
+150,Royal Challengers Bangalore,Virat Kohli,,Virat Kohli,Right-hand bat,Right-arm medium,Top-order batsman
+151,Royal Challengers Bangalore,Finn Allen,,Finnley Hugh Allen,Right-hand bat,,Top-order batsman
+152,Royal Challengers Bangalore,Srikar Bharat,,Kona Srikar Bharat,Right-hand bat,,
+153,Royal Challengers Bangalore,Yuzvendra Chahal,,Yuzvendra Singh Chahal,Right-hand bat,Legbreak googly,Bowler
+154,Royal Challengers Bangalore,Daniel Christian,,Daniel Trevor Christian,Right-hand bat,Right-arm fast-medium,Allrounder
+155,Royal Challengers Bangalore,Pavan Deshpande,,Pavan Uday Deshpande,Left-hand bat,Right-arm offbreak,Allrounder
+156,Royal Challengers Bangalore,AB de Villiers,,Abraham Benjamin de Villiers,Right-hand bat,Right-arm medium,Wicketkeeper batsman
+157,Royal Challengers Bangalore,Kyle Jamieson,,Kyle Alex Jamieson,Right-hand bat,Right-arm fast-medium,Bowler
+158,Royal Challengers Bangalore,Glenn Maxwell,,Glenn James Maxwell,Right-hand bat,Right-arm offbreak,Batting allrounder
+159,Royal Challengers Bangalore,Mohammed Azharuddeen,,Mohammed Azharuddeen,Right-hand bat,,
+160,Royal Challengers Bangalore,Mohammed Siraj,,Mohammed Siraj,Right-hand bat,Right-arm medium-fast,Bowler
+161,Royal Challengers Bangalore,Devdutt Padikkal,,Devdutt Padikkal,Left-hand bat,Right-arm offbreak,Top-order batsman
+162,Royal Challengers Bangalore,Rajat Patidar,,Rajat Manohar Patidar,Right-hand bat,Right-arm offbreak,
+163,Royal Challengers Bangalore,Suyash Prabhudessai,,Suyash S Prabhudessai,Right-hand bat,Right-arm medium,
+164,Royal Challengers Bangalore,Kane Richardson,,Kane William Richardson,Right-hand bat,Right-arm fast-medium,Bowler
+165,Royal Challengers Bangalore,Sachin Baby,,Sachin Baby,Left-hand bat,Right-arm offbreak,Batsman
+166,Royal Challengers Bangalore,Shahbaz Ahmed,,Shahbaz Ahmed,Left-hand bat,Slow left-arm orthodox,Allrounder
+167,Royal Challengers Bangalore,Navdeep Saini,,Navdeep Amarjeet Saini,Right-hand bat,Right-arm fast,Bowler
+168,Royal Challengers Bangalore,Daniel Sams,,Daniel Richard Sams,Right-hand bat,Left-arm fast-medium,Allrounder
+169,Royal Challengers Bangalore,Washington Sundar,,Washington Sundar,Left-hand bat,Right-arm offbreak,Bowling allrounder
+170,Royal Challengers Bangalore,Adam Zampa,,Adam Zampa,Right-hand bat,Legbreak googly,Bowler
+171,Royal Challengers Bangalore,Josh Philippe,,Joshua Ryan Philippe,Right-hand bat,,Wicketkeeper batsman
+172,Sunrisers Hyderabad,David Warner,,David Andrew Warner,Left-hand bat,Legbreak,Opening batsman
+173,Sunrisers Hyderabad,Abdul Samad,,Abdul Samad Farooq,Right-hand bat,Legbreak,Batsman
+174,Sunrisers Hyderabad,Abhishek Sharma,,Abhishek Sharma,Left-hand bat,Slow left-arm orthodox,Bowler
+175,Sunrisers Hyderabad,Khaleel Ahmed,,Khaleel Khursheed Ahmed,Right-hand bat,Left-arm medium,Bowler
+176,Sunrisers Hyderabad,Jonny Bairstow,,Jonathan Marc Bairstow,Right-hand bat,Right-arm medium,Wicketkeeper batsman
+177,Sunrisers Hyderabad,Basil Thampi,,Basil Thampi,Right-hand bat,Right-arm fast-medium,Bowler
+178,Sunrisers Hyderabad,Priyam Garg,,Priyam K Garg,Right-hand bat,Right-arm medium,Top-order batsman
+179,Sunrisers Hyderabad,Shreevats Goswami,,Shreevats Pratyush Goswami,Left-hand bat,,Wicketkeeper batsman
+180,Sunrisers Hyderabad,Jason Holder,,Jason Omar Holder,Right-hand bat,Right-arm medium-fast,Bowling allrounder
+181,Sunrisers Hyderabad,Kedar Jadhav,,Kedar Mahadav Jadhav,Right-hand bat,Right-arm offbreak,Batting allrounder
+182,Sunrisers Hyderabad,Siddarth Kaul,,Siddarth Kaul,Right-hand bat,Right-arm medium,Bowler
+183,Sunrisers Hyderabad,Bhuvneshwar Kumar,,Bhuvneshwar Kumar Singh,Right-hand bat,Right-arm medium,Bowler
+184,Sunrisers Hyderabad,Mitchell Marsh,,Mitchell Ross Marsh,Right-hand bat,Right-arm medium,Allrounder
+185,Sunrisers Hyderabad,Mohammad Nabi,,Mohammad Nabi,Right-hand bat,Right-arm offbreak,Allrounder
+186,Sunrisers Hyderabad,Mujeeb Ur Rahman,,Mujeeb Ur Rahman,Right-hand bat,Right-arm offbreak,Bowler
+187,Sunrisers Hyderabad,Shahbaz Nadeem,,Shahbaz Nadeem,Right-hand bat,Slow left-arm orthodox,Bowler
+188,Sunrisers Hyderabad,T Natarajan,,Thangarasu Natarajan,Left-hand bat,Left-arm medium,Bowler
+189,Sunrisers Hyderabad,Manish Pandey,,Manish Krishnanand Pandey,Right-hand bat,Right-arm medium,Top-order batsman
+190,Sunrisers Hyderabad,Rashid Khan,,Rashid Khan Arman,Right-hand bat,Legbreak googly,Bowler
+191,Sunrisers Hyderabad,Wriddhiman Saha,,Wriddhiman Prasanta Saha,Right-hand bat,,Wicketkeeper batsman
+192,Sunrisers Hyderabad,Sandeep Sharma,,Sandeep Sharma,Right-hand bat,Right-arm medium,Bowler
+193,Sunrisers Hyderabad,Vijay Shankar,,Vijay Shankar,Right-hand bat,Right-arm medium,Allrounder
+194,Sunrisers Hyderabad,Jagadeesha Suchith,,Jagadeesha Suchith,Left-hand bat,Slow left-arm orthodox,Bowler
+195,Sunrisers Hyderabad,Virat Singh,,Virat Binod Singh,Left-hand bat,Legbreak googly,Top-order batsman
+196,Sunrisers Hyderabad,Kane Williamson,,Kane Stuart Williamson,Right-hand bat,Right-arm offbreak,Top-order batsman
