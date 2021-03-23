@@ -741,3 +741,45 @@ def bowling_average(player_name, top_n, minimum_balls, match_format, tournaments
 
 
 ################################### END BOWLER INSIGHTS ###################################
+
+################################### FANTASY INSIGHTS ###################################
+
+
+def fantasy_runs_comparison(recency_parameter, players_list):
+    """
+    Returns a dataframe 
+    Args:
+        players_list: list of players to do runs comparison againstReturns a dataframe 
+    """
+    #TODO
+    num_players = len(players_list)
+    df_result = pd.DataFrame(np.random.randn(recency_parameter, num_players), columns=players_list)
+    
+    return df_result
+
+def fantasy_wickets_comparison(recency_parameter, players_list):
+    """
+    Returns a dataframe 
+    Args:
+        players_list: list of players to do runs comparison againstReturns a dataframe 
+    """
+    #TODO
+    num_players = len(players_list)
+    df_result = pd.DataFrame(np.random.randn(recency_parameter, num_players), columns=players_list)
+    
+    return df_result
+
+def fantasy_points_comparison(recency_parameter, players_list):
+    """
+    Returns a dataframe 
+    Args:
+        players_list: list of players to do runs comparison againstReturns a dataframe 
+    """
+    #TODO
+    num_players = len(players_list)
+    df_result = pd.DataFrame(np.random.randn(recency_parameter, num_players), columns=players_list)
+    
+    return df_result
+
+
+################################### END FANTASY INSIGHTS ###################################
