@@ -69,6 +69,13 @@ left_arm_wrist_bowler_ID=list(df_player.loc[df_player['bowling_style']=='Left ar
 pace_bowler_ID = right_arm_pace_bowler_ID + left_arm_pace_bowler_ID 
 spin_bowler_ID =  right_arm_wrist_spin_bowler_ID + right_arm_off_spin_bowler_ID + left_arm_orthodox_bowler_ID + left_arm_wrist_bowler_ID
 
+################################ BATTER TYPES #######################################
+    
+# PLAYER IDS FOR PARTICULAR BATTING TYPE
+
+lhb_ID = list(df_player.loc[df_player['batting_style']=='Left-hand bat','player_id'])
+rhb_ID = list(df_player.loc[df_player['batting_style']=='Right-hand bat','player_id'])
+
 ################################### BATSMAN CORE ###################################
 
 def runs_scored(player, against_spin, against_pace, bowling_types, against_bowler, tournaments=None, venue=None, years=None, overs_range=None):
@@ -335,7 +342,7 @@ def dismissals(player, against_spin, against_pace, bowling_types, against_bowler
 
 ################################### BOWLER CORE ###################################
 
-def wickets_taken(player, tournaments=None, venue=None, years=None, overs_range=None, against_lhb=None, against_rhb=None, against_batsman=None):
+def wickets_taken(player, against_batsman, batting_types, tournaments=None, venue=None, years=None, overs_range=None):
     """
         Total dismissals of this player given the conditions
         Args:
@@ -372,16 +379,24 @@ def wickets_taken(player, tournaments=None, venue=None, years=None, overs_range=
     if overs_range is not None:
         required_balls = required_balls[(required_balls['ball_number'] >= overs_range[0]) & (required_balls['ball_number'] <= overs_range[1])]
         
-    if against_batsman is not None:
+    if against_batsman != 'ALL':
         required_balls = required_balls[required_balls['batsman'] == against_batsman]
         
-    # TODO
-    if against_lhb is not None:
-        pass
-    
-    # TODO
-    if against_rhb is not None:
-        pass
+    # This section will be executed only if user has clicked any of the checkbox for batting types
+    if any(bool_value for key, bool_value in batting_types.items()):
+        
+        # Creating empty dataframes for the balls bowled by different bowling types
+        lhb_required_balls = pd.DataFrame(columns=required_balls.columns)
+        rhb_required_balls = pd.DataFrame(columns=required_balls.columns)
+        
+        if batting_types["lh_bat_bool"]:
+            lhb_required_balls = required_balls[required_balls['batsman'].isin(lhb_ID)]
+        
+        if batting_types["rh_bat_bool"]:
+            rhb_required_balls = required_balls[required_balls['batsman'].isin(rhb_ID)]
+            
+        # pd.concat defaults to an "outer" merge (UNION)
+        required_balls = pd.concat([lhb_required_balls, rhb_required_balls])
     
     total_balls_bowled = len(required_balls)
     
@@ -396,7 +411,7 @@ def wickets_taken(player, tournaments=None, venue=None, years=None, overs_range=
     
     
     
-def balls_bowled(player, tournaments=None, venue=None, years=None, overs_range=None, against_lhb=None, against_rhb=None, against_batsman=None):
+def balls_bowled(player, against_batsman, batting_types, tournaments=None, venue=None, years=None, overs_range=None):
     """
         Total dismissals of this player given the conditions
         Args:
@@ -433,23 +448,31 @@ def balls_bowled(player, tournaments=None, venue=None, years=None, overs_range=N
     if overs_range is not None:
         required_balls = required_balls[(required_balls['ball_number'] >= overs_range[0]) & (required_balls['ball_number'] <= overs_range[1])]
         
-    if against_batsman is not None:
+    if against_batsman != 'ALL':
         required_balls = required_balls[required_balls['batsman'] == against_batsman]
         
-    # TODO
-    if against_lhb is not None:
-        pass
-    
-    # TODO
-    if against_rhb is not None:
-        pass
+    # This section will be executed only if user has clicked any of the checkbox for batting types
+    if any(bool_value for key, bool_value in batting_types.items()):
+        
+        # Creating empty dataframes for the balls bowled by different bowling types
+        lhb_required_balls = pd.DataFrame(columns=required_balls.columns)
+        rhb_required_balls = pd.DataFrame(columns=required_balls.columns)
+        
+        if batting_types["lh_bat_bool"]:
+            lhb_required_balls = required_balls[required_balls['batsman'].isin(lhb_ID)]
+        
+        if batting_types["rh_bat_bool"]:
+            rhb_required_balls = required_balls[required_balls['batsman'].isin(rhb_ID)]
+            
+        # pd.concat defaults to an "outer" merge (UNION)
+        required_balls = pd.concat([lhb_required_balls, rhb_required_balls])
     
     total_balls_bowled = len(required_balls)
     
     return total_balls_bowled
 
 
-def runs_given(player, tournaments=None, venue=None, years=None, overs_range=None, against_lhb=None, against_rhb=None, against_batsman=None):
+def runs_given(player, against_batsman, batting_types, tournaments=None, venue=None, years=None, overs_range=None):
     """
         Total dismissals of this player given the conditions
         Args:
@@ -486,16 +509,24 @@ def runs_given(player, tournaments=None, venue=None, years=None, overs_range=Non
     if overs_range is not None:
         required_balls = required_balls[(required_balls['ball_number'] >= overs_range[0]) & (required_balls['ball_number'] <= overs_range[1])]
         
-    if against_batsman is not None:
+    if against_batsman != 'ALL':
         required_balls = required_balls[required_balls['batsman'] == against_batsman]
         
-    # TODO
-    if against_lhb is not None:
-        pass
-    
-    # TODO
-    if against_rhb is not None:
-        pass
+    # This section will be executed only if user has clicked any of the checkbox for batting types
+    if any(bool_value for key, bool_value in batting_types.items()):
+        
+        # Creating empty dataframes for the balls bowled by different bowling types
+        lhb_required_balls = pd.DataFrame(columns=required_balls.columns)
+        rhb_required_balls = pd.DataFrame(columns=required_balls.columns)
+        
+        if batting_types["lh_bat_bool"]:
+            lhb_required_balls = required_balls[required_balls['batsman'].isin(lhb_ID)]
+        
+        if batting_types["rh_bat_bool"]:
+            rhb_required_balls = required_balls[required_balls['batsman'].isin(rhb_ID)]
+            
+        # pd.concat defaults to an "outer" merge (UNION)
+        required_balls = pd.concat([lhb_required_balls, rhb_required_balls])
     
     total_runs_given = required_balls['total_runs'].sum()
     
