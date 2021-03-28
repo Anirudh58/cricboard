@@ -596,8 +596,9 @@ def player_runs_by_match(player, recency_parameter):
         for bowling_type in fantasy_obj[player][match]['runs_scored']:
             total_runs_scored += fantasy_obj[player][match]['runs_scored'][bowling_type]
         match_runs.append(total_runs_scored)
-        
-    return match_runs
+    
+    # reversing the array before sending for appropriate plotting
+    return match_runs[::-1]
 
 def player_wickets_by_match(player, recency_parameter):
     """
@@ -617,7 +618,8 @@ def player_wickets_by_match(player, recency_parameter):
             total_wickets_taken += fantasy_obj[player][match]['wickets_taken'][batting_type]
         match_wickets.append(total_wickets_taken)
         
-    return match_wickets
+    # reversing the array before sending for appropriate plotting
+    return match_wickets[::-1]
 
 def player_points_by_match(player, recency_parameter):
     """
@@ -633,8 +635,9 @@ def player_points_by_match(player, recency_parameter):
     for match in required_matches:
         total_points_obtained = fantasy_obj[player][match]['fantasy_points']
         match_points.append(total_points_obtained)
-        
-    return match_points
+    
+    # reversing the array before sending for appropriate plotting
+    return match_points[::-1]
 
 def player_runs_scored_against_bowling(player, recency_parameter):
     """
