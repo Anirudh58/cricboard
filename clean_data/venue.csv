@@ -1,69 +1,35 @@
-venue_id,venue_name
-1,Nehru Stadium
-2,Barabati Stadium
-3,"Sardar Patel Stadium, Motera"
-4,Brabourne Stadium
-5,Eden Gardens
-6,Dubai International Cricket Stadium
-7,St George's Park
-8,De Beers Diamond Oval
-9,JSCA International Stadium Complex
-10,"Rajiv Gandhi International Stadium, Uppal"
-11,Wankhede Stadium
-12,Sheikh Zayed Stadium
-13,Saurashtra Cricket Association Stadium
-14,"Vidarbha Cricket Association Stadium, Jamtha"
-15,New Wanderers Stadium
-16,OUTsurance Oval
-17,"Punjab Cricket Association Stadium, Mohali"
-18,Green Park
-19,Newlands
-20,Subrata Roy Sahara Stadium
-21,Dr DY Patil Sports Academy
-22,Feroz Shah Kotla
-23,M Chinnaswamy Stadium
-24,Maharashtra Cricket Association Stadium
-25,Himachal Pradesh Cricket Association Stadium
-26,Buffalo Park
-27,SuperSport Park
-28,Sharjah Cricket Stadium
-29,Shaheed Veer Narayan Singh International Stadium
-30,Dr. Y.S. Rajasekhara Reddy ACA-VDCA Cricket Stadium
-31,Kingsmead
-32,Holkar Cricket Stadium
-33,"MA Chidambaram Stadium, Chepauk"
-34,Sawai Mansingh Stadium
-35,Newlands
-36,Feroz Shah Kotla
-37,SuperSport Park
-38,Green Park
-39,Brabourne Stadium
-40,"Punjab Cricket Association Stadium, Mohali"
-41,Nehru Stadium
-42,Holkar Cricket Stadium
-43,Maharashtra Cricket Association Stadium
-44,Sharjah Cricket Stadium
-45,Himachal Pradesh Cricket Association Stadium
-46,Wankhede Stadium
-47,Dubai International Cricket Stadium
-48,New Wanderers Stadium
-49,Shaheed Veer Narayan Singh International Stadium
-50,Barabati Stadium
-51,Sawai Mansingh Stadium
-52,St George's Park
-53,Sheikh Zayed Stadium
-54,Buffalo Park
-55,"Vidarbha Cricket Association Stadium, Jamtha"
-56,Saurashtra Cricket Association Stadium
-57,Subrata Roy Sahara Stadium
-58,"MA Chidambaram Stadium, Chepauk"
-59,OUTsurance Oval
-60,Eden Gardens
-61,Dr. Y.S. Rajasekhara Reddy ACA-VDCA Cricket Stadium
-62,De Beers Diamond Oval
-63,"Rajiv Gandhi International Stadium, Uppal"
-64,Kingsmead
-65,JSCA International Stadium Complex
-66,"Sardar Patel Stadium, Motera"
-67,Dr DY Patil Sports Academy
-68,M Chinnaswamy Stadium
+venue_id,venue_name,venue_location
+1,"MA Chidambaram Stadium, Chepauk",Chennai
+2,OUTsurance Oval,
+3,Barabati Stadium,
+4,St George's Park,
+5,De Beers Diamond Oval,
+6,Green Park,
+7,Dubai International Cricket Stadium,
+8,"Punjab Cricket Association Stadium, Mohali",
+9,Sharjah Cricket Stadium,
+10,Kingsmead,
+11,"Sardar Patel Stadium, Motera",Ahmedabad
+12,Brabourne Stadium,
+13,Buffalo Park,
+14,SuperSport Park,
+15,Dr. Y.S. Rajasekhara Reddy ACA-VDCA Cricket Stadium,
+16,"Rajiv Gandhi International Stadium, Uppal",
+17,Holkar Cricket Stadium,
+18,Dr DY Patil Sports Academy,
+19,Maharashtra Cricket Association Stadium,
+20,Sawai Mansingh Stadium,
+21,Subrata Roy Sahara Stadium,
+22,Sheikh Zayed Stadium,
+23,M Chinnaswamy Stadium,Bengaluru
+24,Saurashtra Cricket Association Stadium,
+25,New Wanderers Stadium,
+26,Feroz Shah Kotla,Delhi
+27,Shaheed Veer Narayan Singh International Stadium,
+28,Newlands,
+29,Eden Gardens,Kolkata
+30,Wankhede Stadium,Mumbai
+31,Nehru Stadium,
+32,Himachal Pradesh Cricket Association Stadium,
+33,"Vidarbha Cricket Association Stadium, Jamtha",
+34,JSCA International Stadium Complex,
