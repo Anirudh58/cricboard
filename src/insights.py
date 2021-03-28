@@ -8,6 +8,9 @@ import streamlit as st
 from src.core import runs_scored, balls_batted, dismissals
 # bowler
 from src.core import wickets_taken, balls_bowled, runs_given
+#fantasy
+from src.core import player_runs_by_match, player_wickets_by_match, player_points_by_match
+from src.core import player_runs_scored_against_bowling, player_wickets_taken_against_batting
 
 
 # GLOBAL CONSTANTS
@@ -55,7 +58,7 @@ player_id_name_map = dict(zip(df_player.player_id, df_player.player_name))
 
 # TODO: All time runs in IPL seems to have a minor discrepancy in our value and the value in IPL site. Check it later
 @st.cache
-def batting_total_runs(player_name, top_n, match_format, against_spin, against_pace, bowling_types, against_bowler, tournaments=None, venue_name=None, years_range=None, overs_range=None):
+def batting_total_runs(player_name, top_n, match_format, against_spin, against_pace, bowling_types, against_bowler, innings_number, tournaments=None, venue_name=None, years_range=None, overs_range=None):
     """
         Total runs for a player / top runs
         Args:
@@ -70,6 +73,7 @@ def batting_total_runs(player_name, top_n, match_format, against_spin, against_p
             against_spin - (boolean) mark it true if you want data only specific to spin. dont mark this if you supply 'against_bowler'
             against_pace - (boolean) mark it true if you want data only specific to pace. dont mark this if you supply 'against_bowler'
             against_bowler - (string) bowler name to find 1v1 data
+            innings_number - (int) - 1 -> batting first 2 -> batting second 0 -> both
     """
     
     if len(tournaments) > 0:
@@ -97,7 +101,7 @@ def batting_total_runs(player_name, top_n, match_format, against_spin, against_p
     if top_n == 0:
         # Getting the player id from the name
         player_id_to_consider = player_name_id_map[player_name]
-        result_runs = runs_scored(player=player_id_to_consider, against_spin=against_spin, against_pace=against_pace, bowling_types=bowling_types, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_bowler=bowler_to_consider)
+        result_runs = runs_scored(player=player_id_to_consider, against_spin=against_spin, against_pace=against_pace, bowling_types=bowling_types, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_bowler=bowler_to_consider, innings_number=innings_number)
     
         result_columns = ["player_name", "runs"]
         df_result = pd.DataFrame(columns = result_columns)
@@ -113,7 +117,7 @@ def batting_total_runs(player_name, top_n, match_format, against_spin, against_p
                 player_stat = {}
                 player_id_to_consider = player_dispname_id_map[player_i]
                 
-                result_runs = runs_scored(player=player_id_to_consider, against_spin=against_spin, against_pace=against_pace, bowling_types=bowling_types, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_bowler=bowler_to_consider)
+                result_runs = runs_scored(player=player_id_to_consider, against_spin=against_spin, against_pace=against_pace, bowling_types=bowling_types, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_bowler=bowler_to_consider, innings_number=innings_number)
                 
                 player_stat["player_name"] = player_id_name_map[player_id_to_consider]
                 player_stat["runs"] = result_runs
@@ -133,7 +137,7 @@ def batting_total_runs(player_name, top_n, match_format, against_spin, against_p
     return df_result
 
 @st.cache
-def batting_strike_rate(player_name, top_n, match_format, against_spin, against_pace, bowling_types, against_bowler, minimum_runs, tournaments=None, venue_name=None, years_range=None, overs_range=None):
+def batting_strike_rate(player_name, top_n, match_format, against_spin, against_pace, bowling_types, against_bowler, minimum_runs, innings_number, tournaments=None, venue_name=None, years_range=None, overs_range=None):
     """
         Strike rate for a player / top strike rates
         Args:
@@ -148,6 +152,7 @@ def batting_strike_rate(player_name, top_n, match_format, against_spin, against_
             against_spin - (boolean) mark it true if you want data only specific to spin. dont mark this if you supply 'against_bowler'
             against_pace - (boolean) mark it true if you want data only specific to pace. dont mark this if you supply 'against_bowler'
             against_bowler - (string) bowler name to find 1v1 data
+            innings_number - (int) - 1 -> batting first 2 -> batting second 0 -> both
     """
     
     if len(tournaments) > 0:
@@ -175,9 +180,9 @@ def batting_strike_rate(player_name, top_n, match_format, against_spin, against_
     if top_n == 0:
         # Getting the player id from the name
         player_id_to_consider = player_name_id_map[player_name]
-        result_runs = runs_scored(player=player_id_to_consider, against_spin=against_spin, against_pace=against_pace, bowling_types=bowling_types, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_bowler=bowler_to_consider)
+        result_runs = runs_scored(player=player_id_to_consider, against_spin=against_spin, against_pace=against_pace, bowling_types=bowling_types, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_bowler=bowler_to_consider, innings_number=innings_number)
         
-        result_balls = balls_batted(player=player_id_to_consider, against_spin=against_spin, against_pace=against_pace, bowling_types=bowling_types, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_bowler=bowler_to_consider)
+        result_balls = balls_batted(player=player_id_to_consider, against_spin=against_spin, against_pace=against_pace, bowling_types=bowling_types, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_bowler=bowler_to_consider, innings_number=innings_number)
         
         result_columns = ["player_name", "strike_rate"]
         df_result = pd.DataFrame(columns = result_columns)
@@ -199,9 +204,9 @@ def batting_strike_rate(player_name, top_n, match_format, against_spin, against_
                 player_stat = {}
                 player_id_to_consider = player_dispname_id_map[player_i]
                 
-                result_runs = runs_scored(player=player_id_to_consider, against_spin=against_spin, against_pace=against_pace, bowling_types=bowling_types, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_bowler=bowler_to_consider)
+                result_runs = runs_scored(player=player_id_to_consider, against_spin=against_spin, against_pace=against_pace, bowling_types=bowling_types, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_bowler=bowler_to_consider, innings_number=innings_number)
                 
-                result_balls = balls_batted(player=player_id_to_consider, against_spin=against_spin, against_pace=against_pace, bowling_types=bowling_types, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_bowler=bowler_to_consider)
+                result_balls = balls_batted(player=player_id_to_consider, against_spin=against_spin, against_pace=against_pace, bowling_types=bowling_types, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_bowler=bowler_to_consider, innings_number=innings_number)
                 
                 if result_balls == 0:
                     result_strike_rate = INF
@@ -227,7 +232,7 @@ def batting_strike_rate(player_name, top_n, match_format, against_spin, against_
     return df_result
 
 @st.cache
-def batting_average(player_name, top_n, match_format, against_spin, against_pace, bowling_types, against_bowler, minimum_runs, tournaments=None, venue_name=None, years_range=None, overs_range=None):
+def batting_average(player_name, top_n, match_format, against_spin, against_pace, bowling_types, against_bowler, minimum_runs, innings_number, tournaments=None, venue_name=None, years_range=None, overs_range=None):
     """
         Average for a player / top averages
         Args:
@@ -242,6 +247,7 @@ def batting_average(player_name, top_n, match_format, against_spin, against_pace
             against_spin - (boolean) mark it true if you want data only specific to spin. dont mark this if you supply 'against_bowler'
             against_pace - (boolean) mark it true if you want data only specific to pace. dont mark this if you supply 'against_bowler'
             against_bowler - (string) bowler name to find 1v1 data
+            innings_number - (int) - 1 -> batting first 2 -> batting second 0 -> both
     """
     
     if len(tournaments) > 0:
@@ -269,9 +275,9 @@ def batting_average(player_name, top_n, match_format, against_spin, against_pace
     if top_n == 0:
         # Getting the player id from the name
         player_id_to_consider = player_name_id_map[player_name]
-        result_runs = runs_scored(player=player_id_to_consider, against_spin=against_spin, against_pace=against_pace, bowling_types=bowling_types, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_bowler=bowler_to_consider)
+        result_runs = runs_scored(player=player_id_to_consider, against_spin=against_spin, against_pace=against_pace, bowling_types=bowling_types, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_bowler=bowler_to_consider, innings_number=innings_number)
         
-        result_dismissals = dismissals(player=player_id_to_consider, against_spin=against_spin, against_pace=against_pace, bowling_types=bowling_types, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_bowler=bowler_to_consider)
+        result_dismissals = dismissals(player=player_id_to_consider, against_spin=against_spin, against_pace=against_pace, bowling_types=bowling_types, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_bowler=bowler_to_consider, innings_number=innings_number)
         
         if result_dismissals == 0:
             result_average = INF
@@ -292,9 +298,9 @@ def batting_average(player_name, top_n, match_format, against_spin, against_pace
                 player_stat = {}
                 player_id_to_consider = player_dispname_id_map[player_i]
                 
-                result_runs = runs_scored(player=player_id_to_consider, against_spin=against_spin, against_pace=against_pace, bowling_types=bowling_types, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_bowler=bowler_to_consider)
+                result_runs = runs_scored(player=player_id_to_consider, against_spin=against_spin, against_pace=against_pace, bowling_types=bowling_types, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_bowler=bowler_to_consider, innings_number=innings_number)
                 
-                result_dismissals = dismissals(player=player_id_to_consider, against_spin=against_spin, against_pace=against_pace, bowling_types=bowling_types, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_bowler=bowler_to_consider)
+                result_dismissals = dismissals(player=player_id_to_consider, against_spin=against_spin, against_pace=against_pace, bowling_types=bowling_types, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_bowler=bowler_to_consider, innings_number=innings_number)
                 
                 if result_dismissals == 0:
                     result_average = INF
@@ -321,7 +327,7 @@ def batting_average(player_name, top_n, match_format, against_spin, against_pace
 
 
 @st.cache
-def batting_dismissals(player_name, top_n, match_format, against_spin, against_pace, bowling_types, against_bowler, tournaments=None, venue_name=None, years_range=None, overs_range=None):
+def batting_dismissals(player_name, top_n, match_format, against_spin, against_pace, bowling_types, against_bowler, innings_number, tournaments=None, venue_name=None, years_range=None, overs_range=None):
     """
         Average for a player / top averages
         Args:
@@ -336,6 +342,7 @@ def batting_dismissals(player_name, top_n, match_format, against_spin, against_p
             against_spin - (boolean) mark it true if you want data only specific to spin. dont mark this if you supply 'against_bowler'
             against_pace - (boolean) mark it true if you want data only specific to pace. dont mark this if you supply 'against_bowler'
             against_bowler - (string) bowler name to find 1v1 data
+            innings_number - (int) - 1 -> batting first 2 -> batting second 0 -> both
     """
     
     if len(tournaments) > 0:
@@ -364,7 +371,7 @@ def batting_dismissals(player_name, top_n, match_format, against_spin, against_p
         # Getting the player id from the name
         player_id_to_consider = player_name_id_map[player_name]
         
-        result_dismissals = dismissals(player=player_id_to_consider, against_spin=against_spin, against_pace=against_pace, bowling_types=bowling_types, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_bowler=bowler_to_consider)
+        result_dismissals = dismissals(player=player_id_to_consider, against_spin=against_spin, against_pace=against_pace, bowling_types=bowling_types, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_bowler=bowler_to_consider, innings_number=innings_number)
         
         
         result_columns = ["player_name", "dismissals"]
@@ -381,7 +388,7 @@ def batting_dismissals(player_name, top_n, match_format, against_spin, against_p
                 player_stat = {}
                 player_id_to_consider = player_dispname_id_map[player_i]
                 
-                result_dismissals = dismissals(player=player_id_to_consider, against_spin=against_spin, against_pace=against_pace, bowling_types=bowling_types, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_bowler=bowler_to_consider)
+                result_dismissals = dismissals(player=player_id_to_consider, against_spin=against_spin, against_pace=against_pace, bowling_types=bowling_types, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_bowler=bowler_to_consider, innings_number=innings_number)
                 
                 player_stat["player_name"] = player_id_name_map[player_id_to_consider]
                 player_stat["dismissals"] = result_dismissals
@@ -407,7 +414,7 @@ def batting_dismissals(player_name, top_n, match_format, against_spin, against_p
 ################################### BOWLER INSIGHTS ###################################
 
 @st.cache
-def total_wickets(player_name, top_n, match_format, against_batsman, batting_types, tournaments=None, venue_name=None, years_range=None, overs_range=None):
+def total_wickets(player_name, top_n, match_format, against_batsman, batting_types, innings_number, tournaments=None, venue_name=None, years_range=None, overs_range=None):
     """
         Total wickets taken by a player / top wicket takers
         Args:
@@ -420,6 +427,7 @@ def total_wickets(player_name, top_n, match_format, against_batsman, batting_typ
             venue_name - (string) name of venue. 
             years_range - (list) 2 member list of start and end year
             overs_range - (string) should be in the format 'a-b'. eg: "0-6"
+            innings_number - (int) - 1 -> batting first 2 -> batting second 0 -> both
     """
     
     if len(tournaments) > 0:
@@ -447,7 +455,7 @@ def total_wickets(player_name, top_n, match_format, against_batsman, batting_typ
     if top_n == 0:
         # Getting the player id from the name
         player_id_to_consider = player_name_id_map[player_name]
-        result_wickets = wickets_taken(player=player_id_to_consider, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_batsman=batter_to_consider, batting_types=batting_types)
+        result_wickets = wickets_taken(player=player_id_to_consider, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_batsman=batter_to_consider, batting_types=batting_types, innings_number=innings_number)
     
         result_columns = ["player_name", "wickets"]
         df_result = pd.DataFrame(columns = result_columns)
@@ -463,7 +471,7 @@ def total_wickets(player_name, top_n, match_format, against_batsman, batting_typ
                 players_stat = {}
                 player_id_to_consider = player_dispname_id_map[player_i]
                 
-                result_wickets = wickets_taken(player=player_id_to_consider, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_batsman=batter_to_consider, batting_types=batting_types)
+                result_wickets = wickets_taken(player=player_id_to_consider, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_batsman=batter_to_consider, batting_types=batting_types, innings_number=innings_number)
                 
                 players_stat["player_name"] = player_id_name_map[player_id_to_consider]
                 players_stat["wickets"] = result_wickets
@@ -483,7 +491,7 @@ def total_wickets(player_name, top_n, match_format, against_batsman, batting_typ
     return df_result
 
 @st.cache
-def bowling_strike_rate(player_name, top_n, minimum_balls, match_format, against_batsman, batting_types, tournaments=None, venue_name=None, years_range=None, overs_range=None):
+def bowling_strike_rate(player_name, top_n, minimum_balls, match_format, against_batsman, batting_types, innings_number, tournaments=None, venue_name=None, years_range=None, overs_range=None):
     """
         Total wickets taken by a player / top wicket takers
         Args:
@@ -497,6 +505,7 @@ def bowling_strike_rate(player_name, top_n, minimum_balls, match_format, against
             venue_name - (string) name of venue. 
             years_range - (list) 2 member list of start and end year
             overs_range - (string) should be in the format 'a-b'. eg: "0-6"
+            innings_number - (int) - 1 -> batting first 2 -> batting second 0 -> both
     """
     
     if len(tournaments) > 0:
@@ -524,9 +533,9 @@ def bowling_strike_rate(player_name, top_n, minimum_balls, match_format, against
     if top_n == 0:
         # Getting the player id from the name
         player_id_to_consider = player_name_id_map[player_name]
-        result_wickets = wickets_taken(player=player_id_to_consider, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_batsman=batter_to_consider, batting_types=batting_types)
+        result_wickets = wickets_taken(player=player_id_to_consider, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_batsman=batter_to_consider, batting_types=batting_types, innings_number=innings_number)
         
-        result_balls = balls_bowled(player=player_id_to_consider, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_batsman=batter_to_consider, batting_types=batting_types)
+        result_balls = balls_bowled(player=player_id_to_consider, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_batsman=batter_to_consider, batting_types=batting_types, innings_number=innings_number)
         
         if result_wickets == 0:
             result_strike_rate = INF
@@ -547,9 +556,9 @@ def bowling_strike_rate(player_name, top_n, minimum_balls, match_format, against
                 player_stat = {}
                 player_id_to_consider = player_dispname_id_map[player_i]
                 
-                result_wickets = wickets_taken(player=player_id_to_consider, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_batsman=batter_to_consider, batting_types=batting_types)
+                result_wickets = wickets_taken(player=player_id_to_consider, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_batsman=batter_to_consider, batting_types=batting_types, innings_number=innings_number)
                 
-                result_balls = balls_bowled(player=player_id_to_consider, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_batsman=batter_to_consider, batting_types=batting_types)
+                result_balls = balls_bowled(player=player_id_to_consider, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_batsman=batter_to_consider, batting_types=batting_types, innings_number=innings_number)
                 
                 if result_wickets == 0:
                     result_strike_rate = INF
@@ -576,7 +585,7 @@ def bowling_strike_rate(player_name, top_n, minimum_balls, match_format, against
 
 
 @st.cache
-def bowling_average(player_name, top_n, minimum_balls, match_format, against_batsman, batting_types, tournaments=None, venue_name=None, years_range=None, overs_range=None):
+def bowling_average(player_name, top_n, minimum_balls, match_format, against_batsman, batting_types, innings_number, tournaments=None, venue_name=None, years_range=None, overs_range=None):
     """
         Total wickets taken by a player / top wicket takers
         Args:
@@ -590,6 +599,7 @@ def bowling_average(player_name, top_n, minimum_balls, match_format, against_bat
             venue_name - (string) name of venue. 
             years_range - (list) 2 member list of start and end year
             overs_range - (string) should be in the format 'a-b'. eg: "0-6"
+            innings_number - (int) - 1 -> batting first 2 -> batting second 0 -> both
     """
     
     
@@ -618,9 +628,9 @@ def bowling_average(player_name, top_n, minimum_balls, match_format, against_bat
     if top_n == 0:
         # Getting the player id from the name
         player_id_to_consider = player_name_id_map[player_name]
-        result_wickets = wickets_taken(player=player_id_to_consider, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_batsman=batter_to_consider, batting_types=batting_types)
+        result_wickets = wickets_taken(player=player_id_to_consider, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_batsman=batter_to_consider, batting_types=batting_types, innings_number=innings_number)
         
-        result_runs = runs_given(player=player_id_to_consider, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_batsman=batter_to_consider, batting_types=batting_types)
+        result_runs = runs_given(player=player_id_to_consider, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_batsman=batter_to_consider, batting_types=batting_types, innings_number=innings_number)
         
         if result_wickets == 0:
             result_average = INF
@@ -641,11 +651,11 @@ def bowling_average(player_name, top_n, minimum_balls, match_format, against_bat
                 player_stat = {}
                 player_id_to_consider = player_dispname_id_map[player_i]
                 
-                result_wickets = wickets_taken(player=player_id_to_consider, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_batsman=batter_to_consider, batting_types=batting_types)
+                result_wickets = wickets_taken(player=player_id_to_consider, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_batsman=batter_to_consider, batting_types=batting_types, innings_number=innings_number)
                 
-                result_runs = runs_given(player=player_id_to_consider, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_batsman=batter_to_consider, batting_types=batting_types)
+                result_runs = runs_given(player=player_id_to_consider, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_batsman=batter_to_consider, batting_types=batting_types, innings_number=innings_number)
                 
-                result_balls = balls_bowled(player=player_id_to_consider, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_batsman=batter_to_consider, batting_types=batting_types)
+                result_balls = balls_bowled(player=player_id_to_consider, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_batsman=batter_to_consider, batting_types=batting_types, innings_number=innings_number)
                 
                 if result_wickets == 0:
                     result_average = INF
@@ -672,7 +682,7 @@ def bowling_average(player_name, top_n, minimum_balls, match_format, against_bat
 
 
 @st.cache
-def bowling_economy(player_name, top_n, minimum_balls, match_format, against_batsman, batting_types, tournaments=None, venue_name=None, years_range=None, overs_range=None):
+def bowling_economy(player_name, top_n, minimum_balls, match_format, against_batsman, batting_types, innings_number, tournaments=None, venue_name=None, years_range=None, overs_range=None):
     """
         Total wickets taken by a player / top wicket takers
         Args:
@@ -686,6 +696,7 @@ def bowling_economy(player_name, top_n, minimum_balls, match_format, against_bat
             venue_name - (string) name of venue. 
             years_range - (list) 2 member list of start and end year
             overs_range - (string) should be in the format 'a-b'. eg: "0-6"
+            innings_number - (int) - 1 -> batting first 2 -> batting second 0 -> both
     """
     
     
@@ -714,9 +725,9 @@ def bowling_economy(player_name, top_n, minimum_balls, match_format, against_bat
     if top_n == 0:
         # Getting the player id from the name
         player_id_to_consider = player_name_id_map[player_name]
-        result_balls = balls_bowled(player=player_id_to_consider, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_batsman=batter_to_consider, batting_types=batting_types)
+        result_balls = balls_bowled(player=player_id_to_consider, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_batsman=batter_to_consider, batting_types=batting_types, innings_number=innings_number)
         
-        result_runs = runs_given(player=player_id_to_consider, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_batsman=batter_to_consider, batting_types=batting_types)
+        result_runs = runs_given(player=player_id_to_consider, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_batsman=batter_to_consider, batting_types=batting_types, innings_number=innings_number)
         
         if result_balls == 0:
             result_economy = INF
@@ -737,9 +748,9 @@ def bowling_economy(player_name, top_n, minimum_balls, match_format, against_bat
                 player_stat = {}
                 player_id_to_consider = player_dispname_id_map[player_i]
                 
-                result_balls = balls_bowled(player=player_id_to_consider, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_batsman=batter_to_consider, batting_types=batting_types)
+                result_balls = balls_bowled(player=player_id_to_consider, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_batsman=batter_to_consider, batting_types=batting_types, innings_number=innings_number)
         
-                result_runs = runs_given(player=player_id_to_consider, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_batsman=batter_to_consider, batting_types=batting_types)
+                result_runs = runs_given(player=player_id_to_consider, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_batsman=batter_to_consider, batting_types=batting_types, innings_number=innings_number)
                 
                 if result_balls == 0:
                     result_economy = INF
@@ -769,42 +780,105 @@ def bowling_economy(player_name, top_n, minimum_balls, match_format, against_bat
 
 ################################### FANTASY INSIGHTS ###################################
 
-
+@st.cache
 def fantasy_runs_comparison(recency_parameter, players_list):
     """
-    Returns a dataframe 
+    Returns a dataframe denoting runs vs matches
     Args:
         players_list: list of players to do runs comparison againstReturns a dataframe 
+        recency_parameter - (int) denoting how many matches in the past you want data from
     """
-    #TODO
-    num_players = len(players_list)
-    df_result = pd.DataFrame(np.random.randn(recency_parameter, num_players), columns=players_list)
+
+    players_runs = []
+    for player_name in players_list:
+        player_id_to_consider = player_name_id_map[player_name]
+        players_runs.append(player_runs_by_match(player_id_to_consider, recency_parameter))
+    players_runs = np.flip(np.transpose(np.array(players_runs)), 0)
+    df_result = pd.DataFrame(players_runs, columns=players_list)
     
     return df_result
 
+@st.cache
 def fantasy_wickets_comparison(recency_parameter, players_list):
     """
-    Returns a dataframe 
+    Returns a dataframe denoting wickets vs matches
     Args:
         players_list: list of players to do runs comparison againstReturns a dataframe 
+        recency_parameter - (int) denoting how many matches in the past you want data from
     """
-    #TODO
-    num_players = len(players_list)
-    df_result = pd.DataFrame(np.random.randn(recency_parameter, num_players), columns=players_list)
+    
+    players_wickets = []
+    for player_name in players_list:
+        player_id_to_consider = player_name_id_map[player_name]
+        players_wickets.append(player_wickets_by_match(player_id_to_consider, recency_parameter))
+    players_wickets = np.flip(np.transpose(np.array(players_wickets)), 0)
+    df_result = pd.DataFrame(players_wickets, columns=players_list)
     
     return df_result
 
+@st.cache
 def fantasy_points_comparison(recency_parameter, players_list):
     """
-    Returns a dataframe 
+    Returns a dataframe denoting points vs matches
     Args:
         players_list: list of players to do runs comparison againstReturns a dataframe 
+        recency_parameter - (int) denoting how many matches in the past you want data from
     """
-    #TODO
-    num_players = len(players_list)
-    df_result = pd.DataFrame(np.random.randn(recency_parameter, num_players), columns=players_list)
+    
+    players_points = []
+    for player_name in players_list:
+        player_id_to_consider = player_name_id_map[player_name]
+        players_points.append(player_points_by_match(player_id_to_consider, recency_parameter))
+    players_points = np.flip(np.transpose(np.array(players_points)), 0)
+    df_result = pd.DataFrame(players_points, columns=players_list)
     
     return df_result
 
+def fantasy_runs_scored_against_bowling(recency_parameter, player_name):
+    """
+    Returns a dataframe denoting runs scored against different bowling types
+    Args:
+        player_name: player name
+        recency_parameter - (int) denoting how many matches in the past you want data from
+    """
+    
+    player_id_to_consider = player_name_id_map[player_name]
+    bowling_types = ["Right arm Off spin", "Left arm Orthodox", "Right arm wrist spin", "Right arm Pace", "Left arm Pace", "Left arm wrist"]
+    runs_against_bowling_types = player_runs_scored_against_bowling(player_id_to_consider, recency_parameter)
+    runs_against_bowling_types = np.diag(runs_against_bowling_types)
+    
+    df_result = pd.DataFrame(runs_against_bowling_types, columns=bowling_types)
+    
+    return df_result
+
+def fantasy_wickets_taken_against_batting(recency_parameter, player_name):
+    """
+    Returns a dataframe denoting wickets taken against different batting types
+    Args:
+        player_name: player name
+        recency_parameter - (int) denoting how many matches in the past you want data from
+    """
+    
+    player_id_to_consider = player_name_id_map[player_name]
+    batting_types = ["Left-hand bat", "Right-hand bat"]
+    wickets_against_batting_types = player_wickets_taken_against_batting(player_id_to_consider, recency_parameter)
+    wickets_against_batting_types = np.diag(wickets_against_batting_types)
+    
+    df_result = pd.DataFrame(wickets_against_batting_types, columns=batting_types)
+    
+    return df_result
+
+def fantasy_runs_scored_comparison(players_list, selected_match, this_venue_bool, this_opposition_bool, innings_number):
+    """
+    Returns a list of runs for each player with the given conditions
+    Args:
+        players_list: list of players to do runs comparison againstReturns a dataframe 
+        selected_match - (string) of the form "Mumbai Indians vs Royal Challengers Bangalore"
+        this_venue_bool - (bool) should the stats be this venue specific? What venue is calculated based on selected_match
+        this_opposition_bool - (bool) should the stats be this opposition specific?
+        innings_number - (int) - 1 -> batting first 2 -> batting second 0 -> both
+    """
+    
+    pass
 
 ################################### END FANTASY INSIGHTS ###################################
