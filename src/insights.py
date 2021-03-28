@@ -29,6 +29,9 @@ else:
 
 # Global variables
 
+df_schedule = pd.read_csv(os.path.join(clean_data_path, "schedule.csv"))
+df_schedule = df_schedule.loc[:, ~df_schedule.columns.str.contains('^Unnamed')]
+
 df_tournament = pd.read_csv(os.path.join(clean_data_path, "tournament.csv"))
 df_tournament = df_tournament.loc[:, ~df_tournament.columns.str.contains('^Unnamed')]
 tournament_id_map = dict(zip(df_tournament.tournament_name, df_tournament.tournament_id))
@@ -879,6 +882,57 @@ def fantasy_runs_scored_comparison(players_list, selected_match, this_venue_bool
         innings_number - (int) - 1 -> batting first 2 -> batting second 0 -> both
     """
     
-    pass
+    venue_selected_match = df_schedule[df_schedule['match_display_name'].str.contains(selected_match)]['venue'].iloc[0]
+    
+    team_1_id = team_id_map[selected_match.split(" vs ")[0]]
+    team_2_id = team_id_map[selected_match.split(" vs ")[1]]
+    
+    against_spin=False
+    against_pace=False
+    against_bowler='ALL'
+    bowling_types = {
+        "right_arm_pace_bool" : False,
+        "left_arm_pace_bool" : False,
+        "right_arm_wrist_spin_bool" : False,
+        "right_arm_off_spin_bool" : False,
+        "left_arm_orthodox_bool" : False,
+        "left_arm_wrist_bool" : False
+    }
+    
+    player_runs = []
+    for player_name in players_list:
+        player_id_to_consider = player_name_id_map[player_name]
+        player_runs.append(runs_scored(player=player_id_to_consider, against_spin=against_spin, against_pace=against_pace, bowling_types=bowling_types, against_bowler=against_bowler, innings_number=innings_number))
+        
+    return player_runs
+
+def fantasy_wickets_taken_comparison(players_list, selected_match, this_venue_bool, this_opposition_bool, innings_number):
+    """
+    Returns a list of wickets for each player with the given conditions
+    Args:
+        players_list: list of players to do runs comparison againstReturns a dataframe 
+        selected_match - (string) of the form "Mumbai Indians vs Royal Challengers Bangalore"
+        this_venue_bool - (bool) should the stats be this venue specific? What venue is calculated based on selected_match
+        this_opposition_bool - (bool) should the stats be this opposition specific?
+        innings_number - (int) - 1 -> batting first 2 -> batting second 0 -> both
+    """
+    
+    venue_selected_match = df_schedule[df_schedule['match_display_name'].str.contains(selected_match)]['venue'].iloc[0]
+    
+    team_1_id = team_id_map[selected_match.split(" vs ")[0]]
+    team_2_id = team_id_map[selected_match.split(" vs ")[1]]
+    
+    against_batsman='ALL'
+    batting_types = {
+        "lh_bat_bool" : False,
+        "rh_bat_bool" : False
+    }
+    
+    player_wickets = []
+    for player_name in players_list:
+        player_id_to_consider = player_name_id_map[player_name]
+        player_wickets.append(wickets_taken(player=player_id_to_consider, against_batsman=against_batsman, batting_types=batting_types, innings_number=innings_number))
+        
+    return player_wickets
 
 ################################### END FANTASY INSIGHTS ###################################
