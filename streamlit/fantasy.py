@@ -18,7 +18,7 @@ import streamlit as st
 # my lib
 from src.insights import fantasy_runs_comparison, fantasy_wickets_comparison, fantasy_points_comparison
 from src.insights import fantasy_runs_scored_against_bowling, fantasy_wickets_taken_against_batting
-from src.insights import fantasy_runs_scored_comparison, fantasy_wickets_taken_comparison
+from src.insights import fantasy_runs_scored_comparison, fantasy_wickets_taken_comparison, fantasy_points_obtained_comparison
 
 # Config variables
 raw_data_path = "raw_data"
@@ -41,6 +41,11 @@ df_player = df_player.loc[:, ~df_player.columns.str.contains('^Unnamed')]
 player_dispname_id_map = dict(zip(df_player.player_display_name, df_player.player_id))
 player_name_id_map = dict(zip(df_player.player_name, df_player.player_id))
 player_id_name_map = dict(zip(df_player.player_id, df_player.player_name))
+
+df_venue = pd.read_csv(os.path.join(clean_data_path, "venue.csv"))
+df_venue = df_venue.loc[:, ~df_venue.columns.str.contains('^Unnamed')]
+venue_id_map = dict(zip(df_venue.venue_name, df_venue.venue_id))
+venue_location_name_map = dict(zip(df_venue.venue_location, df_venue.venue_name))
 
 @st.cache
 def choose_matches(match_date):
@@ -123,7 +128,7 @@ def populate_opposition_batters(player, selected_match):
     return df_result
 
 def main(match_format):
-    st.title("Fantasy - UI Rough Design")
+    st.title("Fantasy")
     st.markdown("Helping you pick your best Dream 11 team")
     
     # Main input section
@@ -137,17 +142,20 @@ def main(match_format):
         selected_match = st.selectbox("Choose match", options=choose_matches(match_date))
         venue_selected_match = ""
         if selected_match:
-            venue_selected_match = df_schedule[df_schedule['match_display_name'].str.contains(selected_match)]['venue'].iloc[0]
-            st.write("Venue: ", venue_selected_match)
+            venue_selected_match = venue_location_name_map[df_schedule[df_schedule['match_display_name'].str.contains(selected_match)]['venue'].iloc[0]]
+            #st.write("Venue: ", venue_selected_match)
                 
                 
     col1, col2, col3 = st.beta_columns((1, 2, 1))
     
     with col2:
         players_list = st.multiselect("Choose players to compare:", options=populate_players(selected_match))  
-            
-    
-    
+        
+        
+    col1, col2, col3 = st.beta_columns((5, 4, 5))
+    with col2:
+        st.header("ALL-TIME STATS COMPARISON")
+        
     col1, col2, col3, col4 = st.beta_columns((1, 1, 1, 1))
     
     with col2:
@@ -167,7 +175,7 @@ def main(match_format):
             y_pos = np.arange(len(players_list))
             hbars = ax.barh(y_pos, stats, height=0.25)
             for i, v in enumerate(stats):
-                ax.text(v + 3, i+0.05, str(v), color='black')
+                ax.text(v, i+0.05, str(v), color='black')
             ax.set_yticks(y_pos)
             ax.set_yticklabels(players_list)
             ax.invert_yaxis()  # labels read top-to-bottom
@@ -183,72 +191,91 @@ def main(match_format):
             y_pos = np.arange(len(players_list))
             hbars = ax.barh(y_pos, stats, height=0.25)
             for i, v in enumerate(stats):
-                ax.text(v + 3, i+0.05, str(v), color='black')
+                ax.text(v, i+0.05, str(v), color='black')
             ax.set_yticks(y_pos)
             ax.set_yticklabels(players_list)
             ax.invert_yaxis()  # labels read top-to-bottom
-            ax.set_xlabel('Runs')
-            ax.set_title('All time runs comparison')
+            ax.set_xlabel('Wickets')
+            ax.set_title('All time wickets comparison')
             st.pyplot(fig)
             
     with col3:
         if selected_match:
-            stats = fantasy_runs_scored_comparison(players_list, selected_match, this_venue_bool, this_opposition_bool, innings_number)
+            stats = fantasy_points_obtained_comparison(players_list, selected_match, this_venue_bool, this_opposition_bool, innings_number)
 
             fig, ax = plt.subplots()
             y_pos = np.arange(len(players_list))
             hbars = ax.barh(y_pos, stats, height=0.25)
             for i, v in enumerate(stats):
-                ax.text(v + 3, i+0.05, str(v), color='black')
+                ax.text(v, i+0.05, str(v), color='black')
             ax.set_yticks(y_pos)
             ax.set_yticklabels(players_list)
             ax.invert_yaxis()  # labels read top-to-bottom
             ax.set_xlabel('Runs')
-            ax.set_title('All time runs comparison')
+            ax.set_title('All time points comparison')
             st.pyplot(fig)
+            
+    col1, col2, col3 = st.beta_columns((4, 3, 4))
+    with col2:
+        st.header("RECENT FORM COMPARISON")
             
     col1, col2, col3 = st.beta_columns((1, 2, 1))
     
     with col2:
-        recency_parameter = st.slider("Recency parameter ", min_value=1, max_value=20, value=1, step=1, format="%d")
+        recency_parameter = st.slider("Recency parameter (Past n matches) ", min_value=1, max_value=20, value=1, step=1, format="%d")
     
     # Output section
     col1, col2, col3 = st.beta_columns((1, 1, 1))
     
     # Runs scored
     with col1:
-        st.subheader("Runs Comparison")
+        player_runs = fantasy_runs_comparison(recency_parameter, players_list)
         if len(players_list) > 0:
-            st.line_chart(fantasy_runs_comparison(recency_parameter, players_list))
-            
+            fig, ax = plt.subplots()
+            plot_handles = []
+            for i in range(len(players_list)):
+                p, = ax.plot(range(1, recency_parameter+1), player_runs[i], label=players_list[i])
+                plot_handles.append(p)
+            ax.legend(handles=plot_handles, bbox_to_anchor=(1.01, 1), loc='upper left', prop={'size': 7})
+            ax.set_title('Runs Comparison (Recent Form)')
+            ax.set_xlabel('Matches')
+            ax.set_ylabel('Runs')
+            st.pyplot(fig)
+    
     # Wickets taken
     with col2:
-        st.subheader("Wickets Comparison")
+        player_wickets = fantasy_wickets_comparison(recency_parameter, players_list)
         if len(players_list) > 0:
-            st.line_chart(fantasy_wickets_comparison(recency_parameter, players_list))
+            fig, ax = plt.subplots()
+            plot_handles = []
+            for i in range(len(players_list)):
+                p, = ax.plot(range(1, recency_parameter+1), player_wickets[i], label=players_list[i])
+                plot_handles.append(p)
+            ax.legend(handles=plot_handles, bbox_to_anchor=(1.01, 1), loc='upper left', prop={'size': 7})
+            ax.set_title('Wickets Comparison (Recent Form)')
+            ax.set_xlabel('Matches')
+            ax.set_ylabel('Wickets')
+            st.pyplot(fig)
         
     # Fantasy points
     with col3:
-        st.subheader("Points Comparison")
+        player_points = fantasy_points_comparison(recency_parameter, players_list)
         if len(players_list) > 0:
-            st.line_chart(fantasy_points_comparison(recency_parameter, players_list))
-        
-        '''
-        if selected_match:
-            stats = fantasy_wickets_taken_comparison(players_list, selected_match, this_venue_bool, this_opposition_bool, innings_number)
-
             fig, ax = plt.subplots()
-            y_pos = np.arange(len(players_list))
-            hbars = ax.barh(y_pos, stats, height=0.25)
-            for i, v in enumerate(stats):
-                ax.text(v + 3, i+0.05, str(v), color='black')
-            ax.set_yticks(y_pos)
-            ax.set_yticklabels(players_list)
-            ax.invert_yaxis()  # labels read top-to-bottom
-            ax.set_xlabel('Runs')
-            ax.set_title('All time wickets comparison')
+            plot_handles = []
+            for i in range(len(players_list)):
+                p, = ax.plot(range(1, recency_parameter+1), player_points[i], label=players_list[i])
+                plot_handles.append(p)
+            ax.legend(handles=plot_handles, bbox_to_anchor=(1.01, 1), loc='upper left', prop={'size': 7})
+            ax.set_title('Points Comparison (Recent Form)')
+            ax.set_xlabel('Matches')
+            ax.set_ylabel('Points')
             st.pyplot(fig)
     
+    
+    '''
+    #OLD UI
+        
     for player in players_list:
         st.header(player)
         col1, col2, col3, col4 = st.beta_columns((1, 1, 1, 1))
