@@ -62,11 +62,13 @@ player_name_id_map = dict(zip(df_player.player_name, df_player.player_id))
 df_match = pd.read_csv(os.path.join(clean_data_path, "match.csv"))
 df_match = df_match.loc[:, ~df_match.columns.str.contains('^Unnamed')]
 match_id_date_map = {}
+match_id_match_map = {}
 for index, row in df_match.iterrows():
     date_string = strip_special_chars(row['match_date'].split(',')[0])
     date_obj = datetime.date(*map(int, date_string.split('-')))
     match_id = row['match_id']
     match_id_date_map[match_id] = date_obj
+    match_id_match_map[match_id] = row
 
 df_ball = pd.read_csv(os.path.join(clean_data_path, "ball.csv"))
 df_ball = df_ball.loc[:, ~df_ball.columns.str.contains('^Unnamed')]
@@ -579,40 +581,79 @@ def runs_given(player, against_batsman, batting_types, innings_number, tournamen
 
 ################################### FANTASY CORE ###################################
 
-def player_runs_by_match(player, recency_parameter):
+def player_runs_by_match(player, recency_parameter, venue_id, innings_number, opponent_team_id):
     """
         Get a list of runs scored by this player in the past 'recency_parameter' matches
         Args:
             player - (int) id of target player
             recency_parameter - (int) denoting how many matches in the past you want data from
+            venue_id - (int) denoting the venue of matches to consider. 0 -> all venues
+            innings_number - (int) - 1 -> batting first 2 -> batting second 0 -> both
+            opponent_team_id - (int) denoting the opponent id to consider. 0 -> all opponents
     """
-    # Grab top 'recency_parameter' matches played by this player sorted in reverse chronological order
-    required_matches = sorted(fantasy_obj[player].keys(), key=lambda match_id: match_id_date_map[match_id], reverse=True)[0:recency_parameter]
     
+    # Grab top 'recency_parameter' matches played by this player sorted in reverse chronological order
+    if recency_parameter == 0:
+        required_matches = sorted(fantasy_obj[player].keys(), key=lambda match_id: match_id_date_map[match_id], reverse=True)
+    else :
+        required_matches = sorted(fantasy_obj[player].keys(), key=lambda match_id: match_id_date_map[match_id], reverse=True)[0:recency_parameter]
+
     match_runs = []
     for match in required_matches:
         total_runs_scored = 0
+
+        # select matches in the venue_id
+        if (venue_id != 0) and (match_id_match_map[match]["venue_id"] != venue_id):
+            continue
+
+        # select matches with player in innings_number
+        if (innings_number != 0) and (fantasy_obj[player][match]['batting_innings'] != innings_number):
+            continue
+
+        # select matches against opponent_team_id
+        if (opponent_team_id != 0) and not((fantasy_obj[player][match]['batting_innings'] == 1 and match_id_match_map[match]["chasing_team"] == opponent_team_id) or (fantasy_obj[player][match]['batting_innings'] == 2 and match_id_match_map[match]["batting_team"] == opponent_team_id)):
+            continue
+
         # iterate over each bowling type to calculate total runs
         for bowling_type in fantasy_obj[player][match]['runs_scored']:
             total_runs_scored += fantasy_obj[player][match]['runs_scored'][bowling_type]
         match_runs.append(total_runs_scored)
-    
+
     # reversing the array before sending for appropriate plotting
     return match_runs[::-1]
 
-def player_wickets_by_match(player, recency_parameter):
+def player_wickets_by_match(player, recency_parameter, venue_id, innings_number, opponent_team_id):
     """
         Get a list of wickets taken by this player in the past 'recency_parameter' matches
         Args:
             player - (int) id of target player
             recency_parameter - (int) denoting how many matches in the past you want data from
+            venue_id - (int) denoting the venue of matches to consider. 0 -> all venues
+            innings_number - (int) - 1 -> batting first 2 -> batting second 0 -> both
+            opponent_team_id - (int) denoting the opponent id to consider. 0 -> all opponents
     """
     # Grab top 'recency_parameter' matches played by this player sorted in reverse chronological order
-    required_matches = sorted(fantasy_obj[player].keys(), key=lambda match_id: match_id_date_map[match_id], reverse=True)[0:recency_parameter]
+    if recency_parameter == 0:
+        required_matches = sorted(fantasy_obj[player].keys(), key=lambda match_id: match_id_date_map[match_id], reverse=True)
+    else :
+        required_matches = sorted(fantasy_obj[player].keys(), key=lambda match_id: match_id_date_map[match_id], reverse=True)[0:recency_parameter]
     
     match_wickets = []
     for match in required_matches:
         total_wickets_taken = 0
+
+        # select matches in the venue_id
+        if (venue_id != 0) and (match_id_match_map[match]["venue_id"] != venue_id):
+            continue
+
+        # select matches with player in innings_number
+        if (innings_number != 0) and (fantasy_obj[player][match]['batting_innings'] != innings_number):
+            continue
+
+        # select matches against opponent_team_id
+        if (opponent_team_id != 0) and not((fantasy_obj[player][match]['batting_innings'] == 1 and match_id_match_map[match]["chasing_team"] == opponent_team_id) or (fantasy_obj[player][match]['batting_innings'] == 2 and match_id_match_map[match]["batting_team"] == opponent_team_id)):
+            continue
+
         # iterate over each bowling type to calculate total runs
         for batting_type in fantasy_obj[player][match]['wickets_taken']:
             total_wickets_taken += fantasy_obj[player][match]['wickets_taken'][batting_type]
@@ -621,18 +662,36 @@ def player_wickets_by_match(player, recency_parameter):
     # reversing the array before sending for appropriate plotting
     return match_wickets[::-1]
 
-def player_points_by_match(player, recency_parameter):
+def player_points_by_match(player, recency_parameter, venue_id, innings_number, opponent_team_id):
     """
         Get a list of points obtained by this player in the past 'recency_parameter' matches
         Args:
             player - (int) id of target player
             recency_parameter - (int) denoting how many matches in the past you want data from
+            venue_id - (int) denoting the venue of matches to consider. 0 -> all venues
+            innings_number - (int) - 1 -> batting first 2 -> batting second 0 -> both
+            opponent_team_id - (int) denoting the opponent id to consider. 0 -> all opponents
     """
     # Grab top 'recency_parameter' matches played by this player sorted in reverse chronological order
-    required_matches = sorted(fantasy_obj[player].keys(), key=lambda match_id: match_id_date_map[match_id], reverse=True)[0:recency_parameter]
+    if recency_parameter == 0:
+        required_matches = sorted(fantasy_obj[player].keys(), key=lambda match_id: match_id_date_map[match_id], reverse=True)
+    else :
+        required_matches = sorted(fantasy_obj[player].keys(), key=lambda match_id: match_id_date_map[match_id], reverse=True)[0:recency_parameter]
     
     match_points = []
     for match in required_matches:
+        # select matches in the venue_id
+        if (venue_id != 0) and (match_id_match_map[match]["venue_id"] != venue_id):
+            continue
+
+        # select matches with player in innings_number
+        if (innings_number != 0) and (fantasy_obj[player][match]['batting_innings'] != innings_number):
+            continue
+
+        # select matches against opponent_team_id
+        if (opponent_team_id != 0) and not((fantasy_obj[player][match]['batting_innings'] == 1 and match_id_match_map[match]["chasing_team"] == opponent_team_id) or (fantasy_obj[player][match]['batting_innings'] == 2 and match_id_match_map[match]["batting_team"] == opponent_team_id)):
+            continue
+
         total_points_obtained = fantasy_obj[player][match]['fantasy_points']
         match_points.append(total_points_obtained)
     

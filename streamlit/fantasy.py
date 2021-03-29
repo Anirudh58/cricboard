@@ -163,7 +163,7 @@ def main(match_format):
         this_opposition_bool = st.checkbox("Against this opposition")
     
     with col3:
-        innings_number = st.number_input("Innnings number: ", min_value=0, max_value=2, step=1, format="%d")
+        innings_number = st.number_input("Innings number: ", min_value=0, max_value=2, step=1, format="%d")
     
     col1, col2, col3 = st.beta_columns((1, 1, 1))
     
