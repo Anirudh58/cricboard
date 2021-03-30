@@ -9,7 +9,6 @@ from pathlib import Path
 import sys
 
 # plotting utils
-from bokeh.plotting import figure
 from matplotlib import pyplot as plt 
 
 # streamlit components
@@ -152,7 +151,7 @@ def main(match_format):
         players_list = st.multiselect("Choose players to compare:", options=populate_players(selected_match))  
         
         
-    col1, col2, col3 = st.beta_columns((5, 4, 5))
+    col1, col2, col3 = st.beta_columns((10, 9, 10))
     with col2:
         st.header("ALL-TIME STATS COMPARISON")
         
@@ -215,7 +214,7 @@ def main(match_format):
             ax.set_title('All time points comparison')
             st.pyplot(fig)
             
-    col1, col2, col3 = st.beta_columns((4, 3, 4))
+    col1, col2, col3 = st.beta_columns((10, 9, 10))
     with col2:
         st.header("RECENT FORM COMPARISON")
             
