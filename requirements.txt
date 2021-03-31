@@ -17,7 +17,7 @@ certifi==2020.6.20
 cffi==1.14.5
 chardet==4.0.0
 click==7.1.2
-colorama @ file:///tmp/build/80754af9/colorama_1603211150991/work
+colorama==0.4.4
 cycler==0.10.0
 decorator==4.4.2
 defusedxml==0.7.1
@@ -30,7 +30,7 @@ ipykernel==5.5.0
 ipython==7.21.0
 ipython-genutils==0.2.0
 ipywidgets==7.6.3
-jedi @ file:///C:/ci/jedi_1611315808330/work
+jedi==0.18.0
 Jinja2==2.11.3
 json5==0.9.5
 jsonschema==3.2.0
@@ -59,6 +59,7 @@ pandocfilters==1.4.3
 parso==0.8.1
 pickleshare==0.7.5
 Pillow==8.1.2
+pip==21.0.1
 prometheus-client==0.9.0
 prompt-toolkit==3.0.17
 protobuf==3.15.6
@@ -76,6 +77,7 @@ PyYAML==5.4.1
 pyzmq==22.0.3
 requests==2.25.1
 Send2Trash==1.5.0
+setuptools==52.0.0.post20210125
 six==1.15.0
 smmap==3.0.5
 sniffio==1.2.0
@@ -87,13 +89,14 @@ toml==0.10.2
 toolz==0.11.1
 tornado==6.1
 tqdm==4.55.0
-traitlets @ file:///tmp/build/80754af9/traitlets_1602787416690/work
+traitlets==5.0.5
 typing-extensions==3.7.4.3
 tzlocal==2.1
 urllib3==1.26.4
 validators==0.18.2
 watchdog==2.0.2
-wcwidth @ file:///tmp/build/80754af9/wcwidth_1593447189090/work
+wcwidth==0.2.5
 webencodings==0.5.1
+wheel==0.36.2
 widgetsnbextension==3.5.1
 wincertstore==0.2
