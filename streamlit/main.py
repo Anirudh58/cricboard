@@ -32,8 +32,7 @@ import batsman, bowler, fantasy
 # Global constants
 PAGES = {
     "BATSMAN - GENERAL": batsman,
-    "BOWLER - GENERAL": bowler,
-    "FANTASY" : fantasy
+    "BOWLER - GENERAL": bowler
 }
 
 # use @st.cache whenever you want caching mechanisms for fast loading
