@@ -5,3 +5,6 @@ __pycache__/
 
 # Jupyter notebook chcekpoints
 .ipynb_checkpoints
+
+# No need to commit backup files
+clean_data/clean_data_backup/

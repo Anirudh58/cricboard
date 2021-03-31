@@ -9,7 +9,7 @@ import sys
 import streamlit as st
 
 # my lib
-from src.insights import batting_total_runs, batting_strike_rate, batting_average
+from src.insights import batting_total_runs, batting_strike_rate, batting_average, batting_dismissals
 
 # Config variables
 raw_data_path = "raw_data"
@@ -35,6 +35,13 @@ def populate_players():
     players = np.array(df_player["player_name"])
     return players
 
+@st.cache
+def populate_bowlers():
+    df_player = pd.read_csv(os.path.join(clean_data_path, "player.csv"))
+    bowlers = ["ALL"]
+    bowlers.extend(np.array(df_player["player_name"]))
+    return bowlers
+
 
 @st.cache
 def populate_tournaments(match_format):
@@ -55,35 +62,55 @@ def main(match_format):
         player_name = st.selectbox("Choose a single player:", options=populate_players())
         years_range = st.slider("The period you want to consider:", min_value=2000, max_value=2021, value=(2000, 2021), step=1, format="%d")
         overs_range = st.slider("The overs range you want to consider: ", min_value=0, max_value=20, value=(0,20), step=1, format="%d")
-        la_pace_bool = st.checkbox("Against LA Pace")
-        ra_pace_bool = st.checkbox("Against RA Pace")
+        only_pace_bool = st.checkbox("Against Pace")
+        right_arm_pace_bool = st.checkbox("Against right_arm_pace")
+        left_arm_pace_bool = st.checkbox("Against left_arm_pace")
+
         st.write("\n")
     
     with col2:
         top_n = st.number_input("Choose top n (enter 0 for single player stats): ", min_value=0, max_value=10, step=1, format="%d")
         venue = st.selectbox("Venue:", options=populate_venues())
         minimum_runs = st.number_input("Min runs scored (for SR and Average): ", min_value=100, max_value=2000, step=1, format="%d")
-        la_spin_bool = st.checkbox("Against LA Spin")
-        ra_spin_bool = st.checkbox("Against RA Spin")
+        only_spin_bool = st.checkbox("Against Spin")
+        right_arm_wrist_spin_bool = st.checkbox("Against right_arm_wrist_spin")
+        right_arm_off_spin_bool = st.checkbox("Against right_arm_off_spin")
+        left_arm_orthodox_bool = st.checkbox("Against left_arm_orthodox")
+        left_arm_wrist_bool = st.checkbox("Against left_arm_wrist")
         st.write("\n")
         
     with col3:
         tournaments = st.multiselect("Tournaments:", options=populate_tournaments(match_format))        
         opposition = st.selectbox("Opposition: (TBD)", options=populate_teams())
-        batting_position = st.number_input("Batting position: (TBD)", min_value=1, max_value=11, step=1, format="%d")
-        bowler_name = st.selectbox("Choose a bowler:", options=populate_players())
+        bowler_name = st.selectbox("Choose a bowler:", options=populate_bowlers())
 
     # OUTPUT SECTION
     
+    bowling_types = {
+        "right_arm_pace_bool" : right_arm_pace_bool,
+        "left_arm_pace_bool" : left_arm_pace_bool,
+        "right_arm_wrist_spin_bool" : right_arm_wrist_spin_bool,
+        "right_arm_off_spin_bool" : right_arm_off_spin_bool,
+        "left_arm_orthodox_bool" : left_arm_orthodox_bool,
+        "left_arm_wrist_bool" : left_arm_wrist_bool
+    }
+    
+    col1, col2, col3, col4 = st.beta_columns((1, 1, 1, 1))
+    
     with col1:
         st.header("Runs")
-        st.table(batting_total_runs(player_name=player_name, top_n=top_n, match_format=match_format, tournaments=tournaments, venue_name=venue, years_range=years_range, overs_range=overs_range))
+        st.table(batting_total_runs(player_name=player_name, top_n=top_n, match_format=match_format, tournaments=tournaments, venue_name=venue, years_range=years_range, overs_range=overs_range, against_spin=only_spin_bool, against_pace=only_pace_bool, bowling_types=bowling_types, against_bowler=bowler_name))
 
     with col2:
         st.header("Strike Rate")
-        st.table(batting_strike_rate(player_name=player_name, top_n=top_n, match_format=match_format, minimum_runs=minimum_runs, tournaments=tournaments, venue_name=venue, years_range=years_range, overs_range=overs_range))
+        st.table(batting_strike_rate(player_name=player_name, top_n=top_n, match_format=match_format, tournaments=tournaments, venue_name=venue, years_range=years_range, overs_range=overs_range, against_spin=only_spin_bool, against_pace=only_pace_bool, bowling_types=bowling_types, against_bowler=bowler_name, minimum_runs=minimum_runs))
         
     with col3:
         st.header("Average")
-        st.table(batting_average(player_name=player_name, top_n=top_n, match_format=match_format, minimum_runs=minimum_runs, tournaments=tournaments, venue_name=venue, years_range=years_range, overs_range=overs_range))
+        st.table(batting_average(player_name=player_name, top_n=top_n, match_format=match_format, tournaments=tournaments, venue_name=venue, years_range=years_range, overs_range=overs_range, against_spin=only_spin_bool, against_pace=only_pace_bool, bowling_types=bowling_types, against_bowler=bowler_name, minimum_runs=minimum_runs))
+        
+    with col4:
+        st.header("Dismissals")
+        st.table(batting_dismissals(player_name=player_name, top_n=top_n, match_format=match_format, tournaments=tournaments, venue_name=venue, years_range=years_range, overs_range=overs_range, against_spin=only_spin_bool, against_pace=only_pace_bool, bowling_types=bowling_types, against_bowler=bowler_name))
+    
     
