@@ -7,14 +7,17 @@ attrs==20.3.0
 Babel==2.9.0
 backcall==0.2.0
 base58==2.1.0
+beautifulsoup4==4.9.3
 bleach==3.3.0
 blinker==1.4
+bokeh==2.3.0
+bs4==0.0.1
 cachetools==4.2.1
-certifi==2020.12.5
+certifi==2020.6.20
 cffi==1.14.5
 chardet==4.0.0
 click==7.1.2
-colorama==0.4.4
+colorama @ file:///tmp/build/80754af9/colorama_1603211150991/work
 cycler==0.10.0
 decorator==4.4.2
 defusedxml==0.7.1
@@ -27,7 +30,7 @@ ipykernel==5.5.0
 ipython==7.21.0
 ipython-genutils==0.2.0
 ipywidgets==7.6.3
-jedi==0.18.0
+jedi @ file:///C:/ci/jedi_1611315808330/work
 Jinja2==2.11.3
 json5==0.9.5
 jsonschema==3.2.0
@@ -76,6 +79,7 @@ Send2Trash==1.5.0
 six==1.15.0
 smmap==3.0.5
 sniffio==1.2.0
+soupsieve==2.2
 streamlit==0.77.0
 terminado==0.9.3
 testpath==0.4.4
@@ -83,12 +87,13 @@ toml==0.10.2
 toolz==0.11.1
 tornado==6.1
 tqdm==4.55.0
-traitlets==5.0.5
+traitlets @ file:///tmp/build/80754af9/traitlets_1602787416690/work
+typing-extensions==3.7.4.3
 tzlocal==2.1
 urllib3==1.26.4
 validators==0.18.2
 watchdog==2.0.2
-wcwidth==0.2.5
+wcwidth @ file:///tmp/build/80754af9/wcwidth_1593447189090/work
 webencodings==0.5.1
 widgetsnbextension==3.5.1
 wincertstore==0.2
