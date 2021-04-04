@@ -803,7 +803,10 @@ def fantasy_runs_comparison(recency_parameter, players_list):
     players_runs = []
     for player_name in players_list:
         player_id_to_consider = player_name_id_map[player_name]
-        players_runs.append(player_runs_by_match(player_id_to_consider, recency_parameter, venue_id, innings_number, opponent_team_id))
+        player_runs = player_runs_by_match(player_id_to_consider, recency_parameter, venue_id, innings_number, opponent_team_id)
+        if len(player_runs) != recency_parameter:
+            player_runs = [0]*(recency_parameter - len(player_runs)) + player_runs
+        players_runs.append(player_runs)
         
     #players_runs = np.flip(np.transpose(np.array(players_runs)), 0)
     #df_result = pd.DataFrame(players_runs, columns=players_list)
@@ -826,8 +829,11 @@ def fantasy_wickets_comparison(recency_parameter, players_list):
     players_wickets = []
     for player_name in players_list:
         player_id_to_consider = player_name_id_map[player_name]
-        players_wickets.append(player_wickets_by_match(player_id_to_consider, recency_parameter, venue_id, innings_number, opponent_team_id))
-    
+        player_wickets = player_wickets_by_match(player_id_to_consider, recency_parameter, venue_id, innings_number, opponent_team_id)
+        if len(player_wickets) != recency_parameter:
+            player_wickets = [0]*(recency_parameter - len(player_wickets)) + player_wickets
+        players_wickets.append(player_wickets)
+
     #players_wickets = np.flip(np.transpose(np.array(players_wickets)), 0)
     #df_result = pd.DataFrame(players_wickets, columns=players_list)
     
@@ -849,48 +855,52 @@ def fantasy_points_comparison(recency_parameter, players_list):
     players_points = []
     for player_name in players_list:
         player_id_to_consider = player_name_id_map[player_name]
-        players_points.append(player_points_by_match(player_id_to_consider, recency_parameter, venue_id, innings_number, opponent_team_id))
-        
+        player_points = player_points_by_match(player_id_to_consider, recency_parameter, venue_id, innings_number, opponent_team_id)
+        if len(player_points) != recency_parameter:
+            player_points = [0]*(recency_parameter - len(player_points)) + player_points
+        players_points.append(player_points)
+
     #players_points = np.flip(np.transpose(np.array(players_points)), 0)
     #df_result = pd.DataFrame(players_points, columns=players_list)
     
     return players_points
 
-def fantasy_runs_scored_against_bowling(recency_parameter, player_name):
+def fantasy_runs_scored_against_bowling(players_list):
     """
     Returns a dataframe denoting runs scored against different bowling types
     Args:
-        player_name: player name
-        recency_parameter - (int) denoting how many matches in the past you want data from
+        players_list: list of players to do runs comparison against. Returns a dataframe 
     """
-    
-    player_id_to_consider = player_name_id_map[player_name]
+    # Set other parameters to 0 to include all
+    recency_parameter = 0
     bowling_types = ["Right arm Off spin", "Left arm Orthodox", "Right arm wrist spin", "Right arm Pace", "Left arm Pace", "Left arm wrist"]
-    runs_against_bowling_types = player_runs_scored_against_bowling(player_id_to_consider, recency_parameter)
-    runs_against_bowling_types = np.diag(runs_against_bowling_types)
+    players_runs = []
+    for player_name in players_list:
+        player_id_to_consider = player_name_id_map[player_name]
+        runs_against_bowling_types = player_runs_scored_against_bowling(player_id_to_consider, recency_parameter, bowling_types)
+        players_runs.append(runs_against_bowling_types)
     
-    df_result = pd.DataFrame(runs_against_bowling_types, columns=bowling_types)
-    
-    return df_result
+    return players_runs
 
-def fantasy_wickets_taken_against_batting(recency_parameter, player_name):
+def fantasy_wickets_taken_against_batting(players_list):
     """
     Returns a dataframe denoting wickets taken against different batting types
     Args:
         player_name: player name
         recency_parameter - (int) denoting how many matches in the past you want data from
     """
-    
-    player_id_to_consider = player_name_id_map[player_name]
+    # Set other parameters to 0 to include all
+    recency_parameter = 0
     batting_types = ["Left-hand bat", "Right-hand bat"]
-    wickets_against_batting_types = player_wickets_taken_against_batting(player_id_to_consider, recency_parameter)
-    wickets_against_batting_types = np.diag(wickets_against_batting_types)
+    players_wickets = []
+    for player_name in players_list:
+        player_id_to_consider = player_name_id_map[player_name]
+        wickets_against_batting_types = player_wickets_taken_against_batting(player_id_to_consider, recency_parameter, batting_types)
+        players_wickets.append(wickets_against_batting_types)
     
-    df_result = pd.DataFrame(wickets_against_batting_types, columns=batting_types)
-    
-    return df_result
+    return players_wickets
 
-def fantasy_runs_scored_comparison(players_list, selected_match, this_venue_bool, this_opposition_bool, innings_number):
+def fantasy_runs_scored_comparison(players_list, selected_match, this_venue_bool, this_opposition_bool, batting_first_team):
     """
     Returns a list of runs for each player with the given conditions
     Args:
@@ -898,7 +908,7 @@ def fantasy_runs_scored_comparison(players_list, selected_match, this_venue_bool
         selected_match - (string) of the form "Mumbai Indians vs Royal Challengers Bangalore"
         this_venue_bool - (bool) should the stats be this venue specific? What venue is calculated based on selected_match
         this_opposition_bool - (bool) should the stats be this opposition specific?
-        innings_number - (int) - 1 -> batting first 2 -> batting second 0 -> both
+        batting_first_team - (int) - team id of team batting first
     """
 
     venue_selected_match = venue_location_name_map[df_schedule[df_schedule['match_display_name'].str.contains(selected_match)]['venue'].iloc[0]]
@@ -919,16 +929,22 @@ def fantasy_runs_scored_comparison(players_list, selected_match, this_venue_bool
         opponent_team_id = team_2_id if str(player_id_to_consider) in team_id_squad_map[team_1_id].split(',') else team_1_id
         if not this_opposition_bool:
             opponent_team_id = 0
+        innings_number = 0
+        if batting_first_team > 0:
+            innings_number = 1 if str(player_id_to_consider) in team_id_squad_map[batting_first_team].split(',') else 2
 
         player_runs_in_matches = player_runs_by_match(player_id_to_consider, recency_parameter, venue_id, innings_number, opponent_team_id)
-        players_runs.append(sum(player_runs_in_matches))
+        if len(player_runs_in_matches) > 0:
+            players_runs.append(round(sum(player_runs_in_matches)/len(player_runs_in_matches), 2))
+        else:
+            players_runs.append(0)
 
     #players_runs = np.flip(np.transpose(np.array(players_runs)), 0)
     #df_result = pd.DataFrame(players_runs, columns=players_list)
 
     return players_runs
 
-def fantasy_wickets_taken_comparison(players_list, selected_match, this_venue_bool, this_opposition_bool, innings_number):
+def fantasy_wickets_taken_comparison(players_list, selected_match, this_venue_bool, this_opposition_bool, batting_first_team):
     """
     Returns a list of wickets for each player with the given conditions
     Args:
@@ -936,7 +952,7 @@ def fantasy_wickets_taken_comparison(players_list, selected_match, this_venue_bo
         selected_match - (string) of the form "Mumbai Indians vs Royal Challengers Bangalore"
         this_venue_bool - (bool) should the stats be this venue specific? What venue is calculated based on selected_match
         this_opposition_bool - (bool) should the stats be this opposition specific?
-        innings_number - (int) - 1 -> batting first 2 -> batting second 0 -> both
+        batting_first_team - (int) - team id of team batting first
     """
 
     venue_selected_match = venue_location_name_map[df_schedule[df_schedule['match_display_name'].str.contains(selected_match)]['venue'].iloc[0]]
@@ -957,13 +973,19 @@ def fantasy_wickets_taken_comparison(players_list, selected_match, this_venue_bo
         opponent_team_id = team_2_id if str(player_id_to_consider) in team_id_squad_map[team_1_id].split(',') else team_1_id
         if not this_opposition_bool:
             opponent_team_id = 0
+        innings_number = 0
+        if batting_first_team > 0:
+            innings_number = 1 if str(player_id_to_consider) in team_id_squad_map[batting_first_team].split(',') else 2
 
         player_wickets_in_matches = player_wickets_by_match(player_id_to_consider, recency_parameter, venue_id, innings_number, opponent_team_id)
-        player_wickets.append(sum(player_wickets_in_matches))
+        if len(player_wickets_in_matches) > 0:
+            player_wickets.append(round(sum(player_wickets_in_matches)/len(player_wickets_in_matches), 2))
+        else:
+            player_wickets.append(0)
 
     return player_wickets
 
-def fantasy_points_obtained_comparison(players_list, selected_match, this_venue_bool, this_opposition_bool, innings_number):
+def fantasy_points_obtained_comparison(players_list, selected_match, this_venue_bool, this_opposition_bool, batting_first_team):
     """
     Returns a list of points for each player with the given conditions
     Args:
@@ -971,7 +993,7 @@ def fantasy_points_obtained_comparison(players_list, selected_match, this_venue_
         selected_match - (string) of the form "Mumbai Indians vs Royal Challengers Bangalore"
         this_venue_bool - (bool) should the stats be this venue specific? What venue is calculated based on selected_match
         this_opposition_bool - (bool) should the stats be this opposition specific?
-        innings_number - (int) - 1 -> batting first 2 -> batting second 0 -> both
+        batting_first_team - (int) - team id of team batting first
     """
 
     venue_selected_match = venue_location_name_map[df_schedule[df_schedule['match_display_name'].str.contains(selected_match)]['venue'].iloc[0]]
@@ -992,9 +1014,15 @@ def fantasy_points_obtained_comparison(players_list, selected_match, this_venue_
         opponent_team_id = team_2_id if str(player_id_to_consider) in team_id_squad_map[team_1_id].split(',') else team_1_id
         if not this_opposition_bool:
             opponent_team_id = 0
+        innings_number = 0
+        if batting_first_team > 0:
+            innings_number = 1 if str(player_id_to_consider) in team_id_squad_map[batting_first_team].split(',') else 2
 
         player_points_in_matches = player_points_by_match(player_id_to_consider, recency_parameter, venue_id, innings_number, opponent_team_id)
-        player_points.append(sum(player_points_in_matches))
+        if len(player_points_in_matches) > 0:
+            player_points.append(round(sum(player_points_in_matches)/len(player_points_in_matches), 2))
+        else:
+            player_points.append(0)
 
     return player_points
 

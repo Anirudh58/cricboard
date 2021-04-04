@@ -593,7 +593,9 @@ def player_runs_by_match(player, recency_parameter, venue_id, innings_number, op
     """
     
     # Grab top 'recency_parameter' matches played by this player sorted in reverse chronological order
-    if recency_parameter == 0:
+    if player not in fantasy_obj:
+        required_matches = []
+    elif recency_parameter == 0:
         required_matches = sorted(fantasy_obj[player].keys(), key=lambda match_id: match_id_date_map[match_id], reverse=True)
     else :
         required_matches = sorted(fantasy_obj[player].keys(), key=lambda match_id: match_id_date_map[match_id], reverse=True)[0:recency_parameter]
@@ -633,7 +635,9 @@ def player_wickets_by_match(player, recency_parameter, venue_id, innings_number,
             opponent_team_id - (int) denoting the opponent id to consider. 0 -> all opponents
     """
     # Grab top 'recency_parameter' matches played by this player sorted in reverse chronological order
-    if recency_parameter == 0:
+    if player not in fantasy_obj:
+        required_matches = []
+    elif recency_parameter == 0:
         required_matches = sorted(fantasy_obj[player].keys(), key=lambda match_id: match_id_date_map[match_id], reverse=True)
     else :
         required_matches = sorted(fantasy_obj[player].keys(), key=lambda match_id: match_id_date_map[match_id], reverse=True)[0:recency_parameter]
@@ -673,7 +677,9 @@ def player_points_by_match(player, recency_parameter, venue_id, innings_number, 
             opponent_team_id - (int) denoting the opponent id to consider. 0 -> all opponents
     """
     # Grab top 'recency_parameter' matches played by this player sorted in reverse chronological order
-    if recency_parameter == 0:
+    if player not in fantasy_obj:
+        required_matches = []
+    elif recency_parameter == 0:
         required_matches = sorted(fantasy_obj[player].keys(), key=lambda match_id: match_id_date_map[match_id], reverse=True)
     else :
         required_matches = sorted(fantasy_obj[player].keys(), key=lambda match_id: match_id_date_map[match_id], reverse=True)[0:recency_parameter]
@@ -698,58 +704,59 @@ def player_points_by_match(player, recency_parameter, venue_id, innings_number, 
     # reversing the array before sending for appropriate plotting
     return match_points[::-1]
 
-def player_runs_scored_against_bowling(player, recency_parameter):
+def player_runs_scored_against_bowling(player, recency_parameter, bowling_types):
     """
         Get a list of runs scored by this player in the past 'recency_parameter' matches against different bowling types
         Args:
             player - (int) id of target player
             recency_parameter - (int) denoting how many matches in the past you want data from
+            bowling_types - (list) types of bowlers to consider
     """
     
     # Grab top 'recency_parameter' matches played by this player sorted in reverse chronological order
-    required_matches = sorted(fantasy_obj[player].keys(), key=lambda match_id: match_id_date_map[match_id], reverse=True)[0:recency_parameter]
+    if player not in fantasy_obj:
+        required_matches = []
+    elif recency_parameter == 0:
+        required_matches = sorted(fantasy_obj[player].keys(), key=lambda match_id: match_id_date_map[match_id], reverse=True)
+    else :
+        required_matches = sorted(fantasy_obj[player].keys(), key=lambda match_id: match_id_date_map[match_id], reverse=True)[0:recency_parameter]
     
-    # 6 values corresponsing to each different bowling type
-    match_runs = [0, 0, 0, 0, 0, 0]
+    # values corresponsing to each different bowling type
+    match_runs = [0]*len(bowling_types)
     for match in required_matches:
         # iterate over each bowling type to calculate total runs
-        for bowling_type in fantasy_obj[player][match]['runs_scored']:
-            if bowling_type == "Right arm Off spin":
-                match_runs[0] += fantasy_obj[player][match]['runs_scored'][bowling_type]
-            if bowling_type == "Left arm Orthodox":
-                match_runs[1] += fantasy_obj[player][match]['runs_scored'][bowling_type]
-            if bowling_type == "Right arm wrist spin":
-                match_runs[2] += fantasy_obj[player][match]['runs_scored'][bowling_type]
-            if bowling_type == "Right arm Pace":
-                match_runs[3] += fantasy_obj[player][match]['runs_scored'][bowling_type]
-            if bowling_type == "Left arm Pace":
-                match_runs[4] += fantasy_obj[player][match]['runs_scored'][bowling_type]
-            if bowling_type == "Left arm wrist":
-                match_runs[5] += fantasy_obj[player][match]['runs_scored'][bowling_type]
-                
+        index = 0
+        for bowling_type in bowling_types:
+            match_runs[index] += fantasy_obj[player][match]['runs_scored'][bowling_type]
+            index += 1
     return match_runs
 
-def player_wickets_taken_against_batting(player, recency_parameter):
+def player_wickets_taken_against_batting(player, recency_parameter, batting_types):
     """
         Get a list of runs scored by this player in the past 'recency_parameter' matches against different bowling types
         Args:
             player - (int) id of target player
             recency_parameter - (int) denoting how many matches in the past you want data from
+            batting_types - (list) types of batsman to consider
     """
     
     # Grab top 'recency_parameter' matches played by this player sorted in reverse chronological order
-    required_matches = sorted(fantasy_obj[player].keys(), key=lambda match_id: match_id_date_map[match_id], reverse=True)[0:recency_parameter]
+    if player not in fantasy_obj:
+        required_matches = []
+    elif recency_parameter == 0:
+        required_matches = sorted(fantasy_obj[player].keys(), key=lambda match_id: match_id_date_map[match_id], reverse=True)
+    else :
+        required_matches = sorted(fantasy_obj[player].keys(), key=lambda match_id: match_id_date_map[match_id], reverse=True)[0:recency_parameter]
     
-    # 6 values corresponsing to each different bowling type
-    match_wickets = [0, 0]
+    # values corresponsing to each different batting type
+    match_wickets = [0]*len(batting_types)
     for match in required_matches:
-        # iterate over each batting_type  to calculate total runs
-        for batting_type in fantasy_obj[player][match]['wickets_taken']:
-            if batting_type == "Left-hand bat":
-                match_wickets[0] += fantasy_obj[player][match]['wickets_taken'][batting_type]
-            if batting_type == "Right-hand bat":
-                match_wickets[1] += fantasy_obj[player][match]['wickets_taken'][batting_type]
-                
+        # iterate over each batting_type  to calculate total wickets
+        index = 0
+        for batting_type in batting_types:
+            match_wickets[index] += fantasy_obj[player][match]['wickets_taken'][batting_type]
+            index += 1
+
     return match_wickets
 
 ################################### END FANTASY CORE ###################################

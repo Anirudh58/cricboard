@@ -54,6 +54,12 @@ def choose_matches(match_date):
     return match_display_names
 
 @st.cache
+def choose_match_teams(selected_match):
+    team_1 = selected_match.split(" vs ")[0]
+    team_2 = selected_match.split(" vs ")[1]
+    return (team_1, team_2)
+
+@st.cache
 def populate_players(selected_match):
     # if there is no match on this date, return empty list
     if selected_match is None:
@@ -67,64 +73,73 @@ def populate_players(selected_match):
     players_both_teams = players_team_1 + players_team_2
     return players_both_teams
 
-def populate_opposition_bowlers(player, selected_match):
+def populate_opposition_bowlers(selected_match, bowling_types):
     # if there is no match on this date, return empty list
     if selected_match is None:
         return []
     
-    team_1_id = team_id_map[selected_match.split(" vs ")[0]]
-    team_2_id = team_id_map[selected_match.split(" vs ")[1]]
+    team_1 = selected_match.split(" vs ")[0]
+    team_2 = selected_match.split(" vs ")[1]
+    team_1_id = team_id_map[team_1]
+    team_2_id = team_id_map[team_2]
     current_year = str(datetime.date.today().year)
-    players_team_1 = [player_id_name_map[int(player_id)] for player_id in df_squad[df_squad["team_id"] == team_1_id][current_year].iloc[0].split(",")]
-    players_team_2 = [player_id_name_map[int(player_id)] for player_id in df_squad[df_squad["team_id"] == team_2_id][current_year].iloc[0].split(",")]
+    players_team_1 = df_squad[df_squad["team_id"] == team_1_id][current_year].iloc[0].split(",")
+    players_team_2 = df_squad[df_squad["team_id"] == team_2_id][current_year].iloc[0].split(",")
     
-    players_bowling_types = defaultdict(list)
-    
-    if player in players_team_1:
-        opposition_players = [player_name_id_map[player_name] for player_name in players_team_2]
-    else:
-        opposition_players = [player_name_id_map[player_name] for player_name in players_team_1]
+    players_team_1_bowling_types = {}
+    players_team_2_bowling_types = {}
+    for bowling_type in bowling_types:
+        players_team_1_bowling_types[bowling_type.replace('\n', '')] = ''
+        players_team_2_bowling_types[bowling_type.replace('\n', '')] = ''
         
-    for opp_player in opposition_players:
-        bowling_type = df_player[df_player["player_id"] == opp_player]["bowling_style"].iloc[0]
+    for player in players_team_1:
+        bowling_type = df_player[df_player["player_id"] == int(player)]["bowling_style"].iloc[0]
         if type(bowling_type) is not str:
             continue
-        players_bowling_types[bowling_type].append(opp_player)
-    
-    list_players_bowling_types = [[player_id_name_map[player] for player in players] for bowl_type, players in players_bowling_types.items()]
-    df_result = pd.DataFrame(list_players_bowling_types).transpose()
-    df_result.columns = players_bowling_types.keys()
-    
+        players_team_1_bowling_types[bowling_type] += (player_id_name_map[int(player)] + '\n')
+
+    for player in players_team_2:
+        bowling_type = df_player[df_player["player_id"] == int(player)]["bowling_style"].iloc[0]
+        if type(bowling_type) is not str:
+            continue
+        players_team_2_bowling_types[bowling_type] += (player_id_name_map[int(player)] + '\n')
+
+    players_bowling_types = [players_team_1_bowling_types, players_team_2_bowling_types]
+    df_result = pd.DataFrame(players_bowling_types, index =[team_1, team_2])
     return df_result
 
-def populate_opposition_batters(player, selected_match):
+def populate_opposition_batters(selected_match, batting_types):
     # if there is no match on this date, return empty list
     if selected_match is None:
         return []
-    
-    team_1_id = team_id_map[selected_match.split(" vs ")[0]]
-    team_2_id = team_id_map[selected_match.split(" vs ")[1]]
+    team_1 = selected_match.split(" vs ")[0]
+    team_2 = selected_match.split(" vs ")[1]
+    team_1_id = team_id_map[team_1]
+    team_2_id = team_id_map[team_2]
     current_year = str(datetime.date.today().year)
-    players_team_1 = [player_id_name_map[int(player_id)] for player_id in df_squad[df_squad["team_id"] == team_1_id][current_year].iloc[0].split(",")]
-    players_team_2 = [player_id_name_map[int(player_id)] for player_id in df_squad[df_squad["team_id"] == team_2_id][current_year].iloc[0].split(",")]
+    players_team_1 = df_squad[df_squad["team_id"] == team_1_id][current_year].iloc[0].split(",")
+    players_team_2 = df_squad[df_squad["team_id"] == team_2_id][current_year].iloc[0].split(",")
     
-    players_batting_types = defaultdict(list)
-    
-    if player in players_team_1:
-        opposition_players = [player_name_id_map[player_name] for player_name in players_team_2]
-    else:
-        opposition_players = [player_name_id_map[player_name] for player_name in players_team_1]
-        
-    for opp_player in opposition_players:
-        batting_type = df_player[df_player["player_id"] == opp_player]["batting_style"].iloc[0]
+    players_team_1_batting_types = {}
+    players_team_2_batting_types = {}
+    for batting_type in batting_types:
+        players_team_1_batting_types[batting_type.replace('\n', '')] = ''
+        players_team_2_batting_types[batting_type.replace('\n', '')] = ''
+
+    for player in players_team_1:
+        batting_type = df_player[df_player["player_id"] == int(player)]["batting_style"].iloc[0]
         if type(batting_type) is not str:
             continue
-        players_batting_types[batting_type].append(opp_player)
-    
-    list_players_batting_types = [[player_id_name_map[player] for player in players] for bat_type, players in players_batting_types.items()]
-    df_result = pd.DataFrame(list_players_batting_types).transpose()
-    df_result.columns = players_batting_types.keys()
-    
+        players_team_1_batting_types[batting_type] += (player_id_name_map[int(player)] + '\n')
+
+    for player in players_team_2:
+        batting_type = df_player[df_player["player_id"] == int(player)]["batting_style"].iloc[0]
+        if type(batting_type) is not str:
+            continue
+        players_team_2_batting_types[batting_type] += (player_id_name_map[int(player)] + '\n')
+
+    players_batting_types = [players_team_1_batting_types, players_team_2_batting_types]
+    df_result = pd.DataFrame(players_batting_types, index =[team_1, team_2])
     return df_result
 
 def main(match_format):
@@ -150,9 +165,11 @@ def main(match_format):
     
     with col2:
         players_list = st.multiselect("Choose players to compare:", options=populate_players(selected_match))  
+
+    if len(players_list) == 0:
+        return
         
-        
-    col1, col2, col3 = st.beta_columns((5, 4, 5))
+    col1, col2, col3 = st.beta_columns((1, 2, 1))
     with col2:
         st.header("ALL-TIME STATS COMPARISON")
         
@@ -163,66 +180,68 @@ def main(match_format):
         this_opposition_bool = st.checkbox("Against this opposition")
     
     with col3:
-        innings_number = st.number_input("Innings number: ", min_value=0, max_value=2, step=1, format="%d")
+        this_innings_bool = st.checkbox("Filter by innings number")
+        if this_innings_bool:
+            batting_first_team = st.selectbox("Batting First Team: ", options=choose_match_teams(selected_match))
+            batting_first_team = team_id_map[batting_first_team]
+        else:
+            batting_first_team = 0
     
     col1, col2, col3 = st.beta_columns((1, 1, 1))
     
     with col1:
-        if selected_match:
-            stats = fantasy_runs_scored_comparison(players_list, selected_match, this_venue_bool, this_opposition_bool, innings_number)
+        stats = fantasy_runs_scored_comparison(players_list, selected_match, this_venue_bool, this_opposition_bool, batting_first_team)
 
-            fig, ax = plt.subplots()
-            y_pos = np.arange(len(players_list))
-            hbars = ax.barh(y_pos, stats, height=0.25)
-            for i, v in enumerate(stats):
-                ax.text(v, i+0.05, str(v), color='black')
-            ax.set_yticks(y_pos)
-            ax.set_yticklabels(players_list)
-            ax.invert_yaxis()  # labels read top-to-bottom
-            ax.set_xlabel('Runs')
-            ax.set_title('All time runs comparison')
-            st.pyplot(fig)
+        fig, ax = plt.subplots()
+        y_pos = np.arange(len(players_list))
+        hbars = ax.barh(y_pos, stats, height=0.25)
+        for i, v in enumerate(stats):
+            ax.text(v, i+0.05, str(v), color='black')
+        ax.set_yticks(y_pos)
+        ax.set_yticklabels(players_list)
+        ax.invert_yaxis()  # labels read top-to-bottom
+        ax.set_xlabel('Runs per Match')
+        ax.set_title('All time runs comparison')
+        st.pyplot(fig)
     
     with col2:
-        if selected_match:
-            stats = fantasy_wickets_taken_comparison(players_list, selected_match, this_venue_bool, this_opposition_bool, innings_number)
+        stats = fantasy_wickets_taken_comparison(players_list, selected_match, this_venue_bool, this_opposition_bool, batting_first_team)
 
-            fig, ax = plt.subplots()
-            y_pos = np.arange(len(players_list))
-            hbars = ax.barh(y_pos, stats, height=0.25)
-            for i, v in enumerate(stats):
-                ax.text(v, i+0.05, str(v), color='black')
-            ax.set_yticks(y_pos)
-            ax.set_yticklabels(players_list)
-            ax.invert_yaxis()  # labels read top-to-bottom
-            ax.set_xlabel('Wickets')
-            ax.set_title('All time wickets comparison')
-            st.pyplot(fig)
+        fig, ax = plt.subplots()
+        y_pos = np.arange(len(players_list))
+        hbars = ax.barh(y_pos, stats, height=0.25)
+        for i, v in enumerate(stats):
+            ax.text(v, i+0.05, str(v), color='black')
+        ax.set_yticks(y_pos)
+        ax.set_yticklabels(players_list)
+        ax.invert_yaxis()  # labels read top-to-bottom
+        ax.set_xlabel('Wickets per Match')
+        ax.set_title('All time wickets comparison')
+        st.pyplot(fig)
             
     with col3:
-        if selected_match:
-            stats = fantasy_points_obtained_comparison(players_list, selected_match, this_venue_bool, this_opposition_bool, innings_number)
+        stats = fantasy_points_obtained_comparison(players_list, selected_match, this_venue_bool, this_opposition_bool, batting_first_team)
 
-            fig, ax = plt.subplots()
-            y_pos = np.arange(len(players_list))
-            hbars = ax.barh(y_pos, stats, height=0.25)
-            for i, v in enumerate(stats):
-                ax.text(v, i+0.05, str(v), color='black')
-            ax.set_yticks(y_pos)
-            ax.set_yticklabels(players_list)
-            ax.invert_yaxis()  # labels read top-to-bottom
-            ax.set_xlabel('Runs')
-            ax.set_title('All time points comparison')
-            st.pyplot(fig)
+        fig, ax = plt.subplots()
+        y_pos = np.arange(len(players_list))
+        hbars = ax.barh(y_pos, stats, height=0.25)
+        for i, v in enumerate(stats):
+            ax.text(v, i+0.05, str(v), color='black')
+        ax.set_yticks(y_pos)
+        ax.set_yticklabels(players_list)
+        ax.invert_yaxis()  # labels read top-to-bottom
+        ax.set_xlabel('Points per Match')
+        ax.set_title('All time points comparison')
+        st.pyplot(fig)
             
-    col1, col2, col3 = st.beta_columns((4, 3, 4))
+    col1, col2, col3 = st.beta_columns((1, 2, 1))
     with col2:
         st.header("RECENT FORM COMPARISON")
             
     col1, col2, col3 = st.beta_columns((1, 2, 1))
     
     with col2:
-        recency_parameter = st.slider("Recency parameter (Past n matches) ", min_value=1, max_value=20, value=1, step=1, format="%d")
+        recency_parameter = st.slider("Recency parameter (Past n matches) ", min_value=1, max_value=20, value=3, step=1, format="%d")
     
     # Output section
     col1, col2, col3 = st.beta_columns((1, 1, 1))
@@ -230,48 +249,120 @@ def main(match_format):
     # Runs scored
     with col1:
         player_runs = fantasy_runs_comparison(recency_parameter, players_list)
-        if len(players_list) > 0:
-            fig, ax = plt.subplots()
-            plot_handles = []
-            for i in range(len(players_list)):
-                p, = ax.plot(range(1, recency_parameter+1), player_runs[i], label=players_list[i])
-                plot_handles.append(p)
-            ax.legend(handles=plot_handles, bbox_to_anchor=(1.01, 1), loc='upper left', prop={'size': 7})
-            ax.set_title('Runs Comparison (Recent Form)')
-            ax.set_xlabel('Matches')
-            ax.set_ylabel('Runs')
-            st.pyplot(fig)
+        fig, ax = plt.subplots()
+        plot_handles = []
+        for i in range(len(players_list)):
+            p, = ax.plot(range(1, recency_parameter+1), player_runs[i], label=players_list[i])
+            plot_handles.append(p)
+        ax.legend(handles=plot_handles, bbox_to_anchor=(1.01, 1), loc='upper left', prop={'size': 7})
+        ax.set_title('Runs Comparison (Recent Form)')
+        ax.set_xlabel('Matches')
+        ax.set_ylabel('Runs')
+        st.pyplot(fig)
     
     # Wickets taken
     with col2:
         player_wickets = fantasy_wickets_comparison(recency_parameter, players_list)
-        if len(players_list) > 0:
-            fig, ax = plt.subplots()
-            plot_handles = []
-            for i in range(len(players_list)):
-                p, = ax.plot(range(1, recency_parameter+1), player_wickets[i], label=players_list[i])
-                plot_handles.append(p)
-            ax.legend(handles=plot_handles, bbox_to_anchor=(1.01, 1), loc='upper left', prop={'size': 7})
-            ax.set_title('Wickets Comparison (Recent Form)')
-            ax.set_xlabel('Matches')
-            ax.set_ylabel('Wickets')
-            st.pyplot(fig)
+        fig, ax = plt.subplots()
+        plot_handles = []
+        for i in range(len(players_list)):
+            p, = ax.plot(range(1, recency_parameter+1), player_wickets[i], label=players_list[i])
+            plot_handles.append(p)
+        ax.legend(handles=plot_handles, bbox_to_anchor=(1.01, 1), loc='upper left', prop={'size': 7})
+        ax.set_title('Wickets Comparison (Recent Form)')
+        ax.set_xlabel('Matches')
+        ax.set_ylabel('Wickets')
+        st.pyplot(fig)
         
     # Fantasy points
     with col3:
         player_points = fantasy_points_comparison(recency_parameter, players_list)
-        if len(players_list) > 0:
-            fig, ax = plt.subplots()
-            plot_handles = []
-            for i in range(len(players_list)):
-                p, = ax.plot(range(1, recency_parameter+1), player_points[i], label=players_list[i])
-                plot_handles.append(p)
-            ax.legend(handles=plot_handles, bbox_to_anchor=(1.01, 1), loc='upper left', prop={'size': 7})
-            ax.set_title('Points Comparison (Recent Form)')
-            ax.set_xlabel('Matches')
-            ax.set_ylabel('Points')
-            st.pyplot(fig)
+        fig, ax = plt.subplots()
+        plot_handles = []
+        for i in range(len(players_list)):
+            p, = ax.plot(range(1, recency_parameter+1), player_points[i], label=players_list[i])
+            plot_handles.append(p)
+        ax.legend(handles=plot_handles, bbox_to_anchor=(1.01, 1), loc='upper left', prop={'size': 7})
+        ax.set_title('Points Comparison (Recent Form)')
+        ax.set_xlabel('Matches')
+        ax.set_ylabel('Points')
+        st.pyplot(fig)
     
+    col1, col2, col3 = st.beta_columns((1, 2, 1))
+    with col2:
+        st.header("PLAYER SKILL ANALYSIS")
+
+    col1, col2 = st.beta_columns((1, 1))
+
+    with col1:
+        bowling_types = ["Right arm \nOff spin", "Left arm \nOrthodox", "Right arm\n wrist spin", "Right arm\n Pace", "Left arm\n Pace", "Left arm\n wrist"]
+        player_runs = fantasy_runs_scored_against_bowling(players_list)
+        fig, ax = plt.subplots()
+        # Get some pastel shades for the colors
+        colors = plt.cm.Blues(np.linspace(0.25, 0.75, len(players_list)))
+
+        index = np.arange(len(bowling_types)) # the x locations for the groups
+        width = 0.35
+
+        y_offset = np.zeros(len(bowling_types))
+        cell_text = []
+        for row in range(len(player_runs)):
+            ax.bar(index, player_runs[row], width, color=colors[row], bottom=y_offset)
+            y_offset = y_offset + player_runs[row]
+            cell_text.append(player_runs[row])
+
+        '''players_bowling_type = populate_opposition_bowlers(selected_match, bowling_types)
+        table = ax.table(cellText=players_bowling_type.values,
+                         colLabels=bowling_types,
+                         loc='bottom')
+        cellDict = table.get_celld()
+        for i in range(0,len(players_bowling_type.columns)):
+            cellDict[(0,i)].set_height(.01)'''
+
+        table = ax.table(cellText=cell_text,
+                         rowLabels=players_list,
+                         rowColours=colors,
+                         colLabels=bowling_types,
+                         loc='bottom')
+        table.auto_set_font_size(False)
+        table.set_fontsize(10)
+        table.scale(1, 2)
+
+        ax.set_ylabel("Runs scored")
+        ax.set_xticks([])
+        ax.set_title('Runs Comparison(Bowler Types)')
+        st.pyplot(fig)
+
+    with col2:
+        batting_types = ["Left-hand bat", "Right-hand bat"]
+        player_wickets = fantasy_wickets_taken_against_batting(players_list)
+        fig, ax = plt.subplots()
+        # Get some pastel shades for the colors
+        colors = plt.cm.Blues(np.linspace(0.25, 0.75, len(players_list)))
+
+        index = np.arange(len(batting_types)) # the x locations for the groups
+        width = 0.35
+
+        y_offset = np.zeros(len(batting_types))
+        cell_text = []
+        for row in range(len(player_wickets)):
+            ax.bar(index, player_wickets[row], width, color=colors[row], bottom=y_offset)
+            y_offset = y_offset + player_wickets[row]
+            cell_text.append(player_wickets[row])
+
+        table = ax.table(cellText=cell_text,
+                         rowLabels=players_list,
+                         rowColours=colors,
+                         colLabels=batting_types,
+                         loc='bottom')
+        table.auto_set_font_size(False)
+        table.set_fontsize(10)
+        table.scale(1, 2)
+
+        ax.set_ylabel("Wickets taken")
+        ax.set_xticks([])
+        ax.set_title('Wickets Comparison(Batting Types)')
+        st.pyplot(fig)
     
     '''
     #OLD UI
