@@ -26,14 +26,15 @@ sys.path.insert(0,parentdir)
 
 # my library
 from infra import create_session_state
-import batsman, bowler, fantasy
+import batsman, bowler, fantasy, about
 
 
 # Global constants
 PAGES = {
     "BATTING - GENERAL": batsman,
     "BOWLING - GENERAL": bowler,
-    "FANTASY" : fantasy
+    "FANTASY" : fantasy,
+    "ABOUT" : about
 }
 
 
