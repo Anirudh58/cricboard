@@ -31,8 +31,8 @@ import batsman, bowler, fantasy
 
 # Global constants
 PAGES = {
-    "BATTING - GENERAL": batsman,
-    "BOWLING - GENERAL": bowler,
+    "BATTING": batsman,
+    "BOWLING": bowler,
     "FANTASY" : fantasy
 }
 
