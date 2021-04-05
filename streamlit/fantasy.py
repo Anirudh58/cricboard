@@ -289,7 +289,7 @@ def main(match_format):
         ax.set_ylabel('Points')
         st.pyplot(fig)
     
-    col1, col2, col3 = st.beta_columns((1, 2, 1))
+    col1, col2, col3 = st.beta_columns((10, 9, 10))
     with col2:
         st.header("PLAYER SKILL ANALYSIS")
 
