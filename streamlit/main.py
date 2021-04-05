@@ -36,6 +36,7 @@ PAGES = {
     "FANTASY" : fantasy
 }
 
+
 # use @st.cache whenever you want caching mechanisms for fast loading
 # These formats will not change
 @st.cache
@@ -61,4 +62,14 @@ def main():
     
 if __name__ == "__main__":
     st.set_page_config(layout="wide", page_title="CRICBOARD", page_icon="./assets/images/logo.png")
+
+    # hide the menu button during production
+    hide_streamlit_style = """
+    <style>
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+    </style>
+
+    """
+    st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
     main()
