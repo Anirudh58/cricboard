@@ -380,9 +380,13 @@ def main(match_format):
         ax.set_ylabel("Wickets taken")
         ax.set_xticks([])
         ax.set_title('Wickets Comparison(Batting Types)')
-        st.pyplot(fig)
+        st.pyplot(fig)        
+        
+    col1, col2, col3 = st.beta_columns((10, 9, 10))
+    with col2:
+        st.header("PLAYER DETAILS (BOTH TEAMS)")
     
-    col1, col2, col3 = st.beta_columns((1, 10, 1))
+    col1, col2, col3 = st.beta_columns((1, 2, 1))
     with col2:
         st.dataframe(populate_player_table(selected_match))
 
