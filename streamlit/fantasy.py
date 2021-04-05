@@ -181,6 +181,14 @@ def main(match_format):
     
     with col2:
         players_list = st.multiselect("Choose players to compare:", options=populate_players(selected_match))  
+        
+    col1, col2, col3 = st.beta_columns((10, 9, 10))
+    with col2:
+        st.header("PLAYER DETAILS (BOTH TEAMS)")
+    
+    col1, col2, col3 = st.beta_columns((1, 5, 1))
+    with col2:
+        st.dataframe(populate_player_table(selected_match))
 
     if len(players_list) == 0:
         return
@@ -381,14 +389,7 @@ def main(match_format):
         ax.set_xticks([])
         ax.set_title('Wickets Comparison(Batting Types)')
         st.pyplot(fig)        
-        
-    col1, col2, col3 = st.beta_columns((10, 9, 10))
-    with col2:
-        st.header("PLAYER DETAILS (BOTH TEAMS)")
-    
-    col1, col2, col3 = st.beta_columns((1, 2, 1))
-    with col2:
-        st.dataframe(populate_player_table(selected_match))
+
 
     '''
     #OLD UI
