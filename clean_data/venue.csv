@@ -1,35 +1,35 @@
-venue_id,venue_name
-1,Dubai International Cricket Stadium
-2,Barabati Stadium
-3,Saurashtra Cricket Association Stadium
-4,Himachal Pradesh Cricket Association Stadium
-5,Sharjah Cricket Stadium
-6,"Vidarbha Cricket Association Stadium, Jamtha"
-7,Nehru Stadium
-8,"MA Chidambaram Stadium, Chepauk"
-9,Wankhede Stadium
-10,Dr. Y.S. Rajasekhara Reddy ACA-VDCA Cricket Stadium
-11,Buffalo Park
-12,SuperSport Park
-13,Kingsmead
-14,"Sardar Patel Stadium, Motera"
-15,Dr DY Patil Sports Academy
-16,St George's Park
-17,OUTsurance Oval
-18,Eden Gardens
-19,"Rajiv Gandhi International Stadium, Uppal"
-20,Feroz Shah Kotla
-21,Sheikh Zayed Stadium
-22,M Chinnaswamy Stadium
-23,Subrata Roy Sahara Stadium
-24,Newlands
-25,Sawai Mansingh Stadium
-26,Brabourne Stadium
-27,De Beers Diamond Oval
-28,Holkar Cricket Stadium
-29,JSCA International Stadium Complex
-30,Maharashtra Cricket Association Stadium
-31,Green Park
-32,"Punjab Cricket Association Stadium, Mohali"
-33,New Wanderers Stadium
-34,Shaheed Veer Narayan Singh International Stadium
+venue_id,venue_name,venue_location
+1,"MA Chidambaram Stadium, Chepauk",Chennai
+2,OUTsurance Oval,
+3,Barabati Stadium,
+4,St George's Park,
+5,De Beers Diamond Oval,
+6,Green Park,
+7,Dubai International Cricket Stadium,
+8,"Punjab Cricket Association Stadium, Mohali",
+9,Sharjah Cricket Stadium,
+10,Kingsmead,
+11,"Sardar Patel Stadium, Motera",Ahmedabad
+12,Brabourne Stadium,
+13,Buffalo Park,
+14,SuperSport Park,
+15,Dr. Y.S. Rajasekhara Reddy ACA-VDCA Cricket Stadium,
+16,"Rajiv Gandhi International Stadium, Uppal",
+17,Holkar Cricket Stadium,
+18,Dr DY Patil Sports Academy,
+19,Maharashtra Cricket Association Stadium,
+20,Sawai Mansingh Stadium,
+21,Subrata Roy Sahara Stadium,
+22,Sheikh Zayed Stadium,
+23,M Chinnaswamy Stadium,Bengaluru
+24,Saurashtra Cricket Association Stadium,
+25,New Wanderers Stadium,
+26,Feroz Shah Kotla,Delhi
+27,Shaheed Veer Narayan Singh International Stadium,
+28,Newlands,
+29,Eden Gardens,Kolkata
+30,Wankhede Stadium,Mumbai
+31,Nehru Stadium,
+32,Himachal Pradesh Cricket Association Stadium,
+33,"Vidarbha Cricket Association Stadium, Jamtha",
+34,JSCA International Stadium Complex,

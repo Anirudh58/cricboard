@@ -81,7 +81,7 @@ def main(match_format):
         
     with col3:
         tournaments = st.multiselect("Tournaments:", options=populate_tournaments(match_format))        
-        opposition = st.selectbox("Opposition: (TBD)", options=populate_teams())
+        innings_number = st.number_input("Innnings number: (0 -> both) ", min_value=0, max_value=2, step=1, format="%d")
         bowler_name = st.selectbox("Choose a bowler:", options=populate_bowlers())
 
     # OUTPUT SECTION
@@ -99,18 +99,18 @@ def main(match_format):
     
     with col1:
         st.header("Runs")
-        st.table(batting_total_runs(player_name=player_name, top_n=top_n, match_format=match_format, tournaments=tournaments, venue_name=venue, years_range=years_range, overs_range=overs_range, against_spin=only_spin_bool, against_pace=only_pace_bool, bowling_types=bowling_types, against_bowler=bowler_name))
+        st.table(batting_total_runs(player_name=player_name, top_n=top_n, match_format=match_format, tournaments=tournaments, venue_name=venue, years_range=years_range, overs_range=overs_range, against_spin=only_spin_bool, against_pace=only_pace_bool, bowling_types=bowling_types, against_bowler=bowler_name, innings_number=innings_number))
 
     with col2:
         st.header("Strike Rate")
-        st.table(batting_strike_rate(player_name=player_name, top_n=top_n, match_format=match_format, tournaments=tournaments, venue_name=venue, years_range=years_range, overs_range=overs_range, against_spin=only_spin_bool, against_pace=only_pace_bool, bowling_types=bowling_types, against_bowler=bowler_name, minimum_runs=minimum_runs))
+        st.table(batting_strike_rate(player_name=player_name, top_n=top_n, match_format=match_format, tournaments=tournaments, venue_name=venue, years_range=years_range, overs_range=overs_range, against_spin=only_spin_bool, against_pace=only_pace_bool, bowling_types=bowling_types, against_bowler=bowler_name, minimum_runs=minimum_runs, innings_number=innings_number))
         
     with col3:
         st.header("Average")
-        st.table(batting_average(player_name=player_name, top_n=top_n, match_format=match_format, tournaments=tournaments, venue_name=venue, years_range=years_range, overs_range=overs_range, against_spin=only_spin_bool, against_pace=only_pace_bool, bowling_types=bowling_types, against_bowler=bowler_name, minimum_runs=minimum_runs))
+        st.table(batting_average(player_name=player_name, top_n=top_n, match_format=match_format, tournaments=tournaments, venue_name=venue, years_range=years_range, overs_range=overs_range, against_spin=only_spin_bool, against_pace=only_pace_bool, bowling_types=bowling_types, against_bowler=bowler_name, minimum_runs=minimum_runs, innings_number=innings_number))
         
     with col4:
         st.header("Dismissals")
-        st.table(batting_dismissals(player_name=player_name, top_n=top_n, match_format=match_format, tournaments=tournaments, venue_name=venue, years_range=years_range, overs_range=overs_range, against_spin=only_spin_bool, against_pace=only_pace_bool, bowling_types=bowling_types, against_bowler=bowler_name))
+        st.table(batting_dismissals(player_name=player_name, top_n=top_n, match_format=match_format, tournaments=tournaments, venue_name=venue, years_range=years_range, overs_range=overs_range, against_spin=only_spin_bool, against_pace=only_pace_bool, bowling_types=bowling_types, against_bowler=bowler_name, innings_number=innings_number))
     
     
