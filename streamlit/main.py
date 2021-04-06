@@ -27,18 +27,18 @@ parentdir = os.path.dirname(currentdir)
 sys.path.insert(0,parentdir) 
 
 # my library
-import session  # Assuming session.py lives on this folder
-import batsman, bowler, fantasy
+import session 
+import batsman, bowler, fantasy, about
 
 DEBUG = True
 
 # Global constants
 PAGES = {
+    "ABOUT" : about,
     "FANTASY" : fantasy,
     "BATTING": batsman,
     "BOWLING": bowler
 }
-
 
 # use @st.cache whenever you want caching mechanisms for fast loading
 # These formats will not change
