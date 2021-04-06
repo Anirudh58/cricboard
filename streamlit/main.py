@@ -19,24 +19,26 @@ from tqdm import tqdm
 # viz
 import streamlit as st
 
+from PIL import Image
+
 # This is to add the root project folder to sys.path so that imports are easy
 currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
 parentdir = os.path.dirname(currentdir)
 sys.path.insert(0,parentdir) 
 
 # my library
-from infra import create_session_state
+import session 
 import batsman, bowler, fantasy, about
 
+DEBUG = True
 
 # Global constants
 PAGES = {
-    "BATTING - GENERAL": batsman,
-    "BOWLING - GENERAL": bowler,
     "FANTASY" : fantasy,
+    "BATTING": batsman,
+    "BOWLING": bowler,
     "ABOUT" : about
 }
-
 
 # use @st.cache whenever you want caching mechanisms for fast loading
 # These formats will not change
@@ -47,9 +49,11 @@ def populate_formats():
 
 def main():
     # session variables
-    session = create_session_state()
+    session_state = session.get(run_id=0)
     
-    st.sidebar.title("CRICBOARD")
+    #st.sidebar.title("CRICBOARD")
+    image = Image.open('./assets/images/logo_big.jpeg')
+    st.sidebar.image(image, caption='')
         
     # First user needs to choose a format that will be applicable across all pages
     match_format = st.sidebar.selectbox("Choose a format", populate_formats())
@@ -58,19 +62,22 @@ def main():
     st.sidebar.title('Navigation')
     selection = st.sidebar.radio("Go to", list(PAGES.keys()))
     page = PAGES[selection]
-    page.main(match_format)
+    page.main(match_format, session_state)
         
     
 if __name__ == "__main__":
-    st.set_page_config(layout="wide", page_title="CRICBOARD", page_icon="./assets/images/logo.png")
-
-    # hide the menu button during production
+    
+    st.set_page_config(layout="wide", page_title="CRICBOARD", page_icon="./assets/images/logo.jpeg")
+    
     hide_streamlit_style = """
     <style>
     #MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
     </style>
-
     """
-    st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
+    
+    # hide the menu button during production
+    if ~DEBUG:
+        st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+    
     main()

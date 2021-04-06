@@ -72,6 +72,23 @@ def populate_players(selected_match):
     players_both_teams = players_team_1 + players_team_2
     return players_both_teams
 
+def populate_player_table(selected_match):
+    if selected_match is None:
+        return []
+
+    team_1_id = team_id_map[selected_match.split(" vs ")[0]]
+    team_2_id = team_id_map[selected_match.split(" vs ")[1]]
+    current_year = str(datetime.date.today().year)
+    player_ids_team_1 = [int(player_id) for player_id in df_squad[df_squad["team_id"] == team_1_id][current_year].iloc[0].split(",")]
+    player_ids_team_2 = [int(player_id) for player_id in df_squad[df_squad["team_id"] == team_2_id][current_year].iloc[0].split(",")]
+
+    df_players_team_1 = df_player[df_player['player_id'].isin(player_ids_team_1)][['player_name', 'batting_style', 'bowling_style']]
+    df_players_team_1['team'] = selected_match.split(" vs ")[0]
+
+    df_players_team_2 = df_player[df_player['player_id'].isin(player_ids_team_2)][['player_name', 'batting_style', 'bowling_style']]
+    df_players_team_2['team'] = selected_match.split(" vs ")[1]
+    return pd.concat([df_players_team_1, df_players_team_2], ignore_index=True)
+
 def populate_opposition_bowlers(selected_match, bowling_types):
     # if there is no match on this date, return empty list
     if selected_match is None:
@@ -141,7 +158,7 @@ def populate_opposition_batters(selected_match, batting_types):
     df_result = pd.DataFrame(players_batting_types, index =[team_1, team_2])
     return df_result
 
-def main(match_format):
+def main(match_format, session_state):
     st.title("Fantasy")
     st.markdown("Helping you pick your best Dream 11 team")
     
@@ -164,6 +181,15 @@ def main(match_format):
     
     with col2:
         players_list = st.multiselect("Choose players to compare:", options=populate_players(selected_match))  
+    
+    if selected_match:
+        col1, col2, col3 = st.beta_columns((10, 9, 10))
+        with col2:
+            st.header("PLAYER DETAILS (BOTH TEAMS)")
+
+        col1, col2, col3 = st.beta_columns((1, 5, 1))
+        with col2:
+            st.dataframe(populate_player_table(selected_match))
 
     if len(players_list) == 0:
         return
@@ -363,8 +389,9 @@ def main(match_format):
         ax.set_ylabel("Wickets taken")
         ax.set_xticks([])
         ax.set_title('Wickets Comparison(Batting Types)')
-        st.pyplot(fig)
-    
+        st.pyplot(fig)        
+
+
     '''
     #OLD UI
         
