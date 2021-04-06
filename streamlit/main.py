@@ -34,10 +34,10 @@ DEBUG = True
 
 # Global constants
 PAGES = {
+    "ABOUT" : about,
     "FANTASY" : fantasy,
     "BATTING": batsman,
-    "BOWLING": bowler,
-    "ABOUT" : about
+    "BOWLING": bowler
 }
 
 # use @st.cache whenever you want caching mechanisms for fast loading

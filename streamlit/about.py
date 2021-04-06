@@ -6,36 +6,6 @@ from PIL import Image
 def main(match_format, session_state):
     st.title("Welcome to Cricboard")
     
-    with st.beta_expander("Who are we?"):
-        
-        col1, col2, col3, col4, col5 = st.beta_columns((1, 2, 2, 2, 1))
-        
-        with col2:
-            image = Image.open('./assets/images/anip.jpg')
-            image = image.resize((300, 200))
-            #st.image(image, caption='Anirudh Prabakaran')
-            #st.markdown("""
-            #[linkedin](https://www.linkedin.com/in/anirudh-prabakaran/) [twitter](https://twitter.com/Anip58)
-            #""")
-            #st.write("[linkedin](https://www.linkedin.com/in/anirudh-prabakaran/)") #[linkedin](https://www.linkedin.com/in/anirudh-prabakaran/) [twitter](https://twitter.com/Anip58)
-        
-        with col3:
-            image = Image.open('./assets/images/rishab.jfif')
-            image = image.resize((300, 200))
-            #st.image(image, caption='Rishabraj Dhariwal')
-            
-        with col4:
-            image = Image.open('./assets/images/vivek.jfif')
-            image = image.resize((300, 200))
-            #st.image(image, caption='Vivek Subramaniam')
-        
-        col1, col2, col3 = st.beta_columns((1, 10, 1))
-        
-        with col2:
-            st.markdown("""
-            We are yet another bunch of college friends who spend a significant portion of our daily lives thinking about/watching/playing cricket. We started working on this project purely out of interest just to get some cool stats, but later we decided to put our work into some UI and share it to everyone. Contact us through linkedin ([Anirudh](https://www.linkedin.com/in/anirudh-prabakaran/), [Rishab](https://www.linkedin.com/in/rishab9797/), [Vivek](https://www.linkedin.com/in/vivek-sambamurthy/)) or twitter ([Anirudh](https://twitter.com/Anip58), [Rishab](https://twitter.com/RishabD9797), [Vivek](https://twitter.com/viveks1996))
-            """)
-    
     with st.beta_expander("Why did we build this?"):
         st.markdown("""
         - We love cricket 
@@ -58,7 +28,7 @@ def main(match_format, session_state):
         
     with st.beta_expander("Overview of this tool"):
         st.write("""
-        Now that we have established some basic things, lets dive in. You can choose to see a quick demo through this video if you're lazy to read below. 
+        Now that we have established some basic things, lets dive in. You can choose to see a quick demo through this [video](https://youtu.be/dMnsE7TbO4Q) if you're lazy to read below. 
         - First we have a sidebar that contains a match format option (T20, TEST, ODI). Choose this first. This option would be applicable across all pages. (Currently we have loaded only IPL data, but in the future we want to show stats for all tournaments and formats as well)
         - Next we have 3 pages "FANTASY", "BATTING", "BOWLING" that you can navigate across. 
         - The Fantasy page is purely targetted towards comparing different players. The basic idea is that users have around 30 mins to choose their fantasy teams between the time of toss (and playing squad release) and time of match start. So we want to provide some information that could potentially be useful to you in picking your best team. 
@@ -71,7 +41,7 @@ def main(match_format, session_state):
                     - Stats specific to the player's opposition. (eg. If you are comparing Rohit Sharma and Virat Kohli where the selected match is MI vs RCB, Rohit's stats are specific to matches against RCB and Kohli's stats are specific to matches against MI)
                     - Stats specific to innings number (If you want to compare how players fare while batting first or chasing)
                 - The "RECENT FORM COMPARISON" is to give an idea of how these players have performed in the last n matches. You can configure the value of n with what we call as the "recency parameter". You should be able to see 3 line charts denoting runs, wickets and fantasy points. Each chart would contain k different lines, with k denoting the number of players you have chosen to compare.  
-                - The "PLAYER SKILL ANALYSIS" is to show the distribution of the players stats across different bowling/batting styles. You can check the batting and bowling styles of all players in this match in the table shown above.
+                - The "PLAYER SKILL ANALYSIS" is to show the distribution of the players stats across different bowling/batting styles. You can check the batting and bowling styles of all players in this match in the table shown in the top.
             - These are currently what we have in the fantasy section. If you think there are some more insights that you want to see before choosing your team, please contact us, we would definitely try to implement them right away.
         - The Batting page is targetted towards getting batting related stats given the variety of conditions.
             - The stats we currently show are:
@@ -117,7 +87,7 @@ def main(match_format, session_state):
         
     with st.beta_expander("How accurate are these stats?"):
         st.write("""
-        - The accuracy of all these stats are 100% dependent on the data we use through [cricsheet](https://cricsheet.org/). It is highly likely that there might be some small ball level discrepancies or some matches may not have been recorded (this is not true for IPL as we know for sure that every single match has been accounted for). But the basic idea is to see the big picture and hence we feel these minor discrepancies can be overlooked. 
+        - The accuracy of all these stats are fully dependent on the data we use through [cricsheet](https://cricsheet.org/). It is likely that there might be some small ball level discrepancies or some matches may not have been recorded (this is not true for IPL as we know for sure that every single match has been accounted for). But the basic idea is to see the big picture and hence we feel these minor discrepancies can be overlooked. 
         """)
     
     with st.beta_expander("How are the fantasy points calculated?"):
@@ -129,3 +99,38 @@ def main(match_format, session_state):
         st.write("""
         - This is a free tool purely built out of interest. We are completely not responsible for any money lost through fantasy games based on data from this site. 
         """)
+    
+    with st.beta_expander("Support"):
+        st.write("""
+        We built this in the past few weeks with our full-time jobs occupying most of our time. There is certainly so much scope for improvement so please do contact us if you have any sort of feedback (bugs, factual mistakes, feature suggestions, new plot ideas, etc..,) and we would try to work on them right away. We had a lot of fun working on this project with zero experience in sports analytics and we certainly hope to work on more cool stuff in the future. Thanks for visiting and please do quote us if you share something from here on social media :) 
+        """)
+    
+    st.markdown("""
+    ***
+    """)
+        
+    with st.beta_expander("Who are we?"):
+        
+        col1, col2, col3, col4, col5 = st.beta_columns((1, 2, 2, 2, 1))
+        
+        with col2:
+            image = Image.open('./assets/images/anip.jpg')
+            image = image.resize((275, 200))
+            st.image(image, caption='Anirudh Prabakaran')
+        
+        with col3:
+            image = Image.open('./assets/images/rishab.jpeg')
+            image = image.resize((225, 200))
+            st.image(image, caption='Rishabraj Dhariwal')
+            
+        with col4:
+            image = Image.open('./assets/images/vivek.jfif')
+            image = image.resize((225, 200))
+            st.image(image, caption='Vivek Subramaniam')
+        
+        col1, col2, col3 = st.beta_columns((1, 10, 1))
+        
+        with col2:
+            st.markdown("""
+            We are yet another bunch of college friends who spend a significant portion of our daily lives thinking about/watching/playing cricket. We started working on this project purely out of interest just to get some cool insights, but later we decided to put our work into some UI and share it to everyone. Feel free to contact us for anything through linkedin ([Anirudh](https://www.linkedin.com/in/anirudh-prabakaran/), [Rishab](https://www.linkedin.com/in/rishab9797/), [Vivek](https://www.linkedin.com/in/vivek-sambamurthy/)) or twitter ([Anirudh](https://twitter.com/Anip58), [Rishab](https://twitter.com/RishabD9797), [Vivek](https://twitter.com/viveks1996))
+            """)
