@@ -1,602 +1,602 @@
 team_id,team_name,team_label
-1,Bangladesh,B
-2,Free State Under-19s,FSU
-3,Speen Ghar Region,SGR
-4,Uttar Pradesh Under-19s,UPU
-5,Dhaka Metropolis,DM
-6,Puducherry,P
-7,Griqualand West Under-19s,GWU
-8,Cambridge MCCU,CM
-9,Moors Sports Club,MSC
-10,Matabeleland,M
-11,Malaysia Under-19s,MU
-12,Limpopo Under-19s,LU
-13,Free State Under-13s,FSU
-14,Scotland Under-17s,SU
-15,National Bank of Pakistan,NBoP
-16,Easterns Under-13s,EU
-17,Mpumalanga Under-17s,MU
-18,Belagavi Panthers,BP
-19,Western Province,WP
-20,Bedfordshire,B
-21,Northamptonshire 2nd XI,N2X
-22,Khulna Division,KD
-23,Derbyshire Cricket Board,DCB
-24,Melbourne Renegades,MR
-25,Nondescripts Cricket Club,NCC
-26,Cambridge University,CU
-27,Berkshire,B
-28,South Western Districts Women,SWDW
-29,Haryana,H
-30,Leeward Islands,LI
-31,Victoria Under-19s,VU
-32,Gauteng Under-17s,GU
-33,Pakistan Women,PW
-34,Eastern Province Under-13s,EPU
-35,Limpopo Under-13s,LU
-36,Durham Cricket Board,DCB
-37,Mashonaland,M
-38,Seeduwa Raddoluwa Cricket Club,SRCC
-39,Basnahira South,BS
-40,Kochi Tuskers Kerala,KTK
-41,Sussex,S
-42,Hampshire 2nd XI,H2X
-43,Queensland Country,QC
-44,Pakistan University Grants Commission,PUGC
-45,Basnahira North,BN
-46,Cape Cobras,CC
-47,Northerns,N
-48,Colombo Cricket Club,CCC
-49,Devon,D
-50,United States of America Under-19s,USoAU
-51,Peshawar Panthers,PP
-52,Bengal Under-19s,BU
-53,Pakistan Customs,PC
-54,Agriculture Development Bank of Pakistan,ADBoP
-55,West Indies,WI
-56,Melbourne Stars,MS
-57,Chhattisgarh,C
-58,Jamaica Under-19s,JU
-59,North West,NW
-60,Zimbabwe A,ZA
-61,Royal College,RC
-62,Victoria Institute of Sport,VIoS
-63,Bangladesh A,BA
-64,Adelaide Strikers,AS
-65,Arunachal Pradesh,AP
-66,South Australia,SA
-67,Sri Lanka Army Sports Club,SLASC
-68,Warriors,W
-69,Mumbai,M
-70,Colts Cricket Club Women,CCCW
-71,Lahore Eagles,LE
-72,Pakistan Automobiles Corporation,PAC
-73,British Universities,BU
-74,Hampshire Cricket Board,HCB
-75,Centrals,C
-76,Rio Sports Club,RSC
-77,United Arab Emirates Women,UAEW
-78,Western Province Under-13s,WPU
-79,Northumberland,N
-80,Titans,T
-81,Gauteng Under-15s,GU
-82,Baroda,B
-83,Allied Bank,AB
-84,State Bank of Pakistan,SBoP
-85,Australian Capital Territory Women,ACTW
-86,Guyana,G
-87,Australia Under-19s,AU
-88,South Western Districts Under-17s,SWDU
-89,Dhaka Gladiators,DG
-90,Essex 2nd XI,E2X
-91,Wesley College,WC
-92,Boland,B
-93,Yorkshire Academy,YA
-94,Eagles,E
-95,Easterns Under-19s,EU
-96,Islamabad United,IU
-97,Queensland,Q
-98,Pakistan Under-19s,PU
-99,Lincolnshire,L
-100,Africa XI,AX
-101,Nepal Under-19s,NU
-102,Pakistan National Shipping Corporation,PNSC
-103,Nepal Women,NW
-104,Pakistan,P
-105,Midlands,M
-106,Canada Under-19s,CU
-107,Zimbabwe Under-13s,ZU
-108,Cardiff MCCU,CM
-109,Abbottabad,A
-110,Rajasthan Under-16s,RU
-111,Australian Cricket Academy,ACA
-112,Natal,N
-113,Multan,M
-114,Lahore,L
-115,Karnataka,K
-116,Griqualand West Under-13s,GWU
-117,Canterbury Women,CW
-118,Peshawar,P
-119,Brisbane Heat,BH
-120,Western Province Under-15s,WPU
-121,South Western Districts,SWD
-122,Andhra Under-19s,AU
-123,Netherlands,N
-124,Pakistan A,PA
-125,Wellington,W
-126,Sussex Cricket Board,SCB
-127,Kurunegala Youth Cricket Club,KYCC
-128,Chilaw Marians Cricket Club,CMCC
-129,Islamabad Cricket Association,ICA
-130,Barbados Tridents,BT
-131,India A,IA
-132,Panadura Sports Club,PSC
-133,Bangladesh Under-19s,BU
-134,Mpumalanga Under-15s,MU
-135,Sinhalese Sports Club,SSC
-136,Australia Women,AW
-137,Combined Campuses and Colleges,CCaC
-138,Limpopo Under-17s,LU
-139,Rajasthan,R
-140,Sussex 2nd XI,S2X
-141,Yorkshire Cricket Board,YCB
-142,Unicorns A,UA
-143,Mashonaland Under-24s,MU
-144,Auckland Women,AW
-145,Dhaka Division,DD
-146,Canterbury,C
-147,Hyderabad Hawks,HH
-148,KwaZulu-Natal Under-17s,KU
-149,England Women,EW
-150,Bihar,B
-151,United States of America Women,USoAW
-152,Australian Country XI,ACX
-153,Jamaica,J
-154,Karnataka Under-19s,KU
-155,Penang,P
-156,Dolphins,D
-157,Loughborough Marylebone Cricket Club University (England),LMCCU(
-158,Jammu & Kashmir,J&K
-159,Leicestershire 2nd XI,L2X
-160,St. Peters College,SPC
-161,Rangpur Riders,RR
-162,New South Wales Country,NSWC
-163,Sri Lanka A,SLA
-164,Andhra,A
-165,Northern Districts Women,NDW
-166,Free State Under-15s,FSU
-167,Maharashtra,M
-168,Multan Tigers,MT
-169,Mountaineers,M
-170,Essex Under-17s,EU
-171,Singha Sports Club,SSC
-172,Sargodha,S
-173,Sri Lanka Under-15s,SLU
-174,Karachi Dolphins,KD
-175,Marylebone Cricket Club Universities,MCCU
-176,Lahore Whites,LW
-177,United Arab Emirates,UAE
-178,Goa Under-16s,GU
-179,St Aloysius College,SAC
-180,Kandurata,K
-181,Boland Under-15s,BU
-182,Gauteng,G
-183,Peshawar Zalmi,PZ
-184,Odisha,O
-185,Boost Region,BR
-186,Kent,K
-187,London County,LC
-188,Nottinghamshire Cricket Board,NCB
-189,Leicestershire Cricket Board,LCB
-190,Zimbabwe Women,ZW
-191,Mannar-Vavuniya Combined Schools,MCS
-192,Warwickshire Cricket Board,WCB
-193,Sikkim,S
-194,Border Under-15s,BU
-195,Marylebone Cricket Club,MCC
-196,Trinidad & Tobago Red Steel,T&TRS
-197,Canada Women,CW
-198,Kurunegala Youth Cricket Club Women,KYCCW
-199,New South Wales Under-23s,NSWU
-200,Middlesex Cricket Board,MCB
-201,South Australia Under-19s,SAU
-202,Assam Under-16s,AU
-203,Sri Lanka Under-19s,SLU
-204,Hyderabad (Pakistan),H(
-205,Zimbabwe Cricket Academy,ZCA
-206,Pakistan International Airlines,PIA
-207,Sui Gas Corporation of Pakistan,SGCoP
-208,Western Australia Second XI,WASX
-209,Scotland Under-19s,SU
-210,KwaZulu-Natal Inland Under-13s,KIU
-211,Karachi Whites,KW
-212,Maris Stella College,MSC
-213,Barisal Division,BD
-214,Victoria Under-23s,VU
-215,Manipur,M
-216,Kent 2nd XI,K2X
-217,Easterns,E
-218,Punjab,P
-219,Sri Lanka Cricket Development XI,SLCDX
-220,North West Under-15s,NWU
-221,Saracens Sports Club,SSC
-222,Vidarbha,V
-223,Malaysia Women,MW
-224,Baroda Under-19s,BU
-225,Public Works Department,PWD
-226,Lanka Womens Cricket Club,LWCC
-227,Australia,A
-228,Mashonaland Country Districts,MCD
-229,Afghanistan,A
-230,Surrey,S
-231,Lankan Cricket Club,LCC
-232,Saurashtra,S
-233,North West Under-19s,NWU
-234,Pune Warriors,PW
-235,Yorkshire Under-17s,YU
-236,Faisalabad Wolves,FW
-237,Ruhuna,R
-238,Easterns Under-15s,EU
-239,Surrey 2nd XI,S2X
-240,Tamil Nadu Under-19s,TNU
-241,Mpumalanga Under-13s,MU
-242,Colts Cricket Club,CCC
-243,Mis Ainak Region,MAR
-244,Ireland A,IA
-245,Sri Lanka Navy Sports Club,SLNSC
-246,Trinidad & Tobago,T&T
-247,Matabeleland Tuskers,MT
-248,Northamptonshire Cricket Board,NCB
-249,Worcestershire,W
-250,West Indies Under-19s,WIU
-251,Mumbai Indians,MI
-252,Cumberland,C
-253,Sheikhupura Cricket Association,SCA
-254,Ireland Women,IW
-255,Canada,C
-256,Boland Under-13s,BU
-257,Western Australia Under-17s,WAU
-258,Eastern Province,EP
-259,Cambridgeshire,C
-260,Kandy Cricket Club,KCC
-261,Western Australia Women,WAW
-262,Netherlands Under-17s,NU
-263,Northamptonshire,N
-264,Rawalpindi,R
-265,South Western Districts Under-13s,SWDU
-266,Limpopo Under-15s,LU
-267,Western Australia Under-23s,WAU
-268,Northern Territory,NT
-269,Karachi,K
-270,India Green Women,IGW
-271,England,E
-272,Tamil Nadu,TN
-273,Queensland Under-17s,QU
-274,Huntingdonshire,H
-275,Minor Counties,MC
-276,Griqualand West,GW
-277,Bahawalpur,B
-278,Victoria Country,VC
-279,Western Transvaal,WT
-280,Ragama Cricket Club,RCC
-281,Hampshire,H
-282,Border Under-19s,BU
-283,Matara Sports Club,MSC
-284,Oxfordshire,O
-285,Wiltshire,W
-286,Australia A,AA
-287,KwaZulu-Natal,K
-288,Badureliya Sports Club,BSC
-289,Hobart Hurricanes,HH
-290,Ireland Under-15s,IU
-291,Shakthi Ladies,SL
-292,Nepal,N
-293,Central Districts,CD
-294,Karachi Kings,KK
-295,KwaZulu-Natal Inland Under-15s,KIU
-296,Ireland Under-13s,IU
-297,Transvaal,T
-298,KwaZulu-Natal Under-19s,KU
-299,Chittagong Division,CD
-300,Bloomfield Cricket and Athletic Club,BCaAC
-301,Middlesex 2nd XI,M2X
-302,Galle Cricket Club,GCC
-303,Assam Under-19s,AU
-304,Tasmania Second XI,TSX
-305,Free State Under-17s,FSU
-306,Rajasthan Royals,RR
-307,New Zealand Women,NZW
-308,Kent Cricket Board,KCB
-309,Essex Cricket Board,ECB
-310,Rhodesia,R
-311,India,I
-312,Bengal Under-16s,BU
-313,Worcestershire 2nd XI,W2X
-314,Madhya Pradesh,MP
-315,Eastern Province Under-15s,EPU
-316,Barbados,B
-317,Delhi Daredevils,DD
-318,Moratuwa Sports Club Women,MSCW
-319,Gloucestershire 2nd XI,G2X
-320,Bangladesh Under-17s,BU
-321,Bengal Under-14s,BU
-322,United Bank Limited,UBL
-323,Worcestershire Cricket Board,WCB
-324,Glamorgan 2nd XI,G2X
-325,Haryana Under-19s,HU
-326,Redco Pakistan Ltd,RPL
-327,Surrey Cricket Board,SCB
-328,Border Under-17s,BU
-329,Rest of Punjab,RoP
-330,Warwickshire,W
-331,Sialkot Stallions,SS
-332,South Australia Under-17s,SAU
-333,Windward Islands,WI
-334,Goa,G
-335,Norfolk,N
-336,Jamaica Tallawahs,JT
-337,Zimbabwe Under-19s,ZU
-338,Victoria Second XI,VSX
-339,Lahore Qalandars,LQ
-340,Northern Districts,ND
-341,Northerns Under-15s,NU
-342,Malaysia Under-15s,MU
-343,Gujarat,G
-344,Punjab Under-19s,PU
-345,Glamorgan,G
-346,Gauteng Under-13s,GU
-347,Surrey Under-15s,SU
-348,Yorkshire Women,YW
-349,Yorkshire 2nd XI,Y2X
-350,Rajshahi Division,RD
-351,Shropshire,S
-352,Somerset 2nd XI,S2X
-353,Suffolk,S
-354,Delhi Under-16s,DU
-355,Durham MCCU,DM
-356,Sui Northern Gas Pipelines Limited,SNGPL
-357,Abahani Limited,AL
-358,Northern Territory Under-19s,NTU
-359,Railways,R
-360,Manicaland,M
-361,Mid West Rhinos,MWR
-362,Kings XI Punjab,KXP
-363,Jammu & Kashmir Under-19s,J&KU
-364,Bangladesh Women,BW
-365,Bangladesh Cricket Board Academy,BCBA
-366,Perth Scorchers,PS
-367,Hong Kong Women,HKW
-368,Border Under-13s,BU
-369,Goa Under-19s,GU
-370,Sri Lanka Air Force Sports Club,SLAFSC
-371,Antonians Sports Club,ASC
-372,Islamabad Leopards,IL
-373,Guyana Under-19s,GU
-374,Ireland,I
-375,Hertfordshire,H
-376,Cheshire,C
-377,Sylhet Division,SD
-378,Northern Territory Under-17s,NTU
-379,Warwickshire 2nd XI,W2X
-380,Gloucestershire,G
-381,Herefordshire,H
-382,Mpumalanga Under-19s,MU
-383,Assam,A
-384,Lancashire 2nd XI,L2X
-385,KwaZulu-Natal Inland,KI
-386,Northerns (Zimbabwe),N(
-387,Zimbabwe,Z
-388,Mumbai Under-19s,MU
-389,Dorset,D
-390,Quetta Gladiators,QG
-391,Nittabuwa Ladies,NL
-392,Leeds/Bradford MCCU,LM
-393,Wellington Women,WW
-394,Mashonaland A,MA
-395,Boland Under-17s,BU
-396,Australian Capital Territory Under-19s,ACTU
-397,Tasmania Under-23s,TU
-398,Derbyshire,D
-399,South Africa A,SAA
-400,University Sports South Africa XI,USSAX
-401,Hampshire Cricket Academy,HCA
-402,Water and Power Development Authority,WaPDA
-403,Trinidad & Tobago Under-19s,T&TU
-404,Habib Bank Limited,HBL
-405,United Arab Emirates Under-19s,UAEU
-406,Oxford University,OU
-407,Hyderabad Under-19s,HU
-408,Bengal,B
-409,South Africa Under-19s,SAU
-410,Sialkot,S
-411,Wayamba,W
-412,Gujarat Lions,GL
-413,Somerset,S
-414,Sri Lanka Board Presidents XI,SLBPX
-415,Netherlands Under-15s,NU
-416,Leicestershire,L
-417,Derbyshire 2nd XI,D2X
-418,Zarai Taraqiati Bank Limited,ZTBL
-419,Asia XI,AX
-420,Sunrisers Hyderabad,SH
-421,Philadelphians,P
-422,Saurashtra Under-19s,SU
-423,Uttar Pradesh Under-16s,UPU
-424,Cornwall,C
-425,Queensland Academy of Sport,QAoS
-426,Uttar Pradesh,UP
-427,Afghanistan Under-19s,AU
-428,Burgher Recreation Club,BRC
-429,Boland Under-19s,BU
-430,South Australia Country,SAC
-431,India Under-19s,IU
-432,Durham 2nd XI,D2X
-433,Khan Research Labs,KRL
-434,Rangpur Division,RD
-435,Hong Kong Under-19s,HKU
-436,India Women,IW
-437,Lancashire Cricket Board,LCB
-438,Queensland Under-19s,QU
-439,University of New South Wales,UoNSW
-440,Chennai Super Kings,CSK
-441,Moratuwa Sports Club,MSC
-442,Lions,L
-443,Bahawalpur Stags,BS
-444,Victoria Under-17s,VU
-445,Border,B
-446,Yorkshire,Y
-447,Eastern Province Under-17s,EPU
-448,Badulla & Monaragala Combine Schools,B&MCS
-449,Ireland Under-19s,IU
-450,England Lions,EL
-451,Pakistan Television,PT
-452,England Under-19s,EU
-453,Southern Ladies Cricket Club,SLCC
-454,KwaZulu-Natal Under-15s,KU
-455,South Australia Women,SAW
-456,Australian Capital Territory,ACT
-457,South Africa Academy,SAA
-458,Tamil Union Cricket and Athletic Club,TUCaAC
-459,Nottinghamshire 2nd XI,N2X
-460,FOG-Seenigama Ladies,FL
-461,Western Australia Country,WAC
-462,Delhi,D
-463,Victoria Women,VW
-464,Northern Transvaal,NT
-465,Scotland Women,SW
-466,United States of America,USoA
-467,Khelaghar Samaj Kallyan Samity,KSKS
-468,St. Thomas College,STC
-469,Mangalore United,MU
-470,Western Australia,WA
-471,Himachal Pradesh,HP
-472,West Indies B,WIB
-473,South Western Districts Under-19s,SWDU
-474,New South Wales,NSW
-475,Otago Women,OW
-476,KwaZulu-Natal Inland Under-19s,KIU
-477,New South Wales Under-17s,NSWU
-478,New Zealand Under-19s,NZU
-479,Punjab Under-16s,PU
-480,Delhi Under-19s,DU
-481,Free State,FS
-482,University of West Indies Vice Chancellors XI,UoWIVCX
-483,Auckland,A
-484,Bijapur Bulls,BB
-485,Scotland,S
-486,Southern Rocks,SR
-487,Eastern Province Under-19s,EPU
-488,New Zealand,NZ
-489,Netherlands Under-13s,NU
-490,Westerns,W
-491,Sri Lanka,SL
-492,South Africa Women,SAW
-493,Essex,E
-494,Islamabad,I
-495,Nalanda College,NC
-496,Western Province Under-19s,WPU
-497,Lahore Division,LD
-498,South Western Districts Under-15s,SWDU
-499,Tripura,T
-500,Ananda College,AC
-501,Abbottabad Falcons,AF
-502,Trinbago Knight Riders,TKR
-503,Amo Region,AR
-504,Tasmania,T
-505,Lahore Lions,LL
-506,ICC World XI,IWX
-507,Trinco-Batti Combined Schools,TCS
-508,Sebastianites Cricket and Athletic Club,SCaAC
-509,Madhya Pradesh Under-19s,MPU
-510,Scotland Under-15s,SU
-511,Netherlands Women,NW
-512,New South Wales Under-19s,NSWU
-513,Mashonaland Eagles,ME
-514,Essex Under-15s,EU
-515,Sri Lanka Army,SLA
-516,Sri Lanka Women,SLW
-517,New Zealand A,NZA
-518,Antigua Hawksbills,AH
-519,South Zone,SZ
-520,Sydney Thunder,ST
-521,Griqualand West Under-17s,GWU
-522,West Indies A,WIA
-523,Karachi Zebras,KZ
-524,Quetta Bears,QB
-525,Western Province Under-17s,WPU
-526,Quetta,Q
-527,Northerns Under-17s,NU
-528,Services,S
-529,Hyderabad (India),H(
-530,KwaZulu-Natal Inland Under-17s,KIU
-531,Surrey Under-17s,SU
-532,Gauteng Under-19s,GU
-533,Marylebone Cricket Club Young Cricketers,MCCYC
-534,Antigua and Barbuda,AaB
-535,Pakistan Railways,PR
-536,Zimbabwe Under-17s,ZU
-537,Kolkata Knight Riders,KKR
-538,Orissa,O
-539,Police Sports Club,PSC
-540,Tasmania Under-19s,TU
-541,Northerns Under-19s,NU
-542,Northerns Under-13s,NU
-543,St Kitts and Nevis Patriots,SKaNP
-544,Khan Research Laboratories,KRL
-545,Barbados Under-19s,BU
-546,Australia Under-16s,AU
-547,KwaZulu-Natal Under-13s,KU
-548,Lahore Shalimar,LS
-549,Otago,O
-550,Netherlands Under-19s,NU
-551,Karachi Blues,KB
-552,New South Wales Women,NSWW
+1,Hong Kong,HK
+2,Australian Capital Territory,ACT
+3,Madhya Pradesh Under-16s,MPU
+4,Karachi Zebras,KZ
+5,Hobart Hurricanes,HH
+6,Nottinghamshire 2nd XI,N2X
+7,Northerns Under-19s,NU
+8,Easterns,E
+9,Jamaica Under-19s,JU
+10,Northerns,N
+11,Australian Capital Territory Under-19s,ACTU
+12,Australia Under-16s,AU
+13,Services,S
+14,Abbottabad Rhinos,AR
+15,Ireland Under-13s,IU
+16,Bijapur Bulls,BB
+17,St Aloysius College,SAC
+18,Andhra,A
+19,University of New South Wales,UoNSW
+20,Zimbabwe Under-13s,ZU
+21,Colts Cricket Club,CCC
+22,Public Works Department,PWD
+23,Philadelphians,P
+24,Lanka Womens Cricket Club,LWCC
+25,Lancashire 2nd XI,L2X
+26,Sunrisers Hyderabad,SH
+27,Surrey Under-17s,SU
+28,Central Districts Women,CDW
+29,Adelaide Strikers,AS
+30,Bengal Under-14s,BU
+31,United States of America,USoA
+32,Karachi Whites,KW
+33,Lahore Eagles,LE
+34,Orissa,O
+35,Agriculture Development Bank of Pakistan,ADBoP
+36,Cambridge University,CU
+37,Quetta Bears,QB
+38,Sri Lanka A,SLA
+39,Colts Cricket Club Women,CCCW
+40,Limpopo Under-17s,LU
+41,New Zealand,NZ
+42,South Australia Country,SAC
+43,North West Under-19s,NWU
+44,Allied Bank,AB
+45,Netherlands,N
+46,Karnataka,K
+47,Delhi,D
+48,Perth Scorchers,PS
+49,Europeans (India),E(
+50,Sri Lanka,SL
+51,Warwickshire Cricket Board,WCB
+52,Kolkata Knight Riders,KKR
+53,KwaZulu-Natal Inland,KI
+54,Himachal Pradesh,HP
+55,Mpumalanga Under-15s,MU
+56,Queensland Under-19s,QU
+57,Karachi Dolphins,KD
+58,Western Australia,WA
+59,Badulla & Monaragala Combine Schools,B&MCS
+60,Scotland Under-15s,SU
+61,West Indies Under-19s,WIU
+62,Western Province,WP
+63,Victoria Institute of Sport,VIoS
+64,Middlesex Cricket Board,MCB
+65,South Western Districts Under-13s,SWDU
+66,South Africa Under-19s,SAU
+67,Southern Rocks,SR
+68,North West Under-15s,NWU
+69,Lancashire,L
+70,Warriors,W
+71,Netherlands Women,NW
+72,Durham 2nd XI,D2X
+73,Unicorns,U
+74,Western Province Under-19s,WPU
+75,Tasmania Under-19s,TU
+76,India A,IA
+77,Bihar,B
+78,Arunachal Pradesh,AP
+79,Chhattisgarh,C
+80,Canada,C
+81,Australian Country XI,ACX
+82,Cornwall,C
+83,Habib Bank Limited,HBL
+84,Minor Counties,MC
+85,Uttar Pradesh Under-16s,UPU
+86,Basnahira South,BS
+87,Victoria Country,VC
+88,Warwickshire 2nd XI,W2X
+89,Panadura Sports Club,PSC
+90,Western Australia Second XI,WASX
+91,North West,NW
+92,Mumbai,M
+93,Hampshire,H
+94,National Bank of Pakistan,NBoP
+95,Pune Warriors,PW
+96,Afghanistan Under-19s,AU
+97,South Western Districts Under-17s,SWDU
+98,Schools Invitation XI,SIX
+99,Derbyshire 2nd XI,D2X
+100,Canada Women,CW
+101,Cambridge MCCU,CM
+102,North West Under-13s,NWU
+103,Oxford University,OU
+104,Kerala,K
+105,Tasmania,T
+106,Bahawalpur Stags,BS
+107,Border Under-19s,BU
+108,Northamptonshire 2nd XI,N2X
+109,Wales Minor Counties,WMC
+110,Dhaka Metropolis,DM
+111,Auckland Women,AW
+112,Peshawar Zalmi,PZ
+113,Hong Kong Under-19s,HKU
+114,Devon,D
+115,Sri Lanka Navy Sports Club,SLNSC
+116,Nondescripts Cricket Club,NCC
+117,Wellington Women,WW
+118,Easterns Under-17s,EU
+119,Ireland Women,IW
+120,Australia Women,AW
+121,Sri Lanka Cricket Development XI,SLCDX
+122,Lancashire Cricket Board,LCB
+123,Rajasthan Under-16s,RU
+124,Hampshire 2nd XI,H2X
+125,KwaZulu-Natal Under-13s,KU
+126,Puducherry,P
+127,Dhaka Division,DD
+128,Middlesex,M
+129,Bahawalpur,B
+130,Melbourne Stars,MS
+131,Mannar-Vavuniya Combined Schools,MCS
+132,Mid West Rhinos,MWR
+133,Bengal Under-16s,BU
+134,Rangpur Riders,RR
+135,Victoria Under-17s,VU
+136,Haryana,H
+137,Assam Under-19s,AU
+138,Northerns Under-17s,NU
+139,Hampshire Cricket Academy,HCA
+140,South Western Districts Women,SWDW
+141,Australia A,AA
+142,Sialkot Stallions,SS
+143,England Women,EW
+144,Cheshire,C
+145,Northamptonshire,N
+146,United States of America Women,USoAW
+147,Leeds/Bradford MCCU,LM
+148,Huntingdonshire,H
+149,Railways,R
+150,Yorkshire,Y
+151,Griqualand West,GW
+152,Islamabad Leopards,IL
+153,Windward Islands,WI
+154,Durham,D
+155,Bangladesh Under-19s,BU
+156,Police Sports Club,PSC
+157,Natal,N
+158,Loughborough Marylebone Cricket Club University (England),LMCCU(
+159,Multan Sultans,MS
+160,Nalanda College,NC
+161,Malaysia Under-19s,MU
+162,New South Wales,NSW
+163,Ireland Under-19s,IU
+164,Hyderabad (India),H(
+165,Mpumalanga Under-17s,MU
+166,Royal College,RC
+167,Zimbabwe Women,ZW
+168,New South Wales Under-17s,NSWU
+169,Faisalabad,F
+170,Border Under-13s,BU
+171,Marylebone Cricket Club Young Cricketers,MCCYC
+172,West Indies A,WIA
+173,Otago,O
+174,Cape Cobras,CC
+175,Cardiff MCCU,CM
+176,South Africa A,SAA
+177,Sri Lanka Air Force Sports Club,SLAFSC
+178,Lahore,L
+179,South Western Districts Under-15s,SWDU
+180,Bengal,B
+181,Oxfordshire,O
+182,Nittabuwa Ladies,NL
+183,Antonians Sports Club,ASC
+184,Rio Sports Club,RSC
+185,Easterns Under-19s,EU
+186,Islamabad Cricket Association,ICA
+187,India Women,IW
+188,United States of America Under-19s,USoAU
+189,Assam Under-16s,AU
+190,Wayamba,W
+191,Sri Lanka Board Presidents XI,SLBPX
+192,Zimbabwe,Z
+193,Australian Cricket Academy,ACA
+194,Ireland A,IA
+195,Badureliya Sports Club,BSC
+196,Western Australia Under-17s,WAU
+197,Berkshire,B
+198,St. Peters College,SPC
+199,Malaysia Women,MW
+200,England,E
+201,Cambridgeshire,C
+202,Jammu & Kashmir,J&K
+203,Combined Campuses and Colleges,CCaC
+204,England Lions,EL
+205,Western Australia Under-19s,WAU
+206,Free State Under-13s,FSU
+207,Border Under-17s,BU
+208,Kandy Youth Cricket Club,KYCC
+209,Goa Under-19s,GU
+210,Essex Cricket Board,ECB
+211,Khulna Division,KD
+212,Dorset,D
+213,Gujranwala Cricket Association,GCA
+214,London County,LC
+215,ICC World XI,IWX
+216,Haryana Under-19s,HU
+217,Orange Free State,OFS
+218,Boland Under-15s,BU
+219,Lahore Lions,LL
+220,Limpopo Under-15s,LU
+221,Mangalore United,MU
+222,Madhya Pradesh,MP
+223,New Zealand A,NZA
+224,Surrey,S
+225,Essex,E
+226,Northern Territory Under-19s,NTU
+227,Lahore Ravi,LR
+228,Malaysia Under-15s,MU
+229,Sui Northern Gas Pipelines Limited,SNGPL
+230,New South Wales Second XI,NSWSX
+231,Odisha,O
+232,United Arab Emirates Under-19s,UAEU
+233,Africa XI,AX
+234,Western Australia Country,WAC
+235,Northerns Under-15s,NU
+236,Trinco-Batti Combined Schools,TCS
+237,Singha Sports Club,SSC
+238,Bangladesh A,BA
+239,Kings XI Punjab,KXP
+240,Mpumalanga Under-19s,MU
+241,Brisbane Heat,BH
+242,Victoria Under-19s,VU
+243,Rawalpindi,R
+244,Border Under-15s,BU
+245,Multan,M
+246,Victoria Women,VW
+247,Tripura,T
+248,Saurashtra,S
+249,Rajshahi Division,RD
+250,Delhi Under-16s,DU
+251,Water and Power Development Authority,WaPDA
+252,Victoria,V
+253,Shropshire,S
+254,Eastern Province Under-17s,EPU
+255,Wellington,W
+256,Mountaineers,M
+257,Galle Cricket Club,GCC
+258,New Zealand Women,NZW
+259,Ruhuna,R
+260,Baroda,B
+261,Seeduwa Raddoluwa Cricket Club,SRCC
+262,Easterns Under-15s,EU
+263,South Australia Under-23s,SAU
+264,Centrals,C
+265,Boland Under-13s,BU
+266,Derbyshire,D
+267,Guyana,G
+268,Essex Under-15s,EU
+269,Limpopo Under-19s,LU
+270,Mumbai Under-19s,MU
+271,Essex Under-17s,EU
+272,Barbados Under-19s,BU
+273,Barbados Tridents,BT
+274,United Bank Limited,UBL
+275,Mpumalanga Under-13s,MU
+276,Oxford MCCU,OM
+277,Zimbabwe Under-17s,ZU
+278,Sri Lanka Army,SLA
+279,Ireland,I
+280,Zimbabwe Under-19s,ZU
+281,Rajasthan,R
+282,Pakistan,P
+283,Royal Challengers Bangalore,RCB
+284,Northern Districts,ND
+285,Peshawar Panthers,PP
+286,Pakistan Television,PT
+287,United Arab Emirates,UAE
+288,Hyderabad (Pakistan),H(
+289,Bloomfield Cricket and Athletic Club,BCaAC
+290,Warwickshire,W
+291,Cumberland,C
+292,Western Province Under-17s,WPU
+293,Leeward Islands,LI
+294,Gujarat,G
+295,Buckinghamshire,B
+296,Jamaica Tallawahs,JT
+297,Manicaland,M
+298,Asia XI,AX
+299,Redco Pakistan Ltd,RPL
+300,Lahore Division,LD
+301,Scotland Women,SW
+302,Chittagong Division,CD
+303,Goa Under-16s,GU
+304,Kent Cricket Board,KCB
+305,KwaZulu-Natal Inland Under-13s,KIU
+306,Netherlands Under-13s,NU
+307,Gauteng Under-19s,GU
+308,Pakistan Women,PW
+309,University Sports South Africa XI,USSAX
+310,Marylebone Cricket Club,MCC
+311,Karachi Kings,KK
+312,St Lucia Zouks,SLZ
+313,KwaZulu-Natal Inland Under-15s,KIU
+314,Matabeleland,M
+315,KwaZulu-Natal Under-17s,KU
+316,Wesley College,WC
+317,Derbyshire Cricket Board,DCB
+318,Pakistan Automobiles Corporation,PAC
+319,Lahore Whites,LW
+320,Surrey Cricket Board,SCB
+321,New South Wales Under-23s,NSWU
+322,Lions,L
+323,South Australia,SA
+324,Karachi,K
+325,Somerset Cricket Board,SCB
+326,Griqualand West Under-17s,GWU
+327,Jamaica,J
+328,Queensland Under-17s,QU
+329,Gloucestershire,G
+330,Rawalpindi Rams,RR
+331,Speen Ghar Region,SGR
+332,Penang,P
+333,Abahani Limited,AL
+334,South Western Districts,SWD
+335,Eastern Province,EP
+336,New Zealand Under-19s,NZU
+337,Abbottabad,A
+338,Mashonaland Eagles,ME
+339,Pakistan University Grants Commission,PUGC
+340,Canada Under-19s,CU
+341,Eastern Province Under-15s,EPU
+342,Queensland Women,QW
+343,Punjab,P
+344,Pakistan National Shipping Corporation,PNSC
+345,British Universities,BU
+346,Guyana Amazon Warriors,GAW
+347,Hyderabad Hawks,HH
+348,Transvaal,T
+349,South Australia Women,SAW
+350,Sheikhupura Cricket Association,SCA
+351,Sialkot Cricket Association,SCA
+352,Northumberland,N
+353,Abbottabad Falcons,AF
+354,Lahore Shalimar,LS
+355,Zarai Taraqiati Bank Limited,ZTBL
+356,Bangladesh Under-17s,BU
+357,Bedfordshire,B
+358,Sydney Thunder,ST
+359,Karnataka Under-19s,KU
+360,Nepal Under-19s,NU
+361,Bengal Under-19s,BU
+362,Free State Under-19s,FSU
+363,Sargodha,S
+364,Midlands,M
+365,Andhra Under-19s,AU
+366,Central Districts,CD
+367,Mashonaland,M
+368,Barbados,B
+369,Western Transvaal,WT
+370,Middlesex 2nd XI,M2X
+371,Yorkshire 2nd XI,Y2X
+372,Punjab Under-19s,PU
+373,Gloucestershire 2nd XI,G2X
+374,Worcestershire,W
+375,Sylhet Division,SD
+376,Guyana Under-19s,GU
+377,Essex 2nd XI,E2X
+378,St Kitts and Nevis Patriots,SKaNP
+379,Durham Cricket Board,DCB
+380,South Zone,SZ
+381,Malaysia,M
+382,Kurunegala Youth Cricket Club Women,KYCCW
+383,Moratuwa Sports Club,MSC
+384,Moors Sports Club,MSC
+385,Netherlands Under-19s,NU
+386,Mis Ainak Region,MAR
+387,Sebastianites Cricket and Athletic Club,SCaAC
+388,Western Australia Women,WAW
+389,Khan Research Laboratories,KRL
+390,Gloucestershire Cricket Board,GCB
+391,Dhaka Gladiators,DG
+392,England Under-19s,EU
+393,Sri Lanka Army Sports Club,SLASC
+394,Boland,B
+395,Northerns Under-13s,NU
+396,West Indies B,WIB
+397,Sri Lanka Women,SLW
+398,Baroda Under-19s,BU
+399,South Africa Academy,SAA
+400,Queensland,Q
+401,Mashonaland A,MA
+402,Nottinghamshire Cricket Board,NCB
+403,Delhi Daredevils,DD
+404,Sussex Cricket Board,SCB
+405,Boost Region,BR
+406,Northern Territory Under-17s,NTU
+407,Jammu & Kashmir Under-19s,J&KU
+408,Marylebone Cricket Club Universities,MCCU
+409,Boland Under-19s,BU
+410,Scotland Under-17s,SU
+411,Surrey Under-15s,SU
+412,Kochi Tuskers Kerala,KTK
+413,Chilaw Marians Cricket Club,CMCC
+414,Ananda College,AC
+415,Somerset,S
+416,Suffolk,S
+417,United Arab Emirates Women,UAEW
+418,Trinidad & Tobago Under-19s,T&TU
+419,KwaZulu-Natal Inland Under-19s,KIU
+420,DS Senanayake College,DSC
+421,Worcestershire 2nd XI,W2X
+422,Moratuwa Sports Club Women,MSCW
+423,Rajasthan Royals,RR
+424,Goa,G
+425,South Australia Under-17s,SAU
+426,Afghanistan,A
+427,Khan Research Labs,KRL
+428,Mashonaland Country Districts,MCD
+429,Yorkshire Academy,YA
+430,Delhi Under-19s,DU
+431,Barisal Division,BD
+432,Free State,FS
+433,KwaZulu-Natal,K
+434,Canterbury Women,CW
+435,Yorkshire Cricket Board,YCB
+436,India Under-19s,IU
+437,Queensland Academy of Sport,QAoS
+438,Sialkot,S
+439,Kent,K
+440,New South Wales Country,NSWC
+441,Peshawar,P
+442,Lincolnshire,L
+443,India,I
+444,Sui Gas Corporation of Pakistan,SGCoP
+445,Yorkshire Women,YW
+446,Burgher Recreation Club,BRC
+447,Titans,T
+448,Glamorgan 2nd XI,G2X
+449,FOG-Seenigama Ladies,FL
+450,KwaZulu-Natal Under-15s,KU
+451,Ragama Cricket Club,RCC
+452,New South Wales Under-19s,NSWU
+453,South Australia Under-19s,SAU
+454,Bangladesh,B
+455,Rhodesia,R
+456,Sri Lanka Under-19s,SLU
+457,Free State Under-15s,FSU
+458,Gauteng,G
+459,KwaZulu-Natal Inland Under-17s,KIU
+460,Trinidad & Tobago Red Steel,T&TRS
+461,Western Australia Under-23s,WAU
+462,Unicorns A,UA
+463,Gauteng Under-17s,GU
+464,Tasmania Under-23s,TU
+465,Southern Ladies Cricket Club,SLCC
+466,Netherlands Under-17s,NU
+467,Trinidad & Tobago,T&T
+468,Shakthi Ladies,SL
+469,Tamil Union Cricket and Athletic Club,TUCaAC
+470,Zimbabwe Cricket Academy,ZCA
+471,Leicestershire,L
+472,Rangpur Division,RD
+473,Quetta Gladiators,QG
+474,Kent 2nd XI,K2X
+475,South Africa Women,SAW
+476,Bangladesh Cricket Board Academy,BCBA
+477,Free State Under-17s,FSU
+478,Victoria Second XI,VSX
+479,Limpopo Under-13s,LU
+480,Antigua and Barbuda,AaB
+481,Eastern Province Under-13s,EPU
+482,Northamptonshire Cricket Board,NCB
+483,Nepal Women,NW
+484,Worcestershire Cricket Board,WCB
+485,Quetta,Q
+486,Western Province Under-15s,WPU
+487,Multan Tigers,MT
+488,Rising Pune Supergiants,RPS
+489,Canterbury,C
+490,Glamorgan,G
+491,Hertfordshire,H
+492,Islamabad,I
+493,Madhya Pradesh Under-19s,MPU
+494,Wiltshire,W
+495,Boland Under-17s,BU
+496,Tamil Nadu,TN
+497,Tamil Nadu Under-19s,TNU
+498,Khelaghar Samaj Kallyan Samity,KSKS
+499,Hong Kong Women,HKW
+500,Kandy Cricket Club,KCC
+501,Lankan Cricket Club,LCC
+502,Karachi Blues,KB
+503,Matabeleland Tuskers,MT
+504,Lahore Qalandars,LQ
+505,Deccan Chargers,DC
+506,Australia Under-19s,AU
+507,Uttar Pradesh,UP
+508,St. Thomas College,STC
+509,Hampshire Cricket Board,HCB
+510,Matara Sports Club,MSC
+511,British Guiana,BG
+512,Durham MCCU,DM
+513,Belagavi Panthers,BP
+514,Scotland,S
+515,Uttar Pradesh Under-19s,UPU
+516,Trinbago Knight Riders,TKR
+517,Maris Stella College,MSC
+518,Easterns Under-13s,EU
+519,Scotland Under-19s,SU
+520,Faisalabad Wolves,FW
+521,Western Province Under-13s,WPU
+522,Netherlands Under-15s,NU
+523,Yorkshire Under-17s,YU
+524,Sikkim,S
+525,Eagles,E
+526,Dolphins,D
+527,Leicestershire 2nd XI,L2X
+528,Rest of Punjab,RoP
+529,Kalutara Town Club,KTC
+530,Sussex 2nd XI,S2X
+531,Auckland,A
+532,Victoria Under-23s,VU
+533,Mumbai Indians,MI
+534,Chennai Super Kings,CSK
+535,Colombo Cricket Club,CCC
+536,Manipur,M
+537,Nottinghamshire,N
+538,Northern Districts Women,NDW
+539,Eastern Province Under-19s,EPU
+540,Mashonaland Under-24s,MU
+541,Pakistan Under-19s,PU
+542,Norfolk,N
+543,Vidarbha,V
+544,Assam,A
+545,Pakistan International Airlines,PIA
+546,Sri Lanka Under-15s,SLU
+547,New South Wales Women,NSWW
+548,Islamabad United,IU
+549,Maharashtra,M
+550,Gujarat Lions,GL
+551,Punjab Under-16s,PU
+552,Northerns (Zimbabwe),N(
 553,South Australia Second XI,SASX
-554,Kandy Youth Cricket Club,KYCC
-555,British Guiana,BG
-556,North West Under-13s,NWU
-557,Peshawar Cricket Association,PCA
-558,Lancashire,L
-559,Rising Pune Supergiants,RPS
-560,Sydney Sixers,SS
-561,Europeans (India),E(
-562,Somerset Cricket Board,SCB
-563,South Australia Under-23s,SAU
-564,Oxford MCCU,OM
-565,Central Districts Women,CDW
-566,Malaysia,M
-567,Guyana Amazon Warriors,GAW
-568,Multan Sultans,MS
-569,Wales Minor Counties,WMC
-570,Kerala,K
-571,Staffordshire,S
-572,Durham,D
-573,Orange Free State,OFS
-574,South Africa,SA
-575,Queensland Women,QW
-576,Nottinghamshire,N
-577,Schools Invitation XI,SIX
-578,Victoria,V
-579,Royal Challengers Bangalore,RCB
-580,Gujranwala Cricket Association,GCA
-581,Deccan Chargers,DC
-582,DS Senanayake College,DSC
-583,West Indies Women,WIW
-584,Rawalpindi Rams,RR
-585,Gloucestershire Cricket Board,GCB
-586,Unicorns,U
-587,Abbottabad Rhinos,AR
-588,Buckinghamshire,B
-589,Middlesex,M
-590,Faisalabad,F
-591,Kalutara Town Club,KTC
-592,Western Australia Under-19s,WAU
-593,Hong Kong,HK
-594,Lahore Ravi,LR
-595,New South Wales Second XI,NSWSX
-596,Madhya Pradesh Under-16s,MPU
-597,Sialkot Cricket Association,SCA
-598,Easterns Under-17s,EU
-599,St Lucia Zouks,SLZ
-317,Delhi Capitals,DC
-362,Punjab Kings,PK
+554,KwaZulu-Natal Under-19s,KU
+555,Griqualand West Under-19s,GWU
+556,South Western Districts Under-19s,SWDU
+557,India Green Women,IGW
+558,Pakistan Customs,PC
+559,Nepal,N
+560,Gauteng Under-15s,GU
+561,Pakistan Railways,PR
+562,Basnahira North,BN
+563,Northern Territory,NT
+564,Border,B
+565,Herefordshire,H
+566,Pakistan A,PA
+567,South Africa,SA
+568,Hyderabad Under-19s,HU
+569,Bangladesh Women,BW
+570,Australia,A
+571,Kurunegala Youth Cricket Club,KYCC
+572,Peshawar Cricket Association,PCA
+573,Staffordshire,S
+574,Ireland Under-15s,IU
+575,West Indies Women,WIW
+576,Zimbabwe A,ZA
+577,Antigua Hawksbills,AH
+578,Saracens Sports Club,SSC
+579,Leicestershire Cricket Board,LCB
+580,Melbourne Renegades,MR
+581,Sinhalese Sports Club,SSC
+582,State Bank of Pakistan,SBoP
+583,Surrey 2nd XI,S2X
+584,Queensland Country,QC
+585,Sussex,S
+586,Gauteng Under-13s,GU
+587,Sydney Sixers,SS
+588,Kandurata,K
+589,Tasmania Second XI,TSX
+590,Australian Capital Territory Women,ACTW
+591,University of West Indies Vice Chancellors XI,UoWIVCX
+592,Northern Transvaal,NT
+593,Griqualand West Under-13s,GWU
+594,Amo Region,AR
+595,Somerset 2nd XI,S2X
+596,Westerns,W
+597,Saurashtra Under-19s,SU
+598,Otago Women,OW
+599,West Indies,WI
+403,Delhi Capitals,DC
+239,Punjab Kings,PK
