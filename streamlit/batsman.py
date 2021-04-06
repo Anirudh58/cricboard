@@ -11,6 +11,7 @@ import streamlit as st
 # my lib
 from src.insights import batting_total_runs, batting_strike_rate, batting_average, batting_dismissals
 
+
 # Config variables
 raw_data_path = "raw_data"
 clean_data_path = "clean_data"
@@ -33,14 +34,14 @@ def populate_teams():
 def populate_players():
     df_player = pd.read_csv(os.path.join(clean_data_path, "player.csv"))
     players = ['']
-    players.extend(sorted(np.array(df_player["player_name"])))
+    players.extend(sorted(np.array(df_player[~df_player['player_display_name'].isnull()]['player_name'])))
     return players
 
 @st.cache
 def populate_bowlers():
     df_player = pd.read_csv(os.path.join(clean_data_path, "player.csv"))
     bowlers = ["ALL"]
-    bowlers.extend(np.array(df_player["player_name"]))
+    bowlers.extend(sorted(np.array(df_player[~df_player['player_display_name'].isnull()]['player_name'])))
     return bowlers
 
 
@@ -51,7 +52,7 @@ def populate_tournaments(match_format):
     return tournaments
 
 
-def main(match_format):
+def main(match_format, session_state):
     st.title("BATTING")
         
     # Dividing the entire layout into 3 sections in the ratio 1:1:2
@@ -83,7 +84,8 @@ def main(match_format):
     with col3:
         tournaments = st.multiselect("Tournaments:", options=populate_tournaments(match_format))        
         innings_number = st.number_input("Innnings number: (0 -> both) ", min_value=0, max_value=2, step=1, format="%d")
-        bowler_name = st.selectbox("Choose a bowler:", options=populate_bowlers())
+        bowler_name = st.selectbox("Against a specific bowler:", options=populate_bowlers())
+        
 
     # OUTPUT SECTION
     

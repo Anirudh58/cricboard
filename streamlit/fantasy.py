@@ -158,7 +158,7 @@ def populate_opposition_batters(selected_match, batting_types):
     df_result = pd.DataFrame(players_batting_types, index =[team_1, team_2])
     return df_result
 
-def main(match_format):
+def main(match_format, session_state):
     st.title("Fantasy")
     st.markdown("Helping you pick your best Dream 11 team")
     

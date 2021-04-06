@@ -33,7 +33,7 @@ def populate_teams():
 def populate_players():
     df_player = pd.read_csv(os.path.join(clean_data_path, "player.csv"))
     players = ['']
-    players.extend(sorted(np.array(df_player["player_name"])))
+    players.extend(sorted(np.array(df_player[~df_player['player_display_name'].isnull()]['player_name'])))
     return players
 
 @st.cache
@@ -46,10 +46,10 @@ def populate_tournaments(match_format):
 def populate_batters():
     df_player = pd.read_csv(os.path.join(clean_data_path, "player.csv"))
     batters = ["ALL"]
-    batters.extend(np.array(df_player["player_name"]))
+    batters.extend(sorted(np.array(df_player[~df_player['player_display_name'].isnull()]['player_name'])))
     return batters
 
-def main(match_format):
+def main(match_format, session_state):
     st.title("BOWLING")
         
     # Dividing the entire layout into 3 sections in the ratio 1:1:1
@@ -72,7 +72,8 @@ def main(match_format):
     with col3:
         tournaments = st.multiselect("Tournaments:", options=populate_tournaments(match_format))        
         innings_number = st.number_input("Innnings number: (0 -> both) ", min_value=0, max_value=2, step=1, format="%d")
-        batsman_name = st.selectbox("Against a specific batsman (TBD):", options=populate_batters())
+        batsman_name = st.selectbox("Against a specific batsman ", options=populate_batters())
+        
 
     # OUTPUT SECTION
     
