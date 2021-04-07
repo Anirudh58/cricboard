@@ -159,8 +159,8 @@ def populate_opposition_batters(selected_match, batting_types):
     return df_result
 
 def main(match_format, session_state):
-    st.title("Fantasy")
-    st.markdown("Helping you pick your best Dream 11 team")
+    st.title("Fantasy - Player Comparisons")
+    st.markdown("Helping you pick your best fantasy team")
     
     # Main input section
                 
@@ -187,7 +187,7 @@ def main(match_format, session_state):
         with col2:
             st.header("PLAYER DETAILS (BOTH TEAMS)")
 
-        col1, col2, col3 = st.beta_columns((1, 5, 1))
+        col1, col2, col3 = st.beta_columns((1, 10, 1))
         with col2:
             st.dataframe(populate_player_table(selected_match))
 

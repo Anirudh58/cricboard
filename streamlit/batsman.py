@@ -53,7 +53,7 @@ def populate_tournaments(match_format):
 
 
 def main(match_format, session_state):
-    st.title("BATTING")
+    st.title("Batting Stats")
         
     # Dividing the entire layout into 3 sections in the ratio 1:1:2
     col1, col2, col3 = st.beta_columns((1, 1, 1))
@@ -61,7 +61,7 @@ def main(match_format, session_state):
     # INPUT SECTION
     
     with col1:
-        player_name = st.selectbox("Choose a single player:", options=populate_players())
+        player_name = st.selectbox("Choose player: (will be overriden when 'Top n' > 0)", options=populate_players())
         years_range = st.slider("The period you want to consider:", min_value=2000, max_value=2021, value=(2000, 2021), step=1, format="%d")
         overs_range = st.slider("The overs range you want to consider: ", min_value=0, max_value=20, value=(0,20), step=1, format="%d")
         only_pace_bool = st.checkbox("Against Pace")
@@ -71,7 +71,7 @@ def main(match_format, session_state):
         st.write("\n")
     
     with col2:
-        top_n = st.number_input("Choose top n : ", min_value=0, max_value=10, step=1, format="%d")
+        top_n = st.number_input("Top n performers (0 for single player stats): ", min_value=0, max_value=10, step=1, format="%d")
         venue = st.selectbox("Venue:", options=populate_venues())
         minimum_runs = st.number_input("Min runs scored (for SR and Average): ", min_value=100, max_value=2000, step=1, format="%d")
         only_spin_bool = st.checkbox("Against Spin")

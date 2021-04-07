@@ -28,16 +28,17 @@ sys.path.insert(0,parentdir)
 
 # my library
 import session 
-import batsman, bowler, fantasy, about
+import batsman, bowler, fantasy, about, faq
 
 DEBUG = True
 
 # Global constants
 PAGES = {
-    "ABOUT" : about,
-    "FANTASY" : fantasy,
-    "BATTING": batsman,
-    "BOWLING": bowler
+    "About" : about,
+    "Fantasy - Player Comparisons" : fantasy,
+    "Batting Stats": batsman,
+    "Bowling Stats": bowler,
+    "FAQ" : faq
 }
 
 # use @st.cache whenever you want caching mechanisms for fast loading
