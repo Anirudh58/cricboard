@@ -107,6 +107,8 @@ def main(match_format, session_state):
     
     st.markdown("""
     ***
+    ***
+    ***
     """)
         
     with st.beta_expander("Who are we?"):
@@ -115,17 +117,17 @@ def main(match_format, session_state):
         
         with col2:
             image = Image.open('./assets/images/anip.jpg')
-            image = image.resize((275, 200))
+            image = image.resize((250, 200))
             st.image(image, caption='Anirudh Prabakaran')
         
         with col3:
             image = Image.open('./assets/images/rishab.jpeg')
-            image = image.resize((225, 200))
+            image = image.resize((250, 200))
             st.image(image, caption='Rishabraj Dhariwal')
             
         with col4:
             image = Image.open('./assets/images/vivek.jfif')
-            image = image.resize((225, 200))
+            image = image.resize((250, 200))
             st.image(image, caption='Vivek Subramaniam')
         
         col1, col2, col3 = st.beta_columns((1, 10, 1))
