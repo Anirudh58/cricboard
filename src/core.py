@@ -704,7 +704,7 @@ def player_points_by_match(player, recency_parameter, venue_id, innings_number, 
     # reversing the array before sending for appropriate plotting
     return match_points[::-1]
 
-def player_runs_scored_against_bowling(player, recency_parameter, bowling_types):
+def player_batting_stats_against_bowling(player, recency_parameter, bowling_types):
     """
         Get a list of runs scored by this player in the past 'recency_parameter' matches against different bowling types
         Args:
@@ -723,15 +723,17 @@ def player_runs_scored_against_bowling(player, recency_parameter, bowling_types)
     
     # values corresponsing to each different bowling type
     match_runs = [0]*len(bowling_types)
+    balls_faced = [0]*len(bowling_types)
     for match in required_matches:
         # iterate over each bowling type to calculate total runs
         index = 0
         for bowling_type in bowling_types:
             match_runs[index] += fantasy_obj[player][match]['runs_scored'][bowling_type]
+            balls_faced[index] += fantasy_obj[player][match]['balls_faced'][bowling_type]
             index += 1
-    return match_runs
+    return match_runs, balls_faced
 
-def player_wickets_taken_against_batting(player, recency_parameter, batting_types):
+def player_bowling_stats_against_batting(player, recency_parameter, batting_types):
     """
         Get a list of runs scored by this player in the past 'recency_parameter' matches against different bowling types
         Args:
@@ -750,13 +752,15 @@ def player_wickets_taken_against_batting(player, recency_parameter, batting_type
     
     # values corresponsing to each different batting type
     match_wickets = [0]*len(batting_types)
+    balls_bowled = [0]*len(batting_types)
     for match in required_matches:
         # iterate over each batting_type  to calculate total wickets
         index = 0
         for batting_type in batting_types:
             match_wickets[index] += fantasy_obj[player][match]['wickets_taken'][batting_type]
+            balls_bowled[index] += fantasy_obj[player][match]['balls_bowled'][batting_type]
             index += 1
 
-    return match_wickets
+    return match_wickets, balls_bowled
 
 ################################### END FANTASY CORE ###################################

@@ -10,7 +10,7 @@ from src.core import runs_scored, balls_batted, dismissals
 from src.core import wickets_taken, balls_bowled, runs_given
 #fantasy
 from src.core import player_runs_by_match, player_wickets_by_match, player_points_by_match
-from src.core import player_runs_scored_against_bowling, player_wickets_taken_against_batting
+from src.core import player_batting_stats_against_bowling, player_bowling_stats_against_batting
 
 
 # GLOBAL CONSTANTS
@@ -865,7 +865,7 @@ def fantasy_points_comparison(recency_parameter, players_list):
     
     return players_points
 
-def fantasy_runs_scored_against_bowling(players_list):
+def fantasy_batting_stats_against_bowling(players_list):
     """
     Returns a dataframe denoting runs scored against different bowling types
     Args:
@@ -875,14 +875,16 @@ def fantasy_runs_scored_against_bowling(players_list):
     recency_parameter = 0
     bowling_types = ["Right arm Off spin", "Left arm Orthodox", "Right arm wrist spin", "Right arm Pace", "Left arm Pace", "Left arm wrist"]
     players_runs = []
+    players_balls_faced = []
     for player_name in players_list:
         player_id_to_consider = player_name_id_map[player_name]
-        runs_against_bowling_types = player_runs_scored_against_bowling(player_id_to_consider, recency_parameter, bowling_types)
+        runs_against_bowling_types, balls_faced_against_bowling_types = player_batting_stats_against_bowling(player_id_to_consider, recency_parameter, bowling_types)
         players_runs.append(runs_against_bowling_types)
+        players_balls_faced.append(balls_faced_against_bowling_types)
     
-    return players_runs
+    return players_runs, players_balls_faced
 
-def fantasy_wickets_taken_against_batting(players_list):
+def fantasy_bowling_stats_against_batting(players_list):
     """
     Returns a dataframe denoting wickets taken against different batting types
     Args:
@@ -893,12 +895,14 @@ def fantasy_wickets_taken_against_batting(players_list):
     recency_parameter = 0
     batting_types = ["Left-hand bat", "Right-hand bat"]
     players_wickets = []
+    players_balls_bowled = []
     for player_name in players_list:
         player_id_to_consider = player_name_id_map[player_name]
-        wickets_against_batting_types = player_wickets_taken_against_batting(player_id_to_consider, recency_parameter, batting_types)
+        wickets_against_batting_types, balls_bowled_against_batting_types = player_bowling_stats_against_batting(player_id_to_consider, recency_parameter, batting_types)
         players_wickets.append(wickets_against_batting_types)
+        players_balls_bowled.append(balls_bowled_against_batting_types)
     
-    return players_wickets
+    return players_wickets, players_balls_bowled
 
 def fantasy_runs_scored_comparison(players_list, selected_match, this_venue_bool, this_opposition_bool, batting_first_team):
     """

@@ -16,7 +16,7 @@ import streamlit as st
 
 # my lib
 from src.insights import fantasy_runs_comparison, fantasy_wickets_comparison, fantasy_points_comparison
-from src.insights import fantasy_runs_scored_against_bowling, fantasy_wickets_taken_against_batting
+from src.insights import fantasy_batting_stats_against_bowling, fantasy_bowling_stats_against_batting
 from src.insights import fantasy_runs_scored_comparison, fantasy_wickets_taken_comparison, fantasy_points_obtained_comparison
 
 # Config variables
@@ -323,20 +323,20 @@ def main(match_format, session_state):
 
     with col1:
         bowling_types = ["Right arm \nOff spin", "Left arm \nOrthodox", "Right arm\n wrist spin", "Right arm\n Pace", "Left arm\n Pace", "Left arm\n wrist"]
-        player_runs = fantasy_runs_scored_against_bowling(players_list)
+        player_runs, balls_faced = fantasy_batting_stats_against_bowling(players_list)
         fig, ax = plt.subplots()
         # Get some pastel shades for the colors
-        colors = plt.cm.Blues(np.linspace(0.25, 0.75, len(players_list)))
+        colors = plt.cm.tab10(np.linspace(0.1, 0.9, len(players_list)))
 
         index = np.arange(len(bowling_types)) # the x locations for the groups
-        width = 0.35
+        width = 0.7/len(players_list)
 
-        y_offset = np.zeros(len(bowling_types))
         cell_text = []
+        x_offset = 0
         for row in range(len(player_runs)):
-            ax.bar(index, player_runs[row], width, color=colors[row], bottom=y_offset)
-            y_offset = y_offset + player_runs[row]
-            cell_text.append(player_runs[row])
+            ax.bar(index+x_offset, player_runs[row], width, color=colors[row])
+            x_offset += width
+            cell_text.append([str(player_runs[row][i]) + "(" + str(balls_faced[row][i]) + ")" for i in range(len(player_runs[row]))])
 
         '''players_bowling_type = populate_opposition_bowlers(selected_match, bowling_types)
         table = ax.table(cellText=players_bowling_type.values,
@@ -352,30 +352,30 @@ def main(match_format, session_state):
                          colLabels=bowling_types,
                          loc='bottom')
         table.auto_set_font_size(False)
-        table.set_fontsize(10)
+        table.set_fontsize(9)
         table.scale(1, 2)
 
         ax.set_ylabel("Runs scored")
         ax.set_xticks([])
-        ax.set_title('Runs Comparison(Bowler Types)')
+        ax.set_title('Batting Comparison(Bowler Types)')
         st.pyplot(fig)
 
     with col2:
         batting_types = ["Left-hand bat", "Right-hand bat"]
-        player_wickets = fantasy_wickets_taken_against_batting(players_list)
+        player_wickets, balls_bowled = fantasy_bowling_stats_against_batting(players_list)
         fig, ax = plt.subplots()
         # Get some pastel shades for the colors
-        colors = plt.cm.Blues(np.linspace(0.25, 0.75, len(players_list)))
+        colors = plt.cm.tab10(np.linspace(0.1, 0.9, len(players_list)))
 
         index = np.arange(len(batting_types)) # the x locations for the groups
-        width = 0.35
+        width = 0.7/len(players_list)
 
-        y_offset = np.zeros(len(batting_types))
+        x_offset = 0
         cell_text = []
         for row in range(len(player_wickets)):
-            ax.bar(index, player_wickets[row], width, color=colors[row], bottom=y_offset)
-            y_offset = y_offset + player_wickets[row]
-            cell_text.append(player_wickets[row])
+            ax.bar(index+x_offset, player_wickets[row], width, color=colors[row])
+            x_offset += width
+            cell_text.append([str(player_wickets[row][i]) + "(" + str(balls_bowled[row][i]) + ")" for i in range(len(player_wickets[row]))])
 
         table = ax.table(cellText=cell_text,
                          rowLabels=players_list,
@@ -388,7 +388,7 @@ def main(match_format, session_state):
 
         ax.set_ylabel("Wickets taken")
         ax.set_xticks([])
-        ax.set_title('Wickets Comparison(Batting Types)')
+        ax.set_title('Bowling Comparison(Batting Types)')
         st.pyplot(fig)        
 
 

@@ -34,7 +34,7 @@ DEBUG = True
 
 # Global constants
 PAGES = {
-    "About" : about,
+    "Overview" : about,
     "Fantasy - Player Comparisons" : fantasy,
     "Batting Stats": batsman,
     "Bowling Stats": bowler,
