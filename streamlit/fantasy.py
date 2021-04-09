@@ -186,19 +186,22 @@ def main(match_format, session_state):
     if selected_match:
         col1, col2, col3 = st.beta_columns((10, 9, 10))
         with col2:
+            st.write("***")
             st.header("PLAYER DETAILS (BOTH TEAMS)")
-
+            st.write("***")
+            
         col1, col2, col3 = st.beta_columns((1, 10, 1))
         with col2:
             st.dataframe(populate_player_table(selected_match))
 
     if len(players_list) == 0:
         return
-                
+    
     col1, col2, col3 = st.beta_columns((10, 9, 10))
-
     with col2:
+        st.write("***")
         st.header("ALL-TIME STATS COMPARISON")
+        st.write("***")
         
     col1, col2, col3, col4 = st.beta_columns((1, 1, 1, 1))
     
@@ -260,11 +263,13 @@ def main(match_format, session_state):
         ax.set_xlabel('Average points per Match')
         ax.set_title('All time points comparison')
         st.pyplot(fig)
-            
+    
     col1, col2, col3 = st.beta_columns((10, 9, 10))
     
     with col2:
+        st.write("***")
         st.header("RECENT FORM COMPARISON")
+        st.write("***")
             
     col1, col2, col3 = st.beta_columns((1, 2, 1))
     
@@ -321,7 +326,9 @@ def main(match_format, session_state):
     
     col1, col2, col3 = st.beta_columns((10, 9, 10))
     with col2:
+        st.write("***")
         st.header("PLAYER SKILL ANALYSIS")
+        st.write("***")
 
     col1, col2 = st.beta_columns((1, 1))
 
@@ -361,7 +368,7 @@ def main(match_format, session_state):
 
         ax.set_ylabel("Runs scored")
         ax.set_xticks([])
-        ax.set_title('Batting Comparison against Bowling Types')
+        ax.set_title('Runs (and balls faced) against Bowling Types')
         st.pyplot(fig)
 
     with col2:
@@ -392,7 +399,7 @@ def main(match_format, session_state):
 
         ax.set_ylabel("Wickets taken")
         ax.set_xticks([])
-        ax.set_title('Bowling Comparison against Batting Types')
+        ax.set_title('Wickets (and balls bowled) against Batting Types')
         st.pyplot(fig)        
 
 
