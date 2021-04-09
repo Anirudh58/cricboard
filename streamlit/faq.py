@@ -51,6 +51,7 @@ def main(match_format, session_state):
         st.write("""
         We sort of hurried to put things up right before IPL starts. Apart from the various insights/plots, some features that we are working on are:
         - Maintaing state between pages. Currently pages get reset when you navigate between them, we will try to avoid them. 
+        - Loading data from other tournaments. eg: It would certainly make more sense to see how Maxwell has played in BBL or T20I recently rather than just relying on last years IPL data.
         - Calculating "top n" stats in the batting/bowling page is pretty slow because we literally loop through every ball played by every player. We are trying to see if some optimaztion/precomputing is possible, but until then please do bear the latency. 
         - Option to directly share an insight/plot to twitter. 
         """)

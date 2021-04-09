@@ -7,9 +7,14 @@ def main(match_format, session_state):
     st.title("Welcome to Cricboard")
     
     st.write("""
-    You can choose to see a quick demo through this [video](https://youtu.be/dMnsE7TbO4Q) if you're lazy to read below. 
-    - First we have a sidebar that contains a match format option (T20, TEST, ODI). Choose this first. This option would be applicable across all pages. (Currently we have loaded only IPL data, but in the future we want to show stats for all tournaments and formats as well)
-    - Next we have 3 pages "Fantasy - Player Comparisons", "Batting Stats", "Bowling Stats" that you can navigate across through the sidebar. These are the 3 pages we have as of now. We definitely would try to add more pages with more plots. If you guys have some ideas for some new features please do let us know :)  """)
+    > Hello guys! With the IPL fever started, we wanted to share with you all a small cricket project that we've been working on recently. Head over to the FAQ section to know more. For now, read below for an overview of how to use the current features of this tool.""")
+    
+    st.write("""
+    > You can choose to see a quick demo through this [video](https://youtu.be/dMnsE7TbO4Q) if you're lazy to read below. 
+    >
+    > - We have a sidebar that contains a match format option (T20, TEST, ODI). Choose this first. This option would be applicable across all pages. (Currently we have loaded only IPL data, but in the future we want to show stats for all tournaments and formats as well)
+    > - Next we have 3 pages "Fantasy - Player Comparisons", "Batting Stats" and "Bowling Stats" that you can navigate across through the sidebar. Click below to know what each page does. """)
+    
     with st.beta_expander("Fantasy - Player Comparisons"):
         st.write("""
         - The Fantasy page is purely targetted towards comparing different players. The basic idea is that users have around 30 mins to choose their fantasy teams between the time of toss (and playing squad release) and time of match start. So we want to provide some information that could potentially be useful to you in picking your best team. 
@@ -22,7 +27,7 @@ def main(match_format, session_state):
                     - Stats specific to the player's opposition. (eg. If you are comparing Rohit Sharma and Virat Kohli where the selected match is MI vs RCB, Rohit's stats are specific to matches against RCB and Kohli's stats are specific to matches against MI)
                     - Stats specific to innings number (If you want to compare how players fare while batting first or chasing)
                 - The "RECENT FORM COMPARISON" is to give an idea of how these players have performed in the last n matches. You can configure the value of n with what we call as the "recency parameter". You should be able to see 3 line charts denoting runs, wickets and fantasy points. Each chart would contain k different lines, with k denoting the number of players you have chosen to compare.  
-                - The "PLAYER SKILL ANALYSIS" is to show the distribution of the players stats across different bowling/batting styles. You can check the batting and bowling styles of all players in this match in the table shown in the top.
+                - The "PLAYER SKILL ANALYSIS" is to show the distribution of the players stats across different bowling/batting styles. The table below shows the runs or wickets with balls faced in brackets. This should give a good idea of how this player fares against different batting/bowling types. You can check the batting and bowling styles of all players in this match in the table shown in the top of the fantasy page.
             - These are currently what we have in the fantasy section. If you think there are some more insights that you want to see before choosing your team, please contact us, we would definitely try to implement them right away.""")
 
     with st.beta_expander("Batting Stats"):

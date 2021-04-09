@@ -10,6 +10,7 @@ import sys
 
 # plotting utils
 from matplotlib import pyplot as plt 
+from matplotlib.ticker import FormatStrFormatter
 
 # streamlit components
 import streamlit as st
@@ -226,7 +227,7 @@ def main(match_format, session_state):
         ax.set_yticks(y_pos)
         ax.set_yticklabels(players_list)
         ax.invert_yaxis()  # labels read top-to-bottom
-        ax.set_xlabel('Runs per Match')
+        ax.set_xlabel('Average runs per Match')
         ax.set_title('All time runs comparison')
         st.pyplot(fig)
     
@@ -241,7 +242,7 @@ def main(match_format, session_state):
         ax.set_yticks(y_pos)
         ax.set_yticklabels(players_list)
         ax.invert_yaxis()  # labels read top-to-bottom
-        ax.set_xlabel('Wickets per Match')
+        ax.set_xlabel('Average wickets per Match')
         ax.set_title('All time wickets comparison')
         st.pyplot(fig)
             
@@ -256,7 +257,7 @@ def main(match_format, session_state):
         ax.set_yticks(y_pos)
         ax.set_yticklabels(players_list)
         ax.invert_yaxis()  # labels read top-to-bottom
-        ax.set_xlabel('Points per Match')
+        ax.set_xlabel('Average points per Match')
         ax.set_title('All time points comparison')
         st.pyplot(fig)
             
@@ -282,8 +283,9 @@ def main(match_format, session_state):
             p, = ax.plot(range(1, recency_parameter+1), player_runs[i], label=players_list[i])
             plot_handles.append(p)
         ax.legend(handles=plot_handles, bbox_to_anchor=(1.01, 1), loc='upper left', prop={'size': 7})
+        plt.xticks([i for i in range(1, recency_parameter+1)])
         ax.set_title('Runs Comparison (Recent Form)')
-        ax.set_xlabel('Matches')
+        ax.set_xlabel('Past Matches (Right to left -> Recent to Old)')
         ax.set_ylabel('Runs')
         st.pyplot(fig)
     
@@ -296,8 +298,9 @@ def main(match_format, session_state):
             p, = ax.plot(range(1, recency_parameter+1), player_wickets[i], label=players_list[i])
             plot_handles.append(p)
         ax.legend(handles=plot_handles, bbox_to_anchor=(1.01, 1), loc='upper left', prop={'size': 7})
+        plt.xticks([i for i in range(1, recency_parameter+1)])
         ax.set_title('Wickets Comparison (Recent Form)')
-        ax.set_xlabel('Matches')
+        ax.set_xlabel('Past Matches (Right to left -> Recent to Old)')
         ax.set_ylabel('Wickets')
         st.pyplot(fig)
         
@@ -310,8 +313,9 @@ def main(match_format, session_state):
             p, = ax.plot(range(1, recency_parameter+1), player_points[i], label=players_list[i])
             plot_handles.append(p)
         ax.legend(handles=plot_handles, bbox_to_anchor=(1.01, 1), loc='upper left', prop={'size': 7})
+        plt.xticks([i for i in range(1, recency_parameter+1)])
         ax.set_title('Points Comparison (Recent Form)')
-        ax.set_xlabel('Matches')
+        ax.set_xlabel('Past Matches (Right to left -> Recent to Old)')
         ax.set_ylabel('Points')
         st.pyplot(fig)
     
@@ -357,7 +361,7 @@ def main(match_format, session_state):
 
         ax.set_ylabel("Runs scored")
         ax.set_xticks([])
-        ax.set_title('Batting Comparison(Bowler Types)')
+        ax.set_title('Batting Comparison against Bowling Types')
         st.pyplot(fig)
 
     with col2:
@@ -388,84 +392,8 @@ def main(match_format, session_state):
 
         ax.set_ylabel("Wickets taken")
         ax.set_xticks([])
-        ax.set_title('Bowling Comparison(Batting Types)')
+        ax.set_title('Bowling Comparison against Batting Types')
         st.pyplot(fig)        
 
 
-    '''
-    #OLD UI
-        
-    for player in players_list:
-        st.header(player)
-        col1, col2, col3, col4 = st.beta_columns((1, 1, 1, 1))
-
-        # First pie chart -> Percentage distribution of runs scored with respect to bowling types
-        with col1:
-            st.subheader("Runs Scored vs Bowling Types")
-            if len(players_list) > 0:
-                st.bar_chart(fantasy_runs_scored_against_bowling(recency_parameter, player))
-            
-        # Table giving them information about who are the bowlers of the above types
-        with col2:
-            st.subheader("Bowlers in opposition")
-            st.table(populate_opposition_bowlers(player, selected_match))
-
-        # First pie chart -> Percentage distribution of runs scored with respect to bowling types
-        with col3:
-            st.subheader("Wickets Taken vs Batting Types")
-            if len(players_list) > 0:
-                st.bar_chart(fantasy_wickets_taken_against_batting(recency_parameter, player))
-                
-        # Table giving them information about who are the bowlers of the above types
-        with col4:
-            st.subheader("Batters in opposition")
-            st.table(populate_opposition_batters(player, selected_match))
-        
     
-    
-    col1, col2, col3, col4 = st.beta_columns((1, 1, 1, 1))
-        
-        
-    # First pie chart -> Percentage distribution of runs scored with respect to bowling types
-    with col1:
-        st.header("Wickets taken vs Batting")
-        
-        # Creating dataset 
-        batting_types = ['LHB', 'RHB'] 
-        values = [40, 60] 
-
-        # Creating plot 
-        fig = plt.figure(figsize =(6, 4))
-        plt.pie(values, labels = batting_types) 
-        
-        st.pyplot(fig)
-        
-    # Table giving them information about who are the bowlers of the above types
-    with col2:
-        
-        st.header("Batters in opposition")
-        batters = pd.DataFrame([["PADIKKAL", "KOHLI"]], columns=['LHB', 'RHB'] )
-        st.table(batters)
-        
-        
-    # First pie chart -> Percentage distribution of runs scored with respect to bowling types
-    with col3:
-        st.header("Wickets taken vs Batting")
-        
-        # Creating dataset 
-        batting_types = ['LHB', 'RHB'] 
-        values = [60, 40] 
-
-        # Creating plot 
-        fig = plt.figure(figsize =(6, 4))
-        plt.pie(values, labels = batting_types) 
-        
-        st.pyplot(fig)
-        
-    # Table giving them information about who are the bowlers of the above types
-    with col4:
-        
-        st.header("Batters in opposition")
-        batters = pd.DataFrame([["PADIKKAL", "KOHLI"]], columns=['LHB', 'RHB'] )
-        st.table(batters)
-    '''
