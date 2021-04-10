@@ -1,35 +1,36 @@
 venue_id,venue_name,venue_location
-1,Green Park,
-2,Saurashtra Cricket Association Stadium,
-3,Maharashtra Cricket Association Stadium,
-4,Wankhede Stadium,Mumbai
-5,Newlands,
-6,"Vidarbha Cricket Association Stadium, Jamtha",
-7,New Wanderers Stadium,
-8,Kingsmead,
-9,Sheikh Zayed Stadium,
-10,Sharjah Cricket Stadium,
-11,Brabourne Stadium,
-12,Barabati Stadium,
-13,De Beers Diamond Oval,
-14,M Chinnaswamy Stadium,Bengaluru
-15,Eden Gardens,Kolkata
-16,SuperSport Park,
-17,Subrata Roy Sahara Stadium,
-18,St George's Park,
-19,"Punjab Cricket Association Stadium, Mohali",
-20,Dubai International Cricket Stadium,
-21,"Rajiv Gandhi International Stadium, Uppal",
-22,"Sardar Patel Stadium, Motera",Ahmedabad
-23,Nehru Stadium,
-24,Dr. Y.S. Rajasekhara Reddy ACA-VDCA Cricket Stadium,
-25,OUTsurance Oval,
-26,Himachal Pradesh Cricket Association Stadium,
-27,Dr DY Patil Sports Academy,
-28,Buffalo Park,
-29,JSCA International Stadium Complex,
-30,Shaheed Veer Narayan Singh International Stadium,
-31,Sawai Mansingh Stadium,
-32,"MA Chidambaram Stadium, Chepauk",Chennai
-33,Feroz Shah Kotla,Delhi
-34,Holkar Cricket Stadium,
+1,OUTsurance Oval,
+2,"Sardar Patel Stadium, Motera",Ahmedabad
+3,Holkar Cricket Stadium,
+4,"MA Chidambaram Stadium, Chepauk, Chennai",
+5,Subrata Roy Sahara Stadium,
+6,Saurashtra Cricket Association Stadium,
+7,M Chinnaswamy Stadium,Bengaluru
+8,Brabourne Stadium,
+9,Newlands,
+10,Maharashtra Cricket Association Stadium,
+11,"MA Chidambaram Stadium, Chepauk",Chennai
+12,Nehru Stadium,
+13,Buffalo Park,
+14,Eden Gardens,Kolkata
+15,St George's Park,
+16,Wankhede Stadium,Mumbai
+17,Dr DY Patil Sports Academy,
+18,Green Park,
+19,Feroz Shah Kotla,Delhi
+20,JSCA International Stadium Complex,
+21,Sharjah Cricket Stadium,
+22,Sawai Mansingh Stadium,
+23,Dr. Y.S. Rajasekhara Reddy ACA-VDCA Cricket Stadium,
+24,Himachal Pradesh Cricket Association Stadium,
+25,Dubai International Cricket Stadium,
+26,"Rajiv Gandhi International Stadium, Uppal",
+27,Shaheed Veer Narayan Singh International Stadium,
+28,New Wanderers Stadium,
+29,Sheikh Zayed Stadium,
+30,SuperSport Park,
+31,Barabati Stadium,
+32,Kingsmead,
+33,"Punjab Cricket Association Stadium, Mohali",
+34,De Beers Diamond Oval,
+35,"Vidarbha Cricket Association Stadium, Jamtha",
