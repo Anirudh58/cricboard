@@ -92,7 +92,7 @@ def get_plot_summary(metric, top_n, tournaments, venue, years_range, overs_range
     """
     
     if metric=='wickets':
-        plot_summary = "Total Runs scored by players "    
+        plot_summary = "Total Wickets taken by players "    
     elif metric=='strike_rate':
         plot_summary = "Strike Rate of players " 
         # min runs threshold
@@ -104,7 +104,7 @@ def get_plot_summary(metric, top_n, tournaments, venue, years_range, overs_range
         if top_n != 0:
             plot_summary += ("\nMin Balls: " + str(minimum_balls))
     elif metric=='economy':
-        plot_summary = "Number of Dismissals " 
+        plot_summary = "Economy Rate " 
     
     # tournaments
     if len(tournaments) > 0 :
