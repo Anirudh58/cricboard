@@ -222,45 +222,63 @@ def main(match_format, session_state):
     with col1:
         stats = fantasy_runs_scored_comparison(players_list, selected_match, this_venue_bool, this_opposition_bool, batting_first_team)
 
+        runs_per_matches = [(round(sum(stat)/len(stat), 2) if len(stat)>0 else 0) for stat in stats]
         fig, ax = plt.subplots()
-        y_pos = np.arange(len(players_list))
-        hbars = ax.barh(y_pos, stats, height=0.25)
-        for i, v in enumerate(stats):
-            ax.text(v, i+0.05, str(v), color='black')
-        ax.set_yticks(y_pos)
-        ax.set_yticklabels(players_list)
-        ax.invert_yaxis()  # labels read top-to-bottom
-        ax.set_xlabel('Average runs per Match')
+        x_pos = np.arange(len(players_list))
+        hbars = ax.bar(x_pos, runs_per_matches, width=0.25)
+
+        table = ax.table(cellText=[[sum(stat) for stat in stats], [len(stat) for stat in stats]],
+                         colLabels=players_list,
+                         rowLabels=["Runs", "Matches"],
+                         loc='bottom')
+        table.auto_set_font_size(False)
+        table.set_fontsize(12)
+        table.scale(1, 2)
+
+        ax.set_xticks([])
+        ax.set_ylabel('Average runs per Match')
         ax.set_title('All time runs comparison')
         st.pyplot(fig)
     
     with col2:
         stats = fantasy_wickets_taken_comparison(players_list, selected_match, this_venue_bool, this_opposition_bool, batting_first_team)
 
+        wickets_per_matches = [(round(sum(stat)/len(stat), 2) if len(stat)>0 else 0) for stat in stats]
         fig, ax = plt.subplots()
-        y_pos = np.arange(len(players_list))
-        hbars = ax.barh(y_pos, stats, height=0.25)
-        for i, v in enumerate(stats):
-            ax.text(v, i+0.05, str(v), color='black')
-        ax.set_yticks(y_pos)
-        ax.set_yticklabels(players_list)
-        ax.invert_yaxis()  # labels read top-to-bottom
-        ax.set_xlabel('Average wickets per Match')
+        x_pos = np.arange(len(players_list))
+        hbars = ax.bar(x_pos, wickets_per_matches, width=0.25)
+
+        table = ax.table(cellText=[[sum(stat) for stat in stats], [len(stat) for stat in stats]],
+                         colLabels=players_list,
+                         rowLabels=["Wickets", "Matches"],
+                         loc='bottom')
+        table.auto_set_font_size(False)
+        table.set_fontsize(12)
+        table.scale(1, 2)
+
+        ax.set_xticks([])
+        ax.set_ylabel('Average wickets per Match')
         ax.set_title('All time wickets comparison')
         st.pyplot(fig)
             
     with col3:
         stats = fantasy_points_obtained_comparison(players_list, selected_match, this_venue_bool, this_opposition_bool, batting_first_team)
 
+        points_per_matches = [(round(sum(stat)/len(stat), 2) if len(stat)>0 else 0) for stat in stats]
         fig, ax = plt.subplots()
-        y_pos = np.arange(len(players_list))
-        hbars = ax.barh(y_pos, stats, height=0.25)
-        for i, v in enumerate(stats):
-            ax.text(v, i+0.05, str(v), color='black')
-        ax.set_yticks(y_pos)
-        ax.set_yticklabels(players_list)
-        ax.invert_yaxis()  # labels read top-to-bottom
-        ax.set_xlabel('Average points per Match')
+        x_pos = np.arange(len(players_list))
+        hbars = ax.bar(x_pos, points_per_matches, width=0.25)
+
+        table = ax.table(cellText=[[sum(stat) for stat in stats], [len(stat) for stat in stats]],
+                         colLabels=players_list,
+                         rowLabels=["Points", "Matches"],
+                         loc='bottom')
+        table.auto_set_font_size(False)
+        table.set_fontsize(12)
+        table.scale(1, 2)
+
+        ax.set_xticks([])
+        ax.set_ylabel('Average points per Match')
         ax.set_title('All time points comparison')
         st.pyplot(fig)
     

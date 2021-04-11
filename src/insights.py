@@ -938,10 +938,7 @@ def fantasy_runs_scored_comparison(players_list, selected_match, this_venue_bool
             innings_number = 1 if str(player_id_to_consider) in team_id_squad_map[batting_first_team].split(',') else 2
 
         player_runs_in_matches = player_runs_by_match(player_id_to_consider, recency_parameter, venue_id, innings_number, opponent_team_id)
-        if len(player_runs_in_matches) > 0:
-            players_runs.append(round(sum(player_runs_in_matches)/len(player_runs_in_matches), 2))
-        else:
-            players_runs.append(0)
+        players_runs.append(player_runs_in_matches)
 
     #players_runs = np.flip(np.transpose(np.array(players_runs)), 0)
     #df_result = pd.DataFrame(players_runs, columns=players_list)
@@ -982,10 +979,7 @@ def fantasy_wickets_taken_comparison(players_list, selected_match, this_venue_bo
             innings_number = 1 if str(player_id_to_consider) in team_id_squad_map[batting_first_team].split(',') else 2
 
         player_wickets_in_matches = player_wickets_by_match(player_id_to_consider, recency_parameter, venue_id, innings_number, opponent_team_id)
-        if len(player_wickets_in_matches) > 0:
-            player_wickets.append(round(sum(player_wickets_in_matches)/len(player_wickets_in_matches), 2))
-        else:
-            player_wickets.append(0)
+        player_wickets.append(player_wickets_in_matches)
 
     return player_wickets
 
@@ -1023,10 +1017,7 @@ def fantasy_points_obtained_comparison(players_list, selected_match, this_venue_
             innings_number = 1 if str(player_id_to_consider) in team_id_squad_map[batting_first_team].split(',') else 2
 
         player_points_in_matches = player_points_by_match(player_id_to_consider, recency_parameter, venue_id, innings_number, opponent_team_id)
-        if len(player_points_in_matches) > 0:
-            player_points.append(round(sum(player_points_in_matches)/len(player_points_in_matches), 2))
-        else:
-            player_points.append(0)
+        player_points.append(player_points_in_matches)
 
     return player_points
 
