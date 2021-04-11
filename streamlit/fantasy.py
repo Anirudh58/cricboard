@@ -190,7 +190,7 @@ def main(match_format, session_state):
             st.header("PLAYER DETAILS (BOTH TEAMS)")
             st.write("***")
             
-        col1, col2, col3 = st.beta_columns((1, 10, 1))
+        col1, col2, col3 = st.beta_columns((1, 3, 1))
         with col2:
             st.dataframe(populate_player_table(selected_match))
 
