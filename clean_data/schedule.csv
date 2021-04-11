@@ -1,60 +1,61 @@
 match_no,time,venue,team_1,team_2,match_display_name
-1,"10-apr-2021, 02:00 pm",Mumbai,83,2,Chennai Super Kings vs Delhi Capitals
-2,"11-apr-2021, 02:00 pm",Chennai,224,546,Sunrisers Hyderabad vs Kolkata Knight Riders
-3,"12-apr-2021, 02:00 pm",Mumbai,578,109,Rajasthan Royals vs Punjab Kings
-4,"13-apr-2021, 02:00 pm",Chennai,546,254,Kolkata Knight Riders vs Mumbai Indians
-5,"14-apr-2021, 02:00 pm",Chennai,224,424,Sunrisers Hyderabad vs Royal Challengers Bangalore
-6,"15-apr-2021, 02:00 pm",Mumbai,578,2,Rajasthan Royals vs Delhi Capitals
-7,"16-apr-2021, 02:00 pm",Mumbai,109,83,Punjab Kings vs Chennai Super Kings
-8,"17-apr-2021, 02:00 pm",Chennai,254,224,Mumbai Indians vs Sunrisers Hyderabad
-9,"18-apr-2021, 10:00 am",Chennai,424,546,Royal Challengers Bangalore vs Kolkata Knight Riders
-10,"18-apr-2021, 02:00 pm",Mumbai,2,109,Delhi Capitals vs Punjab Kings
-11,"19-apr-2021, 02:00 pm",Mumbai,83,578,Chennai Super Kings vs Rajasthan Royals
-12,"20-apr-2021, 02:00 pm",Chennai,2,254,Delhi Capitals vs Mumbai Indians
-13,"21-apr-2021, 10:00 am",Chennai,109,224,Punjab Kings vs Sunrisers Hyderabad
-14,"21-apr-2021, 02:00 pm",Mumbai,546,83,Kolkata Knight Riders vs Chennai Super Kings
-15,"22-apr-2021, 02:00 pm",Mumbai,424,578,Royal Challengers Bangalore vs Rajasthan Royals
-16,"23-apr-2021, 02:00 pm",Chennai,109,254,Punjab Kings vs Mumbai Indians
-17,"24-apr-2021, 02:00 pm",Mumbai,578,546,Rajasthan Royals vs Kolkata Knight Riders
-18,"25-apr-2021, 10:00 am",Mumbai,83,424,Chennai Super Kings vs Royal Challengers Bangalore
-19,"25-apr-2021, 02:00 pm",Chennai,224,2,Sunrisers Hyderabad vs Delhi Capitals
-20,"26-apr-2021, 02:00 pm",Ahmedabad,109,546,Punjab Kings vs Kolkata Knight Riders
-21,"27-apr-2021, 02:00 pm",Ahmedabad,2,424,Delhi Capitals vs Royal Challengers Bangalore
-22,"28-apr-2021, 02:00 pm",Delhi,83,224,Chennai Super Kings vs Sunrisers Hyderabad
-23,"29-apr-2021, 10:00 am",Delhi,254,578,Mumbai Indians vs Rajasthan Royals
-24,"29-apr-2021, 02:00 pm",Ahmedabad,2,546,Delhi Capitals vs Kolkata Knight Riders
-25,"30-apr-2021, 02:00 pm",Ahmedabad,109,424,Punjab Kings vs Royal Challengers Bangalore
-26,"01-may-2021, 02:00 pm",Delhi,254,83,Mumbai Indians vs Chennai Super Kings
-27,"02-may-2021, 10:00 am",Delhi,578,224,Rajasthan Royals vs Sunrisers Hyderabad
-28,"02-may-2021, 02:00 pm",Ahmedabad,109,2,Punjab Kings vs Delhi Capitals
-29,"03-may-2021, 02:00 pm",Ahmedabad,546,424,Kolkata Knight Riders vs Royal Challengers Bangalore
-30,"04-may-2021, 02:00 pm",Delhi,224,254,Sunrisers Hyderabad vs Mumbai Indians
-31,"05-may-2021, 02:00 pm",Delhi,578,83,Rajasthan Royals vs Chennai Super Kings
-32,"06-may-2021, 02:00 pm",Ahmedabad,424,109,Royal Challengers Bangalore vs Punjab Kings
-33,"07-may-2021, 02:00 pm",Delhi,224,83,Sunrisers Hyderabad vs Chennai Super Kings
-34,"08-may-2021, 10:00 am",Ahmedabad,546,2,Kolkata Knight Riders vs Delhi Capitals
-35,"08-may-2021, 02:00 pm",Delhi,578,254,Rajasthan Royals vs Mumbai Indians
-36,"09-may-2021, 10:00 am",Bengaluru,83,109,Chennai Super Kings vs Punjab Kings
-37,"09-may-2021, 02:00 pm",Kolkata,424,224,Royal Challengers Bangalore vs Sunrisers Hyderabad
-38,"10-may-2021, 02:00 pm",Bengaluru,254,546,Mumbai Indians vs Kolkata Knight Riders
-39,"11-may-2021, 02:00 pm",Kolkata,2,578,Delhi Capitals vs Rajasthan Royals
-40,"12-may-2021, 02:00 pm",Bengaluru,83,546,Chennai Super Kings vs Kolkata Knight Riders
-41,"13-may-2021, 10:00 am",Bengaluru,254,109,Mumbai Indians vs Punjab Kings
-42,"13-may-2021, 02:00 pm",Kolkata,224,578,Sunrisers Hyderabad vs Rajasthan Royals
-43,"14-may-2021, 02:00 pm",Kolkata,424,2,Royal Challengers Bangalore vs Delhi Capitals
-44,"15-may-2021, 02:00 pm",Bengaluru,546,109,Kolkata Knight Riders vs Punjab Kings
-45,"16-may-2021, 10:00 am",Kolkata,578,424,Rajasthan Royals vs Royal Challengers Bangalore
-46,"16-may-2021, 02:00 pm",Bengaluru,83,254,Chennai Super Kings vs Mumbai Indians
-47,"17-may-2021, 02:00 pm",Kolkata,2,224,Delhi Capitals vs Sunrisers Hyderabad
-48,"18-may-2021, 02:00 pm",Bengaluru,546,578,Kolkata Knight Riders vs Rajasthan Royals
-49,"19-may-2021, 02:00 pm",Bengaluru,224,109,Sunrisers Hyderabad vs Punjab Kings
-50,"20-may-2021, 02:00 pm",Kolkata,424,254,Royal Challengers Bangalore vs Mumbai Indians
-51,"21-may-2021, 10:00 am",Bengaluru,546,224,Kolkata Knight Riders vs Sunrisers Hyderabad
-52,"21-may-2021, 02:00 pm",Kolkata,2,83,Delhi Capitals vs Chennai Super Kings
-53,"22-may-2021, 02:00 pm",Bengaluru,109,578,Punjab Kings vs Rajasthan Royals
-54,"23-may-2021, 10:00 am",Kolkata,254,2,Mumbai Indians vs Delhi Capitals
-55,"23-may-2021, 02:00 pm",Kolkata,424,83,Royal Challengers Bangalore vs Chennai Super Kings
-56,"25-may-2021, 02:00 pm",Ahmedabad,95,95,TBA vs TBA
-57,"26-may-2021, 02:00 pm",Ahmedabad,95,95,TBA vs TBA
-58,"28-may-2021, 02:00 pm",Ahmedabad,95,95,TBA vs TBA
-59,"30-may-2021, 02:00 pm",Ahmedabad,95,95,TBA vs TBA
+1,"09-apr-2021, 02:00 pm",Chennai,533,283,Mumbai Indians vs Royal Challengers Bangalore
+2,"10-apr-2021, 02:00 pm",Mumbai,534,403,Chennai Super Kings vs Delhi Capitals
+3,"11-apr-2021, 02:00 pm",Chennai,26,52,Sunrisers Hyderabad vs Kolkata Knight Riders
+4,"12-apr-2021, 02:00 pm",Mumbai,423,239,Rajasthan Royals vs Punjab Kings
+5,"13-apr-2021, 02:00 pm",Chennai,52,533,Kolkata Knight Riders vs Mumbai Indians
+6,"14-apr-2021, 02:00 pm",Chennai,26,283,Sunrisers Hyderabad vs Royal Challengers Bangalore
+7,"15-apr-2021, 02:00 pm",Mumbai,423,403,Rajasthan Royals vs Delhi Capitals
+8,"16-apr-2021, 02:00 pm",Mumbai,239,534,Punjab Kings vs Chennai Super Kings
+9,"17-apr-2021, 02:00 pm",Chennai,533,26,Mumbai Indians vs Sunrisers Hyderabad
+10,"18-apr-2021, 10:00 am",Chennai,283,52,Royal Challengers Bangalore vs Kolkata Knight Riders
+11,"18-apr-2021, 02:00 pm",Mumbai,403,239,Delhi Capitals vs Punjab Kings
+12,"19-apr-2021, 02:00 pm",Mumbai,534,423,Chennai Super Kings vs Rajasthan Royals
+13,"20-apr-2021, 02:00 pm",Chennai,403,533,Delhi Capitals vs Mumbai Indians
+14,"21-apr-2021, 10:00 am",Chennai,239,26,Punjab Kings vs Sunrisers Hyderabad
+15,"21-apr-2021, 02:00 pm",Mumbai,52,534,Kolkata Knight Riders vs Chennai Super Kings
+16,"22-apr-2021, 02:00 pm",Mumbai,283,423,Royal Challengers Bangalore vs Rajasthan Royals
+17,"23-apr-2021, 02:00 pm",Chennai,239,533,Punjab Kings vs Mumbai Indians
+18,"24-apr-2021, 02:00 pm",Mumbai,423,52,Rajasthan Royals vs Kolkata Knight Riders
+19,"25-apr-2021, 10:00 am",Mumbai,534,283,Chennai Super Kings vs Royal Challengers Bangalore
+20,"25-apr-2021, 02:00 pm",Chennai,26,403,Sunrisers Hyderabad vs Delhi Capitals
+21,"26-apr-2021, 02:00 pm",Ahmedabad,239,52,Punjab Kings vs Kolkata Knight Riders
+22,"27-apr-2021, 02:00 pm",Ahmedabad,403,283,Delhi Capitals vs Royal Challengers Bangalore
+23,"28-apr-2021, 02:00 pm",Delhi,534,26,Chennai Super Kings vs Sunrisers Hyderabad
+24,"29-apr-2021, 10:00 am",Delhi,533,423,Mumbai Indians vs Rajasthan Royals
+25,"29-apr-2021, 02:00 pm",Ahmedabad,403,52,Delhi Capitals vs Kolkata Knight Riders
+26,"30-apr-2021, 02:00 pm",Ahmedabad,239,283,Punjab Kings vs Royal Challengers Bangalore
+27,"01-may-2021, 02:00 pm",Delhi,533,534,Mumbai Indians vs Chennai Super Kings
+28,"02-may-2021, 10:00 am",Delhi,423,26,Rajasthan Royals vs Sunrisers Hyderabad
+29,"02-may-2021, 02:00 pm",Ahmedabad,239,403,Punjab Kings vs Delhi Capitals
+30,"03-may-2021, 02:00 pm",Ahmedabad,52,283,Kolkata Knight Riders vs Royal Challengers Bangalore
+31,"04-may-2021, 02:00 pm",Delhi,26,533,Sunrisers Hyderabad vs Mumbai Indians
+32,"05-may-2021, 02:00 pm",Delhi,423,534,Rajasthan Royals vs Chennai Super Kings
+33,"06-may-2021, 02:00 pm",Ahmedabad,283,239,Royal Challengers Bangalore vs Punjab Kings
+34,"07-may-2021, 02:00 pm",Delhi,26,534,Sunrisers Hyderabad vs Chennai Super Kings
+35,"08-may-2021, 10:00 am",Ahmedabad,52,403,Kolkata Knight Riders vs Delhi Capitals
+36,"08-may-2021, 02:00 pm",Delhi,423,533,Rajasthan Royals vs Mumbai Indians
+37,"09-may-2021, 10:00 am",Bengaluru,534,239,Chennai Super Kings vs Punjab Kings
+38,"09-may-2021, 02:00 pm",Kolkata,283,26,Royal Challengers Bangalore vs Sunrisers Hyderabad
+39,"10-may-2021, 02:00 pm",Bengaluru,533,52,Mumbai Indians vs Kolkata Knight Riders
+40,"11-may-2021, 02:00 pm",Kolkata,403,423,Delhi Capitals vs Rajasthan Royals
+41,"12-may-2021, 02:00 pm",Bengaluru,534,52,Chennai Super Kings vs Kolkata Knight Riders
+42,"13-may-2021, 10:00 am",Bengaluru,533,239,Mumbai Indians vs Punjab Kings
+43,"13-may-2021, 02:00 pm",Kolkata,26,423,Sunrisers Hyderabad vs Rajasthan Royals
+44,"14-may-2021, 02:00 pm",Kolkata,283,403,Royal Challengers Bangalore vs Delhi Capitals
+45,"15-may-2021, 02:00 pm",Bengaluru,52,239,Kolkata Knight Riders vs Punjab Kings
+46,"16-may-2021, 10:00 am",Kolkata,423,283,Rajasthan Royals vs Royal Challengers Bangalore
+47,"16-may-2021, 02:00 pm",Bengaluru,534,533,Chennai Super Kings vs Mumbai Indians
+48,"17-may-2021, 02:00 pm",Kolkata,403,26,Delhi Capitals vs Sunrisers Hyderabad
+49,"18-may-2021, 02:00 pm",Bengaluru,52,423,Kolkata Knight Riders vs Rajasthan Royals
+50,"19-may-2021, 02:00 pm",Bengaluru,26,239,Sunrisers Hyderabad vs Punjab Kings
+51,"20-may-2021, 02:00 pm",Kolkata,283,533,Royal Challengers Bangalore vs Mumbai Indians
+52,"21-may-2021, 10:00 am",Bengaluru,52,26,Kolkata Knight Riders vs Sunrisers Hyderabad
+53,"21-may-2021, 02:00 pm",Kolkata,403,534,Delhi Capitals vs Chennai Super Kings
+54,"22-may-2021, 02:00 pm",Bengaluru,239,423,Punjab Kings vs Rajasthan Royals
+55,"23-may-2021, 10:00 am",Kolkata,533,403,Mumbai Indians vs Delhi Capitals
+56,"23-may-2021, 02:00 pm",Kolkata,283,534,Royal Challengers Bangalore vs Chennai Super Kings
+57,"25-may-2021, 02:00 pm",Ahmedabad,588,588,TBA vs TBA
+58,"26-may-2021, 02:00 pm",Ahmedabad,588,588,TBA vs TBA
+59,"28-may-2021, 02:00 pm",Ahmedabad,588,588,TBA vs TBA
+60,"30-may-2021, 02:00 pm",Ahmedabad,588,588,TBA vs TBA
