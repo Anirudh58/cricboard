@@ -65,11 +65,11 @@ player_id_name_map = dict(zip(df_player.player_id, df_player.player_name))
 
 # TODO: All time runs in IPL seems to have a minor discrepancy in our value and the value in IPL site. Check it later
 @st.cache
-def batting_total_runs(player_name, top_n, match_format, against_spin, against_pace, bowling_types, against_bowler, innings_number, tournaments=None, venue_name=None, years_range=None, overs_range=None):
+def batting_total_runs(player_names, top_n, match_format, against_spin, against_pace, bowling_types, against_bowler, innings_number, tournaments=None, venue_name=None, years_range=None, overs_range=None):
     """
         Total runs for a player / top runs
         Args:
-            player_name - (string) the target player
+            player_names - (list) list of target players
             top_n - (int) if top_n is not 0, player_name will be overridden
             match_format - (string) one of 'ODI', 'TEST' or 'T20'
             bowling_types - (dict) a dictionary of boolean variables telling what bowling types you want the data for
@@ -104,16 +104,19 @@ def batting_total_runs(player_name, top_n, match_format, against_spin, against_p
     if against_bowler != 'ALL':
         bowler_to_consider = player_name_id_map[against_bowler]
     
-    # default value of top_n is 0, then just calculate for the given player name
+    # default value of top_n is 0, then just calculate for the given player names
     if top_n == 0:
-        # Getting the player id from the name
-        player_id_to_consider = player_name_id_map[player_name]
-        result_runs = runs_scored(player=player_id_to_consider, against_spin=against_spin, against_pace=against_pace, bowling_types=bowling_types, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_bowler=bowler_to_consider, innings_number=innings_number)
-    
+        
         result_columns = ["player_name", "runs"]
         df_result = pd.DataFrame(columns = result_columns)
-        df_result = df_result.append({"player_name" : player_name, 
-                                "runs" : result_runs}, ignore_index=True)
+        
+        for player_name in player_names:
+            # Getting the player id from the name
+            player_id_to_consider = player_name_id_map[player_name]
+            result_runs = runs_scored(player=player_id_to_consider, against_spin=against_spin, against_pace=against_pace, bowling_types=bowling_types, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_bowler=bowler_to_consider, innings_number=innings_number)
+    
+            df_result = df_result.append({"player_name" : player_name, 
+                                        "runs" : result_runs}, ignore_index=True)
         
     else:
         players_stats = []
@@ -144,11 +147,11 @@ def batting_total_runs(player_name, top_n, match_format, against_spin, against_p
     return df_result
 
 @st.cache
-def batting_strike_rate(player_name, top_n, match_format, against_spin, against_pace, bowling_types, against_bowler, minimum_runs, innings_number, tournaments=None, venue_name=None, years_range=None, overs_range=None):
+def batting_strike_rate(player_names, top_n, match_format, against_spin, against_pace, bowling_types, against_bowler, minimum_runs, innings_number, tournaments=None, venue_name=None, years_range=None, overs_range=None):
     """
         Strike rate for a player / top strike rates
         Args:
-            player_name - (string) the target player
+            player_names - (list) list of target players
             top_n - (int) if top_n is not 0, player_name will be overridden
             match_format - (string) one of 'ODI', 'TEST' or 'T20'
             minimum_runs - (int) consider only those players who have crossed this threshold runs
@@ -185,22 +188,24 @@ def batting_strike_rate(player_name, top_n, match_format, against_spin, against_
     
     # default value of top_n is 0, then just calculate for the given player name
     if top_n == 0:
-        # Getting the player id from the name
-        player_id_to_consider = player_name_id_map[player_name]
-        result_runs = runs_scored(player=player_id_to_consider, against_spin=against_spin, against_pace=against_pace, bowling_types=bowling_types, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_bowler=bowler_to_consider, innings_number=innings_number)
-        
-        result_balls = balls_batted(player=player_id_to_consider, against_spin=against_spin, against_pace=against_pace, bowling_types=bowling_types, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_bowler=bowler_to_consider, innings_number=innings_number)
         
         result_columns = ["player_name", "strike_rate"]
         df_result = pd.DataFrame(columns = result_columns)
         
-        if result_balls == 0:
-            result_strike_rate = INF
-        else:
-            result_strike_rate = np.float64(result_runs/np.float64(result_balls)) * 100
-            
-        df_result = df_result.append({"player_name" : player_name, 
-                                "strike_rate" : result_strike_rate}, ignore_index=True)
+        for player_name in player_names:
+            # Getting the player id from the name
+            player_id_to_consider = player_name_id_map[player_name]
+            result_runs = runs_scored(player=player_id_to_consider, against_spin=against_spin, against_pace=against_pace, bowling_types=bowling_types, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_bowler=bowler_to_consider, innings_number=innings_number)
+
+            result_balls = balls_batted(player=player_id_to_consider, against_spin=against_spin, against_pace=against_pace, bowling_types=bowling_types, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_bowler=bowler_to_consider, innings_number=innings_number)
+
+            if result_balls == 0:
+                result_strike_rate = INF
+            else:
+                result_strike_rate = np.float64(result_runs/np.float64(result_balls)) * 100
+
+            df_result = df_result.append({"player_name" : player_name, 
+                                    "strike_rate" : result_strike_rate}, ignore_index=True)
         
     else:
         player_stats = []
@@ -239,11 +244,11 @@ def batting_strike_rate(player_name, top_n, match_format, against_spin, against_
     return df_result
 
 @st.cache
-def batting_average(player_name, top_n, match_format, against_spin, against_pace, bowling_types, against_bowler, minimum_runs, innings_number, tournaments=None, venue_name=None, years_range=None, overs_range=None):
+def batting_average(player_names, top_n, match_format, against_spin, against_pace, bowling_types, against_bowler, minimum_runs, innings_number, tournaments=None, venue_name=None, years_range=None, overs_range=None):
     """
         Average for a player / top averages
         Args:
-            player_name - (string) the target player
+            player_names - (list) list of target players
             top_n - (int) if top_n is not 0, player_name will be overridden
             match_format - (string) one of 'ODI', 'TEST' or 'T20'
             minimum_runs - (int) consider only those players who have crossed this threshold runs
@@ -280,21 +285,24 @@ def batting_average(player_name, top_n, match_format, against_spin, against_pace
     
     # default value of top_n is 0, then just calculate for the given player name
     if top_n == 0:
-        # Getting the player id from the name
-        player_id_to_consider = player_name_id_map[player_name]
-        result_runs = runs_scored(player=player_id_to_consider, against_spin=against_spin, against_pace=against_pace, bowling_types=bowling_types, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_bowler=bowler_to_consider, innings_number=innings_number)
-        
-        result_dismissals = dismissals(player=player_id_to_consider, against_spin=against_spin, against_pace=against_pace, bowling_types=bowling_types, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_bowler=bowler_to_consider, innings_number=innings_number)
-        
-        if result_dismissals == 0:
-            result_average = INF
-        else:
-            result_average = np.float64(result_runs/np.float64(result_dismissals))
         
         result_columns = ["player_name", "average"]
         df_result = pd.DataFrame(columns = result_columns)
-        df_result = df_result.append({"player_name" : player_name, 
-                                "average" : result_average}, ignore_index=True)
+        
+        for player_name in player_names:
+            # Getting the player id from the name
+            player_id_to_consider = player_name_id_map[player_name]
+            result_runs = runs_scored(player=player_id_to_consider, against_spin=against_spin, against_pace=against_pace, bowling_types=bowling_types, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_bowler=bowler_to_consider, innings_number=innings_number)
+
+            result_dismissals = dismissals(player=player_id_to_consider, against_spin=against_spin, against_pace=against_pace, bowling_types=bowling_types, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_bowler=bowler_to_consider, innings_number=innings_number)
+
+            if result_dismissals == 0:
+                result_average = INF
+            else:
+                result_average = np.float64(result_runs/np.float64(result_dismissals))
+
+            df_result = df_result.append({"player_name" : player_name, 
+                                    "average" : result_average}, ignore_index=True)
         
     else:
         player_stats = []
@@ -334,11 +342,11 @@ def batting_average(player_name, top_n, match_format, against_spin, against_pace
 
 
 @st.cache
-def batting_dismissals(player_name, top_n, match_format, against_spin, against_pace, bowling_types, against_bowler, innings_number, tournaments=None, venue_name=None, years_range=None, overs_range=None):
+def batting_dismissals(player_names, top_n, match_format, against_spin, against_pace, bowling_types, against_bowler, innings_number, tournaments=None, venue_name=None, years_range=None, overs_range=None):
     """
-        Average for a player / top averages
+        Dismissals for a player / top dismissals
         Args:
-            player_name - (string) the target player
+            player_names - (list) list of target players
             top_n - (int) if top_n is not 0, player_name will be overridden
             match_format - (string) one of 'ODI', 'TEST' or 'T20'
             minimum_runs - (int) consider only those players who have crossed this threshold runs
@@ -375,16 +383,18 @@ def batting_dismissals(player_name, top_n, match_format, against_spin, against_p
     
     # default value of top_n is 0, then just calculate for the given player name
     if top_n == 0:
-        # Getting the player id from the name
-        player_id_to_consider = player_name_id_map[player_name]
-        
-        result_dismissals = dismissals(player=player_id_to_consider, against_spin=against_spin, against_pace=against_pace, bowling_types=bowling_types, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_bowler=bowler_to_consider, innings_number=innings_number)
-        
         
         result_columns = ["player_name", "dismissals"]
         df_result = pd.DataFrame(columns = result_columns)
-        df_result = df_result.append({"player_name" : player_name, 
-                                "dismissals" : result_dismissals}, ignore_index=True)
+        
+        for player_name in player_names:
+            # Getting the player id from the name
+            player_id_to_consider = player_name_id_map[player_name]
+
+            result_dismissals = dismissals(player=player_id_to_consider, against_spin=against_spin, against_pace=against_pace, bowling_types=bowling_types, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_bowler=bowler_to_consider, innings_number=innings_number)
+
+            df_result = df_result.append({"player_name" : player_name, 
+                                    "dismissals" : result_dismissals}, ignore_index=True)
         
     else:
         player_stats = []
@@ -421,11 +431,11 @@ def batting_dismissals(player_name, top_n, match_format, against_spin, against_p
 ################################### BOWLER INSIGHTS ###################################
 
 @st.cache
-def total_wickets(player_name, top_n, match_format, against_batsman, batting_types, innings_number, tournaments=None, venue_name=None, years_range=None, overs_range=None):
+def total_wickets(player_names, top_n, match_format, against_batsman, batting_types, innings_number, tournaments=None, venue_name=None, years_range=None, overs_range=None):
     """
         Total wickets taken by a player / top wicket takers
         Args:
-            player_name - (string) the target player
+            player_names - (list) list of target players
             top_n - (int) if top_n is not 0, player_name will be overridden
             match_format - (string) one of 'ODI', 'TEST' or 'T20'
             against_batsman - (string) name of batsman to show stats against
@@ -460,14 +470,17 @@ def total_wickets(player_name, top_n, match_format, against_batsman, batting_typ
     
     # default value of top_n is 0, then just calculate for the given player name
     if top_n == 0:
-        # Getting the player id from the name
-        player_id_to_consider = player_name_id_map[player_name]
-        result_wickets = wickets_taken(player=player_id_to_consider, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_batsman=batter_to_consider, batting_types=batting_types, innings_number=innings_number)
-    
+        
         result_columns = ["player_name", "wickets"]
         df_result = pd.DataFrame(columns = result_columns)
-        df_result = df_result.append({"player_name" : player_name, 
-                                "wickets" : result_wickets}, ignore_index=True)
+        
+        for player_name in player_names:
+            # Getting the player id from the name
+            player_id_to_consider = player_name_id_map[player_name]
+            result_wickets = wickets_taken(player=player_id_to_consider, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_batsman=batter_to_consider, batting_types=batting_types, innings_number=innings_number)
+
+            df_result = df_result.append({"player_name" : player_name, 
+                                    "wickets" : result_wickets}, ignore_index=True)
         
     else:
         players_stats = []
@@ -498,11 +511,11 @@ def total_wickets(player_name, top_n, match_format, against_batsman, batting_typ
     return df_result
 
 @st.cache
-def bowling_strike_rate(player_name, top_n, minimum_balls, match_format, against_batsman, batting_types, innings_number, tournaments=None, venue_name=None, years_range=None, overs_range=None):
+def bowling_strike_rate(player_names, top_n, minimum_balls, match_format, against_batsman, batting_types, innings_number, tournaments=None, venue_name=None, years_range=None, overs_range=None):
     """
         Total wickets taken by a player / top wicket takers
         Args:
-            player_name - (string) the target player
+            player_names - (list) list of target players
             top_n - (int) if top_n is not 0, player_name will be overridden
             minimum_balls - (int) threshold
             match_format - (string) one of 'ODI', 'TEST' or 'T20'
@@ -538,21 +551,24 @@ def bowling_strike_rate(player_name, top_n, minimum_balls, match_format, against
     
     # default value of top_n is 0, then just calculate for the given player name
     if top_n == 0:
-        # Getting the player id from the name
-        player_id_to_consider = player_name_id_map[player_name]
-        result_wickets = wickets_taken(player=player_id_to_consider, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_batsman=batter_to_consider, batting_types=batting_types, innings_number=innings_number)
         
-        result_balls = balls_bowled(player=player_id_to_consider, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_batsman=batter_to_consider, batting_types=batting_types, innings_number=innings_number)
-        
-        if result_wickets == 0:
-            result_strike_rate = INF
-        else:
-            result_strike_rate = np.float64(result_balls/np.float64(result_wickets))
-    
         result_columns = ["player_name", "strike_rate"]
         df_result = pd.DataFrame(columns = result_columns)
-        df_result = df_result.append({"player_name" : player_name, 
-                                "strike_rate" : result_strike_rate}, ignore_index=True)
+        
+        for player_name in player_names:
+            # Getting the player id from the name
+            player_id_to_consider = player_name_id_map[player_name]
+            result_wickets = wickets_taken(player=player_id_to_consider, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_batsman=batter_to_consider, batting_types=batting_types, innings_number=innings_number)
+
+            result_balls = balls_bowled(player=player_id_to_consider, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_batsman=batter_to_consider, batting_types=batting_types, innings_number=innings_number)
+
+            if result_wickets == 0:
+                result_strike_rate = INF
+            else:
+                result_strike_rate = np.float64(result_balls/np.float64(result_wickets))
+
+            df_result = df_result.append({"player_name" : player_name, 
+                                    "strike_rate" : result_strike_rate}, ignore_index=True)
         
     else:
         player_stats = []
@@ -592,11 +608,11 @@ def bowling_strike_rate(player_name, top_n, minimum_balls, match_format, against
 
 
 @st.cache
-def bowling_average(player_name, top_n, minimum_balls, match_format, against_batsman, batting_types, innings_number, tournaments=None, venue_name=None, years_range=None, overs_range=None):
+def bowling_average(player_names, top_n, minimum_balls, match_format, against_batsman, batting_types, innings_number, tournaments=None, venue_name=None, years_range=None, overs_range=None):
     """
         Total wickets taken by a player / top wicket takers
         Args:
-            player_name - (string) the target player
+            player_names - (list) list of target players
             top_n - (int) if top_n is not 0, player_name will be overridden
             minimum_balls - (int) threshold
             match_format - (string) one of 'ODI', 'TEST' or 'T20'
@@ -633,21 +649,24 @@ def bowling_average(player_name, top_n, minimum_balls, match_format, against_bat
     
     # default value of top_n is 0, then just calculate for the given player name
     if top_n == 0:
-        # Getting the player id from the name
-        player_id_to_consider = player_name_id_map[player_name]
-        result_wickets = wickets_taken(player=player_id_to_consider, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_batsman=batter_to_consider, batting_types=batting_types, innings_number=innings_number)
         
-        result_runs = runs_given(player=player_id_to_consider, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_batsman=batter_to_consider, batting_types=batting_types, innings_number=innings_number)
-        
-        if result_wickets == 0:
-            result_average = INF
-        else:
-            result_average = np.float64(result_runs/np.float64(result_wickets))
-    
         result_columns = ["player_name", "average"]
         df_result = pd.DataFrame(columns = result_columns)
-        df_result = df_result.append({"player_name" : player_name, 
-                                "average" : result_average}, ignore_index=True)
+        
+        for player_name in player_names:
+            # Getting the player id from the name
+            player_id_to_consider = player_name_id_map[player_name]
+            result_wickets = wickets_taken(player=player_id_to_consider, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_batsman=batter_to_consider, batting_types=batting_types, innings_number=innings_number)
+
+            result_runs = runs_given(player=player_id_to_consider, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_batsman=batter_to_consider, batting_types=batting_types, innings_number=innings_number)
+
+            if result_wickets == 0:
+                result_average = INF
+            else:
+                result_average = np.float64(result_runs/np.float64(result_wickets))
+
+            df_result = df_result.append({"player_name" : player_name, 
+                                    "average" : result_average}, ignore_index=True)
         
     else:
         player_stats = []
@@ -678,7 +697,7 @@ def bowling_average(player_name, top_n, minimum_balls, match_format, against_bat
         # sorting players based on wickets
         top_players = sorted(player_stats, key = lambda player: player['average'], reverse=False)
         
-        result_columns = ["player_name", "average"]
+        result_columns = ["player_name", "strike_rate"]
         df_result = pd.DataFrame(columns = result_columns)
         
         for i in range(min(top_n, len(player_stats))):
@@ -689,11 +708,11 @@ def bowling_average(player_name, top_n, minimum_balls, match_format, against_bat
 
 
 @st.cache
-def bowling_economy(player_name, top_n, minimum_balls, match_format, against_batsman, batting_types, innings_number, tournaments=None, venue_name=None, years_range=None, overs_range=None):
+def bowling_economy(player_names, top_n, minimum_balls, match_format, against_batsman, batting_types, innings_number, tournaments=None, venue_name=None, years_range=None, overs_range=None):
     """
         Total wickets taken by a player / top wicket takers
         Args:
-            player_name - (string) the target player
+            player_names - (list) list of target players
             top_n - (int) if top_n is not 0, player_name will be overridden
             minimum_balls - (int) threshold
             match_format - (string) one of 'ODI', 'TEST' or 'T20'
@@ -730,22 +749,25 @@ def bowling_economy(player_name, top_n, minimum_balls, match_format, against_bat
     
     # default value of top_n is 0, then just calculate for the given player name
     if top_n == 0:
-        # Getting the player id from the name
-        player_id_to_consider = player_name_id_map[player_name]
-        result_balls = balls_bowled(player=player_id_to_consider, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_batsman=batter_to_consider, batting_types=batting_types, innings_number=innings_number)
         
-        result_runs = runs_given(player=player_id_to_consider, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_batsman=batter_to_consider, batting_types=batting_types, innings_number=innings_number)
-        
-        if result_balls == 0:
-            result_economy = INF
-        else:
-            result_economy = np.float64(result_runs/np.float64(result_balls)) * 6.0
-    
         result_columns = ["player_name", "economy"]
         df_result = pd.DataFrame(columns = result_columns)
-        df_result = df_result.append({"player_name" : player_name, 
-                                "economy" : result_economy}, ignore_index=True)
         
+        for player_name in player_names:
+            # Getting the player id from the name
+            player_id_to_consider = player_name_id_map[player_name]
+            result_balls = balls_bowled(player=player_id_to_consider, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_batsman=batter_to_consider, batting_types=batting_types, innings_number=innings_number)
+
+            result_runs = runs_given(player=player_id_to_consider, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_batsman=batter_to_consider, batting_types=batting_types, innings_number=innings_number)
+
+            if result_balls == 0:
+                result_economy = INF
+            else:
+                result_economy = np.float64(result_runs/np.float64(result_balls)) * 6.0
+
+            df_result = df_result.append({"player_name" : player_name, 
+                                    "economy" : result_economy}, ignore_index=True)
+
     else:
         player_stats = []
         top_counter = 0
