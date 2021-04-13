@@ -4,30 +4,30 @@ meta:
   created: '2019-04-18'
   revision: 1
 info:
-  venue: Sawai Mansingh Stadium
+  city: Jaipur
   competition: IPL
   dates:
   - '2018-04-11'
   gender: male
-  teams:
-  - Rajasthan Royals
-  - Delhi Daredevils
+  match_type: T20
   outcome:
     winner: Rajasthan Royals
     by:
       runs: 10
     method: D/L
+  overs: 20
+  player_of_match:
+  - SV Samson
+  teams:
+  - Rajasthan Royals
+  - Delhi Daredevils
   toss:
     decision: field
     winner: Delhi Daredevils
-  player_of_match:
-  - SV Samson
-  match_type: T20
-  overs: 20
-  city: Jaipur
   umpires:
   - KN Ananthapadmanabhan
   - Nitin Menon
+  venue: Sawai Mansingh Stadium
 innings:
 - 1st innings:
     team: Rajasthan Royals

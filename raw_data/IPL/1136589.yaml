@@ -4,29 +4,29 @@ meta:
   created: '2019-04-19'
   revision: 1
 info:
-  venue: M.Chinnaswamy Stadium
+  city: Bengaluru
   competition: IPL
   dates:
   - '2018-04-29'
   gender: male
-  teams:
-  - Royal Challengers Bangalore
-  - Kolkata Knight Riders
+  match_type: T20
   outcome:
     winner: Kolkata Knight Riders
     by:
       wickets: 6
+  overs: 20
+  player_of_match:
+  - CA Lynn
+  teams:
+  - Royal Challengers Bangalore
+  - Kolkata Knight Riders
   toss:
     decision: field
     winner: Kolkata Knight Riders
-  player_of_match:
-  - CA Lynn
-  match_type: T20
-  overs: 20
-  city: Bengaluru
   umpires:
-  - NJ Llong
   - AK Chaudhary
+  - NJ Llong
+  venue: M.Chinnaswamy Stadium
 innings:
 - 1st innings:
     team: Royal Challengers Bangalore

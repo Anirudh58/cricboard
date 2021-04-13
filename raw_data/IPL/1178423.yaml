@@ -4,29 +4,29 @@ meta:
   created: '2019-05-02'
   revision: 2
 info:
-  venue: Rajiv Gandhi International Stadium, Uppal
+  city: Hyderabad
   competition: IPL
   dates:
   - '2019-04-29'
   gender: male
-  teams:
-  - Sunrisers Hyderabad
-  - Kings XI Punjab
+  match_type: T20
   outcome:
     winner: Sunrisers Hyderabad
     by:
       runs: 45
+  overs: 20
+  player_of_match:
+  - DA Warner
+  teams:
+  - Sunrisers Hyderabad
+  - Kings XI Punjab
   toss:
     decision: field
     winner: Kings XI Punjab
-  player_of_match:
-  - DA Warner
-  match_type: T20
-  overs: 20
-  city: Hyderabad
   umpires:
   - CK Nandan
   - S Ravi
+  venue: Rajiv Gandhi International Stadium
 innings:
 - 1st innings:
     team: Sunrisers Hyderabad

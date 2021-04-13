@@ -4,29 +4,29 @@ meta:
   created: '2019-04-28'
   revision: 2
 info:
-  venue: Eden Gardens
+  city: Kolkata
   competition: IPL
   dates:
   - '2019-04-28'
   gender: male
-  teams:
-  - Kolkata Knight Riders
-  - Mumbai Indians
+  match_type: T20
   outcome:
     winner: Kolkata Knight Riders
     by:
       runs: 34
+  overs: 20
+  player_of_match:
+  - AD Russell
+  teams:
+  - Kolkata Knight Riders
+  - Mumbai Indians
   toss:
     decision: field
     winner: Mumbai Indians
-  player_of_match:
-  - AD Russell
-  match_type: T20
-  overs: 20
-  city: Kolkata
   umpires:
   - IJ Gould
   - Nitin Menon
+  venue: Eden Gardens
 innings:
 - 1st innings:
     team: Kolkata Knight Riders

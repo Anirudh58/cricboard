@@ -4,30 +4,30 @@ meta:
   created: '2019-04-19'
   revision: 1
 info:
-  venue: Eden Gardens
+  city: Kolkata
   competition: IPL
   dates:
   - '2018-04-21'
   gender: male
-  teams:
-  - Kolkata Knight Riders
-  - Kings XI Punjab
+  match_type: T20
   outcome:
     winner: Kings XI Punjab
     by:
       wickets: 9
     method: D/L
-  toss:
-    decision: field
-    winner: Kings XI Punjab
-  match_type: T20
   overs: 20
   player_of_match:
   - KL Rahul
-  city: Kolkata
+  teams:
+  - Kolkata Knight Riders
+  - Kings XI Punjab
+  toss:
+    decision: field
+    winner: Kings XI Punjab
   umpires:
-  - C Shamshuddin
   - A Deshmukh
+  - C Shamshuddin
+  venue: Eden Gardens
 innings:
 - 1st innings:
     team: Kolkata Knight Riders
@@ -1314,6 +1314,7 @@ innings:
         replacements:
           role:
           - in: N Rana
+            out: AD Russell
             reason: injury
             role: bowler
         batsman: CH Gayle

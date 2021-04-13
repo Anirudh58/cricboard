@@ -4,29 +4,29 @@ meta:
   created: '2019-04-19'
   revision: 1
 info:
-  venue: Maharashtra Cricket Association Stadium
+  city: Pune
   competition: IPL
   dates:
   - '2018-04-20'
   gender: male
-  teams:
-  - Chennai Super Kings
-  - Rajasthan Royals
+  match_type: T20
   outcome:
     winner: Chennai Super Kings
     by:
       runs: 64
+  overs: 20
+  player_of_match:
+  - SR Watson
+  teams:
+  - Chennai Super Kings
+  - Rajasthan Royals
   toss:
     decision: field
     winner: Rajasthan Royals
-  player_of_match:
-  - SR Watson
-  match_type: T20
-  overs: 20
-  city: Pune
   umpires:
   - KN Ananthapadmanabhan
   - Nitin Menon
+  venue: Maharashtra Cricket Association Stadium
 innings:
 - 1st innings:
     team: Chennai Super Kings

@@ -4,29 +4,29 @@ meta:
   created: '2019-04-16'
   revision: 2
 info:
-  venue: Rajiv Gandhi International Stadium, Uppal
+  city: Hyderabad
   competition: IPL
   dates:
   - '2019-04-14'
   gender: male
-  teams:
-  - Sunrisers Hyderabad
-  - Delhi Capitals
+  match_type: T20
   outcome:
     winner: Delhi Capitals
     by:
       runs: 39
+  overs: 20
+  player_of_match:
+  - KMA Paul
+  teams:
+  - Delhi Capitals
+  - Sunrisers Hyderabad
   toss:
     decision: field
     winner: Sunrisers Hyderabad
-  player_of_match:
-  - KMA Paul
-  match_type: T20
-  overs: 20
-  city: Hyderabad
   umpires:
-  - BNJ Oxenford
   - AK Chaudhary
+  - BNJ Oxenford
+  venue: Rajiv Gandhi International Stadium
 innings:
 - 1st innings:
     team: Delhi Capitals

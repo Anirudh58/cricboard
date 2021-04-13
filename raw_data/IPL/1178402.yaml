@@ -24,8 +24,8 @@ info:
     decision: field
     winner: Rajasthan Royals
   umpires:
-  - Nitin Menon
   - A Nand Kishore
+  - Nitin Menon
   venue: Wankhede Stadium
 innings:
 - 1st innings:
@@ -1910,9 +1910,7 @@ innings:
         batsman: RA Tripathi
         wicket:
           player_out: RA Tripathi
-          fielders:
-          - HH Pandya
-          kind: caught
+          kind: caught and bowled
     - 17.2:
         non_striker: LS Livingstone
         bowler: KH Pandya

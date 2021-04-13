@@ -4,29 +4,29 @@ meta:
   created: '2019-04-25'
   revision: 1
 info:
-  venue: M.Chinnaswamy Stadium
+  city: Bengaluru
   competition: IPL
   dates:
   - '2019-04-24'
   gender: male
-  teams:
-  - Royal Challengers Bangalore
-  - Kings XI Punjab
+  match_type: T20
   outcome:
     winner: Royal Challengers Bangalore
     by:
       runs: 17
+  overs: 20
+  player_of_match:
+  - AB de Villiers
+  teams:
+  - Royal Challengers Bangalore
+  - Kings XI Punjab
   toss:
     decision: field
     winner: Kings XI Punjab
-  player_of_match:
-  - AB de Villiers
-  match_type: T20
-  overs: 20
-  city: Bengaluru
   umpires:
-  - C Shamshuddin
   - BNJ Oxenford
+  - C Shamshuddin
+  venue: M.Chinnaswamy Stadium
 innings:
 - 1st innings:
     team: Royal Challengers Bangalore
@@ -376,9 +376,7 @@ innings:
         batsman: PA Patel
         wicket:
           player_out: PA Patel
-          fielders:
-          - R Ashwin
-          kind: caught
+          kind: caught and bowled
     - 6.3:
         non_striker: AB de Villiers
         bowler: M Ashwin

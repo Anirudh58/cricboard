@@ -4,29 +4,29 @@ meta:
   created: '2019-04-17'
   revision: 2
 info:
-  venue: Rajiv Gandhi International Stadium, Uppal
+  city: Hyderabad
   competition: IPL
   dates:
   - '2019-04-17'
   gender: male
-  teams:
-  - Sunrisers Hyderabad
-  - Chennai Super Kings
+  match_type: T20
   outcome:
     winner: Sunrisers Hyderabad
     by:
       wickets: 6
+  overs: 20
+  player_of_match:
+  - DA Warner
+  teams:
+  - Chennai Super Kings
+  - Sunrisers Hyderabad
   toss:
     decision: bat
     winner: Chennai Super Kings
-  player_of_match:
-  - DA Warner
-  match_type: T20
-  overs: 20
-  city: Hyderabad
   umpires:
-  - UV Gandhe
   - IJ Gould
+  - UV Gandhe
+  venue: Rajiv Gandhi International Stadium
 innings:
 - 1st innings:
     team: Chennai Super Kings

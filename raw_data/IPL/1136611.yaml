@@ -4,29 +4,29 @@ meta:
   created: '2019-04-19'
   revision: 1
 info:
-  venue: M.Chinnaswamy Stadium
+  city: Bengaluru
   competition: IPL
   dates:
   - '2018-05-17'
   gender: male
-  teams:
-  - Royal Challengers Bangalore
-  - Sunrisers Hyderabad
+  match_type: T20
   outcome:
     winner: Royal Challengers Bangalore
     by:
       runs: 14
+  overs: 20
+  player_of_match:
+  - AB de Villiers
+  teams:
+  - Royal Challengers Bangalore
+  - Sunrisers Hyderabad
   toss:
     decision: field
     winner: Sunrisers Hyderabad
-  player_of_match:
-  - AB de Villiers
-  match_type: T20
-  overs: 20
-  city: Bengaluru
   umpires:
   - AY Dandekar
   - S Ravi
+  venue: M.Chinnaswamy Stadium
 innings:
 - 1st innings:
     team: Royal Challengers Bangalore

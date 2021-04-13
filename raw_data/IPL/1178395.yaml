@@ -4,29 +4,29 @@ meta:
   created: '2019-04-16'
   revision: 2
 info:
-  venue: M.Chinnaswamy Stadium
+  city: Bengaluru
   competition: IPL
   dates:
   - '2019-04-07'
   gender: male
-  teams:
-  - Royal Challengers Bangalore
-  - Delhi Capitals
+  match_type: T20
   outcome:
     winner: Delhi Capitals
     by:
       wickets: 4
+  overs: 20
+  player_of_match:
+  - K Rabada
+  teams:
+  - Royal Challengers Bangalore
+  - Delhi Capitals
   toss:
     decision: field
     winner: Delhi Capitals
-  player_of_match:
-  - K Rabada
-  match_type: T20
-  overs: 20
-  city: Bengaluru
   umpires:
-  - YC Barde
   - S Ravi
+  - YC Barde
+  venue: M.Chinnaswamy Stadium
 innings:
 - 1st innings:
     team: Royal Challengers Bangalore

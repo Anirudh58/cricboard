@@ -4,29 +4,29 @@ meta:
   created: '2019-04-19'
   revision: 1
 info:
-  venue: Holkar Cricket Stadium
+  city: Indore
   competition: IPL
   dates:
   - '2018-05-12'
   gender: male
-  teams:
-  - Kings XI Punjab
-  - Kolkata Knight Riders
+  match_type: T20
   outcome:
     winner: Kolkata Knight Riders
     by:
       runs: 31
+  overs: 20
+  player_of_match:
+  - SP Narine
+  teams:
+  - Kolkata Knight Riders
+  - Kings XI Punjab
   toss:
     decision: field
     winner: Kings XI Punjab
-  player_of_match:
-  - SP Narine
-  match_type: T20
-  overs: 20
-  city: Indore
   umpires:
-  - VK Sharma
   - CK Nandan
+  - VK Sharma
+  venue: Holkar Cricket Stadium
 innings:
 - 1st innings:
     team: Kolkata Knight Riders

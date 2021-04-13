@@ -4,29 +4,29 @@ meta:
   created: '2019-04-19'
   revision: 1
 info:
-  venue: Sawai Mansingh Stadium
+  city: Jaipur
   competition: IPL
   dates:
   - '2018-05-11'
   gender: male
-  teams:
-  - Rajasthan Royals
-  - Chennai Super Kings
+  match_type: T20
   outcome:
     winner: Rajasthan Royals
     by:
       wickets: 4
+  overs: 20
+  player_of_match:
+  - JC Buttler
+  teams:
+  - Chennai Super Kings
+  - Rajasthan Royals
   toss:
     decision: bat
     winner: Chennai Super Kings
-  player_of_match:
-  - JC Buttler
-  match_type: T20
-  overs: 20
-  city: Jaipur
   umpires:
   - M Erasmus
   - YC Barde
+  venue: Sawai Mansingh Stadium
 innings:
 - 1st innings:
     team: Chennai Super Kings

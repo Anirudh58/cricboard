@@ -4,29 +4,29 @@ meta:
   created: '2019-04-13'
   revision: 2
 info:
-  venue: Sawai Mansingh Stadium
+  city: Jaipur
   competition: IPL
   dates:
   - '2019-03-25'
   gender: male
-  teams:
-  - Rajasthan Royals
-  - Kings XI Punjab
+  match_type: T20
   outcome:
     winner: Kings XI Punjab
     by:
       runs: 14
+  overs: 20
+  player_of_match:
+  - CH Gayle
+  teams:
+  - Kings XI Punjab
+  - Rajasthan Royals
   toss:
     decision: field
     winner: Rajasthan Royals
-  player_of_match:
-  - CH Gayle
-  match_type: T20
-  overs: 20
-  city: Jaipur
   umpires:
-  - KN Ananthapadmanabhan
   - C Shamshuddin
+  - KN Ananthapadmanabhan
+  venue: Sawai Mansingh Stadium
 innings:
 - 1st innings:
     team: Kings XI Punjab

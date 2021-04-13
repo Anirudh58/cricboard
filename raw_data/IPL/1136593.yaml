@@ -4,29 +4,29 @@ meta:
   created: '2019-04-19'
   revision: 1
 info:
-  venue: Eden Gardens
+  city: Kolkata
   competition: IPL
   dates:
   - '2018-05-03'
   gender: male
-  teams:
-  - Kolkata Knight Riders
-  - Chennai Super Kings
+  match_type: T20
   outcome:
     winner: Kolkata Knight Riders
     by:
       wickets: 6
+  overs: 20
+  player_of_match:
+  - SP Narine
+  teams:
+  - Chennai Super Kings
+  - Kolkata Knight Riders
   toss:
     decision: field
     winner: Kolkata Knight Riders
-  player_of_match:
-  - SP Narine
-  match_type: T20
-  overs: 20
-  city: Kolkata
   umpires:
-  - HDPK Dharmasena
   - A Deshmukh
+  - HDPK Dharmasena
+  venue: Eden Gardens
 innings:
 - 1st innings:
     team: Chennai Super Kings

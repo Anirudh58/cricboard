@@ -4,29 +4,29 @@ meta:
   created: '2019-04-28'
   revision: 1
 info:
-  venue: MA Chidambaram Stadium, Chepauk
+  city: Chennai
   competition: IPL
   dates:
   - '2019-04-26'
   gender: male
-  teams:
-  - Chennai Super Kings
-  - Mumbai Indians
+  match_type: T20
   outcome:
     winner: Mumbai Indians
     by:
       runs: 46
+  overs: 20
+  player_of_match:
+  - RG Sharma
+  teams:
+  - Mumbai Indians
+  - Chennai Super Kings
   toss:
     decision: field
     winner: Chennai Super Kings
-  player_of_match:
-  - RG Sharma
-  match_type: T20
-  overs: 20
-  city: Chennai
   umpires:
-  - NJ Llong
   - AK Chaudhary
+  - NJ Llong
+  venue: MA Chidambaram Stadium
 innings:
 - 1st innings:
     team: Mumbai Indians

@@ -4,29 +4,29 @@ meta:
   created: '2019-04-19'
   revision: 1
 info:
-  venue: Maharashtra Cricket Association Stadium
+  city: Pune
   competition: IPL
   dates:
   - '2018-04-28'
   gender: male
-  teams:
-  - Chennai Super Kings
-  - Mumbai Indians
+  match_type: T20
   outcome:
     winner: Mumbai Indians
     by:
       wickets: 8
+  overs: 20
+  player_of_match:
+  - RG Sharma
+  teams:
+  - Chennai Super Kings
+  - Mumbai Indians
   toss:
     decision: field
     winner: Mumbai Indians
-  player_of_match:
-  - RG Sharma
-  match_type: T20
-  overs: 20
-  city: Pune
   umpires:
   - CB Gaffaney
   - Nitin Menon
+  venue: Maharashtra Cricket Association Stadium
 innings:
 - 1st innings:
     team: Chennai Super Kings

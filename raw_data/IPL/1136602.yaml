@@ -4,29 +4,29 @@ meta:
   created: '2019-04-19'
   revision: 1
 info:
-  venue: Feroz Shah Kotla
+  city: Delhi
   competition: IPL
   dates:
   - '2018-05-10'
   gender: male
-  teams:
-  - Delhi Daredevils
-  - Sunrisers Hyderabad
+  match_type: T20
   outcome:
     winner: Sunrisers Hyderabad
     by:
       wickets: 9
+  overs: 20
+  player_of_match:
+  - S Dhawan
+  teams:
+  - Delhi Daredevils
+  - Sunrisers Hyderabad
   toss:
     decision: bat
     winner: Delhi Daredevils
-  player_of_match:
-  - S Dhawan
-  match_type: T20
-  overs: 20
-  city: Delhi
   umpires:
   - AY Dandekar
   - C Shamshuddin
+  venue: Arun Jaitley Stadium
 innings:
 - 1st innings:
     team: Delhi Daredevils

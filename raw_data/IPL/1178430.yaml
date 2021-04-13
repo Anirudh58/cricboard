@@ -4,29 +4,29 @@ meta:
   created: '2019-05-07'
   revision: 1
 info:
-  venue: Punjab Cricket Association IS Bindra Stadium, Mohali
+  city: Chandigarh
   competition: IPL
   dates:
   - '2019-05-05'
   gender: male
-  teams:
-  - Kings XI Punjab
-  - Chennai Super Kings
+  match_type: T20
   outcome:
     winner: Kings XI Punjab
     by:
       wickets: 6
+  overs: 20
+  player_of_match:
+  - KL Rahul
+  teams:
+  - Chennai Super Kings
+  - Kings XI Punjab
   toss:
     decision: field
     winner: Kings XI Punjab
-  player_of_match:
-  - KL Rahul
-  match_type: T20
-  overs: 20
-  city: Chandigarh
   umpires:
-  - KN Ananthapadmanabhan
   - C Shamshuddin
+  - KN Ananthapadmanabhan
+  venue: Punjab Cricket Association IS Bindra Stadium
 innings:
 - 1st innings:
     team: Chennai Super Kings
@@ -1731,6 +1731,7 @@ innings:
         bowler: DJ Bravo
         runs:
           extras: 0
+          non_boundary: 1
           total: 4
           batsman: 4
         batsman: N Pooran

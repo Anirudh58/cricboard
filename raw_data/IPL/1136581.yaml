@@ -4,29 +4,29 @@ meta:
   created: '2019-04-19'
   revision: 1
 info:
-  venue: Sawai Mansingh Stadium
+  city: Jaipur
   competition: IPL
   dates:
   - '2018-04-22'
   gender: male
-  teams:
-  - Rajasthan Royals
-  - Mumbai Indians
+  match_type: T20
   outcome:
     winner: Rajasthan Royals
     by:
       wickets: 3
-  toss:
-    decision: bat
-    winner: Mumbai Indians
-  match_type: T20
   overs: 20
   player_of_match:
   - JC Archer
-  city: Jaipur
+  teams:
+  - Mumbai Indians
+  - Rajasthan Royals
+  toss:
+    decision: bat
+    winner: Mumbai Indians
   umpires:
   - KN Ananthapadmanabhan
   - RJ Tucker
+  venue: Sawai Mansingh Stadium
 innings:
 - 1st innings:
     team: Mumbai Indians

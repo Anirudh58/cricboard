@@ -4,29 +4,29 @@ meta:
   created: '2019-04-14'
   revision: 2
 info:
-  venue: Punjab Cricket Association IS Bindra Stadium, Mohali
+  city: Chandigarh
   competition: IPL
   dates:
   - '2019-03-30'
   gender: male
-  teams:
-  - Kings XI Punjab
-  - Mumbai Indians
+  match_type: T20
   outcome:
     winner: Kings XI Punjab
     by:
       wickets: 8
+  overs: 20
+  player_of_match:
+  - MA Agarwal
+  teams:
+  - Mumbai Indians
+  - Kings XI Punjab
   toss:
     decision: field
     winner: Kings XI Punjab
-  player_of_match:
-  - MA Agarwal
-  match_type: T20
-  overs: 20
-  city: Chandigarh
   umpires:
-  - VA Kulkarni
   - CB Gaffaney
+  - VA Kulkarni
+  venue: Punjab Cricket Association IS Bindra Stadium
 innings:
 - 1st innings:
     team: Mumbai Indians
@@ -1433,9 +1433,7 @@ innings:
         batsman: CH Gayle
         wicket:
           player_out: CH Gayle
-          fielders:
-          - HH Pandya
-          kind: caught
+          kind: caught and bowled
     - 7.3:
         non_striker: KL Rahul
         bowler: KH Pandya

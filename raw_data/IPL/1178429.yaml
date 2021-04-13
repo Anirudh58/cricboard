@@ -4,29 +4,29 @@ meta:
   created: '2019-05-07'
   revision: 1
 info:
-  venue: M.Chinnaswamy Stadium
+  city: Bengaluru
   competition: IPL
   dates:
   - '2019-05-04'
   gender: male
-  teams:
-  - Royal Challengers Bangalore
-  - Sunrisers Hyderabad
+  match_type: T20
   outcome:
     winner: Royal Challengers Bangalore
     by:
       wickets: 4
+  overs: 20
+  player_of_match:
+  - SO Hetmyer
+  teams:
+  - Sunrisers Hyderabad
+  - Royal Challengers Bangalore
   toss:
     decision: field
     winner: Royal Challengers Bangalore
-  player_of_match:
-  - SO Hetmyer
-  match_type: T20
-  overs: 20
-  city: Bengaluru
   umpires:
-  - NJ Llong
   - AK Chaudhary
+  - NJ Llong
+  venue: M.Chinnaswamy Stadium
 innings:
 - 1st innings:
     team: Sunrisers Hyderabad

@@ -4,29 +4,29 @@ meta:
   created: '2019-04-18'
   revision: 1
 info:
-  venue: M.Chinnaswamy Stadium
+  city: Bengaluru
   competition: IPL
   dates:
   - '2018-04-13'
   gender: male
-  teams:
-  - Royal Challengers Bangalore
-  - Kings XI Punjab
+  match_type: T20
   outcome:
     winner: Royal Challengers Bangalore
     by:
       wickets: 4
+  overs: 20
+  player_of_match:
+  - UT Yadav
+  teams:
+  - Kings XI Punjab
+  - Royal Challengers Bangalore
   toss:
     decision: field
     winner: Royal Challengers Bangalore
-  player_of_match:
-  - UT Yadav
-  match_type: T20
-  overs: 20
-  city: Bengaluru
   umpires:
   - A Deshmukh
   - S Ravi
+  venue: M.Chinnaswamy Stadium
 innings:
 - 1st innings:
     team: Kings XI Punjab

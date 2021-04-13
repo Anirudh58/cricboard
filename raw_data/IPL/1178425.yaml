@@ -4,29 +4,29 @@ meta:
   created: '2019-05-02'
   revision: 2
 info:
-  venue: MA Chidambaram Stadium, Chepauk
+  city: Chennai
   competition: IPL
   dates:
   - '2019-05-01'
   gender: male
-  teams:
-  - Chennai Super Kings
-  - Delhi Capitals
+  match_type: T20
   outcome:
     winner: Chennai Super Kings
     by:
       runs: 80
+  overs: 20
+  player_of_match:
+  - MS Dhoni
+  teams:
+  - Chennai Super Kings
+  - Delhi Capitals
   toss:
     decision: field
     winner: Delhi Capitals
-  player_of_match:
-  - MS Dhoni
-  match_type: T20
-  overs: 20
-  city: Chennai
   umpires:
   - AY Dandekar
   - Nitin Menon
+  venue: MA Chidambaram Stadium
 innings:
 - 1st innings:
     team: Chennai Super Kings

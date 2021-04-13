@@ -4,29 +4,29 @@ meta:
   created: '2019-04-19'
   revision: 2
 info:
-  venue: Eden Gardens
+  city: Kolkata
   competition: IPL
   dates:
   - '2019-04-19'
   gender: male
-  teams:
-  - Kolkata Knight Riders
-  - Royal Challengers Bangalore
+  match_type: T20
   outcome:
     winner: Royal Challengers Bangalore
     by:
       runs: 10
+  overs: 20
+  player_of_match:
+  - V Kohli
+  teams:
+  - Royal Challengers Bangalore
+  - Kolkata Knight Riders
   toss:
     decision: field
     winner: Kolkata Knight Riders
-  player_of_match:
-  - V Kohli
-  match_type: T20
-  overs: 20
-  city: Kolkata
   umpires:
   - IJ Gould
   - Nitin Menon
+  venue: Eden Gardens
 innings:
 - 1st innings:
     team: Royal Challengers Bangalore

@@ -4,29 +4,29 @@ meta:
   created: '2019-04-16'
   revision: 2
 info:
-  venue: M.Chinnaswamy Stadium
+  city: Bengaluru
   competition: IPL
   dates:
   - '2019-04-05'
   gender: male
-  teams:
-  - Royal Challengers Bangalore
-  - Kolkata Knight Riders
+  match_type: T20
   outcome:
     winner: Kolkata Knight Riders
     by:
       wickets: 5
+  overs: 20
+  player_of_match:
+  - AD Russell
+  teams:
+  - Royal Challengers Bangalore
+  - Kolkata Knight Riders
   toss:
     decision: field
     winner: Kolkata Knight Riders
-  player_of_match:
-  - AD Russell
-  match_type: T20
-  overs: 20
-  city: Bengaluru
   umpires:
-  - CB Gaffaney
   - AK Chaudhary
+  - CB Gaffaney
+  venue: M.Chinnaswamy Stadium
 innings:
 - 1st innings:
     team: Royal Challengers Bangalore

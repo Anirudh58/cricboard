@@ -4,29 +4,29 @@ meta:
   created: '2019-04-28'
   revision: 2
 info:
-  venue: Sawai Mansingh Stadium
+  city: Jaipur
   competition: IPL
   dates:
   - '2019-04-27'
   gender: male
-  teams:
-  - Rajasthan Royals
-  - Sunrisers Hyderabad
+  match_type: T20
   outcome:
     winner: Rajasthan Royals
     by:
       wickets: 7
+  overs: 20
+  player_of_match:
+  - JD Unadkat
+  teams:
+  - Sunrisers Hyderabad
+  - Rajasthan Royals
   toss:
     decision: field
     winner: Rajasthan Royals
-  player_of_match:
-  - JD Unadkat
-  match_type: T20
-  overs: 20
-  city: Jaipur
   umpires:
-  - YC Barde
   - A Nand Kishore
+  - YC Barde
+  venue: Sawai Mansingh Stadium
 innings:
 - 1st innings:
     team: Sunrisers Hyderabad

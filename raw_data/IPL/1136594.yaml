@@ -4,29 +4,29 @@ meta:
   created: '2019-04-19'
   revision: 1
 info:
-  venue: Holkar Cricket Stadium
+  city: Indore
   competition: IPL
   dates:
   - '2018-05-04'
   gender: male
-  teams:
-  - Kings XI Punjab
-  - Mumbai Indians
+  match_type: T20
   outcome:
     winner: Mumbai Indians
     by:
       wickets: 6
+  overs: 20
+  player_of_match:
+  - SA Yadav
+  teams:
+  - Kings XI Punjab
+  - Mumbai Indians
   toss:
     decision: field
     winner: Mumbai Indians
-  player_of_match:
-  - SA Yadav
-  match_type: T20
-  overs: 20
-  city: Indore
   umpires:
   - AY Dandekar
   - S Ravi
+  venue: Holkar Cricket Stadium
 innings:
 - 1st innings:
     team: Kings XI Punjab
@@ -1054,9 +1054,7 @@ innings:
         batsman: MA Agarwal
         wicket:
           player_out: MA Agarwal
-          fielders:
-          - KH Pandya
-          kind: caught
+          kind: caught and bowled
     - 19.6:
         non_striker: R Ashwin
         bowler: HH Pandya

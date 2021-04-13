@@ -4,29 +4,29 @@ meta:
   created: '2019-05-07'
   revision: 1
 info:
-  venue: Feroz Shah Kotla
+  city: Delhi
   competition: IPL
   dates:
   - '2019-05-04'
   gender: male
-  teams:
-  - Delhi Capitals
-  - Rajasthan Royals
+  match_type: T20
   outcome:
     winner: Delhi Capitals
     by:
       wickets: 5
+  overs: 20
+  player_of_match:
+  - A Mishra
+  teams:
+  - Rajasthan Royals
+  - Delhi Capitals
   toss:
     decision: bat
     winner: Rajasthan Royals
-  player_of_match:
-  - A Mishra
-  match_type: T20
-  overs: 20
-  city: Delhi
   umpires:
   - AY Dandekar
   - IJ Gould
+  venue: Arun Jaitley Stadium
 innings:
 - 1st innings:
     team: Rajasthan Royals

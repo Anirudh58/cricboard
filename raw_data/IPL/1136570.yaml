@@ -4,29 +4,29 @@ meta:
   created: '2019-04-18'
   revision: 1
 info:
-  venue: Eden Gardens
+  city: Kolkata
   competition: IPL
   dates:
   - '2018-04-14'
   gender: male
-  teams:
-  - Kolkata Knight Riders
-  - Sunrisers Hyderabad
+  match_type: T20
   outcome:
     winner: Sunrisers Hyderabad
     by:
       wickets: 5
+  overs: 20
+  player_of_match:
+  - B Stanlake
+  teams:
+  - Kolkata Knight Riders
+  - Sunrisers Hyderabad
   toss:
     decision: field
     winner: Sunrisers Hyderabad
-  player_of_match:
-  - B Stanlake
-  match_type: T20
-  overs: 20
-  city: Kolkata
   umpires:
   - AK Chaudhary
   - A Nand Kishore
+  venue: Eden Gardens
 innings:
 - 1st innings:
     team: Kolkata Knight Riders

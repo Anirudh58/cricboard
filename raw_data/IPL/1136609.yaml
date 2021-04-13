@@ -4,29 +4,29 @@ meta:
   created: '2019-04-19'
   revision: 1
 info:
-  venue: Eden Gardens
+  city: Kolkata
   competition: IPL
   dates:
   - '2018-05-15'
   gender: male
-  teams:
-  - Kolkata Knight Riders
-  - Rajasthan Royals
+  match_type: T20
   outcome:
     winner: Kolkata Knight Riders
     by:
       wickets: 6
+  overs: 20
+  player_of_match:
+  - Kuldeep Yadav
+  teams:
+  - Rajasthan Royals
+  - Kolkata Knight Riders
   toss:
     decision: field
     winner: Kolkata Knight Riders
-  player_of_match:
-  - Kuldeep Yadav
-  match_type: T20
-  overs: 20
-  city: Kolkata
   umpires:
-  - HDPK Dharmasena
   - AK Chaudhary
+  - HDPK Dharmasena
+  venue: Eden Gardens
 innings:
 - 1st innings:
     team: Rajasthan Royals

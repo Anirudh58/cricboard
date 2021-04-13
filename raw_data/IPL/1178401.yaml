@@ -4,29 +4,29 @@ meta:
   created: '2019-04-16'
   revision: 2
 info:
-  venue: Eden Gardens
+  city: Kolkata
   competition: IPL
   dates:
   - '2019-04-12'
   gender: male
-  teams:
-  - Kolkata Knight Riders
-  - Delhi Capitals
+  match_type: T20
   outcome:
     winner: Delhi Capitals
     by:
       wickets: 7
+  overs: 20
+  player_of_match:
+  - S Dhawan
+  teams:
+  - Kolkata Knight Riders
+  - Delhi Capitals
   toss:
     decision: field
     winner: Delhi Capitals
-  player_of_match:
-  - S Dhawan
-  match_type: T20
-  overs: 20
-  city: Kolkata
   umpires:
-  - YC Barde
   - CK Nandan
+  - YC Barde
+  venue: Eden Gardens
 innings:
 - 1st innings:
     team: Kolkata Knight Riders

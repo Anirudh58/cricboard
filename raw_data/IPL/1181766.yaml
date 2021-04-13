@@ -4,29 +4,29 @@ meta:
   created: '2019-05-09'
   revision: 1
 info:
-  venue: Dr. Y.S. Rajasekhara Reddy ACA-VDCA Cricket Stadium
+  city: Visakhapatnam
   competition: IPL
   dates:
   - '2019-05-08'
   gender: male
-  teams:
-  - Delhi Capitals
-  - Sunrisers Hyderabad
+  match_type: T20
   outcome:
     winner: Delhi Capitals
     by:
       wickets: 2
+  overs: 20
+  player_of_match:
+  - RR Pant
+  teams:
+  - Sunrisers Hyderabad
+  - Delhi Capitals
   toss:
     decision: field
     winner: Delhi Capitals
-  player_of_match:
-  - RR Pant
-  match_type: T20
-  overs: 20
-  city: Visakhapatnam
   umpires:
   - BNJ Oxenford
   - S Ravi
+  venue: Dr. Y.S. Rajasekhara Reddy ACA-VDCA Cricket Stadium
 innings:
 - 1st innings:
     team: Sunrisers Hyderabad
@@ -1870,9 +1870,7 @@ innings:
         batsman: AR Patel
         wicket:
           player_out: AR Patel
-          fielders:
-          - WP Saha
-          kind: caught
+          kind: lbw
     - 14.5:
         non_striker: RR Pant
         bowler: Rashid Khan

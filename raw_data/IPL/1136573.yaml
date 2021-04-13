@@ -4,29 +4,29 @@ meta:
   created: '2019-04-18'
   revision: 1
 info:
-  venue: Eden Gardens
+  city: Kolkata
   competition: IPL
   dates:
   - '2018-04-16'
   gender: male
-  teams:
-  - Kolkata Knight Riders
-  - Delhi Daredevils
+  match_type: T20
   outcome:
     winner: Kolkata Knight Riders
     by:
       runs: 71
+  overs: 20
+  player_of_match:
+  - N Rana
+  teams:
+  - Kolkata Knight Riders
+  - Delhi Daredevils
   toss:
     decision: field
     winner: Delhi Daredevils
-  player_of_match:
-  - N Rana
-  match_type: T20
-  overs: 20
-  city: Kolkata
   umpires:
   - AK Chaudhary
   - A Nand Kishore
+  venue: Eden Gardens
 innings:
 - 1st innings:
     team: Kolkata Knight Riders

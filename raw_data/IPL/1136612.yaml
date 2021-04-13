@@ -4,29 +4,29 @@ meta:
   created: '2019-04-19'
   revision: 1
 info:
-  venue: Feroz Shah Kotla
+  city: Delhi
   competition: IPL
   dates:
   - '2018-05-18'
   gender: male
-  teams:
-  - Delhi Daredevils
-  - Chennai Super Kings
+  match_type: T20
   outcome:
     winner: Delhi Daredevils
     by:
       runs: 34
+  overs: 20
+  player_of_match:
+  - HV Patel
+  teams:
+  - Delhi Daredevils
+  - Chennai Super Kings
   toss:
     decision: field
     winner: Chennai Super Kings
-  player_of_match:
-  - HV Patel
-  match_type: T20
-  overs: 20
-  city: Delhi
   umpires:
-  - VA Kulkarni
   - HDPK Dharmasena
+  - VA Kulkarni
+  venue: Arun Jaitley Stadium
 innings:
 - 1st innings:
     team: Delhi Daredevils
