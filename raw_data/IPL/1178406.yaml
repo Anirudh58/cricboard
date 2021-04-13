@@ -4,29 +4,29 @@ meta:
   created: '2019-04-16'
   revision: 1
 info:
-  venue: Wankhede Stadium
+  city: Mumbai
   competition: IPL
   dates:
   - '2019-04-15'
   gender: male
-  teams:
-  - Mumbai Indians
-  - Royal Challengers Bangalore
+  match_type: T20
   outcome:
     winner: Mumbai Indians
     by:
       wickets: 5
+  overs: 20
+  player_of_match:
+  - SL Malinga
+  teams:
+  - Royal Challengers Bangalore
+  - Mumbai Indians
   toss:
     decision: field
     winner: Mumbai Indians
-  player_of_match:
-  - SL Malinga
-  match_type: T20
-  overs: 20
-  city: Mumbai
   umpires:
   - M Erasmus
   - Nitin Menon
+  venue: Wankhede Stadium
 innings:
 - 1st innings:
     team: Royal Challengers Bangalore

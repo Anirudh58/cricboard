@@ -4,29 +4,29 @@ meta:
   created: '2019-04-18'
   revision: 1
 info:
-  venue: Rajiv Gandhi International Stadium, Uppal
+  city: Hyderabad
   competition: IPL
   dates:
   - '2018-04-09'
   gender: male
-  teams:
-  - Sunrisers Hyderabad
-  - Rajasthan Royals
+  match_type: T20
   outcome:
     winner: Sunrisers Hyderabad
     by:
       wickets: 9
+  overs: 20
+  player_of_match:
+  - S Dhawan
+  teams:
+  - Rajasthan Royals
+  - Sunrisers Hyderabad
   toss:
     decision: field
     winner: Sunrisers Hyderabad
-  player_of_match:
-  - S Dhawan
-  match_type: T20
-  overs: 20
-  city: Hyderabad
   umpires:
-  - VA Kulkarni
   - NJ Llong
+  - VA Kulkarni
+  venue: Rajiv Gandhi International Stadium
 innings:
 - 1st innings:
     team: Rajasthan Royals

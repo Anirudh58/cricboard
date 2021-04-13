@@ -4,29 +4,29 @@ meta:
   created: '2019-04-16'
   revision: 2
 info:
-  venue: MA Chidambaram Stadium, Chepauk
+  city: Chennai
   competition: IPL
   dates:
   - '2019-04-09'
   gender: male
-  teams:
-  - Chennai Super Kings
-  - Kolkata Knight Riders
+  match_type: T20
   outcome:
     winner: Chennai Super Kings
     by:
       wickets: 7
+  overs: 20
+  player_of_match:
+  - DL Chahar
+  teams:
+  - Kolkata Knight Riders
+  - Chennai Super Kings
   toss:
     decision: field
     winner: Chennai Super Kings
-  player_of_match:
-  - DL Chahar
-  match_type: T20
-  overs: 20
-  city: Chennai
   umpires:
-  - RJ Tucker
   - C Shamshuddin
+  - RJ Tucker
+  venue: MA Chidambaram Stadium
 innings:
 - 1st innings:
     team: Kolkata Knight Riders

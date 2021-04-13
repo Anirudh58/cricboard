@@ -4,29 +4,29 @@ meta:
   created: '2019-04-19'
   revision: 1
 info:
-  venue: Wankhede Stadium
+  city: Mumbai
   competition: IPL
   dates:
   - '2018-04-24'
   gender: male
-  teams:
-  - Mumbai Indians
-  - Sunrisers Hyderabad
+  match_type: T20
   outcome:
     winner: Sunrisers Hyderabad
     by:
       runs: 31
+  overs: 20
+  player_of_match:
+  - Rashid Khan
+  teams:
+  - Sunrisers Hyderabad
+  - Mumbai Indians
   toss:
     decision: field
     winner: Mumbai Indians
-  player_of_match:
-  - Rashid Khan
-  match_type: T20
-  overs: 20
-  city: Mumbai
   umpires:
   - C Shamshuddin
   - S Ravi
+  venue: Wankhede Stadium
 innings:
 - 1st innings:
     team: Sunrisers Hyderabad

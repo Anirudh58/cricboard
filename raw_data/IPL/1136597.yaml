@@ -4,29 +4,29 @@ meta:
   created: '2019-04-19'
   revision: 1
 info:
-  venue: Wankhede Stadium
+  city: Mumbai
   competition: IPL
   dates:
   - '2018-05-06'
   gender: male
-  teams:
-  - Mumbai Indians
-  - Kolkata Knight Riders
+  match_type: T20
   outcome:
     winner: Mumbai Indians
     by:
       runs: 13
+  overs: 20
+  player_of_match:
+  - HH Pandya
+  teams:
+  - Mumbai Indians
+  - Kolkata Knight Riders
   toss:
     decision: field
     winner: Kolkata Knight Riders
-  player_of_match:
-  - HH Pandya
-  match_type: T20
-  overs: 20
-  city: Mumbai
   umpires:
-  - HDPK Dharmasena
   - A Deshmukh
+  - HDPK Dharmasena
+  venue: Wankhede Stadium
 innings:
 - 1st innings:
     team: Mumbai Indians
@@ -1227,9 +1227,7 @@ innings:
         batsman: Shubman Gill
         wicket:
           player_out: Shubman Gill
-          fielders:
-          - KH Pandya
-          kind: caught
+          kind: caught and bowled
     - 3.2:
         non_striker: N Rana
         bowler: HH Pandya

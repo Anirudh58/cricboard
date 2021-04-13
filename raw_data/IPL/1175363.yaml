@@ -4,29 +4,29 @@ meta:
   created: '2019-04-14'
   revision: 1
 info:
-  venue: Rajiv Gandhi International Stadium, Uppal
+  city: Hyderabad
   competition: IPL
   dates:
   - '2019-03-29'
   gender: male
-  teams:
-  - Sunrisers Hyderabad
-  - Rajasthan Royals
+  match_type: T20
   outcome:
     winner: Sunrisers Hyderabad
     by:
       wickets: 5
+  overs: 20
+  player_of_match:
+  - Rashid Khan
+  teams:
+  - Rajasthan Royals
+  - Sunrisers Hyderabad
   toss:
     decision: bat
     winner: Rajasthan Royals
-  player_of_match:
-  - Rashid Khan
-  match_type: T20
-  overs: 20
-  city: Hyderabad
   umpires:
-  - C Shamshuddin
   - BNJ Oxenford
+  - C Shamshuddin
+  venue: Rajiv Gandhi International Stadium
 innings:
 - 1st innings:
     team: Rajasthan Royals

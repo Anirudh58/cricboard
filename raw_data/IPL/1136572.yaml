@@ -4,29 +4,29 @@ meta:
   created: '2019-04-18'
   revision: 1
 info:
-  venue: Punjab Cricket Association IS Bindra Stadium, Mohali
+  city: Chandigarh
   competition: IPL
   dates:
   - '2018-04-15'
   gender: male
-  teams:
-  - Kings XI Punjab
-  - Chennai Super Kings
+  match_type: T20
   outcome:
     winner: Kings XI Punjab
     by:
       runs: 4
+  overs: 20
+  player_of_match:
+  - CH Gayle
+  teams:
+  - Kings XI Punjab
+  - Chennai Super Kings
   toss:
     decision: field
     winner: Chennai Super Kings
-  player_of_match:
-  - CH Gayle
-  match_type: T20
-  overs: 20
-  city: Chandigarh
   umpires:
-  - VA Kulkarni
   - CK Nandan
+  - VA Kulkarni
+  venue: Punjab Cricket Association IS Bindra Stadium
 innings:
 - 1st innings:
     team: Kings XI Punjab

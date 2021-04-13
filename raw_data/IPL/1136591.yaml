@@ -4,29 +4,29 @@ meta:
   created: '2019-04-19'
   revision: 1
 info:
-  venue: M.Chinnaswamy Stadium
+  city: Bengaluru
   competition: IPL
   dates:
   - '2018-05-01'
   gender: male
-  teams:
-  - Royal Challengers Bangalore
-  - Mumbai Indians
+  match_type: T20
   outcome:
     winner: Royal Challengers Bangalore
     by:
       runs: 14
+  overs: 20
+  player_of_match:
+  - TG Southee
+  teams:
+  - Royal Challengers Bangalore
+  - Mumbai Indians
   toss:
     decision: field
     winner: Mumbai Indians
-  player_of_match:
-  - TG Southee
-  match_type: T20
-  overs: 20
-  city: Bengaluru
   umpires:
   - M Erasmus
   - Nitin Menon
+  venue: M.Chinnaswamy Stadium
 innings:
 - 1st innings:
     team: Royal Challengers Bangalore

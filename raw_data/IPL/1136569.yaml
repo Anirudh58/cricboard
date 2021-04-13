@@ -4,29 +4,29 @@ meta:
   created: '2019-04-18'
   revision: 1
 info:
-  venue: Wankhede Stadium
+  city: Mumbai
   competition: IPL
   dates:
   - '2018-04-14'
   gender: male
-  teams:
-  - Mumbai Indians
-  - Delhi Daredevils
+  match_type: T20
   outcome:
     winner: Delhi Daredevils
     by:
       wickets: 7
+  overs: 20
+  player_of_match:
+  - JJ Roy
+  teams:
+  - Mumbai Indians
+  - Delhi Daredevils
   toss:
     decision: field
     winner: Delhi Daredevils
-  player_of_match:
-  - JJ Roy
-  match_type: T20
-  overs: 20
-  city: Mumbai
   umpires:
   - KN Ananthapadmanabhan
   - Nitin Menon
+  venue: Wankhede Stadium
 innings:
 - 1st innings:
     team: Mumbai Indians
@@ -1729,9 +1729,7 @@ innings:
         batsman: GJ Maxwell
         wicket:
           player_out: GJ Maxwell
-          fielders:
-          - HH Pandya
-          kind: caught
+          kind: caught and bowled
     - 13.3:
         non_striker: SS Iyer
         bowler: KH Pandya

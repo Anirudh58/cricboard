@@ -4,29 +4,29 @@ meta:
   created: '2019-04-15'
   revision: 2
 info:
-  venue: Wankhede Stadium
+  city: Mumbai
   competition: IPL
   dates:
   - '2019-04-03'
   gender: male
-  teams:
-  - Mumbai Indians
-  - Chennai Super Kings
+  match_type: T20
   outcome:
     winner: Mumbai Indians
     by:
       runs: 37
+  overs: 20
+  player_of_match:
+  - HH Pandya
+  teams:
+  - Mumbai Indians
+  - Chennai Super Kings
   toss:
     decision: field
     winner: Chennai Super Kings
-  player_of_match:
-  - HH Pandya
-  match_type: T20
-  overs: 20
-  city: Mumbai
   umpires:
-  - RJ Tucker
   - BNJ Oxenford
+  - RJ Tucker
+  venue: Wankhede Stadium
 innings:
 - 1st innings:
     team: Mumbai Indians

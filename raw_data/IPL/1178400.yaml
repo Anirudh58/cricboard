@@ -4,29 +4,29 @@ meta:
   created: '2019-04-16'
   revision: 2
 info:
-  venue: Sawai Mansingh Stadium
+  city: Jaipur
   competition: IPL
   dates:
   - '2019-04-11'
   gender: male
-  teams:
-  - Rajasthan Royals
-  - Chennai Super Kings
+  match_type: T20
   outcome:
     winner: Chennai Super Kings
     by:
       wickets: 4
+  overs: 20
+  player_of_match:
+  - MS Dhoni
+  teams:
+  - Rajasthan Royals
+  - Chennai Super Kings
   toss:
     decision: field
     winner: Chennai Super Kings
-  player_of_match:
-  - MS Dhoni
-  match_type: T20
-  overs: 20
-  city: Jaipur
   umpires:
-  - UV Gandhe
   - BNJ Oxenford
+  - UV Gandhe
+  venue: Sawai Mansingh Stadium
 innings:
 - 1st innings:
     team: Rajasthan Royals

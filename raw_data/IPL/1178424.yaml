@@ -4,25 +4,25 @@ meta:
   created: '2019-05-02'
   revision: 1
 info:
-  venue: M.Chinnaswamy Stadium
+  city: Bengaluru
   competition: IPL
   dates:
   - '2019-04-30'
   gender: male
+  match_type: T20
+  outcome:
+    result: no result
+  overs: 20
   teams:
   - Royal Challengers Bangalore
   - Rajasthan Royals
-  outcome:
-    result: no result
   toss:
     decision: field
     winner: Rajasthan Royals
-  match_type: T20
-  overs: 20
-  city: Bengaluru
   umpires:
-  - UV Gandhe
   - NJ Llong
+  - UV Gandhe
+  venue: M.Chinnaswamy Stadium
 innings:
 - 1st innings:
     team: Royal Challengers Bangalore

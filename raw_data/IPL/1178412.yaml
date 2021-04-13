@@ -4,29 +4,29 @@ meta:
   created: '2019-04-21'
   revision: 1
 info:
-  venue: Feroz Shah Kotla
+  city: Delhi
   competition: IPL
   dates:
   - '2019-04-20'
   gender: male
-  teams:
-  - Delhi Capitals
-  - Kings XI Punjab
+  match_type: T20
   outcome:
     winner: Delhi Capitals
     by:
       wickets: 5
+  overs: 20
+  player_of_match:
+  - SS Iyer
+  teams:
+  - Kings XI Punjab
+  - Delhi Capitals
   toss:
     decision: field
     winner: Delhi Capitals
-  player_of_match:
-  - SS Iyer
-  match_type: T20
-  overs: 20
-  city: Delhi
   umpires:
-  - UV Gandhe
   - C Shamshuddin
+  - UV Gandhe
+  venue: Arun Jaitley Stadium
 innings:
 - 1st innings:
     team: Kings XI Punjab

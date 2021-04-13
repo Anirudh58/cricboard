@@ -4,29 +4,29 @@ meta:
   created: '2019-05-12'
   revision: 1
 info:
-  venue: Rajiv Gandhi International Stadium, Uppal
+  city: Hyderabad
   competition: IPL
   dates:
   - '2019-05-12'
   gender: male
-  teams:
-  - Mumbai Indians
-  - Chennai Super Kings
+  match_type: T20
   outcome:
     winner: Mumbai Indians
     by:
       runs: 1
+  overs: 20
+  player_of_match:
+  - JJ Bumrah
+  teams:
+  - Mumbai Indians
+  - Chennai Super Kings
   toss:
     decision: bat
     winner: Mumbai Indians
-  player_of_match:
-  - JJ Bumrah
-  match_type: T20
-  overs: 20
-  city: Hyderabad
   umpires:
   - IJ Gould
   - Nitin Menon
+  venue: Rajiv Gandhi International Stadium
 innings:
 - 1st innings:
     team: Mumbai Indians

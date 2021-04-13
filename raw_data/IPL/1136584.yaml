@@ -4,29 +4,29 @@ meta:
   created: '2019-04-19'
   revision: 1
 info:
-  venue: M.Chinnaswamy Stadium
+  city: Bengaluru
   competition: IPL
   dates:
   - '2018-04-25'
   gender: male
-  teams:
-  - Royal Challengers Bangalore
-  - Chennai Super Kings
+  match_type: T20
   outcome:
     winner: Chennai Super Kings
     by:
       wickets: 5
+  overs: 20
+  player_of_match:
+  - MS Dhoni
+  teams:
+  - Royal Challengers Bangalore
+  - Chennai Super Kings
   toss:
     decision: field
     winner: Chennai Super Kings
-  player_of_match:
-  - MS Dhoni
-  match_type: T20
-  overs: 20
-  city: Bengaluru
   umpires:
   - NJ Llong
   - VK Sharma
+  venue: M.Chinnaswamy Stadium
 innings:
 - 1st innings:
     team: Royal Challengers Bangalore

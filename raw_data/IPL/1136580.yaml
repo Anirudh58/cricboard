@@ -18,15 +18,15 @@ info:
   player_of_match:
   - AT Rayudu
   teams:
-  - Sunrisers Hyderabad
   - Chennai Super Kings
+  - Sunrisers Hyderabad
   toss:
     decision: field
     winner: Sunrisers Hyderabad
   umpires:
-  - VA Kulkarni
   - AK Chaudhary
-  venue: Rajiv Gandhi International Stadium, Uppal
+  - VA Kulkarni
+  venue: Rajiv Gandhi International Stadium
 innings:
 - 1st innings:
     team: Chennai Super Kings
@@ -1517,8 +1517,8 @@ innings:
         bowler: SR Watson
         runs:
           extras: 0
-          total: 4
           non_boundary: 1
+          total: 4
           batsman: 4
         batsman: KS Williamson
     - 9.3:

@@ -4,29 +4,29 @@ meta:
   created: '2019-04-16'
   revision: 2
 info:
-  venue: Eden Gardens
+  city: Kolkata
   competition: IPL
   dates:
   - '2019-04-14'
   gender: male
-  teams:
-  - Kolkata Knight Riders
-  - Chennai Super Kings
+  match_type: T20
   outcome:
     winner: Chennai Super Kings
     by:
       wickets: 5
+  overs: 20
+  player_of_match:
+  - Imran Tahir
+  teams:
+  - Kolkata Knight Riders
+  - Chennai Super Kings
   toss:
     decision: field
     winner: Chennai Super Kings
-  player_of_match:
-  - Imran Tahir
-  match_type: T20
-  overs: 20
-  city: Kolkata
   umpires:
-  - RJ Tucker
   - CK Nandan
+  - RJ Tucker
+  venue: Eden Gardens
 innings:
 - 1st innings:
     team: Kolkata Knight Riders

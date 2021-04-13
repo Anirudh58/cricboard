@@ -4,29 +4,29 @@ meta:
   created: '2019-04-16'
   revision: 2
 info:
-  venue: Sawai Mansingh Stadium
+  city: Jaipur
   competition: IPL
   dates:
   - '2019-04-07'
   gender: male
-  teams:
-  - Rajasthan Royals
-  - Kolkata Knight Riders
+  match_type: T20
   outcome:
     winner: Kolkata Knight Riders
     by:
       wickets: 8
+  overs: 20
+  player_of_match:
+  - HF Gurney
+  teams:
+  - Rajasthan Royals
+  - Kolkata Knight Riders
   toss:
     decision: field
     winner: Kolkata Knight Riders
-  player_of_match:
-  - HF Gurney
-  match_type: T20
-  overs: 20
-  city: Jaipur
   umpires:
-  - CB Gaffaney
   - AK Chaudhary
+  - CB Gaffaney
+  venue: Sawai Mansingh Stadium
 innings:
 - 1st innings:
     team: Rajasthan Royals

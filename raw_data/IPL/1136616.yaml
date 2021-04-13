@@ -4,29 +4,29 @@ meta:
   created: '2019-04-19'
   revision: 1
 info:
-  venue: Maharashtra Cricket Association Stadium
+  city: Pune
   competition: IPL
   dates:
   - '2018-05-20'
   gender: male
-  teams:
-  - Chennai Super Kings
-  - Kings XI Punjab
+  match_type: T20
   outcome:
     winner: Chennai Super Kings
     by:
       wickets: 5
+  overs: 20
+  player_of_match:
+  - L Ngidi
+  teams:
+  - Kings XI Punjab
+  - Chennai Super Kings
   toss:
     decision: field
     winner: Chennai Super Kings
-  player_of_match:
-  - L Ngidi
-  match_type: T20
-  overs: 20
-  city: Pune
   umpires:
   - Nitin Menon
   - YC Barde
+  venue: Maharashtra Cricket Association Stadium
 innings:
 - 1st innings:
     team: Kings XI Punjab

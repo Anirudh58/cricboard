@@ -4,29 +4,29 @@ meta:
   created: '2019-04-19'
   revision: 2
 info:
-  venue: Eden Gardens
+  city: Kolkata
   competition: IPL
   dates:
   - '2018-05-09'
   gender: male
-  teams:
-  - Kolkata Knight Riders
-  - Mumbai Indians
+  match_type: T20
   outcome:
     winner: Mumbai Indians
     by:
       runs: 102
+  overs: 20
+  player_of_match:
+  - Ishan Kishan
+  teams:
+  - Mumbai Indians
+  - Kolkata Knight Riders
   toss:
     decision: field
     winner: Kolkata Knight Riders
-  player_of_match:
-  - Ishan Kishan
-  match_type: T20
-  overs: 20
-  city: Kolkata
   umpires:
   - KN Ananthapadmanabhan
   - AK Chaudhary
+  venue: Eden Gardens
 innings:
 - 1st innings:
     team: Mumbai Indians

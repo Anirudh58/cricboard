@@ -4,29 +4,29 @@ meta:
   created: '2019-05-07'
   revision: 1
 info:
-  venue: MA Chidambaram Stadium, Chepauk
+  city: Chennai
   competition: IPL
   dates:
   - '2019-05-07'
   gender: male
-  teams:
-  - Mumbai Indians
-  - Chennai Super Kings
+  match_type: T20
   outcome:
     winner: Mumbai Indians
     by:
       wickets: 6
+  overs: 20
+  player_of_match:
+  - SA Yadav
+  teams:
+  - Chennai Super Kings
+  - Mumbai Indians
   toss:
     decision: bat
     winner: Chennai Super Kings
-  player_of_match:
-  - SA Yadav
-  match_type: T20
-  overs: 20
-  city: Chennai
   umpires:
   - NJ Llong
   - Nitin Menon
+  venue: MA Chidambaram Stadium
 innings:
 - 1st innings:
     team: Chennai Super Kings

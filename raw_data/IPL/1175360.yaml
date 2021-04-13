@@ -4,29 +4,29 @@ meta:
   created: '2019-04-14'
   revision: 1
 info:
-  venue: Feroz Shah Kotla
+  city: Delhi
   competition: IPL
   dates:
   - '2019-03-26'
   gender: male
-  teams:
-  - Delhi Capitals
-  - Chennai Super Kings
+  match_type: T20
   outcome:
     winner: Chennai Super Kings
     by:
       wickets: 6
+  overs: 20
+  player_of_match:
+  - SR Watson
+  teams:
+  - Delhi Capitals
+  - Chennai Super Kings
   toss:
     decision: bat
     winner: Delhi Capitals
-  player_of_match:
-  - SR Watson
-  match_type: T20
-  overs: 20
-  city: Delhi
   umpires:
   - M Erasmus
   - Nitin Menon
+  venue: Arun Jaitley Stadium
 innings:
 - 1st innings:
     team: Delhi Capitals

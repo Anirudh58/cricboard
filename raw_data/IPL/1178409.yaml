@@ -18,15 +18,15 @@ info:
   player_of_match:
   - HH Pandya
   teams:
-  - Delhi Capitals
   - Mumbai Indians
+  - Delhi Capitals
   toss:
     decision: bat
     winner: Mumbai Indians
   umpires:
   - BNJ Oxenford
   - NJ Llong
-  venue: Feroz Shah Kotla
+  venue: Arun Jaitley Stadium
 innings:
 - 1st innings:
     team: Mumbai Indians

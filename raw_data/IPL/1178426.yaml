@@ -4,28 +4,28 @@ meta:
   created: '2019-05-07'
   revision: 1
 info:
-  venue: Wankhede Stadium
+  city: Mumbai
   competition: IPL
   dates:
   - '2019-05-02'
   gender: male
-  teams:
-  - Mumbai Indians
-  - Sunrisers Hyderabad
+  match_type: T20
   outcome:
     result: tie
     eliminator: Mumbai Indians
+  overs: 20
+  player_of_match:
+  - JJ Bumrah
+  teams:
+  - Mumbai Indians
+  - Sunrisers Hyderabad
   toss:
     decision: bat
     winner: Mumbai Indians
-  player_of_match:
-  - JJ Bumrah
-  match_type: T20
-  overs: 20
-  city: Mumbai
   umpires:
   - CK Nandan
   - S Ravi
+  venue: Wankhede Stadium
 innings:
 - 1st innings:
     team: Mumbai Indians

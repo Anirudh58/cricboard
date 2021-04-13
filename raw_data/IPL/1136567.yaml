@@ -4,29 +4,29 @@ meta:
   created: '2019-04-18'
   revision: 1
 info:
-  venue: Rajiv Gandhi International Stadium, Uppal
+  city: Hyderabad
   competition: IPL
   dates:
   - '2018-04-12'
   gender: male
-  teams:
-  - Sunrisers Hyderabad
-  - Mumbai Indians
+  match_type: T20
   outcome:
     winner: Sunrisers Hyderabad
     by:
       wickets: 1
+  overs: 20
+  player_of_match:
+  - Rashid Khan
+  teams:
+  - Mumbai Indians
+  - Sunrisers Hyderabad
   toss:
     decision: field
     winner: Sunrisers Hyderabad
-  player_of_match:
-  - Rashid Khan
-  match_type: T20
-  overs: 20
-  city: Hyderabad
   umpires:
-  - NJ Llong
   - CK Nandan
+  - NJ Llong
+  venue: Rajiv Gandhi International Stadium
 innings:
 - 1st innings:
     team: Mumbai Indians

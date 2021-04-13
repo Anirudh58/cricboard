@@ -18,14 +18,14 @@ info:
   player_of_match:
   - RR Pant
   teams:
-  - Mumbai Indians
   - Delhi Capitals
+  - Mumbai Indians
   toss:
     decision: field
     winner: Mumbai Indians
   umpires:
-  - YC Barde
   - S Ravi
+  - YC Barde
   venue: Wankhede Stadium
 innings:
 - 1st innings:

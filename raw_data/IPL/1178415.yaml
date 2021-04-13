@@ -4,29 +4,29 @@ meta:
   created: '2019-04-23'
   revision: 1
 info:
-  venue: Sawai Mansingh Stadium
+  city: Jaipur
   competition: IPL
   dates:
   - '2019-04-22'
   gender: male
-  teams:
-  - Rajasthan Royals
-  - Delhi Capitals
+  match_type: T20
   outcome:
     winner: Delhi Capitals
     by:
       wickets: 6
+  overs: 20
+  player_of_match:
+  - RR Pant
+  teams:
+  - Rajasthan Royals
+  - Delhi Capitals
   toss:
     decision: field
     winner: Delhi Capitals
-  player_of_match:
-  - RR Pant
-  match_type: T20
-  overs: 20
-  city: Jaipur
   umpires:
   - A Nand Kishore
   - S Ravi
+  venue: Sawai Mansingh Stadium
 innings:
 - 1st innings:
     team: Rajasthan Royals

@@ -4,29 +4,29 @@ meta:
   created: '2019-04-26'
   revision: 2
 info:
-  venue: Eden Gardens
+  city: Kolkata
   competition: IPL
   dates:
   - '2019-04-25'
   gender: male
-  teams:
-  - Kolkata Knight Riders
-  - Rajasthan Royals
+  match_type: T20
   outcome:
     winner: Rajasthan Royals
     by:
       wickets: 3
+  overs: 20
+  player_of_match:
+  - VR Aaron
+  teams:
+  - Kolkata Knight Riders
+  - Rajasthan Royals
   toss:
     decision: field
     winner: Rajasthan Royals
-  player_of_match:
-  - VR Aaron
-  match_type: T20
-  overs: 20
-  city: Kolkata
   umpires:
   - AY Dandekar
   - IJ Gould
+  venue: Eden Gardens
 innings:
 - 1st innings:
     team: Kolkata Knight Riders

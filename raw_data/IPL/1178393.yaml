@@ -4,29 +4,29 @@ meta:
   created: '2019-04-16'
   revision: 2
 info:
-  venue: MA Chidambaram Stadium, Chepauk
+  city: Chennai
   competition: IPL
   dates:
   - '2019-04-06'
   gender: male
-  teams:
-  - Chennai Super Kings
-  - Kings XI Punjab
+  match_type: T20
   outcome:
     winner: Chennai Super Kings
     by:
       runs: 22
+  overs: 20
+  player_of_match:
+  - Harbhajan Singh
+  teams:
+  - Chennai Super Kings
+  - Kings XI Punjab
   toss:
     decision: bat
     winner: Chennai Super Kings
-  player_of_match:
-  - Harbhajan Singh
-  match_type: T20
-  overs: 20
-  city: Chennai
   umpires:
   - KN Ananthapadmanabhan
   - RJ Tucker
+  venue: MA Chidambaram Stadium
 innings:
 - 1st innings:
     team: Chennai Super Kings

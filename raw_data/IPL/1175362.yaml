@@ -4,29 +4,29 @@ meta:
   created: '2019-04-14'
   revision: 2
 info:
-  venue: M.Chinnaswamy Stadium
+  city: Bengaluru
   competition: IPL
   dates:
   - '2019-03-28'
   gender: male
-  teams:
-  - Royal Challengers Bangalore
-  - Mumbai Indians
+  match_type: T20
   outcome:
     winner: Mumbai Indians
     by:
       runs: 6
+  overs: 20
+  player_of_match:
+  - JJ Bumrah
+  teams:
+  - Mumbai Indians
+  - Royal Challengers Bangalore
   toss:
     decision: field
     winner: Royal Challengers Bangalore
-  player_of_match:
-  - JJ Bumrah
-  match_type: T20
-  overs: 20
-  city: Bengaluru
   umpires:
   - CK Nandan
   - S Ravi
+  venue: M.Chinnaswamy Stadium
 innings:
 - 1st innings:
     team: Mumbai Indians

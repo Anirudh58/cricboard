@@ -4,29 +4,29 @@ meta:
   created: '2019-04-19'
   revision: 1
 info:
-  venue: Eden Gardens
+  city: Kolkata
   competition: IPL
   dates:
   - '2018-05-23'
   gender: male
-  teams:
-  - Kolkata Knight Riders
-  - Rajasthan Royals
+  match_type: T20
   outcome:
     winner: Kolkata Knight Riders
     by:
       runs: 25
+  overs: 20
+  player_of_match:
+  - AD Russell
+  teams:
+  - Kolkata Knight Riders
+  - Rajasthan Royals
   toss:
     decision: field
     winner: Rajasthan Royals
-  player_of_match:
-  - AD Russell
-  match_type: T20
-  overs: 20
-  city: Kolkata
   umpires:
   - AK Chaudhary
   - Nitin Menon
+  venue: Eden Gardens
 innings:
 - 1st innings:
     team: Kolkata Knight Riders

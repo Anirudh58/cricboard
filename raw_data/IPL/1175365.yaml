@@ -4,28 +4,28 @@ meta:
   created: '2019-04-14'
   revision: 2
 info:
-  venue: Feroz Shah Kotla
+  city: Delhi
   competition: IPL
   dates:
   - '2019-03-30'
   gender: male
-  teams:
-  - Delhi Capitals
-  - Kolkata Knight Riders
+  match_type: T20
   outcome:
     result: tie
     eliminator: Delhi Capitals
+  overs: 20
+  player_of_match:
+  - PP Shaw
+  teams:
+  - Kolkata Knight Riders
+  - Delhi Capitals
   toss:
     decision: field
     winner: Delhi Capitals
-  player_of_match:
-  - PP Shaw
-  match_type: T20
-  overs: 20
-  city: Delhi
   umpires:
   - AY Dandekar
   - Nitin Menon
+  venue: Arun Jaitley Stadium
 innings:
 - 1st innings:
     team: Kolkata Knight Riders

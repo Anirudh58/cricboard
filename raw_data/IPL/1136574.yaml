@@ -4,29 +4,29 @@ meta:
   created: '2019-04-19'
   revision: 1
 info:
-  venue: Wankhede Stadium
+  city: Mumbai
   competition: IPL
   dates:
   - '2018-04-17'
   gender: male
-  teams:
-  - Mumbai Indians
-  - Royal Challengers Bangalore
+  match_type: T20
   outcome:
     winner: Mumbai Indians
     by:
       runs: 46
-  toss:
-    decision: field
-    winner: Royal Challengers Bangalore
-  match_type: T20
   overs: 20
   player_of_match:
   - RG Sharma
-  city: Mumbai
+  teams:
+  - Mumbai Indians
+  - Royal Challengers Bangalore
+  toss:
+    decision: field
+    winner: Royal Challengers Bangalore
   umpires:
-  - RJ Tucker
   - Nitin Menon
+  - RJ Tucker
+  venue: Wankhede Stadium
 innings:
 - 1st innings:
     team: Mumbai Indians

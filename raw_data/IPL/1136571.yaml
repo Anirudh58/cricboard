@@ -4,29 +4,29 @@ meta:
   created: '2019-04-18'
   revision: 1
 info:
-  venue: M.Chinnaswamy Stadium
+  city: Bengaluru
   competition: IPL
   dates:
   - '2018-04-15'
   gender: male
-  teams:
-  - Royal Challengers Bangalore
-  - Rajasthan Royals
+  match_type: T20
   outcome:
     winner: Rajasthan Royals
     by:
       runs: 19
+  overs: 20
+  player_of_match:
+  - SV Samson
+  teams:
+  - Rajasthan Royals
+  - Royal Challengers Bangalore
   toss:
     decision: field
     winner: Royal Challengers Bangalore
-  player_of_match:
-  - SV Samson
-  match_type: T20
-  overs: 20
-  city: Bengaluru
   umpires:
   - C Shamshuddin
   - S Ravi
+  venue: M.Chinnaswamy Stadium
 innings:
 - 1st innings:
     team: Rajasthan Royals

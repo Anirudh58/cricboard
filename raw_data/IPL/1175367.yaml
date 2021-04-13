@@ -4,29 +4,29 @@ meta:
   created: '2019-04-15'
   revision: 2
 info:
-  venue: MA Chidambaram Stadium, Chepauk
+  city: Chennai
   competition: IPL
   dates:
   - '2019-03-31'
   gender: male
-  teams:
-  - Chennai Super Kings
-  - Rajasthan Royals
+  match_type: T20
   outcome:
     winner: Chennai Super Kings
     by:
       runs: 8
+  overs: 20
+  player_of_match:
+  - MS Dhoni
+  teams:
+  - Chennai Super Kings
+  - Rajasthan Royals
   toss:
     decision: field
     winner: Rajasthan Royals
-  player_of_match:
-  - MS Dhoni
-  match_type: T20
-  overs: 20
-  city: Chennai
   umpires:
-  - YC Barde
   - CK Nandan
+  - YC Barde
+  venue: MA Chidambaram Stadium
 innings:
 - 1st innings:
     team: Chennai Super Kings

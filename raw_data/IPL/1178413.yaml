@@ -4,29 +4,29 @@ meta:
   created: '2019-04-23'
   revision: 1
 info:
-  venue: Rajiv Gandhi International Stadium, Uppal
+  city: Hyderabad
   competition: IPL
   dates:
   - '2019-04-21'
   gender: male
-  teams:
-  - Sunrisers Hyderabad
-  - Kolkata Knight Riders
+  match_type: T20
   outcome:
     winner: Sunrisers Hyderabad
     by:
       wickets: 9
+  overs: 20
+  player_of_match:
+  - KK Ahmed
+  teams:
+  - Kolkata Knight Riders
+  - Sunrisers Hyderabad
   toss:
     decision: field
     winner: Sunrisers Hyderabad
-  player_of_match:
-  - KK Ahmed
-  match_type: T20
-  overs: 20
-  city: Hyderabad
   umpires:
   - NJ Llong
   - Nitin Menon
+  venue: Rajiv Gandhi International Stadium
 innings:
 - 1st innings:
     team: Kolkata Knight Riders

@@ -4,30 +4,30 @@ meta:
   created: '2019-04-19'
   revision: 1
 info:
-  venue: Feroz Shah Kotla
+  city: Delhi
   competition: IPL
   dates:
   - '2018-05-02'
   gender: male
-  teams:
-  - Delhi Daredevils
-  - Rajasthan Royals
+  match_type: T20
   outcome:
     winner: Delhi Daredevils
     by:
       runs: 4
     method: D/L
+  overs: 20
+  player_of_match:
+  - RR Pant
+  teams:
+  - Delhi Daredevils
+  - Rajasthan Royals
   toss:
     decision: field
     winner: Rajasthan Royals
-  player_of_match:
-  - RR Pant
-  match_type: T20
-  overs: 20
-  city: Delhi
   umpires:
-  - VK Sharma
   - CK Nandan
+  - VK Sharma
+  venue: Arun Jaitley Stadium
 innings:
 - 1st innings:
     team: Delhi Daredevils

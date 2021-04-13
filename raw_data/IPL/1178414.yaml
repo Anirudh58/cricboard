@@ -4,29 +4,29 @@ meta:
   created: '2019-04-23'
   revision: 2
 info:
-  venue: M.Chinnaswamy Stadium
+  city: Bengaluru
   competition: IPL
   dates:
   - '2019-04-21'
   gender: male
-  teams:
-  - Royal Challengers Bangalore
-  - Chennai Super Kings
+  match_type: T20
   outcome:
     winner: Royal Challengers Bangalore
     by:
       runs: 1
+  overs: 20
+  player_of_match:
+  - PA Patel
+  teams:
+  - Royal Challengers Bangalore
+  - Chennai Super Kings
   toss:
     decision: field
     winner: Chennai Super Kings
-  player_of_match:
-  - PA Patel
-  match_type: T20
-  overs: 20
-  city: Bengaluru
   umpires:
   - RJ Tucker
   - VA Kulkarni
+  venue: M.Chinnaswamy Stadium
 innings:
 - 1st innings:
     team: Royal Challengers Bangalore

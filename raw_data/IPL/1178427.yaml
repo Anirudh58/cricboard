@@ -4,29 +4,29 @@ meta:
   created: '2019-05-07'
   revision: 1
 info:
-  venue: Punjab Cricket Association IS Bindra Stadium, Mohali
+  city: Chandigarh
   competition: IPL
   dates:
   - '2019-05-03'
   gender: male
-  teams:
-  - Kings XI Punjab
-  - Kolkata Knight Riders
+  match_type: T20
   outcome:
     winner: Kolkata Knight Riders
     by:
       wickets: 7
+  overs: 20
+  player_of_match:
+  - Shubman Gill
+  teams:
+  - Kings XI Punjab
+  - Kolkata Knight Riders
   toss:
     decision: field
     winner: Kolkata Knight Riders
-  player_of_match:
-  - Shubman Gill
-  match_type: T20
-  overs: 20
-  city: Chandigarh
   umpires:
-  - C Shamshuddin
   - BNJ Oxenford
+  - C Shamshuddin
+  venue: Punjab Cricket Association IS Bindra Stadium
 innings:
 - 1st innings:
     team: Kings XI Punjab

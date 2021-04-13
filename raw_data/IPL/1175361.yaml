@@ -4,29 +4,29 @@ meta:
   created: '2019-04-14'
   revision: 2
 info:
-  venue: Eden Gardens
+  city: Kolkata
   competition: IPL
   dates:
   - '2019-03-27'
   gender: male
-  teams:
-  - Kolkata Knight Riders
-  - Kings XI Punjab
+  match_type: T20
   outcome:
     winner: Kolkata Knight Riders
     by:
       runs: 28
+  overs: 20
+  player_of_match:
+  - AD Russell
+  teams:
+  - Kolkata Knight Riders
+  - Kings XI Punjab
   toss:
     decision: field
     winner: Kings XI Punjab
-  player_of_match:
-  - AD Russell
-  match_type: T20
-  overs: 20
-  city: Kolkata
   umpires:
-  - VA Kulkarni
   - AK Chaudhary
+  - VA Kulkarni
+  venue: Eden Gardens
 innings:
 - 1st innings:
     team: Kolkata Knight Riders

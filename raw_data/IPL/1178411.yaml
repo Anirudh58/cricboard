@@ -4,29 +4,29 @@ meta:
   created: '2019-04-21'
   revision: 2
 info:
-  venue: Sawai Mansingh Stadium
+  city: Jaipur
   competition: IPL
   dates:
   - '2019-04-20'
   gender: male
-  teams:
-  - Rajasthan Royals
-  - Mumbai Indians
+  match_type: T20
   outcome:
     winner: Rajasthan Royals
     by:
       wickets: 5
+  overs: 20
+  player_of_match:
+  - SPD Smith
+  teams:
+  - Mumbai Indians
+  - Rajasthan Royals
   toss:
     decision: field
     winner: Rajasthan Royals
-  player_of_match:
-  - SPD Smith
-  match_type: T20
-  overs: 20
-  city: Jaipur
   umpires:
-  - YC Barde
   - S Ravi
+  - YC Barde
+  venue: Sawai Mansingh Stadium
 innings:
 - 1st innings:
     team: Mumbai Indians

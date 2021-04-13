@@ -4,29 +4,29 @@ meta:
   created: '2019-04-18'
   revision: 1
 info:
-  venue: Wankhede Stadium
+  city: Mumbai
   competition: IPL
   dates:
   - '2018-04-07'
   gender: male
-  teams:
-  - Mumbai Indians
-  - Chennai Super Kings
+  match_type: T20
   outcome:
     winner: Chennai Super Kings
     by:
       wickets: 1
+  overs: 20
+  player_of_match:
+  - DJ Bravo
+  teams:
+  - Mumbai Indians
+  - Chennai Super Kings
   toss:
     decision: field
     winner: Chennai Super Kings
-  player_of_match:
-  - DJ Bravo
-  match_type: T20
-  overs: 20
-  city: Mumbai
   umpires:
   - CB Gaffaney
   - A Nand Kishore
+  venue: Wankhede Stadium
 innings:
 - 1st innings:
     team: Mumbai Indians
@@ -1331,9 +1331,7 @@ innings:
         batsman: SK Raina
         wicket:
           player_out: SK Raina
-          fielders:
-          - KH Pandya
-          kind: caught
+          kind: caught and bowled
     - 6.1:
         non_striker: KM Jadhav
         bowler: M Markande

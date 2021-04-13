@@ -4,29 +4,29 @@ meta:
   created: '2019-04-19'
   revision: 1
 info:
-  venue: Rajiv Gandhi International Stadium, Uppal
+  city: Hyderabad
   competition: IPL
   dates:
   - '2018-05-05'
   gender: male
-  teams:
-  - Sunrisers Hyderabad
-  - Delhi Daredevils
+  match_type: T20
   outcome:
     winner: Sunrisers Hyderabad
     by:
       wickets: 7
+  overs: 20
+  player_of_match:
+  - Rashid Khan
+  teams:
+  - Delhi Daredevils
+  - Sunrisers Hyderabad
   toss:
     decision: bat
     winner: Delhi Daredevils
-  player_of_match:
-  - Rashid Khan
-  match_type: T20
-  overs: 20
-  city: Hyderabad
   umpires:
   - BNJ Oxenford
   - CK Nandan
+  venue: Rajiv Gandhi International Stadium
 innings:
 - 1st innings:
     team: Delhi Daredevils

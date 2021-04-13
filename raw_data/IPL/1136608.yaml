@@ -4,29 +4,29 @@ meta:
   created: '2019-04-19'
   revision: 1
 info:
-  venue: Holkar Cricket Stadium
+  city: Indore
   competition: IPL
   dates:
   - '2018-05-14'
   gender: male
-  teams:
-  - Kings XI Punjab
-  - Royal Challengers Bangalore
+  match_type: T20
   outcome:
     winner: Royal Challengers Bangalore
     by:
       wickets: 10
+  overs: 20
+  player_of_match:
+  - UT Yadav
+  teams:
+  - Kings XI Punjab
+  - Royal Challengers Bangalore
   toss:
     decision: field
     winner: Royal Challengers Bangalore
-  player_of_match:
-  - UT Yadav
-  match_type: T20
-  overs: 20
-  city: Indore
   umpires:
   - BNJ Oxenford
   - VK Sharma
+  venue: Holkar Cricket Stadium
 innings:
 - 1st innings:
     team: Kings XI Punjab

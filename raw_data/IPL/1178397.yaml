@@ -4,29 +4,29 @@ meta:
   created: '2019-04-16'
   revision: 1
 info:
-  venue: Punjab Cricket Association IS Bindra Stadium, Mohali
+  city: Chandigarh
   competition: IPL
   dates:
   - '2019-04-08'
   gender: male
-  teams:
-  - Kings XI Punjab
-  - Sunrisers Hyderabad
+  match_type: T20
   outcome:
     winner: Kings XI Punjab
     by:
       wickets: 6
+  overs: 20
+  player_of_match:
+  - KL Rahul
+  teams:
+  - Sunrisers Hyderabad
+  - Kings XI Punjab
   toss:
     decision: field
     winner: Kings XI Punjab
-  player_of_match:
-  - KL Rahul
-  match_type: T20
-  overs: 20
-  city: Chandigarh
   umpires:
   - AY Dandekar
   - M Erasmus
+  venue: Punjab Cricket Association IS Bindra Stadium
 innings:
 - 1st innings:
     team: Sunrisers Hyderabad

@@ -4,29 +4,29 @@ meta:
   created: '2019-05-12'
   revision: 1
 info:
-  venue: Dr. Y.S. Rajasekhara Reddy ACA-VDCA Cricket Stadium
+  city: Visakhapatnam
   competition: IPL
   dates:
   - '2019-05-10'
   gender: male
-  teams:
-  - Chennai Super Kings
-  - Delhi Capitals
+  match_type: T20
   outcome:
     winner: Chennai Super Kings
     by:
       wickets: 6
+  overs: 20
+  player_of_match:
+  - F du Plessis
+  teams:
+  - Delhi Capitals
+  - Chennai Super Kings
   toss:
     decision: field
     winner: Chennai Super Kings
-  player_of_match:
-  - F du Plessis
-  match_type: T20
-  overs: 20
-  city: Visakhapatnam
   umpires:
   - BNJ Oxenford
   - S Ravi
+  venue: Dr. Y.S. Rajasekhara Reddy ACA-VDCA Cricket Stadium
 innings:
 - 1st innings:
     team: Delhi Capitals

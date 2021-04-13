@@ -4,29 +4,29 @@ meta:
   created: '2019-04-19'
   revision: 1
 info:
-  venue: Sawai Mansingh Stadium
+  city: Jaipur
   competition: IPL
   dates:
   - '2018-04-18'
   gender: male
-  teams:
-  - Rajasthan Royals
-  - Kolkata Knight Riders
+  match_type: T20
   outcome:
     winner: Kolkata Knight Riders
     by:
       wickets: 7
-  toss:
-    decision: field
-    winner: Kolkata Knight Riders
-  match_type: T20
   overs: 20
   player_of_match:
   - N Rana
-  city: Jaipur
+  teams:
+  - Rajasthan Royals
+  - Kolkata Knight Riders
+  toss:
+    decision: field
+    winner: Kolkata Knight Riders
   umpires:
   - A Deshmukh
   - S Ravi
+  venue: Sawai Mansingh Stadium
 innings:
 - 1st innings:
     team: Rajasthan Royals

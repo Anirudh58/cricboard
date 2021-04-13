@@ -4,29 +4,29 @@ meta:
   created: '2019-04-19'
   revision: 1
 info:
-  venue: M.Chinnaswamy Stadium
+  city: Bengaluru
   competition: IPL
   dates:
   - '2018-04-21'
   gender: male
-  teams:
-  - Royal Challengers Bangalore
-  - Delhi Daredevils
+  match_type: T20
   outcome:
     winner: Royal Challengers Bangalore
     by:
       wickets: 6
-  toss:
-    decision: field
-    winner: Royal Challengers Bangalore
-  match_type: T20
   overs: 20
   player_of_match:
   - AB de Villiers
-  city: Bengaluru
+  teams:
+  - Delhi Daredevils
+  - Royal Challengers Bangalore
+  toss:
+    decision: field
+    winner: Royal Challengers Bangalore
   umpires:
   - CB Gaffaney
   - CK Nandan
+  venue: M.Chinnaswamy Stadium
 innings:
 - 1st innings:
     team: Delhi Daredevils
