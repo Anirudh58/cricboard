@@ -1,5 +1,5 @@
 This zip archive contains data files from Cricsheet in YAML format. This
-archive contains 823 Indian Premier League matches.
+archive contains 831 Indian Premier League matches.
 
 
 The data files contained in this zip file are version 0.9 files, which is the
@@ -22,6 +22,14 @@ as IPL). The 4th field is the gender of the players involved in the match. The
 teams involved in the match.
 
 
+2021-04-21 - club - IPL - male - 1254071 - Punjab Kings vs Sunrisers Hyderabad
+2021-04-21 - club - IPL - male - 1254072 - Chennai Super Kings vs Kolkata Knight Riders
+2021-04-20 - club - IPL - male - 1254070 - Mumbai Indians vs Delhi Capitals
+2021-04-19 - club - IPL - male - 1254069 - Chennai Super Kings vs Rajasthan Royals
+2021-04-18 - club - IPL - male - 1254067 - Royal Challengers Bangalore vs Kolkata Knight Riders
+2021-04-18 - club - IPL - male - 1254068 - Punjab Kings vs Delhi Capitals
+2021-04-17 - club - IPL - male - 1254066 - Mumbai Indians vs Sunrisers Hyderabad
+2021-04-16 - club - IPL - male - 1254065 - Punjab Kings vs Chennai Super Kings
 2021-04-15 - club - IPL - male - 1254064 - Delhi Capitals vs Rajasthan Royals
 2021-04-14 - club - IPL - male - 1254063 - Royal Challengers Bangalore vs Sunrisers Hyderabad
 2021-04-13 - club - IPL - male - 1254062 - Mumbai Indians vs Kolkata Knight Riders
@@ -709,7 +717,7 @@ teams involved in the match.
 2010-03-28 - club - IPL - male - 419130 - Deccan Chargers vs Mumbai Indians
 2010-03-27 - club - IPL - male - 419127 - Kings XI Punjab vs Kolkata Knight Riders
 2010-03-26 - club - IPL - male - 419126 - Rajasthan Royals vs Deccan Chargers
-2010-03-25 - club - IPL - male - 419125 - Mumbai Indians vs Chennai Super Kings
+2010-03-25 - club - IPL - male - 419125 - Chennai Super Kings vs Mumbai Indians
 2010-03-25 - club - IPL - male - 419128 - Royal Challengers Bangalore vs Delhi Daredevils
 2010-03-24 - club - IPL - male - 419124 - Kings XI Punjab vs Rajasthan Royals
 2010-03-23 - club - IPL - male - 419123 - Royal Challengers Bangalore vs Chennai Super Kings
