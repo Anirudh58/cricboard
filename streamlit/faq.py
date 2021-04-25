@@ -55,6 +55,12 @@ def main(match_format, session_state):
         - Calculating "top n" stats in the batting/bowling page is pretty slow because we literally loop through every ball played by every player. We are trying to see if some optimaztion/precomputing is possible, but until then please do bear the latency. 
         - Option to directly share an insight/plot to twitter. 
         """)
+        
+    with st.beta_expander("Long term ambitious goals"):
+        st.write("""
+        - BCCI official website now contains ball tacking information as well. If this data is soon available in a standardized format we would love to incorporate this information to provide more interesting insights. 
+        - Highly interested in doing video analytics. Scene segmentation, shot classification, Automated commentary generation, etc. Although they may not have real useful applications, I would love to experiment with these problem statements. 
+        """)
     
     st.markdown("""
     ***
