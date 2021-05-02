@@ -47,6 +47,11 @@ def populate_bowlers():
     bowlers.extend(sorted(np.array(df_player[~df_player['player_display_name'].isnull()]['player_name'])))
     return bowlers
 
+@st.cache
+def populate_stats():
+    stats = ["Total Runs", "Strike Rate", "Average", "Dismissals", "Total Balls Faced"]
+    return stats
+
 
 @st.cache
 def populate_tournaments(match_format):
@@ -187,6 +192,11 @@ def main(match_format, session_state):
         tournaments = st.multiselect("Tournaments:", options=populate_tournaments(match_format))        
         innings_number = st.number_input("Innnings number: (0 -> both) ", min_value=0, max_value=2, step=1, format="%d")
         bowler_name = st.selectbox("Against a specific bowler:", options=populate_bowlers())
+            
+    col1, col2, col3 = st.beta_columns((1, 3, 1))
+    
+    with col2:
+        stat_to_show = st.selectbox("Choose stat to compare:", options=populate_stats())  
         
 
     # OUTPUT SECTION
@@ -202,42 +212,30 @@ def main(match_format, session_state):
     
     if player_name_list or top_n > 0:
         
-        col1, col2, col3, col4 = st.beta_columns((1, 1, 1, 1))
+        col1, col2, col3 = st.beta_columns((1, 2, 1))
         
-        with col1:
-
-            players_stats = batting_total_runs(player_names=player_name_list, top_n=top_n, match_format=match_format, tournaments=tournaments, venue_name=venue, years_range=years_range, overs_range=overs_range, against_spin=only_spin_bool, against_pace=only_pace_bool, bowling_types=bowling_types, against_bowler=bowler_name, innings_number=innings_number)
-            
-            plot_summary = get_plot_summary('runs', top_n, tournaments, venue, years_range, overs_range, innings_number, minimum_runs, bowler_name, only_pace_bool, only_spin_bool, right_arm_pace_bool, left_arm_pace_bool,
-                                           right_arm_wrist_spin_bool, right_arm_off_spin_bool, left_arm_orthodox_bool, left_arm_wrist_bool)
-            
-            draw_batting_plots(players_stats, 'runs', plot_summary)
-
         with col2:
             
-            players_stats = batting_strike_rate(player_names=player_name_list, top_n=top_n, match_format=match_format, tournaments=tournaments, venue_name=venue, years_range=years_range, overs_range=overs_range, against_spin=only_spin_bool, against_pace=only_pace_bool, bowling_types=bowling_types, against_bowler=bowler_name, minimum_runs=minimum_runs, innings_number=innings_number)
+            if stat_to_show == "Total Runs":
+                players_stats = batting_total_runs(player_names=player_name_list, top_n=top_n, match_format=match_format, tournaments=tournaments, venue_name=venue, years_range=years_range, overs_range=overs_range, against_spin=only_spin_bool, against_pace=only_pace_bool, bowling_types=bowling_types, against_bowler=bowler_name, innings_number=innings_number)
+                plot_summary = get_plot_summary('runs', top_n, tournaments, venue, years_range, overs_range, innings_number, minimum_runs, bowler_name, only_pace_bool, only_spin_bool, right_arm_pace_bool, left_arm_pace_bool, right_arm_wrist_spin_bool, right_arm_off_spin_bool, left_arm_orthodox_bool, left_arm_wrist_bool)
+                draw_batting_plots(players_stats, 'runs', plot_summary)
+                
+            elif stat_to_show == "Strike Rate":
+                players_stats = batting_strike_rate(player_names=player_name_list, top_n=top_n, match_format=match_format, tournaments=tournaments, venue_name=venue, years_range=years_range, overs_range=overs_range, against_spin=only_spin_bool, against_pace=only_pace_bool, bowling_types=bowling_types, against_bowler=bowler_name, minimum_runs=minimum_runs, innings_number=innings_number)
+                plot_summary = get_plot_summary('strike_rate', top_n, tournaments, venue, years_range, overs_range, innings_number, minimum_runs, bowler_name, only_pace_bool, only_spin_bool, right_arm_pace_bool, left_arm_pace_bool, right_arm_wrist_spin_bool, right_arm_off_spin_bool, left_arm_orthodox_bool, left_arm_wrist_bool)
+                draw_batting_plots(players_stats, 'strike_rate', plot_summary)
+                
+            elif stat_to_show == "Average":
+                players_stats = batting_average(player_names=player_name_list, top_n=top_n, match_format=match_format, tournaments=tournaments, venue_name=venue, years_range=years_range, overs_range=overs_range, against_spin=only_spin_bool, against_pace=only_pace_bool, bowling_types=bowling_types, against_bowler=bowler_name, minimum_runs=minimum_runs, innings_number=innings_number)
+                plot_summary = get_plot_summary('average', top_n, tournaments, venue, years_range, overs_range, innings_number, minimum_runs, bowler_name, only_pace_bool, only_spin_bool, right_arm_pace_bool, left_arm_pace_bool, right_arm_wrist_spin_bool, right_arm_off_spin_bool, left_arm_orthodox_bool, left_arm_wrist_bool)
+                draw_batting_plots(players_stats, 'average', plot_summary)
+                
+            elif stat_to_show == "Dismissals":
+                players_stats = batting_dismissals(player_names=player_name_list, top_n=top_n, match_format=match_format, tournaments=tournaments, venue_name=venue, years_range=years_range, overs_range=overs_range, against_spin=only_spin_bool, against_pace=only_pace_bool, bowling_types=bowling_types, against_bowler=bowler_name, innings_number=innings_number)
+                plot_summary = get_plot_summary('dismissals', top_n, tournaments, venue, years_range, overs_range, innings_number, minimum_runs, bowler_name, only_pace_bool, only_spin_bool, right_arm_pace_bool, left_arm_pace_bool, right_arm_wrist_spin_bool, right_arm_off_spin_bool, left_arm_orthodox_bool, left_arm_wrist_bool)
+                draw_batting_plots(players_stats, 'dismissals', plot_summary)
             
-            plot_summary = get_plot_summary('strike_rate', top_n, tournaments, venue, years_range, overs_range, innings_number, minimum_runs, bowler_name, only_pace_bool, only_spin_bool, right_arm_pace_bool, left_arm_pace_bool,
-                                           right_arm_wrist_spin_bool, right_arm_off_spin_bool, left_arm_orthodox_bool, left_arm_wrist_bool)
+            elif stat_to_show == "Total Balls Faced":
+                pass
             
-            draw_batting_plots(players_stats, 'strike_rate', plot_summary)
-            
-        with col3:
-            
-            players_stats = batting_average(player_names=player_name_list, top_n=top_n, match_format=match_format, tournaments=tournaments, venue_name=venue, years_range=years_range, overs_range=overs_range, against_spin=only_spin_bool, against_pace=only_pace_bool, bowling_types=bowling_types, against_bowler=bowler_name, minimum_runs=minimum_runs, innings_number=innings_number)
-            
-            plot_summary = get_plot_summary('average', top_n, tournaments, venue, years_range, overs_range, innings_number, minimum_runs, bowler_name, only_pace_bool, only_spin_bool, right_arm_pace_bool, left_arm_pace_bool,
-                                           right_arm_wrist_spin_bool, right_arm_off_spin_bool, left_arm_orthodox_bool, left_arm_wrist_bool)
-            
-            draw_batting_plots(players_stats, 'average', plot_summary)
-            
-            
-        with col4:
-            
-            players_stats = batting_dismissals(player_names=player_name_list, top_n=top_n, match_format=match_format, tournaments=tournaments, venue_name=venue, years_range=years_range, overs_range=overs_range, against_spin=only_spin_bool, against_pace=only_pace_bool, bowling_types=bowling_types, against_bowler=bowler_name, innings_number=innings_number)
-            
-            plot_summary = get_plot_summary('dismissals', top_n, tournaments, venue, years_range, overs_range, innings_number, minimum_runs, bowler_name, only_pace_bool, only_spin_bool, right_arm_pace_bool, left_arm_pace_bool,
-                                           right_arm_wrist_spin_bool, right_arm_off_spin_bool, left_arm_orthodox_bool, left_arm_wrist_bool)
-            
-            draw_batting_plots(players_stats, 'dismissals', plot_summary)
-    
