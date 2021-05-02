@@ -12,7 +12,7 @@ import streamlit as st
 from matplotlib import pyplot as plt 
 
 # my lib
-from src.insights import total_wickets, bowling_strike_rate, bowling_average, bowling_economy
+from src.insights import total_wickets, bowling_strike_rate, bowling_average, bowling_economy, bowling_balls_bowled
 
 # Config variables
 raw_data_path = "raw_data"
@@ -110,6 +110,8 @@ def get_plot_summary(metric, top_n, tournaments, venue, years_range, overs_range
             plot_summary += ("\nMin Balls: " + str(minimum_balls))
     elif metric=='economy':
         plot_summary = "Economy Rate " 
+    elif metric=='balls_bowled':
+        plot_summary = "Total Balls Bowled " 
     
     # tournaments
     if len(tournaments) > 0 :
@@ -157,7 +159,7 @@ def main(match_format, session_state):
         rh_bat_bool = st.checkbox("Against RH Bat")
     
     with col2:
-        top_n = st.number_input("Top n performers (0 for single player stats): ", min_value=0, max_value=10, step=1, format="%d")
+        top_n = st.number_input("Top n (0 for single player stats): ", min_value=0, max_value=10, step=1, format="%d")
         venue = st.selectbox("Venue:", options=populate_venues())
         minimum_balls = st.number_input("Min balls bowled (for SR and Average): ", min_value=100, max_value=2000, step=1, format="%d")
         
@@ -169,7 +171,7 @@ def main(match_format, session_state):
     col1, col2, col3 = st.beta_columns((1, 3, 1))
     
     with col2:
-        stat_to_show = st.selectbox("Choose stat to compare:", options=populate_stats())  
+        stat_to_show = st.selectbox("Choose stat:", options=populate_stats())  
 
     # OUTPUT SECTION
     
@@ -207,5 +209,7 @@ def main(match_format, session_state):
                 draw_batting_plots(players_stats, 'economy', plot_summary)
                 
             elif stat_to_show == "Total Balls Bowled":
-                pass
+                players_stats = bowling_balls_bowled(player_names=player_name_list, top_n=top_n, match_format=match_format, tournaments=tournaments, venue_name=venue, years_range=years_range, overs_range=overs_range, against_batsman=batsman_name, batting_types=batting_types, innings_number=innings_number)
+                plot_summary = get_plot_summary('balls_bowled', top_n, tournaments, venue, years_range, overs_range, innings_number, minimum_balls, batsman_name, lh_bat_bool, rh_bat_bool)
+                draw_batting_plots(players_stats, 'balls_bowled', plot_summary)
         
