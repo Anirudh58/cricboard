@@ -1,5 +1,5 @@
 This zip archive contains data files from Cricsheet in YAML format. This
-archive contains 834 Indian Premier League matches.
+archive contains 842 Indian Premier League matches.
 
 
 The data files contained in this zip file are version 0.9 files, which is the
@@ -22,6 +22,14 @@ as IPL). The 4th field is the gender of the players involved in the match. The
 teams involved in the match.
 
 
+2021-04-30 - club - IPL - male - 1254083 - Punjab Kings vs Royal Challengers Bangalore
+2021-04-29 - club - IPL - male - 1254081 - Rajasthan Royals vs Mumbai Indians
+2021-04-29 - club - IPL - male - 1254082 - Kolkata Knight Riders vs Delhi Capitals
+2021-04-28 - club - IPL - male - 1254080 - Sunrisers Hyderabad vs Chennai Super Kings
+2021-04-27 - club - IPL - male - 1254079 - Royal Challengers Bangalore vs Delhi Capitals
+2021-04-26 - club - IPL - male - 1254078 - Punjab Kings vs Kolkata Knight Riders
+2021-04-25 - club - IPL - male - 1254076 - Chennai Super Kings vs Royal Challengers Bangalore
+2021-04-25 - club - IPL - male - 1254077 - Delhi Capitals vs Sunrisers Hyderabad
 2021-04-24 - club - IPL - male - 1254075 - Kolkata Knight Riders vs Rajasthan Royals
 2021-04-23 - club - IPL - male - 1254074 - Mumbai Indians vs Punjab Kings
 2021-04-22 - club - IPL - male - 1254073 - Rajasthan Royals vs Royal Challengers Bangalore
