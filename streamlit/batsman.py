@@ -12,7 +12,7 @@ from matplotlib import pyplot as plt
 import streamlit as st
 
 # my lib
-from src.insights import batting_total_runs, batting_strike_rate, batting_average, batting_dismissals, batting_balls_batted
+from src.insights import batting_total_runs, batting_strike_rate, batting_average, batting_dismissals, batting_balls_batted, batting_dot_balls_batted
 
 
 # Config variables
@@ -49,7 +49,7 @@ def populate_bowlers():
 
 @st.cache
 def populate_stats():
-    stats = ["Total Runs", "Strike Rate", "Average", "Dismissals", "Total Balls Batted"]
+    stats = ["", "Total Runs", "Strike Rate", "Average", "Dismissals", "Total Balls Batted", "Total Dot Balls"]
     return stats
 
 
@@ -115,6 +115,8 @@ def get_plot_summary(metric, top_n, tournaments, venue, years_range, overs_range
         plot_summary = "Number of Dismissals " 
     elif metric=="balls_batted":
         plot_summary = "Total Balls Faced " 
+    elif metric=="dot_balls_batted":
+        plot_summary = "Total Dot Balls Batted " 
     
     # tournaments
     if len(tournaments) > 0 :
@@ -242,4 +244,9 @@ def main(match_format, session_state):
                 players_stats = batting_balls_batted(player_names=player_name_list, top_n=top_n, match_format=match_format, tournaments=tournaments, venue_name=venue, years_range=years_range, overs_range=overs_range, against_spin=only_spin_bool, against_pace=only_pace_bool, bowling_types=bowling_types, against_bowler=bowler_name, innings_number=innings_number)
                 plot_summary = get_plot_summary('balls_batted', top_n, tournaments, venue, years_range, overs_range, innings_number, minimum_runs, bowler_name, only_pace_bool, only_spin_bool, right_arm_pace_bool, left_arm_pace_bool, right_arm_wrist_spin_bool, right_arm_off_spin_bool, left_arm_orthodox_bool, left_arm_wrist_bool)
                 draw_batting_plots(players_stats, 'balls_batted', plot_summary)
+                
+            elif stat_to_show == "Total Dot Balls":
+                players_stats = batting_dot_balls_batted(player_names=player_name_list, top_n=top_n, match_format=match_format, tournaments=tournaments, venue_name=venue, years_range=years_range, overs_range=overs_range, against_spin=only_spin_bool, against_pace=only_pace_bool, bowling_types=bowling_types, against_bowler=bowler_name, innings_number=innings_number)
+                plot_summary = get_plot_summary('dot_balls_batted', top_n, tournaments, venue, years_range, overs_range, innings_number, minimum_runs, bowler_name, only_pace_bool, only_spin_bool, right_arm_pace_bool, left_arm_pace_bool, right_arm_wrist_spin_bool, right_arm_off_spin_bool, left_arm_orthodox_bool, left_arm_wrist_bool)
+                draw_batting_plots(players_stats, 'dot_balls_batted', plot_summary)
             

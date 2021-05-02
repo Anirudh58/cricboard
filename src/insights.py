@@ -5,9 +5,9 @@ import pandas as pd
 import streamlit as st
 
 # batsman
-from src.core import runs_scored, balls_batted, dismissals
+from src.core import runs_scored, balls_batted, dismissals, dot_balls_batted
 # bowler
-from src.core import wickets_taken, balls_bowled, runs_given
+from src.core import wickets_taken, balls_bowled, runs_given, dot_balls_bowled
 #fantasy
 from src.core import player_runs_by_match, player_wickets_by_match, player_points_by_match
 from src.core import player_batting_stats_against_bowling, player_bowling_stats_against_batting
@@ -505,6 +505,88 @@ def batting_balls_batted(player_names, top_n, match_format, against_spin, agains
         
     return df_result
 
+@st.cache
+def batting_dot_balls_batted(player_names, top_n, match_format, against_spin, against_pace, bowling_types, against_bowler, innings_number, tournaments=None, venue_name=None, years_range=None, overs_range=None):
+    """
+        Total runs for a player / top runs
+        Args:
+            player_names - (list) list of target players
+            top_n - (int) if top_n is not 0, player_name will be overridden
+            match_format - (string) one of 'ODI', 'TEST' or 'T20'
+            bowling_types - (dict) a dictionary of boolean variables telling what bowling types you want the data for
+            tournaments - (string) comma separated tournament codes eg: "IPL,BBL"
+            venue_id - (integer) id of venue. 
+            years_range - (list) 2 member list of start and end year
+            overs_range - (string) should be in the format 'a-b'. eg: "0-6"
+            against_spin - (boolean) mark it true if you want data only specific to spin. dont mark this if you supply 'against_bowler'
+            against_pace - (boolean) mark it true if you want data only specific to pace. dont mark this if you supply 'against_bowler'
+            against_bowler - (string) bowler name to find 1v1 data
+            innings_number - (int) - 1 -> batting first 2 -> batting second 0 -> both
+    """
+    
+    if len(tournaments) > 0:
+        tournaments_to_consider = [tournament_id_map[tournament_name] for tournament_name in tournaments]
+    # if no tournament given, collect all tournament in this specified format
+    else:
+        tournaments_to_consider = [tournament_id_map[tournament_name] for tournament_name in np.array(df_tournament[df_tournament["tournament_format"] == match_format]["tournament_name"])]
+    
+    # Getting the venue id from the venue name
+    venue_id_to_consider = None
+    if venue_name != 'ALL':
+        venue_id_to_consider = venue_id_map[venue_name]
+    
+    # defaults to full slider (all years)
+    years_to_consider= [str(year) for year in range(years_range[0], years_range[1]+1)]
+    
+    # defaults to full slider (all overs)
+    start_end_over_to_consider = [overs_range[0], overs_range[1]]    
+    
+    bowler_to_consider = 'ALL'
+    if against_bowler != 'ALL':
+        bowler_to_consider = player_name_id_map[against_bowler]
+    
+    # default value of top_n is 0, then just calculate for the given player names
+    if top_n == 0:
+        
+        result_columns = ["player_name", "dot_balls_batted"]
+        df_result = pd.DataFrame(columns = result_columns)
+        
+        for player_name in player_names:
+            # Getting the player id from the name
+            player_id_to_consider = player_name_id_map[player_name]
+            result_runs = dot_balls_batted(player=player_id_to_consider, against_spin=against_spin, against_pace=against_pace, bowling_types=bowling_types, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_bowler=bowler_to_consider, innings_number=innings_number)
+    
+            df_result = df_result.append({"player_name" : player_name, 
+                                        "dot_balls_batted" : result_runs}, ignore_index=True)
+        
+    else:
+        players_stats = []
+        top_counter = 0
+        for player_i in player_dispname_id_map:
+            # To avoid nan objects
+            if isinstance(player_i, str):
+                player_stat = {}
+                player_id_to_consider = player_dispname_id_map[player_i]
+                
+                result_runs = dot_balls_batted(player=player_id_to_consider, against_spin=against_spin, against_pace=against_pace, bowling_types=bowling_types, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_bowler=bowler_to_consider, innings_number=innings_number)
+                
+                player_stat["player_name"] = player_id_name_map[player_id_to_consider]
+                player_stat["dot_balls_batted"] = result_runs
+                
+                players_stats.append(player_stat)
+        
+        # sorting players based on runs
+        top_players = sorted(players_stats, key = lambda player: player['dot_balls_batted'], reverse=True)
+        
+        result_columns = ["player_name", "dot_balls_batted"]
+        df_result = pd.DataFrame(columns = result_columns)
+        
+        for i in range(top_n):
+            df_result = df_result.append({"player_name" : top_players[i]["player_name"], 
+                                            "dot_balls_batted" : top_players[i]["dot_balls_batted"]}, ignore_index=True)
+        
+    return df_result
+
     
 ################################### END BATSMAN INSIGHTS ###################################
 
@@ -962,6 +1044,86 @@ def bowling_balls_bowled(player_names, top_n, match_format, against_batsman, bat
         for i in range(top_n):
             df_result = df_result.append({"player_name" : top_players[i]["player_name"], 
                                             "balls_bowled" : top_players[i]["balls_bowled"]}, ignore_index=True)
+        
+    return df_result
+
+@st.cache
+def bowling_dot_balls_bowled(player_names, top_n, match_format, against_batsman, batting_types, innings_number, tournaments=None, venue_name=None, years_range=None, overs_range=None):
+    """
+        Total wickets taken by a player / top wicket takers
+        Args:
+            player_names - (list) list of target players
+            top_n - (int) if top_n is not 0, player_name will be overridden
+            match_format - (string) one of 'ODI', 'TEST' or 'T20'
+            against_batsman - (string) name of batsman to show stats against
+            batting_types - (dict) dict of lhb and rhb denoting users option
+            tournaments - (string) comma separated tournament codes eg: "IPL,BBL"
+            venue_name - (string) name of venue. 
+            years_range - (list) 2 member list of start and end year
+            overs_range - (string) should be in the format 'a-b'. eg: "0-6"
+            innings_number - (int) - 1 -> batting first 2 -> batting second 0 -> both
+    """
+    
+    if len(tournaments) > 0:
+        tournaments_to_consider = [tournament_id_map[tournament_name] for tournament_name in tournaments]
+    # if no tournament given, collect all tournament in this specified format
+    else:
+        tournaments_to_consider = [tournament_id_map[tournament_name] for tournament_name in np.array(df_tournament[df_tournament["tournament_format"] == match_format]["tournament_name"])]
+    
+    # Getting the venue id from the venue name
+    venue_id_to_consider = None
+    if venue_name != 'ALL':
+        venue_id_to_consider = venue_id_map[venue_name]
+    
+    # defaults to full slider (all years)
+    years_to_consider= [str(year) for year in range(years_range[0], years_range[1]+1)]
+    
+    # defaults to full slider (all overs)
+    start_end_over_to_consider = [overs_range[0], overs_range[1]]    
+    
+    batter_to_consider = 'ALL'
+    if against_batsman != 'ALL':
+        batter_to_consider = player_name_id_map[against_batsman]
+    
+    # default value of top_n is 0, then just calculate for the given player name
+    if top_n == 0:
+        
+        result_columns = ["player_name", "dot_balls_bowled"]
+        df_result = pd.DataFrame(columns = result_columns)
+        
+        for player_name in player_names:
+            # Getting the player id from the name
+            player_id_to_consider = player_name_id_map[player_name]
+            result_wickets = dot_balls_bowled(player=player_id_to_consider, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_batsman=batter_to_consider, batting_types=batting_types, innings_number=innings_number)
+
+            df_result = df_result.append({"player_name" : player_name, 
+                                    "dot_balls_bowled" : result_wickets}, ignore_index=True)
+        
+    else:
+        players_stats = []
+        top_counter = 0
+        for player_i in player_dispname_id_map:
+            # To avoid nan objects
+            if isinstance(player_i, str):
+                players_stat = {}
+                player_id_to_consider = player_dispname_id_map[player_i]
+                
+                result_wickets = dot_balls_bowled(player=player_id_to_consider, tournaments=tournaments_to_consider, venue=venue_id_to_consider, years=years_to_consider, overs_range=start_end_over_to_consider, against_batsman=batter_to_consider, batting_types=batting_types, innings_number=innings_number)
+                
+                players_stat["player_name"] = player_id_name_map[player_id_to_consider]
+                players_stat["dot_balls_bowled"] = result_wickets
+                
+                players_stats.append(players_stat)
+        
+        # sorting players based on wickets
+        top_players = sorted(players_stats, key = lambda player: player['dot_balls_bowled'], reverse=True)
+        
+        result_columns = ["player_name", "dot_balls_bowled"]
+        df_result = pd.DataFrame(columns = result_columns)
+        
+        for i in range(top_n):
+            df_result = df_result.append({"player_name" : top_players[i]["player_name"], 
+                                            "dot_balls_bowled" : top_players[i]["dot_balls_bowled"]}, ignore_index=True)
         
     return df_result
 

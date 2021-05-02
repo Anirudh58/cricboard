@@ -12,7 +12,7 @@ import streamlit as st
 from matplotlib import pyplot as plt 
 
 # my lib
-from src.insights import total_wickets, bowling_strike_rate, bowling_average, bowling_economy, bowling_balls_bowled
+from src.insights import total_wickets, bowling_strike_rate, bowling_average, bowling_economy, bowling_balls_bowled, bowling_dot_balls_bowled
 
 # Config variables
 raw_data_path = "raw_data"
@@ -54,7 +54,7 @@ def populate_batters():
 
 @st.cache
 def populate_stats():
-    stats = ["Total Wickets", "Strike Rate", "Average", "Economy", "Total Balls Bowled"]
+    stats = ["", "Total Wickets", "Strike Rate", "Average", "Economy", "Total Balls Bowled", "Total Dot Balls"]
     return stats
 
 def draw_batting_plots(stats, metric, plot_summary):
@@ -112,6 +112,8 @@ def get_plot_summary(metric, top_n, tournaments, venue, years_range, overs_range
         plot_summary = "Economy Rate " 
     elif metric=='balls_bowled':
         plot_summary = "Total Balls Bowled " 
+    elif metric=='dot_balls_bowled':
+        plot_summary = "Total Dot Balls Bowled " 
     
     # tournaments
     if len(tournaments) > 0 :
@@ -212,4 +214,10 @@ def main(match_format, session_state):
                 players_stats = bowling_balls_bowled(player_names=player_name_list, top_n=top_n, match_format=match_format, tournaments=tournaments, venue_name=venue, years_range=years_range, overs_range=overs_range, against_batsman=batsman_name, batting_types=batting_types, innings_number=innings_number)
                 plot_summary = get_plot_summary('balls_bowled', top_n, tournaments, venue, years_range, overs_range, innings_number, minimum_balls, batsman_name, lh_bat_bool, rh_bat_bool)
                 draw_batting_plots(players_stats, 'balls_bowled', plot_summary)
+                
+            elif stat_to_show == "Total Dot Balls":
+                players_stats = bowling_dot_balls_bowled(player_names=player_name_list, top_n=top_n, match_format=match_format, tournaments=tournaments, venue_name=venue, years_range=years_range, overs_range=overs_range, against_batsman=batsman_name, batting_types=batting_types, innings_number=innings_number)
+                plot_summary = get_plot_summary('dot_balls_bowled', top_n, tournaments, venue, years_range, overs_range, innings_number, minimum_balls, batsman_name, lh_bat_bool, rh_bat_bool)
+                draw_batting_plots(players_stats, 'dot_balls_bowled', plot_summary)
+        
         
